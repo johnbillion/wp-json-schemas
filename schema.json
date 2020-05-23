@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schema.json",
   "title": "WP",
   "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
   "type": "object",
