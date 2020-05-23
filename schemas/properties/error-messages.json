@@ -5,9 +5,9 @@
   "description": "The messages for the errors contained within the error object.\n\nEach error is represented by a property keyed by the error code, and containing an array of message strings for that\ncode. Any given error code usually contains only one message, but can contain more.",
   "type": "object",
   "additionalProperties": {
+    "type": "array",
     "items": {
       "type": "string"
-    },
-    "type": "array"
+    }
   }
 }

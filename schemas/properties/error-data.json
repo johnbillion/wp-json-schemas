@@ -4,5 +4,7 @@
   "title": "WP_Error_Data",
   "description": "The data for the errors contained within the error object.\n\nEach error is represented by a property keyed by the error code, and containing error data for that code. Any given\nerror code can contain only one piece of error data, but the data can be of any type.",
   "type": "object",
-  "additionalProperties": {}
+  "additionalProperties": {
+    "tsType": "any"
+  }
 }
