@@ -8,6 +8,7 @@ The schemas in this library are used directly to generate [the TypeScript defini
 
 ### Core Objects
 
+* `WP_Comment`
 * `WP_Error`
 * `WP_Post`
 * `WP_User`
