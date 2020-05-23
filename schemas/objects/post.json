@@ -62,7 +62,7 @@
       "description": "The post's status.",
       "anyOf": [
         {
-          "$ref": "schemas/wp/post-status-name.json"
+          "$ref": "schemas/properties/post-status-name.json"
         },
         {
           "type": "string"
@@ -181,7 +181,7 @@
       "description": "The post's type, like post or page.",
       "anyOf": [
         {
-          "$ref": "schemas/wp/post-type-name.json"
+          "$ref": "schemas/properties/post-type-name.json"
         },
         {
           "type": "string"
