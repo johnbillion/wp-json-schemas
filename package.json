@@ -16,5 +16,11 @@
     "wordpress"
   ],
   "author": "John Blackbourn",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "ajv-cli": "^3.1.0"
+  },
+  "scripts": {
+    "validate": "ajv compile -s schema.json -r \"schemas/**/*.json\""
+  }
 }
