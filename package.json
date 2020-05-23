@@ -1,0 +1,20 @@
+{
+  "name": "wp-json-schemas",
+  "version": "0.1.0",
+  "description": "JSON schemas for WordPress core PHP objects",
+  "main": "index.js",
+  "files": [
+    "schemas"
+  ],
+  "homepage": "https://github.com/johnbillion/wp-json-schemas",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnbillion/wp-json-schemas.git"
+  },
+  "keywords": [
+    "schemas",
+    "wordpress"
+  ],
+  "author": "John Blackbourn",
+  "license": "MIT"
+}
