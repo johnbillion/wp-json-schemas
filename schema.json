@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WP",
+  "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
+  "type": "object",
+  "properties" : {
+    "Post" : {
+      "$ref": "schemas/post.json"
+    }
+  },
+  "additionalProperties": false
+}
