@@ -1,6 +1,6 @@
 {
   "name": "wp-json-schemas",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "JSON schemas for WordPress core PHP objects",
   "main": "index.js",
   "files": [
