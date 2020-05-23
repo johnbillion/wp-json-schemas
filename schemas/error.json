@@ -6,7 +6,6 @@
   "type": "object",
   "required": [
     "error_data",
-    "invalidtest",
     "errors"
   ],
   "properties": {
