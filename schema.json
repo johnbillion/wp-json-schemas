@@ -7,6 +7,9 @@
   "properties" : {
     "Post" : {
       "$ref": "schemas/post.json"
+    },
+    "User" : {
+      "$ref": "schemas/user.json"
     }
   },
   "additionalProperties": false

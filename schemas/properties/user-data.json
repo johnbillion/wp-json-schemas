@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/properties/user-data.json",
+  "title": "WP_User_Data",
+  "type": "object",
+  "description": "User data container.",
+  "properties": {
+    "ID": {
+      "description": "The user's ID.\n\nA numeric string, for compatibility reasons.",
+      "type": "string"
+    },
+    "deleted": {
+      "description": "The user's deletion status. Only used on Multisite.",
+      "enum": [
+        "0",
+        "1"
+      ],
+      "type": "string"
+    },
+    "display_name": {
+      "description": "The user's full display name.",
+      "type": "string"
+    },
+    "spam": {
+      "description": "The user's spam status. Only used on Multisite.",
+      "enum": [
+        "0",
+        "1"
+      ],
+      "type": "string"
+    },
+    "user_activation_key": {
+      "description": "The user's activation key. Be careful not to expose this in your application.",
+      "type": "string"
+    },
+    "user_email": {
+      "description": "The user's email address.",
+      "type": "string"
+    },
+    "user_login": {
+      "description": "The user's login name.",
+      "type": "string"
+    },
+    "user_nicename": {
+      "description": "The user's name as used in their author archive URL slug.",
+      "type": "string"
+    },
+    "user_pass": {
+      "description": "The one-way hash of the user's password.",
+      "type": "string"
+    },
+    "user_registered": {
+      "description": "The user's registration date.",
+      "type": "string"
+    },
+    "user_status": {
+      "description": "The user's status. This field does not appear to be used by WordPress core.",
+      "enum": [
+        "0"
+      ],
+      "type": "string"
+    },
+    "user_url": {
+      "description": "The user's URL.",
+      "type": "string"
+    }
+  }
+}
