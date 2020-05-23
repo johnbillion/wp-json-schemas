@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WP_Post_Type_Name",
+  "type": "string",
+  "tsEnumNames": [
+    "post",
+    "page",
+    "attachment",
+    "revision",
+    "nav_menu_item",
+    "custom_css",
+    "customize_changeset",
+    "oembed_cache",
+    "user_request",
+    "wp_block"
+  ],
+  "enum": [
+    "post",
+    "page",
+    "attachment",
+    "revision",
+    "nav_menu_item",
+    "custom_css",
+    "customize_changeset",
+    "oembed_cache",
+    "user_request",
+    "wp_block"
+  ]
+}

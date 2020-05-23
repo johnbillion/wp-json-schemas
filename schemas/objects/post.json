@@ -1,0 +1,231 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WP_Post",
+  "description": "Core class used to implement the WP_Post object.",
+  "type": "object",
+  "required": [
+    "ID",
+    "post_author",
+    "post_date",
+    "post_date_gmt",
+    "post_content",
+    "post_title",
+    "post_excerpt",
+    "post_status",
+    "comment_status",
+    "ping_status",
+    "post_password",
+    "post_name",
+    "to_ping",
+    "pinged",
+    "post_modified",
+    "post_modified_gmt",
+    "post_content_filtered",
+    "post_parent",
+    "guid",
+    "menu_order",
+    "post_type",
+    "post_mime_type",
+    "comment_count",
+    "filter"
+  ],
+  "properties": {
+    "ID": {
+      "description": "Post ID.",
+      "type": "number"
+    },
+    "post_author": {
+      "description": "ID of post author.\n\nA numeric string, for compatibility reasons.",
+      "type": "string"
+    },
+    "post_date": {
+      "description": "The post's local publication time.",
+      "type": "string"
+    },
+    "post_date_gmt": {
+      "description": "The post's GMT publication time.",
+      "type": "string"
+    },
+    "post_content": {
+      "description": "The post's content.",
+      "type": "string"
+    },
+    "post_title": {
+      "description": "The post's title.",
+      "type": "string"
+    },
+    "post_excerpt": {
+      "description": "The post's excerpt.",
+      "type": "string"
+    },
+    "post_status": {
+      "description": "The post's status.",
+      "anyOf": [
+        {
+          "$ref": "schemas/wp/post-status-name.json"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "comment_status": {
+      "description": "Whether comments are allowed.",
+      "type": "string"
+    },
+    "ping_status": {
+      "description": "Whether pings are allowed.",
+      "type": "string"
+    },
+    "post_password": {
+      "description": "The post's password in plain text.",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            ""
+          ]
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "post_name": {
+      "description": "The post's slug.",
+      "type": "string"
+    },
+    "to_ping": {
+      "description": "URLs queued to be pinged.",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            ""
+          ]
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "pinged": {
+      "description": "URLs that have been pinged.",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            ""
+          ]
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "post_modified": {
+      "description": "The post's local modified time.",
+      "type": "string"
+    },
+    "post_modified_gmt": {
+      "description": "The post's GMT modified time.",
+      "type": "string"
+    },
+    "post_content_filtered": {
+      "description": "A utility DB field for post content.",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            ""
+          ]
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "post_parent": {
+      "description": "ID of a post's parent post.",
+      "anyOf": [
+        {
+          "type": "number",
+          "enum": [
+            0
+          ]
+        },
+        {
+          "type": "number"
+        }
+      ]
+    },
+    "guid": {
+      "description": "The unique identifier for a post, not necessarily a URL, used as the feed GUID.",
+      "type": "string"
+    },
+    "menu_order": {
+      "description": "A field used for ordering posts.",
+      "anyOf": [
+        {
+          "type": "number",
+          "enum": [
+            0
+          ]
+        },
+        {
+          "type": "number"
+        }
+      ]
+    },
+    "post_type": {
+      "description": "The post's type, like post or page.",
+      "anyOf": [
+        {
+          "$ref": "schemas/wp/post-type-name.json"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "post_mime_type": {
+      "description": "An attachment's mime type.",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            ""
+          ]
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "comment_count": {
+      "description": "Cached comment count.\n\nA numeric string, for compatibility reasons.",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "0"
+          ]
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "filter": {
+      "description": "Stores the post object's sanitization level.\n\nDoes not correspond to a DB field.",
+      "enum": [
+        "raw",
+        "edit",
+        "db",
+        "display"
+      ],
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
