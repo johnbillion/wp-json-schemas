@@ -9,13 +9,15 @@ The schemas in this library are used directly to generate [the TypeScript defini
 ### Core Objects
 
 * `WP_Comment`
-* `WP_Error`
+* `WP_Error`, plus:
+  - `WP_Error_With_Error`
+  - `WP_Error_Without_Error`
 * `WP_Post`
 * `WP_User`
 
 ### Property Values
 
-String enums are included for known possible values of some properties:
+String enums and schemas are included for known possible values and structures of some properties:
 
 * `WP_Error_Data`
 * `WP_Error_Messages`
