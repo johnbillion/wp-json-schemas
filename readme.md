@@ -17,6 +17,8 @@ The schemas in this library are used directly to generate [the TypeScript defini
 
 String enums are included for known possible values of some properties:
 
+* `WP_Error_Data`
+* `WP_Error_Messages`
 * `WP_Post_Status_Name`
 * `WP_Post_Type_Name`
 * `WP_User_Caps`
@@ -66,3 +68,7 @@ If it's not a public property of the object's class then it won't be included wh
 ### Are these schemas automatically generated from WordPress core?
 
 No. I started down that path (using [wp-parser-lib](https://github.com/johnbillion/wp-parser-lib)) but realised it's quicker to generate them manually and then copy most of the documentation from core, especially as I'm adding extra documentation and schemas for properties when I can.
+
+### Why aren't the descriptions very good?
+
+The descriptions for objects and properties are mostly copied from WordPress core, many of which are poor quality. I'll update the descriptions in this schema as they're improved in core.
