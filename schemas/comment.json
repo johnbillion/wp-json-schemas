@@ -36,11 +36,13 @@
     },
     "comment_author_email": {
       "description": "Comment author email address.",
-      "type": "string"
+      "type": "string",
+      "format": "email"
     },
     "comment_author_url": {
       "description": "Comment author URL.",
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "comment_author_IP": {
       "description": "Comment author IP address (IPv4 format).",

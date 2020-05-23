@@ -35,7 +35,8 @@
     },
     "user_email": {
       "description": "The user's email address.",
-      "type": "string"
+      "type": "string",
+      "format": "email"
     },
     "user_login": {
       "description": "The user's login name.",
@@ -62,7 +63,8 @@
     },
     "user_url": {
       "description": "The user's URL.",
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     }
   }
 }
