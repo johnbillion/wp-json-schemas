@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/error-without-error.json",
+  "title": "WP_Error_Without_Error",
+  "description": "Empty WordPress Error class.\n\nRepresents a WP_Error object that contains no errors.",
+  "type": "object",
+  "required": [
+    "error_data",
+    "errors"
+  ],
+  "properties": {
+    "errors": {
+      "description": "Stores the list of errors.",
+      "anyOf": [
+        {
+          "type": "array",
+          "tsType": "[]",
+          "items": {},
+          "additionalItems": false
+        }
+      ]
+    },
+    "error_data": {
+      "description": "Stores the list of data for error codes.",
+      "anyOf": [
+        {
+          "type": "array",
+          "tsType": "[]",
+          "items": {},
+          "additionalItems": false
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -8,6 +8,12 @@
     "Error" : {
       "$ref": "schemas/error.json"
     },
+    "Error_With_Error" : {
+      "$ref": "schemas/error-with-error.json"
+    },
+    "Error_Without_Error" : {
+      "$ref": "schemas/error-without-error.json"
+    },
     "Post" : {
       "$ref": "schemas/post.json"
     },
