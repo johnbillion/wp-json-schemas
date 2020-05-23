@@ -18,7 +18,9 @@ String enums are included for known possible values of some properties:
 
 * `WP_Post_Status_Name`
 * `WP_Post_Type_Name`
-* `WP_User_Role`
+* `WP_User_Caps`
+* `WP_User_Data`
+* `WP_User_Role_Name`
 
 ## Installation
 

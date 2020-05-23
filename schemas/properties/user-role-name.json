@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/properties/user-role-name.json",
+  "title": "WP_User_Role_Name",
+  "type": "string",
+  "tsEnumNames": [
+    "administrator",
+    "editor",
+    "author",
+    "contributor",
+    "subscriber"
+  ],
+  "enum": [
+    "administrator",
+    "editor",
+    "author",
+    "contributor",
+    "subscriber"
+  ]
+}

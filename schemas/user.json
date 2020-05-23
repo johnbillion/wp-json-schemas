@@ -60,10 +60,17 @@
     },
     "roles": {
       "description": "The roles the user is part of.",
+      "type": "array",
       "items": {
-        "type": "string"
-      },
-      "type": "array"
+        "anyOf": [
+          {
+            "$ref": "properties/user-role-name.json"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
     }
   },
   "additionalProperties": false
