@@ -14,7 +14,10 @@
       "description": "Stores the list of errors.",
       "anyOf": [
         {
-          "type": "array"
+          "type": "array",
+          "tsType": "[]",
+          "items": {},
+          "additionalItems": false
         },
         {
           "$ref": "properties/error-messages.json"
@@ -25,7 +28,10 @@
       "description": "Stores the list of data for error codes.",
       "anyOf": [
         {
-          "type": "array"
+          "type": "array",
+          "tsType": "[]",
+          "items": {},
+          "additionalItems": false
         },
         {
           "$ref": "properties/error-data.json"
