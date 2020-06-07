@@ -148,17 +148,7 @@
     },
     "post_parent": {
       "description": "ID of a post's parent post.",
-      "anyOf": [
-        {
-          "type": "number",
-          "enum": [
-            0
-          ]
-        },
-        {
-          "type": "number"
-        }
-      ]
+      "type": "number"
     },
     "guid": {
       "description": "The unique identifier for a post, not necessarily a URL, used as the feed GUID.",
@@ -166,17 +156,7 @@
     },
     "menu_order": {
       "description": "A field used for ordering posts.",
-      "anyOf": [
-        {
-          "type": "number",
-          "enum": [
-            0
-          ]
-        },
-        {
-          "type": "number"
-        }
-      ]
+      "type": "number"
     },
     "post_type": {
       "description": "The post's type, like post or page.",
@@ -191,31 +171,11 @@
     },
     "post_mime_type": {
       "description": "An attachment's mime type.",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": [
-            ""
-          ]
-        },
-        {
-          "type": "string"
-        }
-      ]
+      "type": "string"
     },
     "comment_count": {
       "description": "Cached comment count.\n\nA numeric string, for compatibility reasons.",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": [
-            "0"
-          ]
-        },
-        {
-          "type": "string"
-        }
-      ]
+      "type": "string"
     },
     "filter": {
       "description": "Stores the post object's sanitization level.\n\nDoes not correspond to a DB field.",
