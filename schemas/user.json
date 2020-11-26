@@ -48,13 +48,10 @@
     },
     "filter": {
       "description": "The filter context applied to user data fields.",
-      "enum": [
-        "attribute",
-        "db",
-        "display",
-        "edit",
-        "js",
-        "raw"
+      "anyOf": [
+        {
+          "$ref": "properties/user-filter-context.json"
+        }
       ],
       "type": "string"
     },
