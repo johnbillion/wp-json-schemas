@@ -1,0 +1,254 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/rest-api/post.json",
+  "title": "WP_REST_API_Post",
+  "description": "A post object in a REST API context.",
+  "type": "object",
+  "required": [
+    "date",
+    "date_gmt",
+    "guid",
+    "id",
+    "link",
+    "modified",
+    "modified_gmt",
+    "slug",
+    "status",
+    "type",
+    "title",
+    "content",
+    "author",
+    "excerpt",
+    "comment_status",
+    "ping_status",
+    "meta",
+    "sticky",
+    "template",
+    "categories",
+    "tags"
+  ],
+  "properties": {
+    "date": {
+      "description": "The date the object was published, in the site's timezone.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "date_gmt": {
+      "description": "The date the object was published, as GMT.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "guid": {
+      "description": "The globally unique identifier for the object.",
+      "type": "object",
+      "required": [
+        "rendered"
+      ],
+      "properties": {
+        "raw": {
+          "description": "GUID for the object, as it exists in the database. Only present when using the 'edit' context.",
+          "type": "string"
+        },
+        "rendered": {
+          "description": "GUID for the object, transformed for display.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "id": {
+      "description": "Unique identifier for the object.",
+      "type": "integer"
+    },
+    "link": {
+      "description": "URL to the object.",
+      "type": "string",
+      "format": "uri"
+    },
+    "modified": {
+      "description": "The date the object was last modified, in the site's timezone.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "modified_gmt": {
+      "description": "The date the object was last modified, as GMT.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "slug": {
+      "description": "An alphanumeric identifier for the object unique to its type.",
+      "type": "string"
+    },
+    "status": {
+      "description": "A named status for the object.",
+      "type": "string",
+      "anyOf": [
+        {
+          "$ref": "../properties/post-status-name.json"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "type": {
+      "description": "Type of Post for the object.",
+      "type": "string",
+      "anyOf": [
+        {
+          "$ref": "../properties/post-type-name.json"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "password": {
+      "description": "A password to protect access to the content and excerpt. Only present when using the 'edit' context.",
+      "type": "string"
+    },
+    "permalink_template": {
+      "description": "Permalink template for the object. Only present when using the 'edit' context.",
+      "type": "string"
+    },
+    "generated_slug": {
+      "description": "Slug automatically generated from the object title. Only present when using the 'edit' context.",
+      "type": "string"
+    },
+    "title": {
+      "description": "The title for the object.",
+      "type": "object",
+      "required": [
+        "rendered"
+      ],
+      "properties": {
+        "raw": {
+          "description": "Title for the object, as it exists in the database. Only present when using the 'edit' context.",
+          "type": "string"
+        },
+        "rendered": {
+          "description": "HTML title for the object, transformed for display.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "content": {
+      "description": "The content for the object.",
+      "type": "object",
+      "required": [
+        "rendered",
+        "protected"
+      ],
+      "properties": {
+        "raw": {
+          "description": "Content for the object, as it exists in the database. Only present when using the 'edit' context.",
+          "type": "string"
+        },
+        "rendered": {
+          "description": "HTML content for the object, transformed for display.",
+          "type": "string"
+        },
+        "block_version": {
+          "description": "Version of the content block format used by the object. Only present when using the 'edit' context.",
+          "type": "integer"
+        },
+        "protected": {
+          "description": "Whether the content is protected with a password.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "author": {
+      "description": "The ID for the author of the object.",
+      "type": "integer"
+    },
+    "excerpt": {
+      "description": "The excerpt for the object.",
+      "type": "object",
+      "required": [
+        "rendered",
+        "protected"
+      ],
+      "properties": {
+        "raw": {
+          "description": "Excerpt for the object, as it exists in the database. Only present when using the 'edit' context.",
+          "type": "string"
+        },
+        "rendered": {
+          "description": "HTML excerpt for the object, transformed for display.",
+          "type": "string"
+        },
+        "protected": {
+          "description": "Whether the excerpt is protected with a password.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "featured_media": {
+      "description": "The ID of the featured media for the object.",
+      "type": "integer"
+    },
+    "comment_status": {
+      "description": "Whether or not comments are open on the object.",
+      "type": "string",
+      "anyOf": [
+        {
+          "$ref": "../properties/post-comment-status-name.json"
+        }
+      ]
+    },
+    "ping_status": {
+      "description": "Whether or not the object can be pinged.",
+      "type": "string",
+      "anyOf": [
+        {
+          "$ref": "../properties/post-comment-status-name.json"
+        }
+      ]
+    },
+    "format": {
+      "description": "The format for the object.",
+      "type": "string",
+      "anyOf": [
+        {
+          "$ref": "../properties/post-format-name.json"
+        }
+      ]
+    },
+    "meta": {
+      "description": "Meta fields.",
+      "type": "object"
+    },
+    "sticky": {
+      "description": "Whether or not the object should be treated as sticky.",
+      "type": "boolean"
+    },
+    "template": {
+      "description": "The theme file to use to display the object.",
+      "type": "string"
+    },
+    "categories": {
+      "description": "The terms assigned to the object in the category taxonomy.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "tags": {
+      "description": "The terms assigned to the object in the post_tag taxonomy.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  }
+}
