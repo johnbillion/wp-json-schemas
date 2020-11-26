@@ -1,6 +1,10 @@
 # WordPress JSON Schemas
 
-This package provides well-documented JSON schemas that describe the shape of WordPress core PHP objects such as `WP_Error`, `WP_Post`, and `WP_User`, and the allowed values for several of their properties, when they're represented as JSON.
+This package provides well-documented JSON schemas that describe the shape of:
+
+* WordPress core PHP objects such as `WP_Error`, `WP_Post`, and `WP_User`
+* WordPress REST API responses such as those from `/wp/v2/posts` and `/wp/v2/users`
+* The allowed values for several of the properties of the above
 
 The schemas in this library are used directly to generate [the TypeScript definitions provided by the `wp-types` package](https://www.npmjs.com/package/wp-types).
 
@@ -15,16 +19,24 @@ The schemas in this library are used directly to generate [the TypeScript defini
 * `WP_Post`
 * `WP_User`
 
+### REST API responses
+
+* `WP_REST_API_Post`
+* `WP_REST_API_User`
+
 ### Property Values
 
 String enums and schemas are included for known possible values and structures of some properties:
 
 * `WP_Error_Data`
 * `WP_Error_Messages`
+* `WP_Post_Comment_Status_Name`
+* `WP_Post_Format_Name`
 * `WP_Post_Status_Name`
 * `WP_Post_Type_Name`
 * `WP_User_Caps`
 * `WP_User_Data`
+* `WP_User_Filter_Context`
 * `WP_User_Role_Name`
 
 ## Installation
@@ -41,7 +53,7 @@ Usage really depends what you're doing with the schemas. You could use them for 
 
 ### When do these schemas apply?
 
-They apply whenever a supported PHP object is represented as JSON. How you do that depends on your application, but here are some examples:
+The core object schemas apply whenever a supported PHP object is represented as JSON. How you do that depends on your application, but here are some examples:
 
 ```php
 // get_post() returns a WP_Post or null:
@@ -57,11 +69,15 @@ printf(
 );
 ```
 
+The REST API object schemas apply to the object (or array of objects) you get in response to a REST API request.
+
 The schemas also apply outside of an HTTP request of course, for example if you're saving data as a JSON file and reading it in a Node application.
 
-### Do these schemas apply to REST API responses?
+### Why are there different schemas for PHP objects and REST API responses?
 
-No. WordPress core objects in REST API responses are of a different shape, and schemas for these are available via an OPTIONS request to a REST API endpoint. [Here's an article by Timothy B. Jacobs with all the info](https://timothybjacobs.com/2017/05/17/json-schema-and-the-wp-rest-api/).
+Objects in REST API responses are of a different shape to their PHP counterparts. A post object in a REST API response is not the same as a `WP_Post` object in PHP, in fact it's substantially different.
+
+Schemas for REST API responses are available via an OPTIONS request to a REST API endpoint, but the schema does not adhere strictly to the JSON Schema standard. [Here's an article by Timothy B. Jacobs with more info](https://timothybjacobs.com/2017/05/17/json-schema-and-the-wp-rest-api/).
 
 ### Why doesn't object X include property Y?
 
