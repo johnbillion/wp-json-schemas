@@ -136,7 +136,10 @@
     },
     "has_archive": {
       "description": "Whether there should be post type archives, or if a string, the archive slug to use.",
-      "type": "boolean"
+      "type": [
+        "boolean",
+        "string"
+      ]
     },
     "query_var": {
       "description": "Sets the query_var key for this post type.",
