@@ -21,11 +21,7 @@
     "excerpt",
     "comment_status",
     "ping_status",
-    "meta",
-    "sticky",
-    "template",
-    "categories",
-    "tags"
+    "meta"
   ],
   "properties": {
     "date": {
@@ -114,11 +110,11 @@
       "type": "string"
     },
     "permalink_template": {
-      "description": "Permalink template for the object. Only present when using the 'edit' context.",
+      "description": "Permalink template for the object. Only present when using the 'edit' context and the post type is public.",
       "type": "string"
     },
     "generated_slug": {
-      "description": "Slug automatically generated from the object title. Only present when using the 'edit' context.",
+      "description": "Slug automatically generated from the object title. Only present when using the 'edit' context and the post type is public.",
       "type": "string"
     },
     "title": {
@@ -229,7 +225,7 @@
       "type": "object"
     },
     "sticky": {
-      "description": "Whether or not the object should be treated as sticky.",
+      "description": "Whether or not the object should be treated as sticky. Only present for the 'post' post type.",
       "type": "boolean"
     },
     "template": {
@@ -237,14 +233,14 @@
       "type": "string"
     },
     "categories": {
-      "description": "The terms assigned to the object in the category taxonomy.",
+      "description": "The terms assigned to the object in the category taxonomy. Only present for post types that support categories.",
       "type": "array",
       "items": {
         "type": "integer"
       }
     },
     "tags": {
-      "description": "The terms assigned to the object in the post_tag taxonomy.",
+      "description": "The terms assigned to the object in the post_tag taxonomy. Only present for post types that support tags.",
       "type": "array",
       "items": {
         "type": "integer"
