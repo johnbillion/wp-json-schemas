@@ -177,7 +177,11 @@
     },
     "cap": {
       "description": "Post type capabilities.",
-      "type": "object"
+      "allOf": [
+        {
+          "$ref": "properties/post-type-caps.json"
+        }
+      ]
     },
     "rewrite": {
       "description": "Triggers the handling of rewrites for this post type.",

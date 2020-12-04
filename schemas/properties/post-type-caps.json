@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/properties/post-type-caps.json",
+  "title": "WP_Post_Type_Caps",
+  "type": "object",
+  "description": "Post type capabilities.",
+  "required": [
+    "edit_post",
+    "read_post",
+    "delete_post",
+    "edit_posts",
+    "edit_others_posts",
+    "delete_posts",
+    "publish_posts",
+    "read_private_posts",
+    "read",
+    "delete_private_posts",
+    "delete_published_posts",
+    "delete_others_posts",
+    "edit_private_posts",
+    "edit_published_posts",
+    "create_posts"
+  ],
+  "properties": {
+    "edit_post": {
+      "type": "string"
+    },
+    "read_post": {
+      "type": "string"
+    },
+    "delete_post": {
+      "type": "string"
+    },
+    "edit_posts": {
+      "type": "string"
+    },
+    "edit_others_posts": {
+      "type": "string"
+    },
+    "delete_posts": {
+      "type": "string"
+    },
+    "publish_posts": {
+      "type": "string"
+    },
+    "read_private_posts": {
+      "type": "string"
+    },
+    "read": {
+      "type": "string"
+    },
+    "delete_private_posts": {
+      "type": "string"
+    },
+    "delete_published_posts": {
+      "type": "string"
+    },
+    "delete_others_posts": {
+      "type": "string"
+    },
+    "edit_private_posts": {
+      "type": "string"
+    },
+    "edit_published_posts": {
+      "type": "string"
+    },
+    "create_posts": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
