@@ -41,7 +41,14 @@
   "properties": {
     "name": {
       "description": "Post type key.",
-      "type": "string"
+      "anyOf": [
+        {
+          "$ref": "properties/post-type-name.json"
+        },
+        {
+          "type": "string"
+        }
+      ]
     },
     "label": {
       "description": "Name of the post type shown in the menu. Usually plural.",
@@ -115,6 +122,16 @@
     },
     "taxonomies": {
       "description": "An array of taxonomy identifiers that will be registered for the post type.",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "properties/taxonomy-name.json"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
       "type": "array"
     },
     "has_archive": {
