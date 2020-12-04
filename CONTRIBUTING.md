@@ -35,3 +35,11 @@ The schema for a PHP object is created using the docblocks from its class proper
 * Wave your hands over your keyboard.
 * Add the schema to the root `schema.json` using a `$ref` to the schema file.
 * Run `npm run validate`.
+
+## Releasing a new version
+
+* `npm version <major|minor|patch>`
+* `git push`
+* `git push --tags`
+
+When a tag is pushed, the package will be deployed to npm automatically via a GitHub Action.
