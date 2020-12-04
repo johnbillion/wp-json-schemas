@@ -20,6 +20,9 @@
     "Post" : {
       "$ref": "schemas/post.json"
     },
+    "Post_Type" : {
+      "$ref": "schemas/post-type.json"
+    },
     "Term" : {
       "$ref": "schemas/term.json"
     },

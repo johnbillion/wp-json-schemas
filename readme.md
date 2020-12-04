@@ -17,6 +17,7 @@ The schemas in this library are used directly to generate [the TypeScript defini
   - `WP_Error_With_Error`
   - `WP_Error_Without_Error`
 * `WP_Post`
+* `WP_Post_Type`
 * `WP_Term`
 * `WP_User`
 
