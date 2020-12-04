@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/rest-api/comment.json",
+  "title": "WP_REST_API_Comment",
+  "description": "A comment object in a REST API context.",
+  "type": "object",
+  "required": [
+    "id",
+    "author",
+    "author_name",
+    "author_url",
+    "content",
+    "date",
+    "date_gmt",
+    "link",
+    "parent",
+    "post",
+    "status",
+    "type",
+    "meta"
+  ],
+  "properties": {
+    "id": {
+      "description": "Unique identifier for the object.",
+      "type": "integer"
+    },
+    "author": {
+      "description": "The ID of the user object, if author was a user.",
+      "type": "integer"
+    },
+    "author_email": {
+      "description": "Email address for the object author. Only present when using the 'edit' context.",
+      "type": "string",
+      "format": "email"
+    },
+    "author_ip": {
+      "description": "IP address for the object author. Only present when using the 'edit' context.",
+      "type": "string",
+      "format": "ip"
+    },
+    "author_name": {
+      "description": "Display name for the object author.",
+      "type": "string"
+    },
+    "author_url": {
+      "description": "URL for the object author.",
+      "type": "string",
+      "format": "uri"
+    },
+    "author_user_agent": {
+      "description": "User agent for the object author. Only present when using the 'edit' context.",
+      "type": "string"
+    },
+    "content": {
+      "description": "The content for the object.",
+      "type": "object",
+      "properties": {
+        "raw": {
+          "description": "Content for the object, as it exists in the database. Only present when using the 'edit' context.",
+          "type": "string"
+        },
+        "rendered": {
+          "description": "HTML content for the object, transformed for display.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "date": {
+      "description": "The date the object was published, in the site's timezone.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "date_gmt": {
+      "description": "The date the object was published, as GMT.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "link": {
+      "description": "URL to the object.",
+      "type": "string",
+      "format": "uri"
+    },
+    "parent": {
+      "description": "The ID for the parent of the object.",
+      "type": "integer"
+    },
+    "post": {
+      "description": "The ID of the associated post object.",
+      "type": "integer"
+    },
+    "status": {
+      "description": "State of the object.",
+      "type": "string"
+    },
+    "type": {
+      "description": "Type of Comment for the object.",
+      "type": "string"
+    },
+    "author_avatar_urls": {
+      "description": "Avatar URLs for the object author.",
+      "type": "object",
+      "properties": {
+        "24": {
+          "description": "Avatar URL with image size of 24 pixels.",
+          "type": "string",
+          "format": "uri"
+        },
+        "48": {
+          "description": "Avatar URL with image size of 48 pixels.",
+          "type": "string",
+          "format": "uri"
+        },
+        "96": {
+          "description": "Avatar URL with image size of 96 pixels.",
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "additionalProperties": {
+        "description": "Avatar URL with image of another size.",
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "meta": {
+      "description": "Meta fields.",
+      "type": "object"
+    }
+  }
+}

@@ -26,6 +26,9 @@
     "REST_API": {
       "type": "object",
       "properties" : {
+        "Comment" : {
+          "$ref": "schemas/rest-api/comment.json"
+        },
         "Post" : {
           "$ref": "schemas/rest-api/post.json"
         },
