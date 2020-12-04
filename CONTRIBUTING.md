@@ -12,9 +12,11 @@ The WordPress REST API response doesn't fully adhere to the JSON schema spec, so
 * Use the `schema` property from the response as a basis for the schema.
 * Set the `$schema`, `$id`, `title`, and `description` properties using the same format as existing schemas.
 * Remove any properties that have a `context` of `[]` as these are write-only and not exposed. So far I've only seen this for the `password` property of a user.
+* Remove any `properties` properties that have a value of `[]`.
 * All properties that have a `context` of `view` should be added to the `required` property.
 * Remove the `context`, `required`, and `readonly` properties from each property as these are not valid JSON schema properties.
 * Add `additionalProperties` information to any `object` properties as appropriate.
+* Cross-reference the properties with those in the `get_item_schema()` method of the controller class. There may be properties that are conditionally added.
 * Add the schema to the root `schema.json` using a `$ref` to the schema file.
 * Run `npm run validate`.
 

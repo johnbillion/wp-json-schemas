@@ -45,7 +45,7 @@
       "type": "string"
     },
     "parent": {
-      "description": "The parent term ID.",
+      "description": "The parent term ID. Only present for hierarchical taxonomies.",
       "type": "integer"
     },
     "meta": {
