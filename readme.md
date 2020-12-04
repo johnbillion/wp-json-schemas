@@ -4,7 +4,7 @@ This package provides well-documented JSON schemas that describe the shape of:
 
 * WordPress core PHP objects such as `WP_Error`, `WP_Post`, and `WP_User`
 * WordPress REST API responses such as those from `/wp/v2/posts` and `/wp/v2/users`
-* The allowed values for several of the properties of the above
+* The allowed values for several of the properties of both
 
 The schemas in this library are used directly to generate [the TypeScript definitions provided by the `wp-types` package](https://www.npmjs.com/package/wp-types).
 
@@ -36,7 +36,7 @@ Schemas are used for the structure of some object properties:
 * `WP_User_Caps`
 * `WP_User_Data`
 
-### Value Enums
+### Enums
 
 String enum schemas are used for values of some object properties:
 
@@ -62,19 +62,12 @@ Usage really depends what you're doing with the schemas. You could use them for 
 
 ### When do these schemas apply?
 
-The core object schemas apply whenever a supported PHP object is represented as JSON. How you do that depends on your application, but here are some examples:
+The core object schemas apply whenever a supported PHP object is represented as JSON. How you do that depends on your application, but here is an example:
 
 ```php
-// get_post() returns a WP_Post or null:
 printf(
 	'let wpPost = %s;',
 	wp_json_encode( get_post() )
-);
-
-// get_userdata() returns a WP_User or false:
-printf(
-	'let wpUser = %s;',
-	wp_json_encode( get_userdata( 123 ) )
 );
 ```
 
