@@ -29,6 +29,9 @@
         "Post" : {
           "$ref": "schemas/rest-api/post.json"
         },
+        "Term" : {
+          "$ref": "schemas/rest-api/term.json"
+        },
         "User" : {
           "$ref": "schemas/rest-api/user.json"
         }
