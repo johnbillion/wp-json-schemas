@@ -50,7 +50,7 @@
       "description": "The filter context applied to user data fields.",
       "anyOf": [
         {
-          "$ref": "properties/user-filter-context.json"
+          "$ref": "properties/object-filter-context.json"
         }
       ],
       "type": "string"

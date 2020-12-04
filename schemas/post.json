@@ -178,12 +178,11 @@
       "type": "string"
     },
     "filter": {
-      "description": "Stores the post object's sanitization level.\n\nDoes not correspond to a DB field.",
-      "enum": [
-        "raw",
-        "edit",
-        "db",
-        "display"
+      "description": "Stores the post object's sanitization level.",
+      "anyOf": [
+        {
+          "$ref": "properties/object-filter-context.json"
+        }
       ],
       "type": "string"
     }
