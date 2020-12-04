@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/rest-api/term.json",
   "title": "WP_REST_API_Term",
   "description": "A taxonomy term object in a REST API context.",
