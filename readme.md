@@ -47,6 +47,7 @@ String enum schemas are used for values of some object properties:
 * `WP_Post_Format_Name`
 * `WP_Post_Status_Name`
 * `WP_Post_Type_Name`
+* `WP_Taxonomy_Name`
 * `WP_User_Role_Name`
 
 ## Installation

@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/properties/taxonomy-name.json",
+  "title": "WP_Taxonomy_Name",
+  "type": "string",
+  "tsEnumNames": [
+    "category",
+    "post_tag",
+    "nav_menu",
+    "post_format"
+  ],
+  "enum": [
+    "category",
+    "post_tag",
+    "nav_menu",
+    "post_format"
+  ]
+}

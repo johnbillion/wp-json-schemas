@@ -39,7 +39,14 @@
     },
     "taxonomy": {
       "description": "The term's taxonomy name.",
-      "type": "string"
+      "anyOf": [
+        {
+          "$ref": "properties/taxonomy-name.json"
+        },
+        {
+          "type": "string"
+        }
+      ]
     },
     "description": {
       "description": "The term's description.",
