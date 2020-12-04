@@ -119,7 +119,7 @@
     },
     "parent": {
       "description": "The ID for the parent of the object. Only present for hierarchical post types.",
-      "type": "integer"
+      "$ref": "#/properties/id"
     },
     "title": {
       "description": "The title for the object.",
@@ -168,7 +168,7 @@
     },
     "author": {
       "description": "The ID for the author of the object.",
-      "type": "integer"
+      "$ref": "user.json#/properties/id"
     },
     "excerpt": {
       "description": "The excerpt for the object.",
@@ -195,7 +195,7 @@
     },
     "featured_media": {
       "description": "The ID of the featured media for the object.",
-      "type": "integer"
+      "$ref": "#/properties/id"
     },
     "comment_status": {
       "description": "Whether or not comments are open on the object.",
@@ -240,14 +240,14 @@
       "description": "The terms assigned to the object in the category taxonomy. Only present for post types that support categories.",
       "type": "array",
       "items": {
-        "type": "integer"
+        "$ref": "term.json#/properties/id"
       }
     },
     "tags": {
       "description": "The terms assigned to the object in the post_tag taxonomy. Only present for post types that support tags.",
       "type": "array",
       "items": {
-        "type": "integer"
+        "$ref": "term.json#/properties/id"
       }
     }
   }

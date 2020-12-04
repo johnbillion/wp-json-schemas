@@ -26,7 +26,7 @@
     },
     "author": {
       "description": "The ID of the user object, if author was a user.",
-      "type": "integer"
+      "$ref": "user.json#/properties/id"
     },
     "author_email": {
       "description": "Email address for the object author. Only present when using the 'edit' context.",
@@ -82,11 +82,11 @@
     },
     "parent": {
       "description": "The ID for the parent of the object.",
-      "type": "integer"
+      "$ref": "#/properties/id"
     },
     "post": {
       "description": "The ID of the associated post object.",
-      "type": "integer"
+      "$ref": "post.json#/properties/id"
     },
     "status": {
       "description": "State of the object.",
