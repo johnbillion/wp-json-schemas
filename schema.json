@@ -37,6 +37,9 @@
         },
         "User" : {
           "$ref": "schemas/rest-api/user.json"
+        },
+        "Error" : {
+          "$ref": "schemas/rest-api/error.json"
         }
       },
       "additionalProperties": false

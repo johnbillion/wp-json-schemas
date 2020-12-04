@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/rest-api/error.json",
+  "title": "WP_REST_API_Error",
+  "description": "A REST API error response.",
+  "type": "object",
+  "required": [
+    "code",
+    "message",
+    "data"
+  ],
+  "properties": {
+    "code": {
+      "description": "The error message code.",
+      "type": "string"
+    },
+    "message": {
+      "description": "The error message text.",
+      "type": "string"
+    },
+    "data": {
+      "description": "Extra data about the error",
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "The HTTP status code",
+          "type": "number"
+        }
+      }
+    },
+    "additional_errors": {
+      "description": "Additional error objects, if there are any.",
+      "type": "array",
+      "items": {
+        "$ref": "error.json"
+      }
+    }
+  },
+  "additionalProperties": false
+}
