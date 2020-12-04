@@ -102,7 +102,15 @@
     },
     "type": {
       "description": "Type of Comment for the object.",
-      "type": "string"
+      "type": "string",
+      "anyOf": [
+        {
+          "$ref": "../properties/comment-type-name.json"
+        },
+        {
+          "type": "string"
+        }
+      ]
     },
     "author_avatar_urls": {
       "description": "Avatar URLs for the object author.",
