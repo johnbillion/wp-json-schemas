@@ -4,6 +4,9 @@
   "title": "WP_User_Caps",
   "type": "object",
   "description": "A dictionary of user capabilities.\n\nProperty names represent a capability name and boolean values represent whether the user has that capability.",
+  "propertyNames": {
+    "$ref": "user-cap-name.json"
+  },
   "additionalProperties": {
     "type": "boolean"
   }
