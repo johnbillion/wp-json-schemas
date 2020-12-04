@@ -44,6 +44,10 @@
       "description": "Type attribution for the term.",
       "type": "string"
     },
+    "parent": {
+      "description": "The parent term ID.",
+      "type": "integer"
+    },
     "meta": {
       "description": "Meta fields.",
       "type": "object"
