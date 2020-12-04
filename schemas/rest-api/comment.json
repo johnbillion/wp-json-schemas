@@ -35,8 +35,7 @@
     },
     "author_ip": {
       "description": "IP address for the object author. Only present when using the 'edit' context.",
-      "type": "string",
-      "format": "ip"
+      "type": "string"
     },
     "author_name": {
       "description": "Display name for the object author.",
