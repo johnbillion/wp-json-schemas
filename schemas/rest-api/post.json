@@ -117,6 +117,10 @@
       "description": "Slug automatically generated from the object title. Only present when using the 'edit' context and the post type is public.",
       "type": "string"
     },
+    "parent": {
+      "description": "The ID for the parent of the object. Only present for hierarchical post types.",
+      "type": "integer"
+    },
     "title": {
       "description": "The title for the object.",
       "type": "object",
