@@ -30,6 +30,7 @@ The schemas in this library are used directly to generate [the TypeScript defini
 
 String enums and schemas are included for known possible values and structures of some properties:
 
+* `WP_Comment_Status_Name`
 * `WP_Error_Data`
 * `WP_Error_Messages`
 * `WP_Post_Comment_Status_Name`

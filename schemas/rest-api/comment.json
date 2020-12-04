@@ -90,7 +90,15 @@
     },
     "status": {
       "description": "State of the object.",
-      "type": "string"
+      "type": "string",
+      "anyOf": [
+        {
+          "$ref": "../properties/comment-status-name.json"
+        },
+        {
+          "type": "string"
+        }
+      ]
     },
     "type": {
       "description": "Type of Comment for the object.",
