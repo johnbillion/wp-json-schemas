@@ -4,9 +4,6 @@
   "title": "WP",
   "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
   "type": "object",
-  "required": [
-    "REST_API"
-  ],
   "properties" : {
     "Comment" : {
       "$ref": "schemas/comment.json"
@@ -28,10 +25,6 @@
     },
     "REST_API": {
       "type": "object",
-      "required": [
-        "Post",
-        "User"
-      ],
       "properties" : {
         "Post" : {
           "$ref": "schemas/rest-api/post.json"
