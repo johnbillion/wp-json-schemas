@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/properties/user-cap-name.json",
+  "title": "WP_User_Cap_Name",
+  "type": "string",
+  "description": "The name of an individual primitive capability or meta capability."
+}

@@ -36,6 +36,7 @@ Schemas are used for the structure of some object properties:
 * `WP_Error_Data`
 * `WP_Error_Messages`
 * `WP_Post_Type_Caps`
+* `WP_User_Cap_Name`
 * `WP_User_Caps`
 * `WP_User_Data`
 

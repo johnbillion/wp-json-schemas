@@ -23,49 +23,49 @@
   ],
   "properties": {
     "edit_post": {
-      "type": "string"
+      "$ref": "user-cap-name.json"
     },
     "read_post": {
-      "type": "string"
+      "$ref": "user-cap-name.json"
     },
     "delete_post": {
-      "type": "string"
+      "$ref": "user-cap-name.json"
     },
     "edit_posts": {
-      "type": "string"
+      "$ref": "user-cap-name.json"
     },
     "edit_others_posts": {
-      "type": "string"
+      "$ref": "user-cap-name.json"
     },
     "delete_posts": {
-      "type": "string"
+      "$ref": "user-cap-name.json"
     },
     "publish_posts": {
-      "type": "string"
+      "$ref": "user-cap-name.json"
     },
     "read_private_posts": {
-      "type": "string"
+      "$ref": "user-cap-name.json"
     },
     "read": {
-      "type": "string"
+      "$ref": "user-cap-name.json"
     },
     "delete_private_posts": {
-      "type": "string"
+      "$ref": "user-cap-name.json"
     },
     "delete_published_posts": {
-      "type": "string"
+      "$ref": "user-cap-name.json"
     },
     "delete_others_posts": {
-      "type": "string"
+      "$ref": "user-cap-name.json"
     },
     "edit_private_posts": {
-      "type": "string"
+      "$ref": "user-cap-name.json"
     },
     "edit_published_posts": {
-      "type": "string"
+      "$ref": "user-cap-name.json"
     },
     "create_posts": {
-      "type": "string"
+      "$ref": "user-cap-name.json"
     }
   },
   "additionalProperties": false
