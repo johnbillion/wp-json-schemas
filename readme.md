@@ -27,21 +27,25 @@ The schemas in this library are used directly to generate [the TypeScript defini
 * `WP_REST_API_User`
 * `WP_REST_API_Error` (for any REST API error response)
 
-### Property Values
+### Properties
 
-String enums and schemas are included for known possible values and structures of some properties:
+Schemas are used for the structure of some object properties:
+
+* `WP_Error_Data`
+* `WP_Error_Messages`
+* `WP_User_Caps`
+* `WP_User_Data`
+
+### Value Enums
+
+String enum schemas are used for values of some object properties:
 
 * `WP_Comment_Status_Name`
 * `WP_Comment_Type_Name`
-* `WP_Error_Data`
-* `WP_Error_Messages`
 * `WP_Post_Comment_Status_Name`
 * `WP_Post_Format_Name`
 * `WP_Post_Status_Name`
 * `WP_Post_Type_Name`
-* `WP_User_Caps`
-* `WP_User_Data`
-* `WP_User_Filter_Context`
 * `WP_User_Role_Name`
 
 ## Installation
