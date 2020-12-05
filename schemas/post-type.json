@@ -56,7 +56,7 @@
     },
     "labels": {
       "description": "Labels object for this post type.",
-      "type": "object"
+      "$ref": "properties/post-type-labels.json"
     },
     "description": {
       "description": "A short descriptive summary of what the post type is.",

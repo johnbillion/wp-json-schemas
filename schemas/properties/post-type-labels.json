@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/properties/post-type-labels.json",
+  "title": "WP_Post_Type_Labels",
+  "type": "object",
+  "description": "Post type labels.",
+  "required": [
+    "name",
+    "singular_name",
+    "add_new",
+    "add_new_item",
+    "edit_item",
+    "new_item",
+    "view_item",
+    "view_items",
+    "search_items",
+    "not_found",
+    "not_found_in_trash",
+    "parent_item_colon",
+    "all_items",
+    "archives",
+    "attributes",
+    "insert_into_item",
+    "uploaded_to_this_item",
+    "featured_image",
+    "set_featured_image",
+    "remove_featured_image",
+    "use_featured_image",
+    "filter_items_list",
+    "items_list_navigation",
+    "items_list",
+    "item_published",
+    "item_published_privately",
+    "item_reverted_to_draft",
+    "item_scheduled",
+    "item_updated",
+    "menu_name",
+    "name_admin_bar"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "singular_name": {
+      "type": "string"
+    },
+    "add_new": {
+      "type": "string"
+    },
+    "add_new_item": {
+      "type": "string"
+    },
+    "edit_item": {
+      "type": "string"
+    },
+    "new_item": {
+      "type": "string"
+    },
+    "view_item": {
+      "type": "string"
+    },
+    "view_items": {
+      "type": "string"
+    },
+    "search_items": {
+      "type": "string"
+    },
+    "not_found": {
+      "type": "string"
+    },
+    "not_found_in_trash": {
+      "type": "string"
+    },
+    "parent_item_colon": {
+      "type": "string"
+    },
+    "all_items": {
+      "type": "string"
+    },
+    "archives": {
+      "type": "string"
+    },
+    "attributes": {
+      "type": "string"
+    },
+    "insert_into_item": {
+      "type": "string"
+    },
+    "uploaded_to_this_item": {
+      "type": "string"
+    },
+    "featured_image": {
+      "type": "string"
+    },
+    "set_featured_image": {
+      "type": "string"
+    },
+    "remove_featured_image": {
+      "type": "string"
+    },
+    "use_featured_image": {
+      "type": "string"
+    },
+    "filter_items_list": {
+      "type": "string"
+    },
+    "items_list_navigation": {
+      "type": "string"
+    },
+    "items_list": {
+      "type": "string"
+    },
+    "item_published": {
+      "type": "string"
+    },
+    "item_published_privately": {
+      "type": "string"
+    },
+    "item_reverted_to_draft": {
+      "type": "string"
+    },
+    "item_scheduled": {
+      "type": "string"
+    },
+    "item_updated": {
+      "type": "string"
+    },
+    "menu_name": {
+      "type": "string"
+    },
+    "name_admin_bar": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": {
+    "type": "string"
+  }
+}
