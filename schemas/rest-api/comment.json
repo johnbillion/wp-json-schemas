@@ -153,6 +153,26 @@
     },
     "_links": {
       "$ref": "properties/object-links.json"
+    },
+    "_embedded": {
+      "description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
+      "type": "object",
+      "required": [
+        "author"
+      ],
+      "properties": {
+        "author": {
+          "description": "The author of the comment.",
+          "type": "array"
+        },
+        "up": {
+          "description": "The associated post.",
+          "type": "array"
+        }
+      },
+      "additionalProperties": {
+        "type": "array"
+      }
     }
   }
 }
