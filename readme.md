@@ -16,8 +16,8 @@ The schemas in this library are used directly to generate [the TypeScript defini
 * `WP_Error`, plus:
   - `WP_Error_With_Error`
   - `WP_Error_Without_Error`
-* `WP_Post`
 * `WP_Post_Type`
+* `WP_Post`
 * `WP_Term`
 * `WP_User`
 
@@ -36,6 +36,8 @@ Schemas are used for the structure of some object properties:
 * `WP_Error_Data`
 * `WP_Error_Messages`
 * `WP_Post_Type_Caps`
+* `WP_Post_Type_Labels`
+* `WP_Post_Type_Rewrite`
 * `WP_User_Cap_Name`
 * `WP_User_Caps`
 * `WP_User_Data`
