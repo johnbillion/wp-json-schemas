@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/properties/post-type-rewrite.json",
+  "title": "WP_Post_Type_Rewrite",
+  "type": "object",
+  "description": "Post type rewrite rule definition.",
+  "properties": {
+    "slug": {
+      "description": "Customize the permastruct slug.",
+      "type": "string"
+    },
+    "with_front": {
+      "description": "Whether the permastruct should be prepended with WP_Rewrite::$front.",
+      "type": "boolean"
+    },
+    "feeds": {
+      "description": "Whether the feed permastruct should be built for this post type.",
+      "type": "boolean"
+    },
+    "pages": {
+      "description": "Whether the permastruct should provide for pagination.",
+      "type": "boolean"
+    },
+    "ep_mask": {
+      "description": "Endpoint mask to assign.",
+      "type": "integer"
+    }
+  }
+}

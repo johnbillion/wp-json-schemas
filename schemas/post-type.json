@@ -183,8 +183,16 @@
     "rewrite": {
       "description": "Triggers the handling of rewrites for this post type.",
       "type": [
-        "array",
+        "object",
         "boolean"
+      ],
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "$ref": "properties/post-type-rewrite.json"
+        }
       ]
     },
     "supports": {
