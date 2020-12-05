@@ -17,6 +17,4 @@ jobs:
 
       - run: npm install
 
-      - run: npm run validate
-
       - run: npm run test

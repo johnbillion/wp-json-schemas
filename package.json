@@ -21,7 +21,7 @@
     "ajv-cli": "^3.1.0"
   },
   "scripts": {
-    "test": "npm run test-rest-api-post",
+    "test": "npm run validate && npm run test-rest-api-post",
     "test-rest-api-post": "ajv validate -s schemas/rest-api/post.json -d \"tests/rest-api/post/*.json\" -r \"schemas/**/*.json\"",
     "validate": "ajv compile -s schema.json -r \"schemas/**/*.json\""
   }
