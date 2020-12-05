@@ -226,7 +226,17 @@
     },
     "meta": {
       "description": "Meta fields.",
-      "type": "object"
+      "anyOf": [
+        {
+          "type": "array",
+          "tsType": "[]",
+          "items": {},
+          "additionalItems": false
+        },
+        {
+          "type": "object"
+        }
+      ]
     },
     "sticky": {
       "description": "Whether or not the object should be treated as sticky. Only present for the 'post' post type.",

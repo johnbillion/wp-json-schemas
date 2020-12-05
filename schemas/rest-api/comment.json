@@ -140,7 +140,17 @@
     },
     "meta": {
       "description": "Meta fields.",
-      "type": "object"
+      "anyOf": [
+        {
+          "type": "array",
+          "tsType": "[]",
+          "items": {},
+          "additionalItems": false
+        },
+        {
+          "type": "object"
+        }
+      ]
     }
   }
 }
