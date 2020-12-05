@@ -11,7 +11,8 @@
     "description",
     "link",
     "slug",
-    "meta"
+    "meta",
+    "_links"
   ],
   "properties": {
     "id": {

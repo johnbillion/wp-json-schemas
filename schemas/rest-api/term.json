@@ -12,7 +12,8 @@
     "name",
     "slug",
     "taxonomy",
-    "meta"
+    "meta",
+    "_links"
   ],
   "properties": {
     "id": {

@@ -17,7 +17,8 @@
     "post",
     "status",
     "type",
-    "meta"
+    "meta",
+    "_links"
   ],
   "properties": {
     "id": {
