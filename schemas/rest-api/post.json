@@ -21,7 +21,8 @@
     "excerpt",
     "comment_status",
     "ping_status",
-    "meta"
+    "meta",
+    "_links"
   ],
   "properties": {
     "date": {
@@ -255,6 +256,9 @@
       "items": {
         "$ref": "term.json#/properties/id"
       }
+    },
+    "_links": {
+      "$ref": "properties/object-links.json"
     }
   }
 }

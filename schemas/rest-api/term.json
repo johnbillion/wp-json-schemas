@@ -68,6 +68,9 @@
           "type": "object"
         }
       ]
+    },
+    "_links": {
+      "$ref": "properties/object-links.json"
     }
   }
 }
