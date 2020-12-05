@@ -158,9 +158,10 @@
     },
     "template_lock": {
       "description": "Whether the block template should be locked if $template is set.",
-      "type": [
-        "string",
-        "boolean"
+      "enum": [
+        false,
+        "all",
+        "insert"
       ]
     },
     "_builtin": {
