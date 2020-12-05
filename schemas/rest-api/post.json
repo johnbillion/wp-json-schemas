@@ -263,6 +263,30 @@
     "_embedded": {
       "description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
       "type": "object",
+      "required": [
+        "author"
+      ],
+      "properties": {
+        "author": {
+          "description": "The author of the post.",
+          "type": "array"
+        },
+        "replies": {
+          "description": "The replies to the post (comments, pingbacks, trackbacks).",
+          "type": "array",
+          "items": {
+            "type": "array"
+          }
+        },
+        "wp:term": {
+          "description": "The taxonomy terms for the post.",
+          "type": "array"
+        },
+        "up": {
+          "description": "The parent post.",
+          "type": "array"
+        }
+      },
       "additionalProperties": {
         "type": "array"
       }
