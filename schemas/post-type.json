@@ -114,11 +114,7 @@
       "type": "boolean"
     },
     "register_meta_box_cb": {
-      "description": "Provide a callback function that sets up the meta boxes for the edit form.",
-      "type": [
-        "string",
-        "null"
-      ]
+      "description": "Provide a callback function that sets up the meta boxes for the edit form."
     },
     "taxonomies": {
       "description": "An array of taxonomy identifiers that will be registered for the post type.",
@@ -191,8 +187,7 @@
       ]
     },
     "supports": {
-      "description": "The features supported by the post type.",
-      "type": "string"
+      "description": "The features supported by the post type."
     },
     "show_in_rest": {
       "description": "Whether this post type should appear in the REST API.",
@@ -210,11 +205,7 @@
       "type": "string"
     },
     "rest_controller": {
-      "description": "The controller instance for this post type's REST API endpoints.",
-      "type": [
-        "string",
-        "null"
-      ]
+      "description": "The controller instance for this post type's REST API endpoints."
     }
   },
   "additionalProperties": false
