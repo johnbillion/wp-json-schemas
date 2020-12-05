@@ -29,16 +29,14 @@
       "type": [
         "string",
         "null"
-      ],
-      "format": "date-time"
+      ]
     },
     "date_gmt": {
       "description": "The date the object was published, as GMT.",
       "type": [
         "string",
         "null"
-      ],
-      "format": "date-time"
+      ]
     },
     "guid": {
       "description": "The globally unique identifier for the object.",
@@ -69,13 +67,11 @@
     },
     "modified": {
       "description": "The date the object was last modified, in the site's timezone.",
-      "type": "string",
-      "format": "date-time"
+      "type": "string"
     },
     "modified_gmt": {
       "description": "The date the object was last modified, as GMT.",
-      "type": "string",
-      "format": "date-time"
+      "type": "string"
     },
     "slug": {
       "description": "An alphanumeric identifier for the object unique to its type.",
