@@ -42,7 +42,14 @@
     },
     "taxonomy": {
       "description": "Type attribution for the term.",
-      "type": "string"
+      "anyOf": [
+        {
+          "$ref": "../properties/taxonomy-name.json"
+        },
+        {
+          "type": "string"
+        }
+      ]
     },
     "parent": {
       "description": "The parent term ID. Only present for hierarchical taxonomies.",
