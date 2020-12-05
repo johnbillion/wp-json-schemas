@@ -259,6 +259,13 @@
     },
     "_links": {
       "$ref": "properties/object-links.json"
+    },
+    "_embedded": {
+      "description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "array"
+      }
     }
   }
 }
