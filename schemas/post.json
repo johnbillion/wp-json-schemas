@@ -41,11 +41,19 @@
     },
     "post_date": {
       "description": "The post's local publication time.",
-      "type": "string"
+      "anyOf": [
+        {
+          "$ref": "properties/date-time.json"
+        }
+      ]
     },
     "post_date_gmt": {
       "description": "The post's GMT publication time.",
-      "type": "string"
+      "anyOf": [
+        {
+          "$ref": "properties/date-time.json"
+        }
+      ]
     },
     "post_content": {
       "description": "The post's content.",
@@ -126,11 +134,19 @@
     },
     "post_modified": {
       "description": "The post's local modified time.",
-      "type": "string"
+      "anyOf": [
+        {
+          "$ref": "properties/date-time.json"
+        }
+      ]
     },
     "post_modified_gmt": {
       "description": "The post's GMT modified time.",
-      "type": "string"
+      "anyOf": [
+        {
+          "$ref": "properties/date-time.json"
+        }
+      ]
     },
     "post_content_filtered": {
       "description": "A utility DB field for post content.",

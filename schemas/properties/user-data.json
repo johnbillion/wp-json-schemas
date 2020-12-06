@@ -52,7 +52,11 @@
     },
     "user_registered": {
       "description": "The user's registration date.",
-      "type": "string"
+      "anyOf": [
+        {
+          "$ref": "date-time.json"
+        }
+      ]
     },
     "user_status": {
       "description": "The user's status. This field does not appear to be used by WordPress core.",

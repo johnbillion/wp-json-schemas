@@ -68,7 +68,11 @@
     },
     "registered_date": {
       "description": "Registration date for the user. Only present when using the 'edit' context.",
-      "type": "string"
+      "anyOf": [
+        {
+          "$ref": "properties/date-time.json"
+        }
+      ]
     },
     "roles": {
       "description": "Roles assigned to the user. Only present when using the 'edit' context.",

@@ -68,11 +68,19 @@
     },
     "date": {
       "description": "The date the object was published, in the site's timezone.",
-      "type": "string"
+      "anyOf": [
+        {
+          "$ref": "properties/date-time.json"
+        }
+      ]
     },
     "date_gmt": {
       "description": "The date the object was published, as GMT.",
-      "type": "string"
+      "anyOf": [
+        {
+          "$ref": "properties/date-time.json"
+        }
+      ]
     },
     "link": {
       "description": "URL to the object.",
