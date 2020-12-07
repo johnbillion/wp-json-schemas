@@ -99,3 +99,7 @@ No. I started down that path (using [wp-parser-lib](https://github.com/johnbilli
 ### Why aren't the descriptions very good?
 
 The descriptions for objects and properties are mostly copied from WordPress core, many of which are poor quality. I'll update the descriptions in this schema as they're improved in core.
+
+## License
+
+MIT
