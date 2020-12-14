@@ -24,7 +24,12 @@
       "properties": {
         "status": {
           "description": "The HTTP status code",
-          "type": "number"
+          "type": "number",
+          "oneOf": [
+            {
+              "$ref": "properties/http-status-code.json"
+            }
+          ]
         }
       }
     },
