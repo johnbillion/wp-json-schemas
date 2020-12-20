@@ -111,6 +111,7 @@
     "type": {
       "description": "Type of Post for the object.",
       "type": "string",
+      "tsType": "WP_Post_Type_Name.attachment",
       "enum": [
         "attachment"
       ]
