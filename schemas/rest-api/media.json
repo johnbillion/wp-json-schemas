@@ -111,13 +111,8 @@
     "type": {
       "description": "Type of Post for the object.",
       "type": "string",
-      "anyOf": [
-        {
-          "$ref": "../properties/post-type-name.json"
-        },
-        {
-          "type": "string"
-        }
+      "enum": [
+        "attachment"
       ]
     },
     "alt_text": {
