@@ -283,13 +283,14 @@
         },
         "replies": {
           "description": "The replies to the post (comments, pingbacks, trackbacks).",
-          "type": "array",
-          "items": {
-            "type": "array"
-          }
+          "type": "array"
         },
         "wp:term": {
           "description": "The taxonomy terms for the post.",
+          "type": "array"
+        },
+        "wp:featuredmedia": {
+          "description": "The featured image post.",
           "type": "array"
         },
         "up": {
