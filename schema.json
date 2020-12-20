@@ -38,6 +38,9 @@
         "Post" : {
           "$ref": "schemas/rest-api/post.json"
         },
+        "Media" : {
+          "$ref": "schemas/rest-api/media.json"
+        },
         "Term" : {
           "$ref": "schemas/rest-api/term.json"
         },

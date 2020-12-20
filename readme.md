@@ -27,6 +27,7 @@ The schemas in this library are used directly to generate [the TypeScript defini
 * `WP_REST_API_Term`
 * `WP_REST_API_User`
 * `WP_REST_API_Comment`
+* `WP_REST_API_Media`
 * `WP_REST_API_Error` (for any REST API error response)
 
 ### Properties

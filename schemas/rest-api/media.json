@@ -1,0 +1,269 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/rest-api/media.json",
+  "title": "WP_REST_API_Media",
+  "description": "A media object in a REST API context.",
+  "type": "object",
+  "required": [
+    "date",
+    "date_gmt",
+    "guid",
+    "id",
+    "link",
+    "modified",
+    "modified_gmt",
+    "slug",
+    "status",
+    "type",
+    "title",
+    "description",
+    "author",
+    "caption",
+    "comment_status",
+    "ping_status",
+    "meta",
+    "_links"
+  ],
+  "properties": {
+    "date": {
+      "description": "The date the object was published, in the site's timezone.",
+      "anyOf": [
+        {
+          "$ref": "properties/date-time.json"
+        }
+      ]
+    },
+    "date_gmt": {
+      "description": "The date the object was published, as GMT.",
+      "anyOf": [
+        {
+          "$ref": "properties/date-time.json"
+        }
+      ]
+    },
+    "guid": {
+      "description": "The globally unique identifier for the object.",
+      "type": "object",
+      "required": [
+        "rendered"
+      ],
+      "properties": {
+        "raw": {
+          "description": "GUID for the object, as it exists in the database. Only present when using the 'edit' context.",
+          "type": "string"
+        },
+        "rendered": {
+          "description": "GUID for the object, transformed for display.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "id": {
+      "description": "Unique identifier for the object.",
+      "type": "integer"
+    },
+    "link": {
+      "description": "URL to the object.",
+      "type": "string",
+      "format": "uri"
+    },
+    "modified": {
+      "description": "The date the object was last modified, in the site's timezone.",
+      "anyOf": [
+        {
+          "$ref": "properties/date-time.json"
+        }
+      ]
+    },
+    "modified_gmt": {
+      "description": "The date the object was last modified, as GMT.",
+      "anyOf": [
+        {
+          "$ref": "properties/date-time.json"
+        }
+      ]
+    },
+    "slug": {
+      "description": "An alphanumeric identifier for the object unique to its type.",
+      "type": "string"
+    },
+    "status": {
+      "description": "A named status for the object.",
+      "type": "string",
+      "anyOf": [
+        {
+          "$ref": "../properties/post-status-name.json"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "type": {
+      "description": "Type of Post for the object.",
+      "type": "string",
+      "anyOf": [
+        {
+          "$ref": "../properties/post-type-name.json"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "alt_text": {
+      "description": "Alternative text to display when attachment is not displayed.",
+      "type": "string"
+    },
+    "caption": {
+      "description": "The attachment caption.",
+      "type": "object",
+      "required": [
+        "rendered"
+      ],
+      "properties": {
+        "raw": {
+          "description": "Caption for the attachment, as it exists in the database. Only present when using the 'edit' context.",
+          "type": "string"
+        },
+        "rendered": {
+          "description": "HTML caption for the attachment, transformed for display.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "description": {
+      "description": "The attachment description.",
+      "type": "object",
+      "required": [
+        "rendered"
+      ],
+      "properties": {
+        "raw": {
+          "description": "Description for the object, as it exists in the database. Only present when using the 'edit' context.",
+          "type": "string"
+        },
+        "rendered": {
+          "description": "HTML description for the object, transformed for display.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "media_type": {
+      "description": "The attachment MIME type.",
+      "type": "string"
+    },
+    "media_details": {
+      "description": "Details about the media file, specific to its type.",
+      "type": "object"
+    },
+    "post": {
+      "description": "The ID for the associated post of the attachment.",
+      "$ref": "post.json#/properties/id"
+    },
+    "source_url": {
+      "description": "URL to the original attachment file.",
+      "type": "string",
+      "format": "uri"
+    },
+    "missing_image_sizes": {
+      "description": "List of the missing image sizes of the attachment.  Only present when using the 'edit' context.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "permalink_template": {
+      "description": "Permalink template for the object. Only present when using the 'edit' context and the post type is public.",
+      "type": "string"
+    },
+    "generated_slug": {
+      "description": "Slug automatically generated from the object title. Only present when using the 'edit' context and the post type is public.",
+      "type": "string"
+    },
+    "title": {
+      "description": "The title for the object.",
+      "type": "object",
+      "required": [
+        "rendered"
+      ],
+      "properties": {
+        "raw": {
+          "description": "Title for the object, as it exists in the database. Only present when using the 'edit' context.",
+          "type": "string"
+        },
+        "rendered": {
+          "description": "HTML title for the object, transformed for display.",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "author": {
+      "description": "The ID for the author of the object.",
+      "$ref": "user.json#/properties/id"
+    },
+    "comment_status": {
+      "description": "Whether or not comments are open on the object.",
+      "type": "string",
+      "anyOf": [
+        {
+          "$ref": "../properties/post-comment-status-name.json"
+        }
+      ]
+    },
+    "ping_status": {
+      "description": "Whether or not the object can be pinged.",
+      "type": "string",
+      "anyOf": [
+        {
+          "$ref": "../properties/post-comment-status-name.json"
+        }
+      ]
+    },
+    "meta": {
+      "description": "Meta fields.",
+      "anyOf": [
+        {
+          "type": "array",
+          "tsType": "[]",
+          "items": {},
+          "additionalItems": false
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "template": {
+      "description": "The theme file to use to display the object.",
+      "type": "string"
+    },
+    "_links": {
+      "$ref": "properties/object-links.json"
+    },
+    "_embedded": {
+      "description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
+      "type": "object",
+      "required": [
+        "author"
+      ],
+      "properties": {
+        "author": {
+          "description": "The author of the post.",
+          "type": "array"
+        },
+        "wp:featuredmedia": {
+          "description": "The featured image post.",
+          "type": "array"
+        }
+      },
+      "additionalProperties": {
+        "type": "array"
+      }
+    }
+  }
+}
