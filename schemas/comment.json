@@ -74,6 +74,12 @@
     },
     "comment_approved": {
       "description": "Comment approval status.",
+      "enum": [
+        "0",
+        "1",
+        "spam",
+        "trash"
+      ],
       "type": "string"
     },
     "comment_agent": {
