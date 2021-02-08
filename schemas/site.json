@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/site.json",
+  "title": "WP_Site",
+  "description": "Core class used for interacting with a multisite site.",
+  "type": "object",
+  "required": [
+    "blog_id",
+    "domain",
+    "path",
+    "site_id",
+    "registered",
+    "last_updated",
+    "public",
+    "archived",
+    "mature",
+    "spam",
+    "deleted",
+    "lang_id"
+  ],
+  "properties": {
+    "blog_id": {
+      "description": "Site ID.\n\nA numeric string, for compatibility reasons.",
+      "type": "string"
+    },
+    "domain": {
+      "description": "Domain of the site.",
+      "type": "string"
+    },
+    "path": {
+      "description": "Path of the site.",
+      "type": "string"
+    },
+    "site_id": {
+      "description": "The ID of the site's parent network.\n\nNamed \"site\" vs. \"network\" for legacy reasons. An individual site's \"site\" is its network.\n\nA numeric string, for compatibility reasons.",
+      "type": "string"
+    },
+    "registered": {
+      "description": "The date on which the site was created or registered.",
+      "anyOf": [
+        {
+          "$ref": "properties/date-time.json"
+        }
+      ]
+    },
+    "last_updated": {
+      "description": "The date and time on which site settings were last updated.",
+      "anyOf": [
+        {
+          "$ref": "properties/date-time.json"
+        }
+      ]
+    },
+    "public": {
+      "description": "Whether the site should be treated as public.\n\nA numeric string, for compatibility reasons.",
+      "type": "string",
+      "enum": [
+        "0",
+        "1"
+      ]
+    },
+    "archived": {
+      "description": "Whether the site should be treated as archived.\n\nA numeric string, for compatibility reasons.",
+      "type": "string",
+      "enum": [
+        "0",
+        "1"
+      ]
+    },
+    "mature": {
+      "description": "Whether the site should be treated as mature.\n\nA numeric string, for compatibility reasons.",
+      "type": "string",
+      "enum": [
+        "0",
+        "1"
+      ]
+    },
+    "spam": {
+      "description": "Whether the site should be treated as spam.\n\nA numeric string, for compatibility reasons.",
+      "type": "string",
+      "enum": [
+        "0",
+        "1"
+      ]
+    },
+    "deleted": {
+      "description": "Whether the site should be treated as deleted.\n\nA numeric string, for compatibility reasons.",
+      "type": "string",
+      "enum": [
+        "0",
+        "1"
+      ]
+    },
+    "lang_id": {
+      "description": "The language pack associated with this site.\n\nA numeric string, for compatibility reasons.",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

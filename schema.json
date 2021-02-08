@@ -23,6 +23,9 @@
     "Post_Type" : {
       "$ref": "schemas/post-type.json"
     },
+    "Site" : {
+      "$ref": "schemas/site.json"
+    },
     "Term" : {
       "$ref": "schemas/term.json"
     },
