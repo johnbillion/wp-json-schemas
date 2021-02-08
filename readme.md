@@ -80,9 +80,9 @@ printf(
 );
 ```
 
-The REST API object schemas apply to the object (or array of objects) you get in response to a REST API request.
+The REST API object schemas apply to each of the objects you get in response to a REST API request.
 
-The schemas also apply outside of an HTTP request of course, for example if you're saving data as a JSON file and reading it in a Node application.
+The schemas also apply outside of an HTTP request, for example if you're saving data as a JSON file and reading it in a Node application.
 
 ### Why are there different schemas for PHP objects and REST API responses?
 
