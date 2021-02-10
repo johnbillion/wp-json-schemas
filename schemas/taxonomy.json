@@ -118,27 +118,18 @@
     "object_type": {
       "description": "An array of object types this taxonomy is registered for.",
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "oneOf": [
+        {
+          "$ref": "properties/post-type-name.json"
+        },
+        {
+          "type": "string"
+        }
+      ]
     },
     "cap": {
       "description": "Capabilities for this taxonomy.",
-      "type": "object",
-      "properties": {
-        "manage_terms": {
-          "type": "string"
-        },
-        "edit_terms": {
-          "type": "string"
-        },
-        "delete_terms": {
-          "type": "string"
-        },
-        "assign_terms": {
-          "type": "string"
-        }
-      }
+      "$ref": "properties/taxonomy-caps.json"
     },
     "rewrite": {
       "description": "Rewrites information for this taxonomy.",
