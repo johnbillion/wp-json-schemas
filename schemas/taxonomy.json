@@ -195,14 +195,7 @@
     },
     "rest_controller": {
       "description": "The controller instance for this taxonomy's REST API endpoints.\n\nLazily computed. Should be accessed using {@see WP_Taxonomy::get_rest_controller()}.",
-      "oneOf": [
-        {
-          "type": "object"
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": "null"
     },
     "default_term": {
       "description": "The default term name for this taxonomy. If you pass an array you have to set 'name' and optionally 'slug' and 'description'.",
