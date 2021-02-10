@@ -26,6 +26,9 @@
     "Site" : {
       "$ref": "schemas/site.json"
     },
+    "Taxonomy" : {
+      "$ref": "schemas/taxonomy.json"
+    },
     "Term" : {
       "$ref": "schemas/term.json"
     },

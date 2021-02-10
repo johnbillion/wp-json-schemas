@@ -1,0 +1,273 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/taxonomy.json",
+  "title": "WP_Taxonomy",
+  "description": "Core class used for interacting with taxonomies.",
+  "type": "object",
+  "required": [
+    "name",
+    "label",
+    "labels",
+    "description",
+    "public",
+    "publicly_queryable",
+    "hierarchical",
+    "show_ui",
+    "show_in_menu",
+    "show_in_nav_menus",
+    "show_tagcloud",
+    "show_in_quick_edit",
+    "show_admin_column",
+    "meta_box_cb",
+    "meta_box_sanitize_cb",
+    "object_type",
+    "cap",
+    "rewrite",
+    "query_var",
+    "update_count_callback",
+    "show_in_rest",
+    "rest_base",
+    "rest_controller_class",
+    "rest_controller",
+    "default_term",
+    "sort",
+    "args",
+    "_builtin"
+  ],
+  "properties": {
+    "name": {
+      "description": "Taxonomy key.",
+      "type": "string"
+    },
+    "label": {
+      "description": "Name of the taxonomy shown in the menu. Usually plural.",
+      "type": "string"
+    },
+    "labels": {
+      "description": "Labels object for this taxonomy.",
+      "type": "object"
+    },
+    "description": {
+      "description": "A short descriptive summary of what the taxonomy is for.",
+      "type": "integer"
+    },
+    "public": {
+      "description": "Whether a taxonomy is intended for use publicly either via the admin interface or by front-end users.",
+      "type": "boolean"
+    },
+    "publicly_queryable": {
+      "description": "Whether the taxonomy is publicly queryable.",
+      "type": "boolean"
+    },
+    "hierarchical": {
+      "description": "Whether the taxonomy is hierarchical.",
+      "type": "boolean"
+    },
+    "show_ui": {
+      "description": "Whether to generate and allow a UI for managing terms in this taxonomy in the admin.",
+      "type": "boolean"
+    },
+    "show_in_menu": {
+      "description": "Whether to show the taxonomy in the admin menu.",
+      "type": "boolean"
+    },
+    "show_in_nav_menus": {
+      "description": "Whether the taxonomy is available for selection in navigation menus.",
+      "type": "boolean"
+    },
+    "show_tagcloud": {
+      "description": "Whether to list the taxonomy in the tag cloud widget controls.",
+      "type": "boolean"
+    },
+    "show_in_quick_edit": {
+      "description": "Whether to show the taxonomy in the quick/bulk edit panel.",
+      "type": "boolean"
+    },
+    "show_admin_column": {
+      "description": "Whether to display a column for the taxonomy on its post type listing screens.",
+      "type": "boolean"
+    },
+    "meta_box_cb": {
+      "description": "The callback function for the meta box display.",
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "object"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "meta_box_sanitize_cb": {
+      "description": "The callback function for sanitizing taxonomy data saved from a meta box.",
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "object"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "object_type": {
+      "description": "An array of object types this taxonomy is registered for.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cap": {
+      "description": "Capabilities for this taxonomy.",
+      "type": "object",
+      "properties": {
+        "manage_terms": {
+          "type": "string"
+        },
+        "edit_terms": {
+          "type": "string"
+        },
+        "delete_terms": {
+          "type": "string"
+        },
+        "assign_terms": {
+          "type": "string"
+        }
+      }
+    },
+    "rewrite": {
+      "description": "Rewrites information for this taxonomy.",
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "query_var": {
+      "description": "Query var string for this taxonomy.",
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "update_count_callback": {
+      "description": "Function that will be called when the count is updated.",
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "object"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "show_in_rest": {
+      "description": "Whether this taxonomy should appear in the REST API.\n\nDefault false. If true, standard endpoints will be registered with respect to $rest_base and $rest_controller_class.",
+      "type": "boolean"
+    },
+    "rest_base": {
+      "description": "The base path for this taxonomy's REST API endpoints.",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "rest_controller_class": {
+      "description": "The controller for this taxonomy's REST API endpoints.\n\nCustom controllers must extend WP_REST_Controller.",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "boolean"
+        }
+      ]
+    },
+    "rest_controller": {
+      "description": "The controller instance for this taxonomy's REST API endpoints.\n\nLazily computed. Should be accessed using {@see WP_Taxonomy::get_rest_controller()}.",
+      "oneOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "default_term": {
+      "description": "The default term name for this taxonomy. If you pass an array you have to set 'name' and optionally 'slug' and 'description'.",
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "slug": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "sort": {
+      "description": "Whether terms in this taxonomy should be sorted in the order they are provided to `wp_set_object_terms()`.\n\nUse this in combination with `'orderby' => 'term_order'` when fetching terms.",
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "args": {
+      "description": "Array of arguments to automatically use inside `wp_get_object_terms()` for this taxonomy.",
+      "oneOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "_builtin": {
+      "description": "Whether it is a built-in taxonomy.",
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}
