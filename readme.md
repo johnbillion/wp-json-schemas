@@ -41,6 +41,7 @@ Schemas are used for the structure of some object properties:
 * `WP_Post_Type_Caps`
 * `WP_Post_Type_Labels`
 * `WP_Post_Type_Rewrite`
+* `WP_Taxonomy_Labels`
 * `WP_User_Cap_Name`
 * `WP_User_Caps`
 * `WP_User_Data`

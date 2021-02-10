@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/properties/taxonomy-labels.json",
+  "title": "WP_Taxonomy_Labels",
+  "type": "object",
+  "description": "Taxonomy labels.",
+  "required": [
+    "name",
+    "singular_name",
+    "search_items",
+    "popular_items",
+    "all_items",
+    "parent_item",
+    "parent_item_colon",
+    "edit_item",
+    "view_item",
+    "update_item",
+    "add_new_item",
+    "new_item_name",
+    "separate_items_with_commas",
+    "add_or_remove_items",
+    "choose_from_most_used",
+    "not_found",
+    "no_terms",
+    "filter_by_item",
+    "items_list_navigation",
+    "items_list",
+    "most_used",
+    "back_to_items",
+    "menu_name",
+    "name_admin_bar"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "singular_name": {
+      "type": "string"
+    },
+    "search_items": {
+      "type": "string"
+    },
+    "popular_items": {
+      "type": "string"
+    },
+    "all_items": {
+      "type": "string"
+    },
+    "parent_item": {
+      "type": "string"
+    },
+    "parent_item_colon": {
+      "type": "string"
+    },
+    "edit_item": {
+      "type": "string"
+    },
+    "view_item": {
+      "type": "string"
+    },
+    "update_item": {
+      "type": "string"
+    },
+    "add_new_item": {
+      "type": "string"
+    },
+    "new_item_name": {
+      "type": "string"
+    },
+    "separate_items_with_commas": {
+      "type": "string"
+    },
+    "add_or_remove_items": {
+      "type": "string"
+    },
+    "choose_from_most_used": {
+      "type": "string"
+    },
+    "not_found": {
+      "type": "string"
+    },
+    "no_terms": {
+      "type": "string"
+    },
+    "filter_by_item": {
+      "type": "string"
+    },
+    "items_list_navigation": {
+      "type": "string"
+    },
+    "items_list": {
+      "type": "string"
+    },
+    "most_used": {
+      "type": "string"
+    },
+    "back_to_items": {
+      "type": "string"
+    },
+    "menu_name": {
+      "type": "string"
+    },
+    "name_admin_bar": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": {
+    "type": "string"
+  }
+}
