@@ -37,7 +37,14 @@
   "properties": {
     "name": {
       "description": "Taxonomy key.",
-      "type": "string"
+      "anyOf": [
+        {
+          "$ref": "properties/taxonomy-name.json"
+        },
+        {
+          "type": "string"
+        }
+      ]
     },
     "label": {
       "description": "Name of the taxonomy shown in the menu. Usually plural.",
@@ -118,14 +125,16 @@
     "object_type": {
       "description": "An array of object types this taxonomy is registered for.",
       "type": "array",
-      "oneOf": [
-        {
-          "$ref": "properties/post-type-name.json"
-        },
-        {
-          "type": "string"
-        }
-      ]
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "properties/post-type-name.json"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
     },
     "cap": {
       "description": "Capabilities for this taxonomy.",
