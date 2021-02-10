@@ -2,7 +2,7 @@
 
 This package provides well-documented JSON schemas that describe the shape of:
 
-* WordPress core PHP objects such as `WP_Error`, `WP_Post`, and `WP_User`
+* WordPress core PHP objects such as `WP_Post`, `WP_Term`, and `WP_User`
 * WordPress REST API responses such as those from `/wp/v2/posts` and `/wp/v2/users`
 * The allowed values for several of the properties of both
 
