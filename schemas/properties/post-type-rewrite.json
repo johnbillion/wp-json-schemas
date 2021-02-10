@@ -4,6 +4,13 @@
   "title": "WP_Post_Type_Rewrite",
   "type": "object",
   "description": "Post type rewrite rule definition.",
+  "required": [
+    "slug",
+    "with_front",
+    "feeds",
+    "pages",
+    "ep_mask"
+  ],
   "properties": {
     "slug": {
       "description": "Customize the permastruct slug.",

@@ -135,10 +135,10 @@
       "description": "Rewrites information for this taxonomy.",
       "oneOf": [
         {
-          "type": "boolean"
+          "$ref": "properties/taxonomy-rewrite.json"
         },
         {
-          "type": "object"
+          "type": "boolean"
         }
       ]
     },
@@ -146,10 +146,10 @@
       "description": "Query var string for this taxonomy.",
       "oneOf": [
         {
-          "type": "boolean"
+          "type": "string"
         },
         {
-          "type": "string"
+          "type": "boolean"
         }
       ]
     },
@@ -189,7 +189,9 @@
           "type": "string"
         },
         {
-          "type": "boolean"
+          "enum": [
+            false
+          ]
         }
       ]
     },

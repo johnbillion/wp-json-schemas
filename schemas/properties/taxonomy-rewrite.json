@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/properties/taxonomy-rewrite.json",
+  "title": "WP_Taxonomy_Rewrite",
+  "type": "object",
+  "description": "Taxonomy rewrite rule definition.",
+  "required": [
+    "with_front",
+    "hierarchical",
+    "ep_mask",
+    "slug"
+  ],
+  "properties": {
+    "with_front": {
+      "description": "Should the permastruct be prepended with WP_Rewrite::$front.",
+      "type": "boolean"
+    },
+    "hierarchical": {
+      "description": "Either hierarchical rewrite tag or not.",
+      "type": "boolean"
+    },
+    "ep_mask": {
+      "description": "Assign an endpoint mask.",
+      "type": "integer"
+    },
+    "slug": {
+      "description": "Customize the permastruct slug.",
+      "type": "string"
+    }
+  }
+}
