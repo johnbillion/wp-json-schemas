@@ -80,17 +80,24 @@
     },
     "comment_status": {
       "description": "Whether comments are allowed.",
-      "type": "string"
+      "anyOf": [
+        {
+          "$ref": "properties/post-comment-status-name.json"
+        }
+      ]
     },
     "ping_status": {
       "description": "Whether pings are allowed.",
-      "type": "string"
+      "anyOf": [
+        {
+          "$ref": "properties/post-comment-status-name.json"
+        }
+      ]
     },
     "post_password": {
       "description": "The post's password in plain text.",
       "anyOf": [
         {
-          "type": "string",
           "enum": [
             ""
           ]
@@ -108,13 +115,13 @@
       "description": "URLs queued to be pinged.",
       "anyOf": [
         {
-          "type": "string",
           "enum": [
             ""
           ]
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ]
     },
@@ -122,13 +129,13 @@
       "description": "URLs that have been pinged.",
       "anyOf": [
         {
-          "type": "string",
           "enum": [
             ""
           ]
         },
         {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       ]
     },
@@ -150,17 +157,7 @@
     },
     "post_content_filtered": {
       "description": "A utility DB field for post content.",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": [
-            ""
-          ]
-        },
-        {
-          "type": "string"
-        }
-      ]
+      "type": "string"
     },
     "post_parent": {
       "description": "ID of a post's parent post.",
@@ -199,8 +196,7 @@
         {
           "$ref": "properties/object-filter-context.json"
         }
-      ],
-      "type": "string"
+      ]
     }
   },
   "additionalProperties": false

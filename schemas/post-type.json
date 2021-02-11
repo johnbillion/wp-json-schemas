@@ -103,8 +103,21 @@
     },
     "menu_icon": {
       "description": "The URL or reference to the icon to be used for this menu. Can include a URL, a base64-encoded SVG using a data URI, the name of a Dashicons helper class, or 'none'.",
-      "type": "string"
-    },
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "enum": [
+            "none"
+          ]
+        }
+      ]
+  },
     "capability_type": {
       "description": "The string to use to build the read, edit, and delete capabilities.",
       "type": "string"

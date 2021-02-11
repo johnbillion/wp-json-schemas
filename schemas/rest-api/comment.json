@@ -97,7 +97,6 @@
     },
     "status": {
       "description": "State of the object.",
-      "type": "string",
       "anyOf": [
         {
           "$ref": "../properties/comment-status-name.json"
@@ -109,7 +108,6 @@
     },
     "type": {
       "description": "Type of Comment for the object.",
-      "type": "string",
       "anyOf": [
         {
           "$ref": "../properties/comment-type-name.json"

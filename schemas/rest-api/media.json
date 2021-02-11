@@ -98,7 +98,6 @@
     },
     "status": {
       "description": "A named status for the object.",
-      "type": "string",
       "anyOf": [
         {
           "$ref": "../properties/post-status-name.json"
@@ -212,7 +211,6 @@
     },
     "comment_status": {
       "description": "Whether or not comments are open on the object.",
-      "type": "string",
       "anyOf": [
         {
           "$ref": "../properties/post-comment-status-name.json"
@@ -221,7 +219,6 @@
     },
     "ping_status": {
       "description": "Whether or not the object can be pinged.",
-      "type": "string",
       "anyOf": [
         {
           "$ref": "../properties/post-comment-status-name.json"

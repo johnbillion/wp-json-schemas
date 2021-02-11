@@ -52,8 +52,7 @@
         {
           "$ref": "properties/object-filter-context.json"
         }
-      ],
-      "type": "string"
+      ]
     },
     "roles": {
       "description": "The roles the user is part of.",

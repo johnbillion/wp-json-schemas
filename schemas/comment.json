@@ -88,11 +88,18 @@
     },
     "comment_type": {
       "description": "Comment type.",
-      "type": "string"
+      "anyOf": [
+        {
+          "$ref": "properties/comment-type-name.json"
+        },
+        {
+          "type": "string"
+        }
+      ]
     },
     "comment_parent": {
       "description": "Parent comment ID.\n\nA numeric string, for compatibility reasons.",
-      "type": "string"
+      "$ref": "#/properties/comment_ID"
     },
     "user_id": {
       "description": "Comment author ID.\n\nA numeric string, for compatibility reasons.",
