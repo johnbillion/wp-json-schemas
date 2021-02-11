@@ -12,18 +12,17 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_DATABASE: wordpress
+          MYSQL_DATABASE: wordpress_test
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
         ports:
           - 3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
-      - uses: actions/checkout@v1
-
       - name: Checkout repository
         uses: actions/checkout@v1
 
-      - uses: actions/setup-node@v1
+      - name: Set up Node
+        uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
@@ -48,3 +47,5 @@ jobs:
 
       - run: npm run test
       - run: composer run test
+        env:
+          WP_TESTS_DB_HOST: 127.0.0.1:${{ job.services.mysql.ports['3306'] }}
