@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/properties/error-messages.json",
   "title": "WP_Error_Messages",
-  "description": "The messages for the errors contained within the error object.\n\nEach error is represented by a property keyed by the error code, and containing an array of message strings for that\ncode. Any given error code usually contains only one message, but can contain more.",
+  "description": "The messages for the errors contained within the error object.\n\nEach error is represented by a property keyed by the error code, and containing an array of message strings for that code. Any given error code usually contains only one message, but can contain more.",
   "type": "object",
   "additionalProperties": {
     "type": "array",
