@@ -195,6 +195,9 @@
       "anyOf": [
         {
           "$ref": "properties/object-filter-context.json"
+        },
+        {
+          "type": "null"
         }
       ]
     }

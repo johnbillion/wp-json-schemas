@@ -65,9 +65,11 @@
       "anyOf": [
         {
           "$ref": "properties/object-filter-context.json"
+        },
+        {
+          "type": "null"
         }
-      ],
-      "type": "string"
+      ]
     }
   },
   "additionalProperties": false
