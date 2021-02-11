@@ -1,4 +1,8 @@
-composer.lock
-node_modules
-package-lock.json
-vendor
+/node_modules
+/tests/data
+/tests/wordpress
+/vendor
+
+/composer.lock
+/package-lock.json
+/tests/.env

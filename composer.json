@@ -1,0 +1,45 @@
+{
+    "name": "johnbillion/wp-json-schemas",
+    "description": "JSON schemas for WordPress core PHP objects",
+    "homepage": "https://github.com/johnbillion/wp-json-schemas/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "John Blackbourn",
+            "homepage": "https://johnblackbourn.com/"
+        }
+    ],
+    "require": {
+        "php": "^7 || ^8"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2",
+        "roots/wordpress": "*",
+        "vlucas/phpdotenv": "^5",
+        "wp-cli/wp-cli-bundle": "^2"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "wordpress-install-dir": "tests/wordpress"
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "@php -r \"! file_exists( 'tests/.env' ) && copy( 'tests/.env.dist', 'tests/.env' );\""
+        ],
+        "test": [
+            "wp db reset --yes",
+            "wp core install --url=example.org --title=Example --admin_user=admin --admin_email=admin@example.org --skip-email",
+            "wp json-dump",
+            "npm run test-post"
+        ]
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/johnbillion"
+        }
+    ]
+}
