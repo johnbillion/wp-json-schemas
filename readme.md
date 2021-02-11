@@ -3,14 +3,14 @@
 This package provides well-documented JSON schemas that describe the shape of:
 
 * WordPress core PHP objects such as `WP_Post`, `WP_Term`, and `WP_User`
-* WordPress REST API responses such as those from `/wp/v2/posts` and `/wp/v2/users`
+* WordPress REST API responses such as those from `/wp/v2/posts`, `/wp/v2/categories`, and `/wp/v2/users`
 * The allowed values for several of the properties of both
 
 The schemas in this library are used directly to generate [the TypeScript definitions provided by the `wp-types` package](https://www.npmjs.com/package/wp-types).
 
 ## What's included?
 
-### Core Objects
+### PHP Objects
 
 * `WP_Post`
 * `WP_Term`
@@ -34,7 +34,7 @@ The schemas in this library are used directly to generate [the TypeScript defini
 
 ### Properties
 
-Schemas are used for the structure of some object properties:
+Schemas are used for the structure of several object properties:
 
 * `WP_Error_Data`
 * `WP_Error_Messages`
@@ -50,7 +50,7 @@ Schemas are used for the structure of some object properties:
 
 ### Enums
 
-String enum schemas are used for values of some object properties:
+String enum schemas are used for values of several object properties:
 
 * `WP_Comment_Status_Name`
 * `WP_Comment_Type_Name`
