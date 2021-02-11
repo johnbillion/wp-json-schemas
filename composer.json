@@ -33,8 +33,12 @@
             "wp db reset --yes",
             "wp core install --url=example.org --title=Example --admin_user=admin --admin_email=admin@example.org --skip-email",
             "wp json-dump post",
-            "wp json-dump user",
             "npm run test-post",
+            "wp json-dump tag",
+            "npm run test-tag",
+            "wp json-dump category",
+            "npm run test-category",
+            "wp json-dump user",
             "npm run test-user"
         ]
     },

@@ -53,3 +53,25 @@ WP_CLI::add_command( 'json-dump user', function() : void {
 
 	save( $users, 'user' );
 } );
+
+WP_CLI::add_command( 'json-dump tag', function() : void {
+	$tags = get_terms( [
+		'taxonomy' => 'post_tag',
+		'number'   => 0,
+		'orderby'  => 'term_id',
+		'order'    => 'ASC',
+	] );
+
+	save( $tags, 'tag' );
+} );
+
+WP_CLI::add_command( 'json-dump category', function() : void {
+	$categories = get_terms( [
+		'taxonomy' => 'post_tag',
+		'number'   => 0,
+		'orderby'  => 'term_id',
+		'order'    => 'ASC',
+	] );
+
+	save( $categories, 'category' );
+} );
