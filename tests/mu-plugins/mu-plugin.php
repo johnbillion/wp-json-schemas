@@ -3,6 +3,7 @@
 namespace WPJsonSchemas;
 
 use WP_CLI;
+use WP_Error;
 
 add_action( 'init', function() : void {
 	if ( defined( 'WP_INSTALLING' ) ) {
@@ -84,4 +85,15 @@ WP_CLI::add_command( 'json-dump comment', function() : void {
 	] );
 
 	save( $comment, 'comment' );
+} );
+
+WP_CLI::add_command( 'json-dump error', function() : void {
+	$errors = [];
+
+	$errors[] = new WP_Error(
+		'foo',
+		'Foo'
+	);
+
+	save( $errors, 'error' );
 } );
