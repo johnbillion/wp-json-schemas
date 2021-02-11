@@ -1,3 +1,6 @@
+[![License](https://img.shields.io/badge/npm-wp--json--schemas-9966ff.svg?style=flat-square)](https://www.npmjs.com/package/wp-json-schemas)
+[![Build Status](https://img.shields.io/github/workflow/status/johnbillion/wp-json-schemas/Test/master?style=flat-square)](https://github.com/johnbillion/wp-json-schemas/actions)
+
 # WordPress JSON Schemas
 
 This package provides well-documented JSON schemas that describe the shape of:
