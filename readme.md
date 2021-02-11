@@ -4,13 +4,13 @@ This package provides well-documented JSON schemas that describe the shape of:
 
 * WordPress core PHP objects such as `WP_Post`, `WP_Term`, and `WP_User`
 * WordPress REST API responses such as those from `/wp/v2/posts`, `/wp/v2/categories`, and `/wp/v2/users`
-* The allowed values for several of the properties of both
+* Various property types and values of both
 
 The schemas in this library are used directly to generate [the TypeScript definitions provided by the `wp-types` package](https://www.npmjs.com/package/wp-types).
 
 ## What's included?
 
-### PHP Objects
+### PHP Object Schemas
 
 * `WP_Post`
 * `WP_Term`
@@ -19,22 +19,22 @@ The schemas in this library are used directly to generate [the TypeScript defini
 * `WP_Site`
 * `WP_Taxonomy`
 * `WP_Post_Type`
-* `WP_Error`, plus:
-  - `WP_Error_With_Error`
-  - `WP_Error_Without_Error`
+* `WP_Error`
 
-### REST API responses
+### REST API Response Schemas
 
-* `WP_REST_API_Post`
-* `WP_REST_API_Term`
-* `WP_REST_API_User`
-* `WP_REST_API_Comment`
-* `WP_REST_API_Media`
-* `WP_REST_API_Error` (for any REST API error response)
+Schema                | Applies to
+--------------------- | ----------
+`WP_REST_API_Post`    | /wp/v2/posts <br> /wp/v2/pages
+`WP_REST_API_Term`    | /wp/v2/categories <br> /wp/v2/tags
+`WP_REST_API_User`    | /wp/v2/users
+`WP_REST_API_Comment` | /wp/v2/comments
+`WP_REST_API_Media`   | /wp/v2/media
+`WP_REST_API_Error`   | Any REST API error
 
-### Properties
+### Property Schemas
 
-Schemas are used for the structure of several object properties:
+Schemas are provided for various properties:
 
 * `WP_Error_Data`
 * `WP_Error_Messages`
@@ -50,7 +50,7 @@ Schemas are used for the structure of several object properties:
 
 ### Enums
 
-String enum schemas are used for values of several object properties:
+Enums are provided for various values:
 
 * `WP_Comment_Status_Name`
 * `WP_Comment_Type_Name`
@@ -70,13 +70,15 @@ npm install wp-json-schemas
 
 ## Usage
 
-Usage really depends what you're doing with the schemas. You could use them for validation or just for understanding the shape of an object.
+Usage depends on what you're doing with the schemas. You could use them for validation or just for understanding the shape of an object.
+
+If you're using TypeScript, check out [the TypeScript definitions provided by the `wp-types` package](https://www.npmjs.com/package/wp-types).
 
 ## FAQs
 
 ### When do these schemas apply?
 
-The core object schemas apply whenever a supported PHP object is represented as JSON. How you do that depends on your application, but here is an example:
+The PHP object schemas apply whenever a supported PHP object is represented as JSON. For example:
 
 ```php
 printf(
@@ -85,27 +87,33 @@ printf(
 );
 ```
 
-The REST API object schemas apply to each of the objects you get in response to a REST API request.
+The REST API object schemas apply to each of the objects you get in response to a REST API request. For example:
+
+```js
+const api = wp.apiFetch( {
+	path: '/wp/v2/categories/'
+} );
+```
 
 The schemas also apply outside of an HTTP request, for example if you're saving data as a JSON file and reading it in a Node application.
 
 ### Why are there different schemas for PHP objects and REST API responses?
 
-Objects in REST API responses are of a different shape to their PHP counterparts. A post object in a REST API response is not the same as a `WP_Post` object in PHP, in fact it's substantially different.
+An object in a REST API response is not the same as its corresponding object in PHP, in fact they are substantially different.
 
-Schemas for REST API responses are available via an OPTIONS request to a REST API endpoint, but the schema does not adhere strictly to the JSON Schema standard. [Here's an article by Timothy B. Jacobs with more info](https://timothybjacobs.com/2017/05/17/json-schema-and-the-wp-rest-api/).
-
-### Why doesn't object X include property Y?
-
-If it's not a public property of the object's class then it won't be included when encoding the object as JSON. You'll need to handle it separately.
+Schemas are available via an OPTIONS request to the REST API endpoints, but the schemas do not adhere strictly to the JSON Schema standard. [Here's an article by Timothy B. Jacobs with more info](https://timothybjacobs.com/2017/05/17/json-schema-and-the-wp-rest-api/).
 
 ### Are these schemas automatically generated from WordPress core?
 
 No. I started down that path (using [wp-parser-lib](https://github.com/johnbillion/wp-parser-lib)) but realised it's quicker to generate them manually and then copy most of the documentation from core, especially as I'm adding extra documentation and schemas for properties when I can.
 
+### How do I know the schemas are accurate?
+
+They're all tested against actual output from WordPress core.
+
 ### Why aren't the descriptions very good?
 
-The descriptions for objects and properties are mostly copied from WordPress core, many of which are poor quality. I'll update the descriptions in this schema as they're improved in core.
+The descriptions are mostly copied from WordPress core. I'll update the descriptions in this schema as they're improved in core.
 
 ## License
 
