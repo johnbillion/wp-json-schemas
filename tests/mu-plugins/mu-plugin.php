@@ -1,6 +1,10 @@
 <?php
 
 add_action( 'init', function() {
+	if ( defined( 'WP_INSTALLING' ) ) {
+		return;
+	}
+
 	wp_insert_post( [
 		'post_type'   => 'post',
 		'post_title'  => 'Title',
