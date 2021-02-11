@@ -22,6 +22,7 @@
   },
   "scripts": {
     "test-post": "ajv validate -s schemas/post.json -d \"tests/data/post/*.json\" -r \"schemas/**/*.json\"",
+    "test-user": "ajv validate -s schemas/user.json -d \"tests/data/user/*.json\" -r \"schemas/**/*.json\"",
     "test": "npm run validate && npm run test-rest-api-post",
     "test-rest-api-post": "ajv validate -s schemas/rest-api/post.json -d \"tests/rest-api/post/*.json\" -r \"schemas/**/*.json\"",
     "validate": "ajv compile -s schema.json -r \"schemas/**/*.json\""

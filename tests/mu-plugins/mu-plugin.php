@@ -43,4 +43,13 @@ WP_CLI::add_command( 'json-dump post', function() : void {
 
 	save( $posts, 'post' );
 } );
+
+WP_CLI::add_command( 'json-dump user', function() : void {
+	$users = get_users( [
+		'number'  => -1,
+		'orderby' => 'ID',
+		'order'   => 'ASC',
+	] );
+
+	save( $users, 'user' );
 } );
