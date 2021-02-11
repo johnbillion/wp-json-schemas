@@ -19,6 +19,10 @@ WP_CLI::add_command( 'json-dump', function() {
 
 	$dir = dirname( ABSPATH ) . '/data/post/';
 
+	if ( ! file_exists( $dir ) ) {
+		mkdir( $dir, 0777, true );
+	}
+
 	foreach ( $posts as $i => $post ) {
 		$json = json_encode( $post, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
 
