@@ -32,8 +32,8 @@
         "test": [
             "wp db reset --yes",
             "wp core install --url=example.org --title=Example --admin_user=admin --admin_email=admin@example.org --skip-email",
-            "wp json-dump",
-            "npm run test-post"
+            "wp json-dump post",
+            "npm run test-post",
         ]
     },
     "funding": [
