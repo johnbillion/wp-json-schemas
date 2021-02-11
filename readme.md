@@ -115,6 +115,14 @@ They're all tested against actual output from WordPress core.
 
 The descriptions are mostly copied from WordPress core. I'll update the descriptions in this schema as they're improved in core.
 
+## Tests
+
+To run the tests:
+
+* `npm install`
+* `composer install`
+* `composer test`
+
 ## License
 
 MIT
