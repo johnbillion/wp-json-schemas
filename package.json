@@ -25,6 +25,7 @@
     "test-user": "ajv validate -s schemas/user.json -d \"tests/data/user/*.json\" -r \"schemas/**/*.json\"",
     "test-tag": "ajv validate -s schemas/term.json -d \"tests/data/tag/*.json\" -r \"schemas/**/*.json\"",
     "test-category": "ajv validate -s schemas/term.json -d \"tests/data/category/*.json\" -r \"schemas/**/*.json\"",
+    "test-comment": "ajv validate -s schemas/comment.json -d \"tests/data/comment/*.json\" -r \"schemas/**/*.json\"",
     "test": "npm run validate && npm run test-rest-api-post",
     "test-rest-api-post": "ajv validate -s schemas/rest-api/post.json -d \"tests/rest-api/post/*.json\" -r \"schemas/**/*.json\"",
     "validate": "ajv compile -s schema.json -r \"schemas/**/*.json\""

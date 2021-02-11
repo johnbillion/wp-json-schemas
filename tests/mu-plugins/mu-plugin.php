@@ -75,3 +75,13 @@ WP_CLI::add_command( 'json-dump category', function() : void {
 
 	save( $categories, 'category' );
 } );
+
+WP_CLI::add_command( 'json-dump comment', function() : void {
+	$comment = get_comments( [
+		'number'  => 0,
+		'orderby' => 'comment_ID',
+		'order'   => 'ASC',
+	] );
+
+	save( $comment, 'comment' );
+} );

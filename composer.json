@@ -38,6 +38,8 @@
             "npm run test-tag",
             "wp json-dump category",
             "npm run test-category",
+            "wp json-dump comment",
+            "npm run test-comment",
             "wp json-dump user",
             "npm run test-user"
         ]
