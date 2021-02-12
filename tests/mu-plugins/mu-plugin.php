@@ -95,5 +95,46 @@ WP_CLI::add_command( 'json-dump error', function() : void {
 		'Foo'
 	);
 
+	$errors[] = new WP_Error(
+		'foo',
+		'Foo',
+		'Hello'
+	);
+
+	$errors[] = new WP_Error(
+		'foo',
+		'Foo',
+		[
+			'key' => 'value',
+		]
+	);
+
+	$errors[] = new WP_Error(
+		'foo',
+		'Foo',
+		null
+	);
+
+	$multi_error = new WP_Error(
+		'foo',
+		'Foo'
+	);
+	$multi_error->add(
+		'bar',
+		'Bar'
+	);
+	$errors[] = $multi_error;
+
+	$multi_code_1 = new WP_Error(
+		'foo',
+		'Foo'
+	);
+	$multi_code_2 = new WP_Error(
+		'foo',
+		'Bar'
+	);
+	$multi_code_1->merge_from( $multi_code_2 );
+	$errors[] = $multi_code_1;
+
 	save( $errors, 'error' );
 } );
