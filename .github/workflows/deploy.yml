@@ -8,7 +8,7 @@ on:
       - '*'
 
 jobs:
-  build:
+  publish-wp-json-schemas:
     runs-on: ubuntu-latest
     steps:
       - uses: octokit/request-action@v2.x
@@ -20,7 +20,7 @@ jobs:
           ref: ${{ github.ref }}
           required_contexts: "[]"
           environment: npm
-          description: "Deploy version ${{ github.event.release.tag_name }}"
+          description: "Deploy wp-json-schemas version ${{ github.event.release.tag_name }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -41,6 +41,70 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+
+      - run: npm install
+
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Deployment Succeeded
+        if: success()
+        uses: octokit/request-action@v2.x
+        with:
+          route: POST /repos/:repository/deployments/:deployment_id/statuses
+          repository: ${{ github.repository }}
+          state: success
+          deployment_id: ${{ fromJson( steps.deployment.outputs.data ).id }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deployment Failed
+        if: failure()
+        uses: octokit/request-action@v2.x
+        with:
+          route: POST /repos/:repository/deployments/:deployment_id/statuses
+          repository: ${{ github.repository }}
+          state: failure
+          deployment_id: ${{ fromJson( steps.deployment.outputs.data ).id }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-wp-types:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: octokit/request-action@v2.x
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          route: POST /repos/:repository/deployments
+          repository: ${{ github.repository }}
+          ref: ${{ github.ref }}
+          required_contexts: "[]"
+          environment: npm
+          description: "Deploy wp-types version ${{ github.event.release.tag_name }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: octokit/request-action@v2.x
+        name: Set GitHub deployment status
+        with:
+          route: POST /repos/:repository/deployments/:deployment_id/statuses
+          repository: ${{ github.repository }}
+          deployment_id: ${{ fromJson( steps.deployment.outputs.data ).id }}
+          state: pending
+          environment_url: https://www.npmjs.com/package/wp-types
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+
+      - run: cd packages/wp-types
 
       - run: npm install
 
