@@ -1,5 +1,6 @@
-[![License](https://img.shields.io/badge/npm-wp--json--schemas-9966ff.svg?style=flat-square)](https://www.npmjs.com/package/wp-json-schemas)
-[![Build Status](https://img.shields.io/github/workflow/status/johnbillion/wp-json-schemas/Test/master?style=flat-square)](https://github.com/johnbillion/wp-json-schemas/actions)
+[![](https://img.shields.io/badge/npm-wp--json--schemas-9966ff.svg?style=flat-square)](https://www.npmjs.com/package/wp-json-schemas)
+[![](https://img.shields.io/badge/npm-wp--types-9966ff.svg?style=flat-square)](https://www.npmjs.com/package/wp-types)
+[![](https://img.shields.io/github/workflow/status/johnbillion/wp-json-schemas/Test/master?style=flat-square)](https://github.com/johnbillion/wp-json-schemas/actions)
 
 # WordPress JSON Schemas
 
@@ -9,7 +10,7 @@ This package provides well-documented JSON schemas that describe the shape of:
 * WordPress REST API responses such as those from `/wp/v2/posts`, `/wp/v2/categories`, and `/wp/v2/users`
 * Various property types and values of both
 
-The schemas in this library are used directly to generate [the TypeScript definitions provided by the `wp-types` package](https://www.npmjs.com/package/wp-types).
+The schemas in this library are used to generate [the WordPress TypeScript definitions provided by the `wp-types` package](https://www.npmjs.com/package/wp-types).
 
 ## What's included?
 

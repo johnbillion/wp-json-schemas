@@ -7,6 +7,7 @@
     "schemas"
   ],
   "homepage": "https://github.com/johnbillion/wp-json-schemas",
+  "funding": "https://github.com/sponsors/johnbillion",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/johnbillion/wp-json-schemas.git"
