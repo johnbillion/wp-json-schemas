@@ -39,11 +39,12 @@ The schema for a PHP object is created using the docblocks from its class proper
 ## Releasing a new version
 
 * `npm run test`
+* `npm build-wp-types`
 * `npm version <major|minor|patch>`
 * `git push`
 * `git push --tags`
 
-When a tag is pushed, the following packages will be deployed to npm automatically via a GitHub Action:
+When a tag is pushed, the following packages will be deployed to npm automatically via GitHub Actions:
 
 * [wp-json-schemas](https://www.npmjs.com/package/wp-json-schemas)
 * [wp-types](https://www.npmjs.com/package/wp-types)
