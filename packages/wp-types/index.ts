@@ -1446,7 +1446,7 @@ export interface WP_REST_API_Term {
    */
   taxonomy: WP_Taxonomy_Name | string;
   /**
-   * The parent term ID. Only present for hierarchical taxonomies.
+   * Unique identifier for the term.
    */
   parent?: number;
   /**
