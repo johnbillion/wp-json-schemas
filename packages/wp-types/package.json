@@ -7,7 +7,7 @@
   "files": [
     "index.ts"
   ],
-  "homepage": "https://github.com/johnbillion/wp-json-schemas/packages/wp-types",
+  "homepage": "https://github.com/johnbillion/wp-json-schemas/tree/trunk/packages/wp-types",
   "funding": "https://github.com/sponsors/johnbillion",
   "keywords": [
     "typescript",
