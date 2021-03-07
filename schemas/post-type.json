@@ -127,7 +127,15 @@
       "type": "boolean"
     },
     "register_meta_box_cb": {
-      "description": "Provide a callback function that sets up the meta boxes for the edit form."
+      "description": "Provide a callback function that sets up the meta boxes for the edit form.",
+      "anyOf": [
+        {
+          "$ref": "properties/callable.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "taxonomies": {
       "description": "An array of taxonomy identifiers that will be registered for the post type.",

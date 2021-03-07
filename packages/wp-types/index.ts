@@ -10,6 +10,10 @@
  */
 export type WP_Date_Time = string;
 /**
+ * Any valid `callable` in PHP.
+ */
+export type Callable = any;
+/**
  * The name of an individual primitive capability or meta capability.
  */
 export type WP_User_Cap_Name = string;
@@ -350,9 +354,7 @@ export interface WP_Post_Type {
   /**
    * Provide a callback function that sets up the meta boxes for the edit form.
    */
-  register_meta_box_cb: {
-    [k: string]: unknown;
-  };
+  register_meta_box_cb: Callable | null;
   /**
    * An array of taxonomy identifiers that will be registered for the post type.
    */
@@ -632,21 +634,11 @@ export interface WP_Taxonomy {
   /**
    * The callback function for the meta box display.
    */
-  meta_box_cb:
-    | boolean
-    | {
-        [k: string]: unknown;
-      }
-    | string;
+  meta_box_cb: Callable | false;
   /**
    * The callback function for sanitizing taxonomy data saved from a meta box.
    */
-  meta_box_sanitize_cb:
-    | boolean
-    | {
-        [k: string]: unknown;
-      }
-    | string;
+  meta_box_sanitize_cb: Callable | false;
   /**
    * An array of object types this taxonomy is registered for.
    */
@@ -663,12 +655,7 @@ export interface WP_Taxonomy {
   /**
    * Function that will be called when the count is updated.
    */
-  update_count_callback:
-    | boolean
-    | {
-        [k: string]: unknown;
-      }
-    | string;
+  update_count_callback: Callable | "";
   /**
    * Whether this taxonomy should appear in the REST API.
    *

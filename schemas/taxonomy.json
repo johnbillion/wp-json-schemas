@@ -96,29 +96,27 @@
     },
     "meta_box_cb": {
       "description": "The callback function for the meta box display.",
-      "oneOf": [
+      "anyOf": [
         {
-          "type": "boolean"
+          "$ref": "properties/callable.json"
         },
         {
-          "type": "object"
-        },
-        {
-          "type": "string"
+          "enum": [
+            false
+          ]
         }
       ]
     },
     "meta_box_sanitize_cb": {
       "description": "The callback function for sanitizing taxonomy data saved from a meta box.",
-      "oneOf": [
+      "anyOf": [
         {
-          "type": "boolean"
+          "$ref": "properties/callable.json"
         },
         {
-          "type": "object"
-        },
-        {
-          "type": "string"
+          "enum": [
+            false
+          ]
         }
       ]
     },
@@ -164,15 +162,14 @@
     },
     "update_count_callback": {
       "description": "Function that will be called when the count is updated.",
-      "oneOf": [
+      "anyOf": [
         {
-          "type": "boolean"
+          "$ref": "properties/callable.json"
         },
         {
-          "type": "object"
-        },
-        {
-          "type": "string"
+          "enum": [
+            ""
+          ]
         }
       ]
     },
@@ -203,10 +200,6 @@
           ]
         }
       ]
-    },
-    "rest_controller": {
-      "description": "The controller instance for this taxonomy's REST API endpoints.\n\nLazily computed. Should be accessed using {@see WP_Taxonomy::get_rest_controller()}.",
-      "type": "null"
     },
     "default_term": {
       "description": "The default term name for this taxonomy. If you pass an array you have to set 'name' and optionally 'slug' and 'description'.",
