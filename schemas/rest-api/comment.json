@@ -120,6 +120,11 @@
     "author_avatar_urls": {
       "description": "Avatar URLs for the object author.",
       "type": "object",
+      "required": [
+        "24",
+        "48",
+        "96"
+      ],
       "properties": {
         "24": {
           "description": "Avatar URL with image size of 24 pixels.",
@@ -175,9 +180,6 @@
           "description": "The associated post.",
           "type": "array"
         }
-      },
-      "additionalProperties": {
-        "type": "array"
       }
     }
   }

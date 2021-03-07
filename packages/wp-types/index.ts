@@ -1004,15 +1004,15 @@ export interface WP_REST_API_Comment {
     /**
      * Avatar URL with image size of 24 pixels.
      */
-    "24"?: string;
+    "24": string;
     /**
      * Avatar URL with image size of 48 pixels.
      */
-    "48"?: string;
+    "48": string;
     /**
      * Avatar URL with image size of 96 pixels.
      */
-    "96"?: string;
+    "96": string;
     /**
      * Avatar URL with image of another size.
      */
@@ -1039,7 +1039,7 @@ export interface WP_REST_API_Comment {
      * The associated post.
      */
     up?: unknown[];
-    [k: string]: unknown[];
+    [k: string]: unknown;
   };
   [k: string]: unknown;
 }
@@ -1242,7 +1242,7 @@ export interface WP_REST_API_Post {
      * The parent post.
      */
     up?: unknown[];
-    [k: string]: unknown[];
+    [k: string]: unknown;
   };
   [k: string]: unknown;
 }
@@ -1409,7 +1409,7 @@ export interface WP_REST_API_Media {
      * The featured image post.
      */
     "wp:featuredmedia"?: unknown[];
-    [k: string]: unknown[];
+    [k: string]: unknown;
   };
   [k: string]: unknown;
 }

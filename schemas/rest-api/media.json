@@ -261,9 +261,6 @@
           "description": "The featured image post.",
           "type": "array"
         }
-      },
-      "additionalProperties": {
-        "type": "array"
       }
     }
   }
