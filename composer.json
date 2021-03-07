@@ -16,7 +16,8 @@
         "ergebnis/composer-normalize": "^2",
         "roots/wordpress": "*",
         "vlucas/phpdotenv": "^5",
-        "wp-cli/wp-cli-bundle": "^2"
+        "wp-cli/db-command": "^2",
+        "wp-cli/core-command": "^2"
     },
     "config": {
         "preferred-install": "dist",
