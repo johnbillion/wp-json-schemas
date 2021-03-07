@@ -19,7 +19,7 @@ jobs:
           repository: ${{ github.repository }}
           ref: ${{ github.ref }}
           required_contexts: "[]"
-          environment: npm
+          environment: wp-json-schemas
           description: "Deploy wp-json-schemas version ${{ github.event.release.tag_name }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -55,6 +55,7 @@ jobs:
           route: POST /repos/:repository/deployments/:deployment_id/statuses
           repository: ${{ github.repository }}
           state: success
+          environment_url: https://www.npmjs.com/package/wp-json-schemas
           deployment_id: ${{ fromJson( steps.deployment.outputs.data ).id }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -66,6 +67,7 @@ jobs:
           route: POST /repos/:repository/deployments/:deployment_id/statuses
           repository: ${{ github.repository }}
           state: failure
+          environment_url: https://www.npmjs.com/package/wp-json-schemas
           deployment_id: ${{ fromJson( steps.deployment.outputs.data ).id }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -81,7 +83,7 @@ jobs:
           repository: ${{ github.repository }}
           ref: ${{ github.ref }}
           required_contexts: "[]"
-          environment: npm
+          environment: wp-types
           description: "Deploy wp-types version ${{ github.event.release.tag_name }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -119,6 +121,7 @@ jobs:
           route: POST /repos/:repository/deployments/:deployment_id/statuses
           repository: ${{ github.repository }}
           state: success
+          environment_url: https://www.npmjs.com/package/wp-types
           deployment_id: ${{ fromJson( steps.deployment.outputs.data ).id }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -130,6 +133,7 @@ jobs:
           route: POST /repos/:repository/deployments/:deployment_id/statuses
           repository: ${{ github.repository }}
           state: failure
+          environment_url: https://www.npmjs.com/package/wp-types
           deployment_id: ${{ fromJson( steps.deployment.outputs.data ).id }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
