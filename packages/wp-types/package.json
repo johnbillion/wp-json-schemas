@@ -1,0 +1,25 @@
+{
+  "name": "wp-types",
+  "version": "1.8.1",
+  "description": "TypeScript definitions of WordPress PHP objects and REST API responses.",
+  "main": "",
+  "types": "index.ts",
+  "files": [
+    "index.ts"
+  ],
+  "homepage": "https://github.com/johnbillion/wp-json-schemas/packages/wp-types",
+  "funding": "https://github.com/sponsors/johnbillion",
+  "keywords": [
+    "typescript",
+    "wordpress"
+  ],
+  "author": "John Blackbourn",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": ">=3"
+  },
+  "scripts": {
+    "test": "tsc tests/test.ts --noEmit --strict",
+    "generate": "json2ts -i node_modules/wp-json-schemas/schema.json -o index.ts --cwd=node_modules/wp-json-schemas --style.trailingComma=all"
+  }
+}
