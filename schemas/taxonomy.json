@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/taxonomy.json",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/taxonomy.json",
   "title": "WP_Taxonomy",
   "description": "Core class used for interacting with taxonomies.",
   "type": "object",

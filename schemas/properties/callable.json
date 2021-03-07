@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/properties/callable.json",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/properties/callable.json",
   "title": "Callable",
   "tsType": "any",
   "description": "Any valid `callable` in PHP."

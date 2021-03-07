@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/properties/comment-type-name.json",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/properties/comment-type-name.json",
   "title": "WP_Comment_Type_Name",
   "type": "string",
   "tsEnumNames": [

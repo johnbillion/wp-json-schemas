@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/master/schemas/rest-api/post.json",
+  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/post.json",
   "title": "WP_REST_API_Post",
   "description": "A post object in a REST API context.",
   "type": "object",
