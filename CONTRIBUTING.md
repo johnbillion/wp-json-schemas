@@ -43,4 +43,7 @@ The schema for a PHP object is created using the docblocks from its class proper
 * `git push`
 * `git push --tags`
 
-When a tag is pushed, the package will be deployed to npm automatically via a GitHub Action.
+When a tag is pushed, the following packages will be deployed to npm automatically via a GitHub Action:
+
+* [wp-json-schemas](https://www.npmjs.com/package/wp-json-schemas)
+* [wp-types](https://www.npmjs.com/package/wp-types)
