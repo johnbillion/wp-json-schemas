@@ -38,8 +38,11 @@ The schema for a PHP object is created using the docblocks from its class proper
 
 ## Releasing a new version
 
-* `npm run test`
+* `npm install`
+* `composer install`
 * `npm build-wp-types`
+* `npm run test`
+* `composer run test`
 * `npm version <major|minor|patch>`
 * `git push`
 * `git push --tags`
