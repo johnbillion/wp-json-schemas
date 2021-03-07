@@ -1,6 +1,6 @@
 {
     "name": "johnbillion/wp-json-schemas",
-    "description": "JSON schemas for WordPress core PHP objects",
+    "description": "JSON schemas for WordPress PHP objects and REST API responses",
     "homepage": "https://github.com/johnbillion/wp-json-schemas/",
     "license": "MIT",
     "authors": [
