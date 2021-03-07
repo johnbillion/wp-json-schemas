@@ -17,9 +17,5 @@
   "license": "MIT",
   "dependencies": {
     "typescript": ">=3"
-  },
-  "scripts": {
-    "test": "tsc tests/test.ts --noEmit --strict",
-    "generate": "json2ts -i node_modules/wp-json-schemas/schema.json -o index.ts --cwd=node_modules/wp-json-schemas --style.trailingComma=all"
   }
 }

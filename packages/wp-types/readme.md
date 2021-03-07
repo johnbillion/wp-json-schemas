@@ -161,14 +161,6 @@ import { WP_Post_Type_Name } from 'wp-types';
 console.log( WP_Post_Type_Name.auto_draft );
 ```
 
-## Tests
-
-To test the TypeScript compilation:
-
-```
-npm run test
-```
-
 ## License
 
 MIT

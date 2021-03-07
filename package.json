@@ -19,9 +19,13 @@
   "author": "John Blackbourn",
   "license": "MIT",
   "devDependencies": {
-    "ajv-cli": "^3.1.0"
+    "ajv-cli": "^3.1.0",
+    "json-schema-to-typescript": "^9.1.0",
+    "typescript": ">=3"
   },
   "scripts": {
+    "build-wp-types": "json2ts -i schema.json -o packages/wp-types/index.ts --style.trailingComma=all",
+    "test-wp-types": "tsc packages/wp-types/tests/test.ts --noEmit --strict",
     "test-post": "ajv validate -s schemas/post.json -d \"tests/data/post/*.json\" -r \"schemas/**/*.json\"",
     "test-user": "ajv validate -s schemas/user.json -d \"tests/data/user/*.json\" -r \"schemas/**/*.json\"",
     "test-tag": "ajv validate -s schemas/term.json -d \"tests/data/tag/*.json\" -r \"schemas/**/*.json\"",
