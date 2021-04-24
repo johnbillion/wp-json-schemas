@@ -294,5 +294,39 @@
         }
       }
     }
-  }
+  },
+  "links": [
+    {
+      "rel": "self",
+      "href": "/wp/v2/posts/{id}",
+      "hrefSchema": {
+        "$ref": "#/properties/id"
+      }
+    },
+    {
+      "rel": "collection",
+      "href": "/wp/v2/posts"
+    },
+    {
+      "rel": "author",
+      "href": "/wp/v2/users/{author}",
+      "hrefSchema": {
+        "$ref": "#/properties/author"
+      }
+    },
+    {
+      "rel": "replies",
+      "href": "/wp/v2/comments?post={id}",
+      "hrefSchema": {
+        "$ref": "#/properties/id"
+      }
+    },
+    {
+      "rel": "version-history",
+      "href": "/wp/v2/posts/{id}/revisions",
+      "hrefSchema": {
+        "$ref": "#/properties/id"
+      }
+    }
+  ]
 }
