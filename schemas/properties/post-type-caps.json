@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/hyper-schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/properties/post-type-caps.json",
   "title": "WP_Post_Type_Caps",
   "type": "object",
