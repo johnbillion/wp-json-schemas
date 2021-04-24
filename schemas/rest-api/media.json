@@ -263,5 +263,48 @@
         }
       }
     }
-  }
+  },
+  "links": [
+    {
+      "rel": "self",
+      "href": "/wp/v2/media/{id}",
+      "hrefSchema": {
+        "properties": {
+          "id": {
+            "$ref": "#/properties/id"
+          }
+        }
+      },
+      "targetSchema": {
+        "$ref": "#"
+      }
+    },
+    {
+      "rel": "collection",
+      "href": "/wp/v2/media",
+      "targetSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#"
+        }
+      }
+    },
+    {
+      "rel": "replies",
+      "href": "/wp/v2/comments?post={id}",
+      "hrefSchema": {
+        "properties": {
+          "id": {
+            "$ref": "#/properties/id"
+          }
+        }
+      },
+      "targetSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "comment.json"
+        }
+      }
+    }
+  ]
 }
