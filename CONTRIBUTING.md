@@ -40,7 +40,7 @@ The schema for a PHP object is created using the docblocks from its class proper
 
 * `npm install`
 * `composer install`
-* `npm build-wp-types`
+* `npm run build-wp-types`
 * `npm run test`
 * `composer run test`
 * `npm version <major|minor|patch>`
