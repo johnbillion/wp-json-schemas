@@ -36,6 +36,8 @@ Schema                | Applies to
 `WP_REST_API_Media`   | /wp/v2/media
 `WP_REST_API_Error`   | Any REST API error
 
+The REST API schemas use JSON Hyper-Schema.
+
 ### Property Schemas
 
 Schemas are provided for various properties:
