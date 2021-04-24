@@ -152,5 +152,31 @@
     "_links": {
       "$ref": "properties/object-links.json"
     }
-  }
+  },
+  "links": [
+    {
+      "rel": "self",
+      "href": "/wp/v2/users/{id}",
+      "hrefSchema": {
+        "properties": {
+          "id": {
+            "$ref": "#/properties/id"
+          }
+        }
+      },
+      "targetSchema": {
+        "$ref": "#"
+      }
+    },
+    {
+      "rel": "collection",
+      "href": "/wp/v2/users",
+      "targetSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#"
+        }
+      }
+    }
+  ]
 }
