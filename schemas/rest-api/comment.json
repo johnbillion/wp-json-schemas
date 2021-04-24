@@ -182,5 +182,79 @@
         }
       }
     }
-  }
+  },
+  "links": [
+    {
+      "rel": "self",
+      "href": "/wp/v2/comments/{id}",
+      "hrefSchema": {
+        "properties": {
+          "id": {
+            "$ref": "#/properties/id"
+          }
+        }
+      },
+      "targetSchema": {
+        "$ref": "#"
+      }
+    },
+    {
+      "rel": "collection",
+      "href": "/wp/v2/comments",
+      "targetSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#"
+        }
+      }
+    },
+    {
+      "rel": "author",
+      "href": "/wp/v2/users/{author}",
+      "hrefSchema": {
+        "properties": {
+          "author": {
+            "$ref": "#/properties/author"
+          }
+        }
+      },
+      "targetSchema": {
+        "$ref": "user.json"
+      }
+    },
+    {
+      "rel": "up",
+      "href": "/wp/v2/posts/{post}",
+      "hrefSchema": {
+        "properties": {
+          "post": {
+            "$ref": "#/properties/post"
+          }
+        }
+      },
+      "targetSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "post.json"
+        }
+      }
+    },
+    {
+      "rel": "in-reply-to",
+      "href": "/wp/v2/comments/{parent}",
+      "hrefSchema": {
+        "properties": {
+          "parent": {
+            "$ref": "#/properties/parent"
+          }
+        }
+      },
+      "targetSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#"
+        }
+      }
+    }
+  ]
 }
