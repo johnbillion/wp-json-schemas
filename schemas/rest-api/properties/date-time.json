@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft-07/hyper-schema#",
   "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/properties/date-time.json",
   "title": "WP_REST_API_Date_Time",
   "description": "Timestamp in IETF RFC 3339 date-time format minus the timezone identifier (`YYYY-MM-DDThh:mm:ss`).",

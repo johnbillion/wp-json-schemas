@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft-07/hyper-schema#",
   "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/error.json",
   "title": "WP_Error",
   "description": "WordPress Error class.\n\nContainer for checking for WordPress errors and error messages. Many core WordPress functions pass this class in the event of an error.",

@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft-07/hyper-schema#",
   "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/properties/http-status-code.json",
   "title": "WP_Http_Status_Code",
   "type": "integer",

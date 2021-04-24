@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft-07/hyper-schema#",
   "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/comment.json",
   "title": "WP_Comment",
   "description": "Core class used to organize comments as instantiated objects with defined members.",
