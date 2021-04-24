@@ -300,32 +300,72 @@
       "rel": "self",
       "href": "/wp/v2/posts/{id}",
       "hrefSchema": {
-        "$ref": "#/properties/id"
+        "properties": {
+          "id": {
+            "$ref": "#/properties/id"
+          }
+        }
+      },
+      "targetSchema": {
+        "$ref": "#"
       }
     },
     {
       "rel": "collection",
-      "href": "/wp/v2/posts"
+      "href": "/wp/v2/posts",
+      "targetSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#"
+        }
+      }
     },
     {
       "rel": "author",
       "href": "/wp/v2/users/{author}",
       "hrefSchema": {
-        "$ref": "#/properties/author"
+        "properties": {
+          "author": {
+            "$ref": "#/properties/author"
+          }
+        }
+      },
+      "targetSchema": {
+        "$ref": "user.json"
       }
     },
     {
       "rel": "replies",
       "href": "/wp/v2/comments?post={id}",
       "hrefSchema": {
-        "$ref": "#/properties/id"
+        "properties": {
+          "id": {
+            "$ref": "#/properties/id"
+          }
+        }
+      },
+      "targetSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "comment.json"
+        }
       }
     },
     {
       "rel": "version-history",
       "href": "/wp/v2/posts/{id}/revisions",
       "hrefSchema": {
-        "$ref": "#/properties/id"
+        "properties": {
+          "id": {
+            "$ref": "#/properties/id"
+          }
+        }
+      },
+      "targetSchema": {
+        "type": "array",
+        "items": {
+          "$ref": "#"
+        }
       }
     }
   ]
