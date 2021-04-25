@@ -1,0 +1,37 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/tag.json",
+	"title": "WP_REST_API_Tag",
+	"description": "A post tag object in a REST API context.",
+	"allOf": [
+		{
+			"$ref": "term.json"
+		}
+	],
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/tags/{id}",
+			"hrefSchema": {
+				"properties": {
+					"id": {
+						"$ref": "term.json#/properties/id"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/tags",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}

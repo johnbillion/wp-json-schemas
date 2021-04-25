@@ -31,7 +31,12 @@ Schema                    | Applies to
 ------------------------- | ----------
 `WP_REST_API_Posts`       | /wp/v2/posts <br> /wp/v2/pages
 `WP_REST_API_Post`        | /wp/v2/posts/{id} <br> /wp/v2/pages/{id}
-`WP_REST_API_Term`        | /wp/v2/categories <br> /wp/v2/tags
+`WP_REST_API_Tags`        | /wp/v2/tags
+`WP_REST_API_Tag`         | /wp/v2/tags/{id}
+`WP_REST_API_Categories`  | /wp/v2/categories
+`WP_REST_API_Category`    | /wp/v2/categories/{id}
+`WP_REST_API_Terms`       | /wp/v2/{taxonomy}
+`WP_REST_API_Term`        | /wp/v2/{taxonomy}/{id}
 `WP_REST_API_Users`       | /wp/v2/users
 `WP_REST_API_User`        | /wp/v2/users/{id}
 `WP_REST_API_Comments`    | /wp/v2/comments
@@ -97,7 +102,7 @@ printf(
 );
 ```
 
-The REST API object schemas apply to each of the objects you get in response to a REST API request. For example:
+The REST API object schemas apply to the response to a REST API request. For example:
 
 ```js
 const api = wp.apiFetch( {

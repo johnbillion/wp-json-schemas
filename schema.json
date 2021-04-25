@@ -59,6 +59,21 @@
 				"Term" : {
 					"$ref": "schemas/rest-api/term.json"
 				},
+				"Terms" : {
+					"$ref": "schemas/rest-api/terms.json"
+				},
+				"Tag" : {
+					"$ref": "schemas/rest-api/tag.json"
+				},
+				"Tags" : {
+					"$ref": "schemas/rest-api/tags.json"
+				},
+				"Category" : {
+					"$ref": "schemas/rest-api/category.json"
+				},
+				"Categories" : {
+					"$ref": "schemas/rest-api/categories.json"
+				},
 				"User" : {
 					"$ref": "schemas/rest-api/user.json"
 				},
