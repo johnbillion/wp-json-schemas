@@ -25,7 +25,7 @@
 	},
 	"scripts": {
 		"version": "cd packages/wp-types && npm version $(node -p -e \"require('../../package.json').version\") && git add .",
-		"build-wp-types": "json2ts -i schema.json -o packages/wp-types/index.ts --style.trailingComma=all",
+		"build-wp-types": "json2ts -i schema.json -o packages/wp-types/index.ts --style.trailingComma=all --style.useTabs",
 		"test-wp-types": "tsc packages/wp-types/tests/test.ts --noEmit --strict",
 		"test-post": "ajv validate -m tests/hyper-schema.json -s schemas/post.json -d \"tests/data/post/*.json\" -r \"schemas/**/*.json\"",
 		"test-user": "ajv validate -m tests/hyper-schema.json -s schemas/user.json -d \"tests/data/user/*.json\" -r \"schemas/**/*.json\"",
