@@ -41,8 +41,17 @@
 				"Comment" : {
 					"$ref": "schemas/rest-api/comment.json"
 				},
+				"Comments" : {
+					"$ref": "schemas/rest-api/comments.json"
+				},
 				"Post" : {
 					"$ref": "schemas/rest-api/post.json"
+				},
+				"Posts" : {
+					"$ref": "schemas/rest-api/posts.json"
+				},
+				"Attachment" : {
+					"$ref": "schemas/rest-api/attachment.json"
 				},
 				"Media" : {
 					"$ref": "schemas/rest-api/media.json"
@@ -52,6 +61,9 @@
 				},
 				"User" : {
 					"$ref": "schemas/rest-api/user.json"
+				},
+				"Users" : {
+					"$ref": "schemas/rest-api/users.json"
 				},
 				"Error" : {
 					"$ref": "schemas/rest-api/error.json"

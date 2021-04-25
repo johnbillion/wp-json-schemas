@@ -1,0 +1,19 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/media.json",
+	"title": "WP_REST_API_Media",
+	"description": "A collection of media attachment objects in a REST API context.",
+	"type": "array",
+	"items": {
+		"$ref": "attachment.json"
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/media",
+			"targetSchema": {
+				"$ref": "#"
+			}
+		}
+	]
+}
