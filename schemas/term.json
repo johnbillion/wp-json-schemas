@@ -54,7 +54,11 @@
     },
     "parent": {
       "description": "ID of a term's parent term.",
-      "$ref": "#/properties/term_id"
+      "allOf": [
+        {
+          "$ref": "#/properties/term_id"
+        }
+      ]
     },
     "count": {
       "description": "Cached object count for this term.",

@@ -56,7 +56,11 @@
     },
     "labels": {
       "description": "Labels object for this post type.",
-      "$ref": "properties/post-type-labels.json"
+      "allOf": [
+        {
+          "$ref": "properties/post-type-labels.json"
+        }
+      ]
     },
     "description": {
       "description": "A short descriptive summary of what the post type is.",

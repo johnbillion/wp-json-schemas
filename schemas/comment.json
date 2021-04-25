@@ -99,7 +99,11 @@
     },
     "comment_parent": {
       "description": "Parent comment ID.\n\nA numeric string, for compatibility reasons.",
-      "$ref": "#/properties/comment_ID"
+      "allOf": [
+        {
+          "$ref": "#/properties/comment_ID"
+        }
+      ]
     },
     "user_id": {
       "description": "Comment author ID.\n\nA numeric string, for compatibility reasons.",

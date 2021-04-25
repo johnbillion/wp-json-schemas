@@ -165,7 +165,11 @@
     },
     "post": {
       "description": "The ID for the associated post of the attachment.",
-      "$ref": "post.json#/properties/id"
+      "allOf": [
+        {
+          "$ref": "post.json#/properties/id"
+        }
+      ]
     },
     "source_url": {
       "description": "URL to the original attachment file.",
@@ -207,7 +211,11 @@
     },
     "author": {
       "description": "The ID for the author of the object.",
-      "$ref": "user.json#/properties/id"
+      "allOf": [
+        {
+          "$ref": "user.json#/properties/id"
+        }
+      ]
     },
     "comment_status": {
       "description": "Whether or not comments are open on the object.",

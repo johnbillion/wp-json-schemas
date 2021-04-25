@@ -161,7 +161,11 @@
     },
     "post_parent": {
       "description": "ID of a post's parent post.",
-      "$ref": "#/properties/ID"
+      "allOf": [
+        {
+          "$ref": "#/properties/ID"
+        }
+      ]
     },
     "guid": {
       "description": "The unique identifier for a post, not necessarily a URL, used as the feed GUID.",

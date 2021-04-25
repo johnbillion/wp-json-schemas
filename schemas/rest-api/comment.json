@@ -27,7 +27,11 @@
     },
     "author": {
       "description": "The ID of the user object, if author was a user.",
-      "$ref": "user.json#/properties/id"
+      "allOf": [
+        {
+          "$ref": "user.json#/properties/id"
+        }
+      ]
     },
     "author_email": {
       "description": "Email address for the object author. Only present when using the 'edit' context.",
@@ -89,11 +93,19 @@
     },
     "parent": {
       "description": "The ID for the parent of the object.",
-      "$ref": "#/properties/id"
+      "allOf": [
+        {
+          "$ref": "#/properties/id"
+        }
+      ]
     },
     "post": {
       "description": "The ID of the associated post object.",
-      "$ref": "post.json#/properties/id"
+      "allOf": [
+        {
+          "$ref": "post.json#/properties/id"
+        }
+      ]
     },
     "status": {
       "description": "State of the object.",

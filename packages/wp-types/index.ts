@@ -298,6 +298,9 @@ export interface WP_Post_Type {
    * Name of the post type shown in the menu. Usually plural.
    */
   label: string;
+  /**
+   * Labels object for this post type.
+   */
   labels: WP_Post_Type_Labels;
   /**
    * A short descriptive summary of what the post type is.
@@ -425,7 +428,7 @@ export interface WP_Post_Type {
   };
 }
 /**
- * Labels object for this post type.
+ * Post type labels.
  */
 export interface WP_Post_Type_Labels {
   name: string;
@@ -590,6 +593,9 @@ export interface WP_Taxonomy {
    * Name of the taxonomy shown in the menu. Usually plural.
    */
   label: string;
+  /**
+   * Labels object for this taxonomy.
+   */
   labels: WP_Taxonomy_Labels;
   /**
    * A short descriptive summary of what the taxonomy is for.
@@ -643,6 +649,9 @@ export interface WP_Taxonomy {
    * An array of object types this taxonomy is registered for.
    */
   object_type: (WP_Post_Type_Name | string)[];
+  /**
+   * Capabilities for this taxonomy.
+   */
   cap: WP_Taxonomy_Caps;
   /**
    * Rewrites information for this taxonomy.
@@ -707,7 +716,7 @@ export interface WP_Taxonomy {
   _builtin: boolean;
 }
 /**
- * Labels object for this taxonomy.
+ * Taxonomy labels.
  */
 export interface WP_Taxonomy_Labels {
   name: string;
@@ -737,7 +746,7 @@ export interface WP_Taxonomy_Labels {
   [k: string]: string;
 }
 /**
- * Capabilities for this taxonomy.
+ * Taxonomy capabilities.
  */
 export interface WP_Taxonomy_Caps {
   manage_terms: WP_User_Cap_Name;
@@ -1433,7 +1442,7 @@ export interface WP_REST_API_Term {
    */
   taxonomy: WP_Taxonomy_Name | string;
   /**
-   * Unique identifier for the term.
+   * The parent term ID. Only present for hierarchical taxonomies.
    */
   parent?: number;
   /**

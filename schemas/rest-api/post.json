@@ -124,7 +124,11 @@
     },
     "parent": {
       "description": "The ID for the parent of the object. Only present for hierarchical post types.",
-      "$ref": "#/properties/id"
+      "allOf": [
+        {
+          "$ref": "#/properties/id"
+        }
+      ]
     },
     "title": {
       "description": "The title for the object.",
@@ -173,7 +177,11 @@
     },
     "author": {
       "description": "The ID for the author of the object.",
-      "$ref": "user.json#/properties/id"
+      "allOf": [
+        {
+          "$ref": "user.json#/properties/id"
+        }
+      ]
     },
     "excerpt": {
       "description": "The excerpt for the object.",
@@ -200,7 +208,11 @@
     },
     "featured_media": {
       "description": "The ID of the featured media for the object.",
-      "$ref": "#/properties/id"
+      "allOf": [
+        {
+          "$ref": "#/properties/id"
+        }
+      ]
     },
     "comment_status": {
       "description": "Whether or not comments are open on the object.",

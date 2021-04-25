@@ -54,7 +54,11 @@
     },
     "parent": {
       "description": "The parent term ID. Only present for hierarchical taxonomies.",
-      "$ref": "#/properties/id"
+      "allOf": [
+        {
+          "$ref": "#/properties/id"
+        }
+      ]
     },
     "meta": {
       "description": "Meta fields.",
