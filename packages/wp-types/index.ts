@@ -21,6 +21,42 @@ export type WP_User_Cap_Name = string;
  * Timestamp in IETF RFC 3339 date-time format minus the timezone identifier (`YYYY-MM-DDThh:mm:ss`).
  */
 export type WP_REST_API_Date_Time = string;
+/**
+ * A collection of comment objects in a REST API context.
+ */
+export type WP_REST_API_Comments = WP_REST_API_Comment[];
+/**
+ * A collection of post objects in a REST API context.
+ */
+export type WP_REST_API_Posts = WP_REST_API_Post[];
+/**
+ * A collection of media attachment objects in a REST API context.
+ */
+export type WP_REST_API_Attachments = WP_REST_API_Attachment[];
+/**
+ * A collection of term objects in a REST API context.
+ */
+export type WP_REST_API_Terms = WP_REST_API_Term[];
+/**
+ * A post tag object in a REST API context.
+ */
+export type WP_REST_API_Tag = WP_REST_API_Term;
+/**
+ * A collection of post tag objects in a REST API context.
+ */
+export type WP_REST_API_Tags = WP_REST_API_Tag[];
+/**
+ * A post category object in a REST API context.
+ */
+export type WP_REST_API_Category = WP_REST_API_Term;
+/**
+ * A collection of post category objects in a REST API context.
+ */
+export type WP_REST_API_Categories = WP_REST_API_Category[];
+/**
+ * A collection of user objects in a REST API context.
+ */
+export type WP_REST_API_Users = WP_REST_API_User[];
 
 /**
  * WordPress is open source software you can use to create a beautiful website, blog, or app.
@@ -38,10 +74,19 @@ export interface WP {
 	User?: WP_User;
 	REST_API?: {
 		Comment?: WP_REST_API_Comment;
+		Comments?: WP_REST_API_Comments;
 		Post?: WP_REST_API_Post;
-		Media?: WP_REST_API_Media;
+		Posts?: WP_REST_API_Posts;
+		Attachments?: WP_REST_API_Attachments;
+		Attachment?: WP_REST_API_Attachment;
 		Term?: WP_REST_API_Term;
+		Terms?: WP_REST_API_Terms;
+		Tag?: WP_REST_API_Tag;
+		Tags?: WP_REST_API_Tags;
+		Category?: WP_REST_API_Category;
+		Categories?: WP_REST_API_Categories;
 		User?: WP_REST_API_User;
+		Users?: WP_REST_API_Users;
 		Error?: WP_REST_API_Error;
 	};
 }
@@ -1237,9 +1282,9 @@ export interface WP_REST_API_Post {
 	[k: string]: unknown;
 }
 /**
- * A media object in a REST API context.
+ * A media attachment object in a REST API context.
  */
-export interface WP_REST_API_Media {
+export interface WP_REST_API_Attachment {
 	/**
 	 * The date the object was published, in the site's timezone.
 	 */
