@@ -27,18 +27,18 @@ The schemas in this library are used to generate [the WordPress TypeScript defin
 
 ### REST API Response Schemas
 
-Schema                   | Applies to
------------------------- | ----------
-`WP_REST_API_Posts`      | /wp/v2/posts <br> /wp/v2/pages
-`WP_REST_API_Post`       | /wp/v2/posts/{id} <br> /wp/v2/pages/{id}
-`WP_REST_API_Term`       | /wp/v2/categories <br> /wp/v2/tags
-`WP_REST_API_Users`      | /wp/v2/users
-`WP_REST_API_User`       | /wp/v2/users/{id}
-`WP_REST_API_Comments`   | /wp/v2/comments
-`WP_REST_API_Comment`    | /wp/v2/comments/{id}
-`WP_REST_API_Media`      | /wp/v2/media
-`WP_REST_API_Attachment` | /wp/v2/media/{id}
-`WP_REST_API_Error`      | Any REST API error
+Schema                    | Applies to
+------------------------- | ----------
+`WP_REST_API_Posts`       | /wp/v2/posts <br> /wp/v2/pages
+`WP_REST_API_Post`        | /wp/v2/posts/{id} <br> /wp/v2/pages/{id}
+`WP_REST_API_Term`        | /wp/v2/categories <br> /wp/v2/tags
+`WP_REST_API_Users`       | /wp/v2/users
+`WP_REST_API_User`        | /wp/v2/users/{id}
+`WP_REST_API_Comments`    | /wp/v2/comments
+`WP_REST_API_Comment`     | /wp/v2/comments/{id}
+`WP_REST_API_Attachments` | /wp/v2/media
+`WP_REST_API_Attachment`  | /wp/v2/media/{id}
+`WP_REST_API_Error`       | Any REST API error
 
 The REST API schemas use JSON Hyper-Schema.
 
