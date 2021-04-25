@@ -1,81 +1,81 @@
 {
-  "$schema": "http://json-schema.org/draft-07/hyper-schema#",
-  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/term.json",
-  "title": "WP_REST_API_Term",
-  "description": "A taxonomy term object in a REST API context.",
-  "type": "object",
-  "required": [
-    "id",
-    "count",
-    "description",
-    "link",
-    "name",
-    "slug",
-    "taxonomy",
-    "meta",
-    "_links"
-  ],
-  "properties": {
-    "id": {
-      "description": "Unique identifier for the term.",
-      "type": "integer"
-    },
-    "count": {
-      "description": "Number of published posts for the term.",
-      "type": "integer"
-    },
-    "description": {
-      "description": "HTML description of the term.",
-      "type": "string"
-    },
-    "link": {
-      "description": "URL of the term.",
-      "type": "string",
-      "format": "uri"
-    },
-    "name": {
-      "description": "HTML title for the term.",
-      "type": "string"
-    },
-    "slug": {
-      "description": "An alphanumeric identifier for the term unique to its type.",
-      "type": "string"
-    },
-    "taxonomy": {
-      "description": "Type attribution for the term.",
-      "anyOf": [
-        {
-          "$ref": "../properties/taxonomy-name.json"
-        },
-        {
-          "type": "string"
-        }
-      ]
-    },
-    "parent": {
-      "description": "The parent term ID. Only present for hierarchical taxonomies.",
-      "allOf": [
-        {
-          "$ref": "#/properties/id"
-        }
-      ]
-    },
-    "meta": {
-      "description": "Meta fields.",
-      "anyOf": [
-        {
-          "type": "array",
-          "tsType": "[]",
-          "items": {},
-          "additionalItems": false
-        },
-        {
-          "type": "object"
-        }
-      ]
-    },
-    "_links": {
-      "$ref": "properties/object-links.json"
-    }
-  }
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/term.json",
+	"title": "WP_REST_API_Term",
+	"description": "A taxonomy term object in a REST API context.",
+	"type": "object",
+	"required": [
+		"id",
+		"count",
+		"description",
+		"link",
+		"name",
+		"slug",
+		"taxonomy",
+		"meta",
+		"_links"
+	],
+	"properties": {
+		"id": {
+			"description": "Unique identifier for the term.",
+			"type": "integer"
+		},
+		"count": {
+			"description": "Number of published posts for the term.",
+			"type": "integer"
+		},
+		"description": {
+			"description": "HTML description of the term.",
+			"type": "string"
+		},
+		"link": {
+			"description": "URL of the term.",
+			"type": "string",
+			"format": "uri"
+		},
+		"name": {
+			"description": "HTML title for the term.",
+			"type": "string"
+		},
+		"slug": {
+			"description": "An alphanumeric identifier for the term unique to its type.",
+			"type": "string"
+		},
+		"taxonomy": {
+			"description": "Type attribution for the term.",
+			"anyOf": [
+				{
+					"$ref": "../properties/taxonomy-name.json"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"parent": {
+			"description": "The parent term ID. Only present for hierarchical taxonomies.",
+			"allOf": [
+				{
+					"$ref": "#/properties/id"
+				}
+			]
+		},
+		"meta": {
+			"description": "Meta fields.",
+			"anyOf": [
+				{
+					"type": "array",
+					"tsType": "[]",
+					"items": {},
+					"additionalItems": false
+				},
+				{
+					"type": "object"
+				}
+			]
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	}
 }

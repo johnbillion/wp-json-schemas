@@ -1,242 +1,242 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/post-type.json",
-  "title": "WP_Post_Type",
-  "description": "Core class used for interacting with post types.",
-  "type": "object",
-  "required": [
-    "name",
-    "label",
-    "labels",
-    "description",
-    "public",
-    "hierarchical",
-    "exclude_from_search",
-    "publicly_queryable",
-    "show_ui",
-    "show_in_menu",
-    "show_in_nav_menus",
-    "show_in_admin_bar",
-    "menu_position",
-    "menu_icon",
-    "capability_type",
-    "map_meta_cap",
-    "register_meta_box_cb",
-    "taxonomies",
-    "has_archive",
-    "query_var",
-    "can_export",
-    "delete_with_user",
-    "template",
-    "template_lock",
-    "_builtin",
-    "_edit_link",
-    "cap",
-    "rewrite",
-    "show_in_rest",
-    "rest_base",
-    "rest_controller_class",
-    "rest_controller"
-  ],
-  "properties": {
-    "name": {
-      "description": "Post type key.",
-      "anyOf": [
-        {
-          "$ref": "properties/post-type-name.json"
-        },
-        {
-          "type": "string"
-        }
-      ]
-    },
-    "label": {
-      "description": "Name of the post type shown in the menu. Usually plural.",
-      "type": "string"
-    },
-    "labels": {
-      "description": "Labels object for this post type.",
-      "allOf": [
-        {
-          "$ref": "properties/post-type-labels.json"
-        }
-      ]
-    },
-    "description": {
-      "description": "A short descriptive summary of what the post type is.",
-      "type": "string"
-    },
-    "public": {
-      "description": "Whether a post type is intended for use publicly either via the admin interface or by front-end users.",
-      "type": "boolean"
-    },
-    "hierarchical": {
-      "description": "Whether the post type is hierarchical.",
-      "type": "boolean"
-    },
-    "exclude_from_search": {
-      "description": "Whether to exclude posts with this post type from front end search results.",
-      "type": "boolean"
-    },
-    "publicly_queryable": {
-      "description": "Whether queries can be performed on the front end for the post type as part of `parse_request()`.",
-      "type": "boolean"
-    },
-    "show_ui": {
-      "description": "Whether to generate and allow a UI for managing this post type in the admin.",
-      "type": "boolean"
-    },
-    "show_in_menu": {
-      "description": "Where to show the post type in the admin menu.",
-      "type": [
-        "boolean",
-        "string"
-      ]
-    },
-    "show_in_nav_menus": {
-      "description": "Makes this post type available for selection in navigation menus.",
-      "type": "boolean"
-    },
-    "show_in_admin_bar": {
-      "description": "Makes this post type available via the admin bar.",
-      "type": "boolean"
-    },
-    "menu_position": {
-      "description": "The position in the menu order the post type should appear.",
-      "type": "integer"
-    },
-    "menu_icon": {
-      "description": "The URL or reference to the icon to be used for this menu. Can include a URL, a base64-encoded SVG using a data URI, the name of a Dashicons helper class, or 'none'.",
-      "anyOf": [
-        {
-          "type": "string",
-          "format": "uri"
-        },
-        {
-          "type": "string"
-        },
-        {
-          "enum": [
-            "none"
-          ]
-        }
-      ]
-  },
-    "capability_type": {
-      "description": "The string to use to build the read, edit, and delete capabilities.",
-      "type": "string"
-    },
-    "map_meta_cap": {
-      "description": "Whether to use the internal default meta capability handling.",
-      "type": "boolean"
-    },
-    "register_meta_box_cb": {
-      "description": "Provide a callback function that sets up the meta boxes for the edit form.",
-      "anyOf": [
-        {
-          "$ref": "properties/callable.json"
-        },
-        {
-          "type": "null"
-        }
-      ]
-    },
-    "taxonomies": {
-      "description": "An array of taxonomy identifiers that will be registered for the post type.",
-      "items": {
-        "anyOf": [
-          {
-            "$ref": "properties/taxonomy-name.json"
-          },
-          {
-            "type": "string"
-          }
-        ]
-      },
-      "type": "array"
-    },
-    "has_archive": {
-      "description": "Whether there should be post type archives, or if a string, the archive slug to use.",
-      "type": [
-        "boolean",
-        "string"
-      ]
-    },
-    "query_var": {
-      "description": "Sets the query_var key for this post type.",
-      "type": [
-        "string",
-        "boolean"
-      ]
-    },
-    "can_export": {
-      "description": "Whether to allow this post type to be exported.",
-      "type": "boolean"
-    },
-    "delete_with_user": {
-      "description": "Whether to delete posts of this type when deleting a user.",
-      "type": "boolean"
-    },
-    "template": {
-      "description": "Array of blocks to use as the default initial state for an editor session.",
-      "type": "array"
-    },
-    "template_lock": {
-      "description": "Whether the block template should be locked if $template is set.",
-      "enum": [
-        false,
-        "all",
-        "insert"
-      ]
-    },
-    "_builtin": {
-      "description": "Whether this post type is a native or 'built-in' post_type.",
-      "type": "boolean"
-    },
-    "_edit_link": {
-      "description": "URL segment to use for edit link of this post type.",
-      "type": "string"
-    },
-    "cap": {
-      "description": "Post type capabilities.",
-      "allOf": [
-        {
-          "$ref": "properties/post-type-caps.json"
-        }
-      ]
-    },
-    "rewrite": {
-      "description": "Triggers the handling of rewrites for this post type.",
-      "oneOf": [
-        {
-          "$ref": "properties/post-type-rewrite.json"
-        },
-        {
-          "type": "boolean"
-        }
-      ]
-    },
-    "supports": {
-      "description": "The features supported by the post type."
-    },
-    "show_in_rest": {
-      "description": "Whether this post type should appear in the REST API.",
-      "type": "boolean"
-    },
-    "rest_base": {
-      "description": "The base path for this post type's REST API endpoints.",
-      "type": [
-        "string",
-        "boolean"
-      ]
-    },
-    "rest_controller_class": {
-      "description": "The controller for this post type's REST API endpoints.",
-      "type": "string"
-    },
-    "rest_controller": {
-      "description": "The controller instance for this post type's REST API endpoints."
-    }
-  },
-  "additionalProperties": false
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/post-type.json",
+	"title": "WP_Post_Type",
+	"description": "Core class used for interacting with post types.",
+	"type": "object",
+	"required": [
+		"name",
+		"label",
+		"labels",
+		"description",
+		"public",
+		"hierarchical",
+		"exclude_from_search",
+		"publicly_queryable",
+		"show_ui",
+		"show_in_menu",
+		"show_in_nav_menus",
+		"show_in_admin_bar",
+		"menu_position",
+		"menu_icon",
+		"capability_type",
+		"map_meta_cap",
+		"register_meta_box_cb",
+		"taxonomies",
+		"has_archive",
+		"query_var",
+		"can_export",
+		"delete_with_user",
+		"template",
+		"template_lock",
+		"_builtin",
+		"_edit_link",
+		"cap",
+		"rewrite",
+		"show_in_rest",
+		"rest_base",
+		"rest_controller_class",
+		"rest_controller"
+	],
+	"properties": {
+		"name": {
+			"description": "Post type key.",
+			"anyOf": [
+				{
+					"$ref": "properties/post-type-name.json"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"label": {
+			"description": "Name of the post type shown in the menu. Usually plural.",
+			"type": "string"
+		},
+		"labels": {
+			"description": "Labels object for this post type.",
+			"allOf": [
+				{
+					"$ref": "properties/post-type-labels.json"
+				}
+			]
+		},
+		"description": {
+			"description": "A short descriptive summary of what the post type is.",
+			"type": "string"
+		},
+		"public": {
+			"description": "Whether a post type is intended for use publicly either via the admin interface or by front-end users.",
+			"type": "boolean"
+		},
+		"hierarchical": {
+			"description": "Whether the post type is hierarchical.",
+			"type": "boolean"
+		},
+		"exclude_from_search": {
+			"description": "Whether to exclude posts with this post type from front end search results.",
+			"type": "boolean"
+		},
+		"publicly_queryable": {
+			"description": "Whether queries can be performed on the front end for the post type as part of `parse_request()`.",
+			"type": "boolean"
+		},
+		"show_ui": {
+			"description": "Whether to generate and allow a UI for managing this post type in the admin.",
+			"type": "boolean"
+		},
+		"show_in_menu": {
+			"description": "Where to show the post type in the admin menu.",
+			"type": [
+				"boolean",
+				"string"
+			]
+		},
+		"show_in_nav_menus": {
+			"description": "Makes this post type available for selection in navigation menus.",
+			"type": "boolean"
+		},
+		"show_in_admin_bar": {
+			"description": "Makes this post type available via the admin bar.",
+			"type": "boolean"
+		},
+		"menu_position": {
+			"description": "The position in the menu order the post type should appear.",
+			"type": "integer"
+		},
+		"menu_icon": {
+			"description": "The URL or reference to the icon to be used for this menu. Can include a URL, a base64-encoded SVG using a data URI, the name of a Dashicons helper class, or 'none'.",
+			"anyOf": [
+				{
+					"type": "string",
+					"format": "uri"
+				},
+				{
+					"type": "string"
+				},
+				{
+					"enum": [
+						"none"
+					]
+				}
+			]
+	},
+		"capability_type": {
+			"description": "The string to use to build the read, edit, and delete capabilities.",
+			"type": "string"
+		},
+		"map_meta_cap": {
+			"description": "Whether to use the internal default meta capability handling.",
+			"type": "boolean"
+		},
+		"register_meta_box_cb": {
+			"description": "Provide a callback function that sets up the meta boxes for the edit form.",
+			"anyOf": [
+				{
+					"$ref": "properties/callable.json"
+				},
+				{
+					"type": "null"
+				}
+			]
+		},
+		"taxonomies": {
+			"description": "An array of taxonomy identifiers that will be registered for the post type.",
+			"items": {
+				"anyOf": [
+					{
+						"$ref": "properties/taxonomy-name.json"
+					},
+					{
+						"type": "string"
+					}
+				]
+			},
+			"type": "array"
+		},
+		"has_archive": {
+			"description": "Whether there should be post type archives, or if a string, the archive slug to use.",
+			"type": [
+				"boolean",
+				"string"
+			]
+		},
+		"query_var": {
+			"description": "Sets the query_var key for this post type.",
+			"type": [
+				"string",
+				"boolean"
+			]
+		},
+		"can_export": {
+			"description": "Whether to allow this post type to be exported.",
+			"type": "boolean"
+		},
+		"delete_with_user": {
+			"description": "Whether to delete posts of this type when deleting a user.",
+			"type": "boolean"
+		},
+		"template": {
+			"description": "Array of blocks to use as the default initial state for an editor session.",
+			"type": "array"
+		},
+		"template_lock": {
+			"description": "Whether the block template should be locked if $template is set.",
+			"enum": [
+				false,
+				"all",
+				"insert"
+			]
+		},
+		"_builtin": {
+			"description": "Whether this post type is a native or 'built-in' post_type.",
+			"type": "boolean"
+		},
+		"_edit_link": {
+			"description": "URL segment to use for edit link of this post type.",
+			"type": "string"
+		},
+		"cap": {
+			"description": "Post type capabilities.",
+			"allOf": [
+				{
+					"$ref": "properties/post-type-caps.json"
+				}
+			]
+		},
+		"rewrite": {
+			"description": "Triggers the handling of rewrites for this post type.",
+			"oneOf": [
+				{
+					"$ref": "properties/post-type-rewrite.json"
+				},
+				{
+					"type": "boolean"
+				}
+			]
+		},
+		"supports": {
+			"description": "The features supported by the post type."
+		},
+		"show_in_rest": {
+			"description": "Whether this post type should appear in the REST API.",
+			"type": "boolean"
+		},
+		"rest_base": {
+			"description": "The base path for this post type's REST API endpoints.",
+			"type": [
+				"string",
+				"boolean"
+			]
+		},
+		"rest_controller_class": {
+			"description": "The controller for this post type's REST API endpoints.",
+			"type": "string"
+		},
+		"rest_controller": {
+			"description": "The controller instance for this post type's REST API endpoints."
+		}
+	},
+	"additionalProperties": false
 }

@@ -1,64 +1,64 @@
 {
-  "$schema": "http://json-schema.org/draft-07/hyper-schema#",
-  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schema.json",
-  "title": "WP",
-  "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
-  "type": "object",
-  "properties" : {
-    "Comment" : {
-      "$ref": "schemas/comment.json"
-    },
-    "Error" : {
-      "$ref": "schemas/error.json"
-    },
-    "Error_With_Error" : {
-      "$ref": "schemas/error-with-error.json"
-    },
-    "Error_Without_Error" : {
-      "$ref": "schemas/error-without-error.json"
-    },
-    "Post" : {
-      "$ref": "schemas/post.json"
-    },
-    "Post_Type" : {
-      "$ref": "schemas/post-type.json"
-    },
-    "Site" : {
-      "$ref": "schemas/site.json"
-    },
-    "Taxonomy" : {
-      "$ref": "schemas/taxonomy.json"
-    },
-    "Term" : {
-      "$ref": "schemas/term.json"
-    },
-    "User" : {
-      "$ref": "schemas/user.json"
-    },
-    "REST_API": {
-      "type": "object",
-      "properties" : {
-        "Comment" : {
-          "$ref": "schemas/rest-api/comment.json"
-        },
-        "Post" : {
-          "$ref": "schemas/rest-api/post.json"
-        },
-        "Media" : {
-          "$ref": "schemas/rest-api/media.json"
-        },
-        "Term" : {
-          "$ref": "schemas/rest-api/term.json"
-        },
-        "User" : {
-          "$ref": "schemas/rest-api/user.json"
-        },
-        "Error" : {
-          "$ref": "schemas/rest-api/error.json"
-        }
-      },
-      "additionalProperties": false
-    }
-  },
-  "additionalProperties": false
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schema.json",
+	"title": "WP",
+	"description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
+	"type": "object",
+	"properties" : {
+		"Comment" : {
+			"$ref": "schemas/comment.json"
+		},
+		"Error" : {
+			"$ref": "schemas/error.json"
+		},
+		"Error_With_Error" : {
+			"$ref": "schemas/error-with-error.json"
+		},
+		"Error_Without_Error" : {
+			"$ref": "schemas/error-without-error.json"
+		},
+		"Post" : {
+			"$ref": "schemas/post.json"
+		},
+		"Post_Type" : {
+			"$ref": "schemas/post-type.json"
+		},
+		"Site" : {
+			"$ref": "schemas/site.json"
+		},
+		"Taxonomy" : {
+			"$ref": "schemas/taxonomy.json"
+		},
+		"Term" : {
+			"$ref": "schemas/term.json"
+		},
+		"User" : {
+			"$ref": "schemas/user.json"
+		},
+		"REST_API": {
+			"type": "object",
+			"properties" : {
+				"Comment" : {
+					"$ref": "schemas/rest-api/comment.json"
+				},
+				"Post" : {
+					"$ref": "schemas/rest-api/post.json"
+				},
+				"Media" : {
+					"$ref": "schemas/rest-api/media.json"
+				},
+				"Term" : {
+					"$ref": "schemas/rest-api/term.json"
+				},
+				"User" : {
+					"$ref": "schemas/rest-api/user.json"
+				},
+				"Error" : {
+					"$ref": "schemas/rest-api/error.json"
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"additionalProperties": false
 }

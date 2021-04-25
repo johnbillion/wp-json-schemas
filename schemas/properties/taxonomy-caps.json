@@ -1,28 +1,28 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/properties/taxonomy-caps.json",
-  "title": "WP_Taxonomy_Caps",
-  "type": "object",
-  "description": "Taxonomy capabilities.",
-  "required": [
-    "manage_terms",
-    "edit_terms",
-    "delete_terms",
-    "assign_terms"
-  ],
-  "properties": {
-    "manage_terms": {
-      "$ref": "user-cap-name.json"
-    },
-    "edit_terms": {
-      "$ref": "user-cap-name.json"
-    },
-    "delete_terms": {
-      "$ref": "user-cap-name.json"
-    },
-    "assign_terms": {
-      "$ref": "user-cap-name.json"
-    }
-  },
-  "additionalProperties": false
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/properties/taxonomy-caps.json",
+	"title": "WP_Taxonomy_Caps",
+	"type": "object",
+	"description": "Taxonomy capabilities.",
+	"required": [
+		"manage_terms",
+		"edit_terms",
+		"delete_terms",
+		"assign_terms"
+	],
+	"properties": {
+		"manage_terms": {
+			"$ref": "user-cap-name.json"
+		},
+		"edit_terms": {
+			"$ref": "user-cap-name.json"
+		},
+		"delete_terms": {
+			"$ref": "user-cap-name.json"
+		},
+		"assign_terms": {
+			"$ref": "user-cap-name.json"
+		}
+	},
+	"additionalProperties": false
 }

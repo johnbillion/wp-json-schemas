@@ -1,80 +1,80 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/term.json",
-  "title": "WP_Term",
-  "description": "Core class used to implement the WP_Term object.",
-  "type": "object",
-  "required": [
-    "term_id",
-    "name",
-    "slug",
-    "term_group",
-    "term_taxonomy_id",
-    "taxonomy",
-    "description",
-    "parent",
-    "count",
-    "filter"
-  ],
-  "properties": {
-    "term_id": {
-      "description": "Term ID.",
-      "type": "integer"
-    },
-    "name": {
-      "description": "The term's name.",
-      "type": "string"
-    },
-    "slug": {
-      "description": "The term's slug.",
-      "type": "string"
-    },
-    "term_group": {
-      "description": "The term's term_group.",
-      "type": "integer"
-    },
-    "term_taxonomy_id": {
-      "description": "Term Taxonomy ID.",
-      "type": "integer"
-    },
-    "taxonomy": {
-      "description": "The term's taxonomy name.",
-      "anyOf": [
-        {
-          "$ref": "properties/taxonomy-name.json"
-        },
-        {
-          "type": "string"
-        }
-      ]
-    },
-    "description": {
-      "description": "The term's description.",
-      "type": "string"
-    },
-    "parent": {
-      "description": "ID of a term's parent term.",
-      "allOf": [
-        {
-          "$ref": "#/properties/term_id"
-        }
-      ]
-    },
-    "count": {
-      "description": "Cached object count for this term.",
-      "type": "integer"
-    },
-    "filter": {
-      "description": "Stores the term object's sanitization level.",
-      "anyOf": [
-        {
-          "$ref": "properties/object-filter-context.json"
-        },
-        {
-          "type": "null"
-        }
-      ]
-    }
-  },
-  "additionalProperties": false
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/term.json",
+	"title": "WP_Term",
+	"description": "Core class used to implement the WP_Term object.",
+	"type": "object",
+	"required": [
+		"term_id",
+		"name",
+		"slug",
+		"term_group",
+		"term_taxonomy_id",
+		"taxonomy",
+		"description",
+		"parent",
+		"count",
+		"filter"
+	],
+	"properties": {
+		"term_id": {
+			"description": "Term ID.",
+			"type": "integer"
+		},
+		"name": {
+			"description": "The term's name.",
+			"type": "string"
+		},
+		"slug": {
+			"description": "The term's slug.",
+			"type": "string"
+		},
+		"term_group": {
+			"description": "The term's term_group.",
+			"type": "integer"
+		},
+		"term_taxonomy_id": {
+			"description": "Term Taxonomy ID.",
+			"type": "integer"
+		},
+		"taxonomy": {
+			"description": "The term's taxonomy name.",
+			"anyOf": [
+				{
+					"$ref": "properties/taxonomy-name.json"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"description": {
+			"description": "The term's description.",
+			"type": "string"
+		},
+		"parent": {
+			"description": "ID of a term's parent term.",
+			"allOf": [
+				{
+					"$ref": "#/properties/term_id"
+				}
+			]
+		},
+		"count": {
+			"description": "Cached object count for this term.",
+			"type": "integer"
+		},
+		"filter": {
+			"description": "Stores the term object's sanitization level.",
+			"anyOf": [
+				{
+					"$ref": "properties/object-filter-context.json"
+				},
+				{
+					"type": "null"
+				}
+			]
+		}
+	},
+	"additionalProperties": false
 }

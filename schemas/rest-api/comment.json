@@ -1,272 +1,272 @@
 {
-  "$schema": "http://json-schema.org/draft-07/hyper-schema#",
-  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/comment.json",
-  "title": "WP_REST_API_Comment",
-  "description": "A comment object in a REST API context.",
-  "type": "object",
-  "required": [
-    "id",
-    "author",
-    "author_name",
-    "author_url",
-    "content",
-    "date",
-    "date_gmt",
-    "link",
-    "parent",
-    "post",
-    "status",
-    "type",
-    "meta",
-    "_links"
-  ],
-  "properties": {
-    "id": {
-      "description": "Unique identifier for the object.",
-      "type": "integer"
-    },
-    "author": {
-      "description": "The ID of the user object, if author was a user.",
-      "allOf": [
-        {
-          "$ref": "user.json#/properties/id"
-        }
-      ]
-    },
-    "author_email": {
-      "description": "Email address for the object author. Only present when using the 'edit' context.",
-      "type": "string",
-      "format": "email"
-    },
-    "author_ip": {
-      "description": "IP address for the object author. Only present when using the 'edit' context.",
-      "type": "string"
-    },
-    "author_name": {
-      "description": "Display name for the object author.",
-      "type": "string"
-    },
-    "author_url": {
-      "description": "URL for the object author.",
-      "type": "string",
-      "format": "uri"
-    },
-    "author_user_agent": {
-      "description": "User agent for the object author. Only present when using the 'edit' context.",
-      "type": "string"
-    },
-    "content": {
-      "description": "The content for the object.",
-      "type": "object",
-      "properties": {
-        "raw": {
-          "description": "Content for the object, as it exists in the database. Only present when using the 'edit' context.",
-          "type": "string"
-        },
-        "rendered": {
-          "description": "HTML content for the object, transformed for display.",
-          "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
-    "date": {
-      "description": "The date the object was published, in the site's timezone.",
-      "anyOf": [
-        {
-          "$ref": "properties/date-time.json"
-        }
-      ]
-    },
-    "date_gmt": {
-      "description": "The date the object was published, as GMT.",
-      "anyOf": [
-        {
-          "$ref": "properties/date-time.json"
-        }
-      ]
-    },
-    "link": {
-      "description": "URL to the object.",
-      "type": "string",
-      "format": "uri"
-    },
-    "parent": {
-      "description": "The ID for the parent of the object.",
-      "allOf": [
-        {
-          "$ref": "#/properties/id"
-        }
-      ]
-    },
-    "post": {
-      "description": "The ID of the associated post object.",
-      "allOf": [
-        {
-          "$ref": "post.json#/properties/id"
-        }
-      ]
-    },
-    "status": {
-      "description": "State of the object.",
-      "anyOf": [
-        {
-          "$ref": "../properties/comment-status-name.json"
-        },
-        {
-          "type": "string"
-        }
-      ]
-    },
-    "type": {
-      "description": "Type of Comment for the object.",
-      "anyOf": [
-        {
-          "$ref": "../properties/comment-type-name.json"
-        },
-        {
-          "type": "string"
-        }
-      ]
-    },
-    "author_avatar_urls": {
-      "description": "Avatar URLs for the object author.",
-      "type": "object",
-      "required": [
-        "24",
-        "48",
-        "96"
-      ],
-      "properties": {
-        "24": {
-          "description": "Avatar URL with image size of 24 pixels.",
-          "type": "string",
-          "format": "uri"
-        },
-        "48": {
-          "description": "Avatar URL with image size of 48 pixels.",
-          "type": "string",
-          "format": "uri"
-        },
-        "96": {
-          "description": "Avatar URL with image size of 96 pixels.",
-          "type": "string",
-          "format": "uri"
-        }
-      },
-      "additionalProperties": {
-        "description": "Avatar URL with image of another size.",
-        "type": "string",
-        "format": "uri"
-      }
-    },
-    "meta": {
-      "description": "Meta fields.",
-      "anyOf": [
-        {
-          "type": "array",
-          "tsType": "[]",
-          "items": {},
-          "additionalItems": false
-        },
-        {
-          "type": "object"
-        }
-      ]
-    },
-    "_links": {
-      "$ref": "properties/object-links.json"
-    },
-    "_embedded": {
-      "description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
-      "type": "object",
-      "required": [
-        "author"
-      ],
-      "properties": {
-        "author": {
-          "description": "The author of the comment.",
-          "type": "array"
-        },
-        "up": {
-          "description": "The associated post.",
-          "type": "array"
-        }
-      }
-    }
-  },
-  "links": [
-    {
-      "rel": "self",
-      "href": "/wp/v2/comments/{id}",
-      "hrefSchema": {
-        "properties": {
-          "id": {
-            "$ref": "#/properties/id"
-          }
-        }
-      },
-      "targetSchema": {
-        "$ref": "#"
-      }
-    },
-    {
-      "rel": "collection",
-      "href": "/wp/v2/comments",
-      "targetSchema": {
-        "type": "array",
-        "items": {
-          "$ref": "#"
-        }
-      }
-    },
-    {
-      "rel": "author",
-      "href": "/wp/v2/users/{author}",
-      "hrefSchema": {
-        "properties": {
-          "author": {
-            "$ref": "#/properties/author"
-          }
-        }
-      },
-      "targetSchema": {
-        "$ref": "user.json"
-      }
-    },
-    {
-      "rel": "up",
-      "href": "/wp/v2/posts/{post}",
-      "hrefSchema": {
-        "properties": {
-          "post": {
-            "$ref": "#/properties/post"
-          }
-        }
-      },
-      "targetSchema": {
-        "type": "array",
-        "items": {
-          "$ref": "post.json"
-        }
-      }
-    },
-    {
-      "rel": "in-reply-to",
-      "href": "/wp/v2/comments/{parent}",
-      "hrefSchema": {
-        "properties": {
-          "parent": {
-            "$ref": "#/properties/parent"
-          }
-        }
-      },
-      "targetSchema": {
-        "type": "array",
-        "items": {
-          "$ref": "#"
-        }
-      }
-    }
-  ]
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/comment.json",
+	"title": "WP_REST_API_Comment",
+	"description": "A comment object in a REST API context.",
+	"type": "object",
+	"required": [
+		"id",
+		"author",
+		"author_name",
+		"author_url",
+		"content",
+		"date",
+		"date_gmt",
+		"link",
+		"parent",
+		"post",
+		"status",
+		"type",
+		"meta",
+		"_links"
+	],
+	"properties": {
+		"id": {
+			"description": "Unique identifier for the object.",
+			"type": "integer"
+		},
+		"author": {
+			"description": "The ID of the user object, if author was a user.",
+			"allOf": [
+				{
+					"$ref": "user.json#/properties/id"
+				}
+			]
+		},
+		"author_email": {
+			"description": "Email address for the object author. Only present when using the 'edit' context.",
+			"type": "string",
+			"format": "email"
+		},
+		"author_ip": {
+			"description": "IP address for the object author. Only present when using the 'edit' context.",
+			"type": "string"
+		},
+		"author_name": {
+			"description": "Display name for the object author.",
+			"type": "string"
+		},
+		"author_url": {
+			"description": "URL for the object author.",
+			"type": "string",
+			"format": "uri"
+		},
+		"author_user_agent": {
+			"description": "User agent for the object author. Only present when using the 'edit' context.",
+			"type": "string"
+		},
+		"content": {
+			"description": "The content for the object.",
+			"type": "object",
+			"properties": {
+				"raw": {
+					"description": "Content for the object, as it exists in the database. Only present when using the 'edit' context.",
+					"type": "string"
+				},
+				"rendered": {
+					"description": "HTML content for the object, transformed for display.",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"date": {
+			"description": "The date the object was published, in the site's timezone.",
+			"anyOf": [
+				{
+					"$ref": "properties/date-time.json"
+				}
+			]
+		},
+		"date_gmt": {
+			"description": "The date the object was published, as GMT.",
+			"anyOf": [
+				{
+					"$ref": "properties/date-time.json"
+				}
+			]
+		},
+		"link": {
+			"description": "URL to the object.",
+			"type": "string",
+			"format": "uri"
+		},
+		"parent": {
+			"description": "The ID for the parent of the object.",
+			"allOf": [
+				{
+					"$ref": "#/properties/id"
+				}
+			]
+		},
+		"post": {
+			"description": "The ID of the associated post object.",
+			"allOf": [
+				{
+					"$ref": "post.json#/properties/id"
+				}
+			]
+		},
+		"status": {
+			"description": "State of the object.",
+			"anyOf": [
+				{
+					"$ref": "../properties/comment-status-name.json"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"type": {
+			"description": "Type of Comment for the object.",
+			"anyOf": [
+				{
+					"$ref": "../properties/comment-type-name.json"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"author_avatar_urls": {
+			"description": "Avatar URLs for the object author.",
+			"type": "object",
+			"required": [
+				"24",
+				"48",
+				"96"
+			],
+			"properties": {
+				"24": {
+					"description": "Avatar URL with image size of 24 pixels.",
+					"type": "string",
+					"format": "uri"
+				},
+				"48": {
+					"description": "Avatar URL with image size of 48 pixels.",
+					"type": "string",
+					"format": "uri"
+				},
+				"96": {
+					"description": "Avatar URL with image size of 96 pixels.",
+					"type": "string",
+					"format": "uri"
+				}
+			},
+			"additionalProperties": {
+				"description": "Avatar URL with image of another size.",
+				"type": "string",
+				"format": "uri"
+			}
+		},
+		"meta": {
+			"description": "Meta fields.",
+			"anyOf": [
+				{
+					"type": "array",
+					"tsType": "[]",
+					"items": {},
+					"additionalItems": false
+				},
+				{
+					"type": "object"
+				}
+			]
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		},
+		"_embedded": {
+			"description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
+			"type": "object",
+			"required": [
+				"author"
+			],
+			"properties": {
+				"author": {
+					"description": "The author of the comment.",
+					"type": "array"
+				},
+				"up": {
+					"description": "The associated post.",
+					"type": "array"
+				}
+			}
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/comments/{id}",
+			"hrefSchema": {
+				"properties": {
+					"id": {
+						"$ref": "#/properties/id"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/comments",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		},
+		{
+			"rel": "author",
+			"href": "/wp/v2/users/{author}",
+			"hrefSchema": {
+				"properties": {
+					"author": {
+						"$ref": "#/properties/author"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "user.json"
+			}
+		},
+		{
+			"rel": "up",
+			"href": "/wp/v2/posts/{post}",
+			"hrefSchema": {
+				"properties": {
+					"post": {
+						"$ref": "#/properties/post"
+					}
+				}
+			},
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "post.json"
+				}
+			}
+		},
+		{
+			"rel": "in-reply-to",
+			"href": "/wp/v2/comments/{parent}",
+			"hrefSchema": {
+				"properties": {
+					"parent": {
+						"$ref": "#/properties/parent"
+					}
+				}
+			},
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
 }

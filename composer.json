@@ -1,56 +1,56 @@
 {
-    "name": "johnbillion/wp-json-schemas",
-    "description": "JSON schemas for WordPress PHP objects and REST API responses",
-    "homepage": "https://github.com/johnbillion/wp-json-schemas/",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "John Blackbourn",
-            "homepage": "https://johnblackbourn.com/"
-        }
-    ],
-    "require": {
-        "php": "^7 || ^8"
-    },
-    "require-dev": {
-        "ergebnis/composer-normalize": "^2",
-        "roots/wordpress": "*",
-        "vlucas/phpdotenv": "^5",
-        "wp-cli/db-command": "^2",
-        "wp-cli/core-command": "^2"
-    },
-    "config": {
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
-    "extra": {
-        "wordpress-install-dir": "tests/wordpress"
-    },
-    "scripts": {
-        "post-update-cmd": [
-            "@php -r \"! file_exists( 'tests/.env' ) && copy( 'tests/.env.dist', 'tests/.env' );\""
-        ],
-        "test": [
-            "wp db reset --yes",
-            "wp core multisite-install --url=example.org --title=Example --admin_user=admin --admin_email=admin@example.org --skip-email",
-            "wp json-dump post",
-            "npm run test-post",
-            "wp json-dump tag",
-            "npm run test-tag",
-            "wp json-dump category",
-            "npm run test-category",
-            "wp json-dump comment",
-            "npm run test-comment",
-            "wp json-dump error",
-            "npm run test-error",
-            "wp json-dump user",
-            "npm run test-user"
-        ]
-    },
-    "funding": [
-        {
-            "type": "github",
-            "url": "https://github.com/sponsors/johnbillion"
-        }
-    ]
+	"name": "johnbillion/wp-json-schemas",
+	"description": "JSON schemas for WordPress PHP objects and REST API responses",
+	"homepage": "https://github.com/johnbillion/wp-json-schemas/",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "John Blackbourn",
+			"homepage": "https://johnblackbourn.com/"
+		}
+	],
+	"require": {
+		"php": "^7 || ^8"
+	},
+	"require-dev": {
+		"ergebnis/composer-normalize": "^2",
+		"roots/wordpress": "*",
+		"vlucas/phpdotenv": "^5",
+		"wp-cli/db-command": "^2",
+		"wp-cli/core-command": "^2"
+	},
+	"config": {
+		"preferred-install": "dist",
+		"sort-packages": true
+	},
+	"extra": {
+		"wordpress-install-dir": "tests/wordpress"
+	},
+	"scripts": {
+		"post-update-cmd": [
+			"@php -r \"! file_exists( 'tests/.env' ) && copy( 'tests/.env.dist', 'tests/.env' );\""
+		],
+		"test": [
+			"wp db reset --yes",
+			"wp core multisite-install --url=example.org --title=Example --admin_user=admin --admin_email=admin@example.org --skip-email",
+			"wp json-dump post",
+			"npm run test-post",
+			"wp json-dump tag",
+			"npm run test-tag",
+			"wp json-dump category",
+			"npm run test-category",
+			"wp json-dump comment",
+			"npm run test-comment",
+			"wp json-dump error",
+			"npm run test-error",
+			"wp json-dump user",
+			"npm run test-user"
+		]
+	},
+	"funding": [
+		{
+			"type": "github",
+			"url": "https://github.com/sponsors/johnbillion"
+		}
+	]
 }

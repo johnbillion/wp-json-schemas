@@ -1,114 +1,114 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/comment.json",
-  "title": "WP_Comment",
-  "description": "Core class used to organize comments as instantiated objects with defined members.",
-  "type": "object",
-  "required": [
-    "comment_ID",
-    "comment_post_ID",
-    "comment_author",
-    "comment_author_email",
-    "comment_author_url",
-    "comment_author_IP",
-    "comment_date",
-    "comment_date_gmt",
-    "comment_content",
-    "comment_karma",
-    "comment_approved",
-    "comment_agent",
-    "comment_type",
-    "comment_parent",
-    "user_id"
-  ],
-  "properties": {
-    "comment_ID": {
-      "description": "Comment ID.\n\nA numeric string, for compatibility reasons.",
-      "type": "string"
-    },
-    "comment_post_ID": {
-      "description": "ID of the post the comment is associated with.\n\nA numeric string, for compatibility reasons.",
-      "type": "string"
-    },
-    "comment_author": {
-      "description": "Comment author name.",
-      "type": "string"
-    },
-    "comment_author_email": {
-      "description": "Comment author email address.",
-      "type": "string",
-      "format": "email"
-    },
-    "comment_author_url": {
-      "description": "Comment author URL.",
-      "type": "string",
-      "format": "uri"
-    },
-    "comment_author_IP": {
-      "description": "Comment author IP address (IPv4 format).",
-      "type": "string"
-    },
-    "comment_date": {
-      "description": "Comment date in YYYY-MM-DD HH:MM:SS format.",
-      "anyOf": [
-        {
-          "$ref": "properties/date-time.json"
-        }
-      ]
-    },
-    "comment_date_gmt": {
-      "description": "Comment GMT date in YYYY-MM-DD HH::MM:SS format.",
-      "anyOf": [
-        {
-          "$ref": "properties/date-time.json"
-        }
-      ]
-    },
-    "comment_content": {
-      "description": "Comment content.",
-      "type": "string"
-    },
-    "comment_karma": {
-      "description": "Comment karma count.\n\nA numeric string, for compatibility reasons.",
-      "type": "string"
-    },
-    "comment_approved": {
-      "description": "Comment approval status.",
-      "enum": [
-        "0",
-        "1",
-        "spam",
-        "trash"
-      ],
-      "type": "string"
-    },
-    "comment_agent": {
-      "description": "Comment author HTTP user agent.",
-      "type": "string"
-    },
-    "comment_type": {
-      "description": "Comment type.",
-      "anyOf": [
-        {
-          "$ref": "properties/comment-type-name.json"
-        },
-        {
-          "type": "string"
-        }
-      ]
-    },
-    "comment_parent": {
-      "description": "Parent comment ID.\n\nA numeric string, for compatibility reasons.",
-      "allOf": [
-        {
-          "$ref": "#/properties/comment_ID"
-        }
-      ]
-    },
-    "user_id": {
-      "description": "Comment author ID.\n\nA numeric string, for compatibility reasons.",
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/comment.json",
+	"title": "WP_Comment",
+	"description": "Core class used to organize comments as instantiated objects with defined members.",
+	"type": "object",
+	"required": [
+		"comment_ID",
+		"comment_post_ID",
+		"comment_author",
+		"comment_author_email",
+		"comment_author_url",
+		"comment_author_IP",
+		"comment_date",
+		"comment_date_gmt",
+		"comment_content",
+		"comment_karma",
+		"comment_approved",
+		"comment_agent",
+		"comment_type",
+		"comment_parent",
+		"user_id"
+	],
+	"properties": {
+		"comment_ID": {
+			"description": "Comment ID.\n\nA numeric string, for compatibility reasons.",
+			"type": "string"
+		},
+		"comment_post_ID": {
+			"description": "ID of the post the comment is associated with.\n\nA numeric string, for compatibility reasons.",
+			"type": "string"
+		},
+		"comment_author": {
+			"description": "Comment author name.",
+			"type": "string"
+		},
+		"comment_author_email": {
+			"description": "Comment author email address.",
+			"type": "string",
+			"format": "email"
+		},
+		"comment_author_url": {
+			"description": "Comment author URL.",
+			"type": "string",
+			"format": "uri"
+		},
+		"comment_author_IP": {
+			"description": "Comment author IP address (IPv4 format).",
+			"type": "string"
+		},
+		"comment_date": {
+			"description": "Comment date in YYYY-MM-DD HH:MM:SS format.",
+			"anyOf": [
+				{
+					"$ref": "properties/date-time.json"
+				}
+			]
+		},
+		"comment_date_gmt": {
+			"description": "Comment GMT date in YYYY-MM-DD HH::MM:SS format.",
+			"anyOf": [
+				{
+					"$ref": "properties/date-time.json"
+				}
+			]
+		},
+		"comment_content": {
+			"description": "Comment content.",
+			"type": "string"
+		},
+		"comment_karma": {
+			"description": "Comment karma count.\n\nA numeric string, for compatibility reasons.",
+			"type": "string"
+		},
+		"comment_approved": {
+			"description": "Comment approval status.",
+			"enum": [
+				"0",
+				"1",
+				"spam",
+				"trash"
+			],
+			"type": "string"
+		},
+		"comment_agent": {
+			"description": "Comment author HTTP user agent.",
+			"type": "string"
+		},
+		"comment_type": {
+			"description": "Comment type.",
+			"anyOf": [
+				{
+					"$ref": "properties/comment-type-name.json"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"comment_parent": {
+			"description": "Parent comment ID.\n\nA numeric string, for compatibility reasons.",
+			"allOf": [
+				{
+					"$ref": "#/properties/comment_ID"
+				}
+			]
+		},
+		"user_id": {
+			"description": "Comment author ID.\n\nA numeric string, for compatibility reasons.",
+			"type": "string"
+		}
+	},
+	"additionalProperties": false
 }

@@ -1,72 +1,72 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/properties/post-type-caps.json",
-  "title": "WP_Post_Type_Caps",
-  "type": "object",
-  "description": "Post type capabilities.",
-  "required": [
-    "edit_post",
-    "read_post",
-    "delete_post",
-    "edit_posts",
-    "edit_others_posts",
-    "delete_posts",
-    "publish_posts",
-    "read_private_posts",
-    "read",
-    "delete_private_posts",
-    "delete_published_posts",
-    "delete_others_posts",
-    "edit_private_posts",
-    "edit_published_posts",
-    "create_posts"
-  ],
-  "properties": {
-    "edit_post": {
-      "$ref": "user-cap-name.json"
-    },
-    "read_post": {
-      "$ref": "user-cap-name.json"
-    },
-    "delete_post": {
-      "$ref": "user-cap-name.json"
-    },
-    "edit_posts": {
-      "$ref": "user-cap-name.json"
-    },
-    "edit_others_posts": {
-      "$ref": "user-cap-name.json"
-    },
-    "delete_posts": {
-      "$ref": "user-cap-name.json"
-    },
-    "publish_posts": {
-      "$ref": "user-cap-name.json"
-    },
-    "read_private_posts": {
-      "$ref": "user-cap-name.json"
-    },
-    "read": {
-      "$ref": "user-cap-name.json"
-    },
-    "delete_private_posts": {
-      "$ref": "user-cap-name.json"
-    },
-    "delete_published_posts": {
-      "$ref": "user-cap-name.json"
-    },
-    "delete_others_posts": {
-      "$ref": "user-cap-name.json"
-    },
-    "edit_private_posts": {
-      "$ref": "user-cap-name.json"
-    },
-    "edit_published_posts": {
-      "$ref": "user-cap-name.json"
-    },
-    "create_posts": {
-      "$ref": "user-cap-name.json"
-    }
-  },
-  "additionalProperties": false
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/properties/post-type-caps.json",
+	"title": "WP_Post_Type_Caps",
+	"type": "object",
+	"description": "Post type capabilities.",
+	"required": [
+		"edit_post",
+		"read_post",
+		"delete_post",
+		"edit_posts",
+		"edit_others_posts",
+		"delete_posts",
+		"publish_posts",
+		"read_private_posts",
+		"read",
+		"delete_private_posts",
+		"delete_published_posts",
+		"delete_others_posts",
+		"edit_private_posts",
+		"edit_published_posts",
+		"create_posts"
+	],
+	"properties": {
+		"edit_post": {
+			"$ref": "user-cap-name.json"
+		},
+		"read_post": {
+			"$ref": "user-cap-name.json"
+		},
+		"delete_post": {
+			"$ref": "user-cap-name.json"
+		},
+		"edit_posts": {
+			"$ref": "user-cap-name.json"
+		},
+		"edit_others_posts": {
+			"$ref": "user-cap-name.json"
+		},
+		"delete_posts": {
+			"$ref": "user-cap-name.json"
+		},
+		"publish_posts": {
+			"$ref": "user-cap-name.json"
+		},
+		"read_private_posts": {
+			"$ref": "user-cap-name.json"
+		},
+		"read": {
+			"$ref": "user-cap-name.json"
+		},
+		"delete_private_posts": {
+			"$ref": "user-cap-name.json"
+		},
+		"delete_published_posts": {
+			"$ref": "user-cap-name.json"
+		},
+		"delete_others_posts": {
+			"$ref": "user-cap-name.json"
+		},
+		"edit_private_posts": {
+			"$ref": "user-cap-name.json"
+		},
+		"edit_published_posts": {
+			"$ref": "user-cap-name.json"
+		},
+		"create_posts": {
+			"$ref": "user-cap-name.json"
+		}
+	},
+	"additionalProperties": false
 }
