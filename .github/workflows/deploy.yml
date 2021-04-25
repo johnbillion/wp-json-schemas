@@ -106,11 +106,11 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
 
-      - run: cd packages/wp-types
-
-      - run: npm install
-
-      - run: npm publish --access public
+      - name: Deploy to npm
+        run: |
+          cd packages/wp-types
+          npm install
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
