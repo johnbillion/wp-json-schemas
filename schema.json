@@ -84,8 +84,38 @@
 					"$ref": "schemas/rest-api/error.json"
 				}
 			},
+			"required": [
+				"Comment",
+				"Comments",
+				"Post",
+				"Posts",
+				"Attachments",
+				"Attachment",
+				"Term",
+				"Terms",
+				"Tag",
+				"Tags",
+				"Category",
+				"Categories",
+				"User",
+				"Users",
+				"Error"
+			],
 			"additionalProperties": false
 		}
 	},
+	"required": [
+		"Comment",
+		"Error",
+		"Error_With_Error",
+		"Error_Without_Error",
+		"Post",
+		"Post_Type",
+		"Site",
+		"Taxonomy",
+		"Term",
+		"User",
+		"REST_API"
+	],
 	"additionalProperties": false
 }

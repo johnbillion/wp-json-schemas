@@ -62,32 +62,32 @@ export type WP_REST_API_Users = WP_REST_API_User[];
  * WordPress is open source software you can use to create a beautiful website, blog, or app.
  */
 export interface WP {
-	Comment?: WP_Comment;
-	Error?: WP_Error;
-	Error_With_Error?: WP_Error_With_Error;
-	Error_Without_Error?: WP_Error_Without_Error;
-	Post?: WP_Post;
-	Post_Type?: WP_Post_Type;
-	Site?: WP_Site;
-	Taxonomy?: WP_Taxonomy;
-	Term?: WP_Term;
-	User?: WP_User;
-	REST_API?: {
-		Comment?: WP_REST_API_Comment;
-		Comments?: WP_REST_API_Comments;
-		Post?: WP_REST_API_Post;
-		Posts?: WP_REST_API_Posts;
-		Attachments?: WP_REST_API_Attachments;
-		Attachment?: WP_REST_API_Attachment;
-		Term?: WP_REST_API_Term;
-		Terms?: WP_REST_API_Terms;
-		Tag?: WP_REST_API_Tag;
-		Tags?: WP_REST_API_Tags;
-		Category?: WP_REST_API_Category;
-		Categories?: WP_REST_API_Categories;
-		User?: WP_REST_API_User;
-		Users?: WP_REST_API_Users;
-		Error?: WP_REST_API_Error;
+	Comment: WP_Comment;
+	Error: WP_Error;
+	Error_With_Error: WP_Error_With_Error;
+	Error_Without_Error: WP_Error_Without_Error;
+	Post: WP_Post;
+	Post_Type: WP_Post_Type;
+	Site: WP_Site;
+	Taxonomy: WP_Taxonomy;
+	Term: WP_Term;
+	User: WP_User;
+	REST_API: {
+		Comment: WP_REST_API_Comment;
+		Comments: WP_REST_API_Comments;
+		Post: WP_REST_API_Post;
+		Posts: WP_REST_API_Posts;
+		Attachments: WP_REST_API_Attachments;
+		Attachment: WP_REST_API_Attachment;
+		Term: WP_REST_API_Term;
+		Terms: WP_REST_API_Terms;
+		Tag: WP_REST_API_Tag;
+		Tags: WP_REST_API_Tags;
+		Category: WP_REST_API_Category;
+		Categories: WP_REST_API_Categories;
+		User: WP_REST_API_User;
+		Users: WP_REST_API_Users;
+		Error: WP_REST_API_Error;
 	};
 }
 /**
