@@ -99,6 +99,9 @@ import type {
 	WP_REST_API_Posts,
 	WP_REST_API_Users,
 	WP_REST_API_Attachments,
+	WP_REST_API_Tags,
+	WP_REST_API_Envelope,
+	WP_REST_API_Error,
 } from 'wp-types';
 
 // Posts, Pages, and custom post types:
