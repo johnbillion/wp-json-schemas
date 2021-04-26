@@ -25,6 +25,8 @@ This package provides well-documented TypeScript definitions that describe the s
 
 ### Interfaces for REST API response objects
 
+Schema                    | Applies to
+------------------------- | ----------
 `WP_REST_API_Posts`       | /wp/v2/posts <br> /wp/v2/pages
 `WP_REST_API_Post`        | /wp/v2/posts/{id} <br> /wp/v2/pages/{id}
 `WP_REST_API_Tags`        | /wp/v2/tags
@@ -40,6 +42,7 @@ This package provides well-documented TypeScript definitions that describe the s
 `WP_REST_API_Attachments` | /wp/v2/media
 `WP_REST_API_Attachment`  | /wp/v2/media/{id}
 `WP_REST_API_Error`       | Any REST API error
+`WP_REST_API_Envelope<T>` | Any enveloped REST API response
 
 ### Properties
 
@@ -111,6 +114,11 @@ const api: Promise<WP_REST_API_Users> = wp.apiFetch( {
 // Media attachments:
 const api: Promise<WP_REST_API_Attachments> = wp.apiFetch( {
 	path: '/wp/v2/media/',
+} );
+
+// Enveloped responses (with `?_envelope`):
+const api: Promise<WP_REST_API_Envelope<WP_REST_API_Tags>> = wp.apiFetch( {
+	path: '/wp/v2/tags/?_envelope',
 } );
 
 // Errors from any of the above:
