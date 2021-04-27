@@ -25,11 +25,13 @@
 		},
 		"domain": {
 			"description": "Domain of the site.",
-			"type": "string"
+			"type": "string",
+			"format": "hostname"
 		},
 		"path": {
 			"description": "Path of the site.",
-			"type": "string"
+			"type": "string",
+			"format": "uri-reference"
 		},
 		"site_id": {
 			"description": "The ID of the site's parent network.\n\nNamed \"site\" vs. \"network\" for legacy reasons. An individual site's \"site\" is its network.\n\nA numeric string, for compatibility reasons.",

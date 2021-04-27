@@ -41,12 +41,31 @@
 		},
 		"comment_author_url": {
 			"description": "Comment author URL.",
-			"type": "string",
-			"format": "uri"
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri"
+				},
+				{
+					"type": "string",
+					"enum": [
+						""
+					]
+				}
+			]
 		},
 		"comment_author_IP": {
 			"description": "Comment author IP address (IPv4 format).",
-			"type": "string"
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "ipv4"
+				},
+				{
+					"type": "string",
+					"format": "ipv6"
+				}
+			]
 		},
 		"comment_date": {
 			"description": "Comment date in YYYY-MM-DD HH:MM:SS format.",
@@ -79,8 +98,7 @@
 				"1",
 				"spam",
 				"trash"
-			],
-			"type": "string"
+			]
 		},
 		"comment_agent": {
 			"description": "Comment author HTTP user agent.",

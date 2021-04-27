@@ -14,8 +14,7 @@
 			"enum": [
 				"0",
 				"1"
-			],
-			"type": "string"
+			]
 		},
 		"display_name": {
 			"description": "The user's full display name.",
@@ -26,8 +25,7 @@
 			"enum": [
 				"0",
 				"1"
-			],
-			"type": "string"
+			]
 		},
 		"user_activation_key": {
 			"description": "The user's activation key. Be careful not to expose this in your application.",
@@ -62,8 +60,7 @@
 			"description": "The user's status. This field does not appear to be used by WordPress core.",
 			"enum": [
 				"0"
-			],
-			"type": "string"
+			]
 		},
 		"user_url": {
 			"description": "The user's URL.",

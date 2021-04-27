@@ -118,7 +118,7 @@ export interface WP_Comment {
 	/**
 	 * Comment author URL.
 	 */
-	comment_author_url: string;
+	comment_author_url: string | "";
 	/**
 	 * Comment author IP address (IPv4 format).
 	 */

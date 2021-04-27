@@ -33,7 +33,7 @@
 	"properties": {
 		"ID": {
 			"description": "Post ID.",
-			"type": "number"
+			"type": "integer"
 		},
 		"post_author": {
 			"description": "ID of post author.\n\nA numeric string, for compatibility reasons.",
@@ -173,7 +173,7 @@
 		},
 		"menu_order": {
 			"description": "A field used for ordering posts.",
-			"type": "number"
+			"type": "integer"
 		},
 		"post_type": {
 			"description": "The post's type, like post or page.",

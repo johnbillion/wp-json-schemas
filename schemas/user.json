@@ -16,7 +16,7 @@
 	"properties": {
 		"ID": {
 			"description": "The user's ID.",
-			"type": "number"
+			"type": "integer"
 		},
 		"allcaps": {
 			"description": "All capabilities the user has, including individual and role based.",
