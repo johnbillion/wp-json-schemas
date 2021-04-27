@@ -50,6 +50,7 @@
 		},
 		"description": {
 			"description": "The term's description.",
+			"contentMediaType": "text/html",
 			"type": "string"
 		},
 		"parent": {

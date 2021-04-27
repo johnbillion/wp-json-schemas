@@ -40,7 +40,16 @@
 		},
 		"author_ip": {
 			"description": "IP address for the object author. Only present when using the 'edit' context.",
-			"type": "string"
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "ipv4"
+				},
+				{
+					"type": "string",
+					"format": "ipv6"
+				}
+			]
 		},
 		"author_name": {
 			"description": "Display name for the object author.",
@@ -68,6 +77,7 @@
 					"type": "string"
 				}
 			},
+			"contentMediaType": "text/html",
 			"additionalProperties": false
 		},
 		"date": {

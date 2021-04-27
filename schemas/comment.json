@@ -85,6 +85,7 @@
 		},
 		"comment_content": {
 			"description": "Comment content.",
+			"contentMediaType": "text/html",
 			"type": "string"
 		},
 		"comment_karma": {

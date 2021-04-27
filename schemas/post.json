@@ -57,6 +57,7 @@
 		},
 		"post_content": {
 			"description": "The post's content.",
+			"contentMediaType": "text/html",
 			"type": "string"
 		},
 		"post_title": {
@@ -65,6 +66,7 @@
 		},
 		"post_excerpt": {
 			"description": "The post's excerpt.",
+			"contentMediaType": "text/html",
 			"type": "string"
 		},
 		"post_status": {
@@ -157,6 +159,7 @@
 		},
 		"post_content_filtered": {
 			"description": "A utility DB field for post content.",
+			"contentMediaType": "text/html",
 			"type": "string"
 		},
 		"post_parent": {

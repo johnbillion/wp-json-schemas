@@ -26,6 +26,7 @@
 		},
 		"description": {
 			"description": "HTML description of the term.",
+			"contentMediaType": "text/html",
 			"type": "string"
 		},
 		"link": {

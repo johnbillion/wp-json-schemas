@@ -47,6 +47,7 @@
 		},
 		"description": {
 			"description": "Description of the user.",
+			"contentMediaType": "text/html",
 			"type": "string"
 		},
 		"link": {

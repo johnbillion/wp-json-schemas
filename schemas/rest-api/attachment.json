@@ -135,6 +135,7 @@
 					"type": "string"
 				}
 			},
+			"contentMediaType": "text/html",
 			"additionalProperties": false
 		},
 		"description": {
@@ -153,6 +154,7 @@
 					"type": "string"
 				}
 			},
+			"contentMediaType": "text/html",
 			"additionalProperties": false
 		},
 		"media_type": {
