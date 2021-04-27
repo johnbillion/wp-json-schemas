@@ -20,10 +20,11 @@ The schemas in this library are used to generate [the WordPress TypeScript defin
 * `WP_Term`
 * `WP_User`
 * `WP_Comment`
+* `WP_Error`
 * `WP_Site`
 * `WP_Taxonomy`
 * `WP_Post_Type`
-* `WP_Error`
+* `WP_Network`
 
 ### REST API Response Schemas
 

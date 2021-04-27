@@ -6,7 +6,7 @@ This package provides well-documented TypeScript definitions that describe the s
 
 * WordPress PHP objects such as `WP_Post`, `WP_Term`, and `WP_User`
 * WordPress REST API responses such as from `/wp/v2/posts` and `/wp/v2/users`
-* Allowed values for several of their properties
+* Various property types and allowed values of both
 
 ## What's included?
 
@@ -16,10 +16,11 @@ This package provides well-documented TypeScript definitions that describe the s
 * `WP_Term`
 * `WP_User`
 * `WP_Comment`
+* `WP_Error`
 * `WP_Site`
 * `WP_Taxonomy`
 * `WP_Post_Type`
-* `WP_Error`
+* `WP_Network`
 
 ### Interfaces for REST API response objects
 
