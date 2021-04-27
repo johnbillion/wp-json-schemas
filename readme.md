@@ -24,6 +24,7 @@ The schemas in this library are used to generate [the WordPress TypeScript defin
 * `WP_Site`
 * `WP_Taxonomy`
 * `WP_Post_Type`
+* `WP_Role`
 * `WP_Network`
 
 ### REST API Response Schemas

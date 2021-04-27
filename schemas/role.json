@@ -1,0 +1,33 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/role.json",
+	"title": "WP_Role",
+	"description": "Core class used to extend the user roles API.",
+	"type": "object",
+	"required": [
+		"name",
+		"capabilities"
+	],
+	"properties": {
+		"name": {
+			"description": "Role name.",
+			"anyOf": [
+				{
+					"$ref": "properties/user-role-name.json"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"capabilities": {
+			"description": "List of capabilities the role contains.",
+			"allOf": [
+				{
+					"$ref": "properties/user-caps.json"
+				}
+			]
+		}
+	},
+	"additionalProperties": false
+}

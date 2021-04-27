@@ -69,6 +69,7 @@ export interface WP {
 	Network: WP_Network;
 	Post: WP_Post;
 	Post_Type: WP_Post_Type;
+	Role: WP_Role;
 	Site: WP_Site;
 	Taxonomy: WP_Taxonomy;
 	Term: WP_Term;
@@ -580,6 +581,27 @@ export interface WP_Post_Type_Rewrite {
 	[k: string]: unknown;
 }
 /**
+ * Core class used to extend the user roles API.
+ */
+export interface WP_Role {
+	/**
+	 * Role name.
+	 */
+	name: WP_User_Role_Name | string;
+	/**
+	 * List of capabilities the role contains.
+	 */
+	capabilities: WP_User_Caps;
+}
+/**
+ * A dictionary of user capabilities.
+ *
+ * Property names represent a capability name and boolean values represent whether the user has that capability.
+ */
+export interface WP_User_Caps {
+	[k: string]: boolean;
+}
+/**
  * Core class used for interacting with a multisite site.
  */
 export interface WP_Site {
@@ -918,14 +940,6 @@ export interface WP_User {
 	 * The roles the user is part of.
 	 */
 	roles: (WP_User_Role_Name | string)[];
-}
-/**
- * A dictionary of user capabilities.
- *
- * Property names represent a capability name and boolean values represent whether the user has that capability.
- */
-export interface WP_User_Caps {
-	[k: string]: boolean;
 }
 /**
  * User data container.

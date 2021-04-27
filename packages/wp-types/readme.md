@@ -20,6 +20,7 @@ This package provides well-documented TypeScript definitions that describe the s
 * `WP_Site`
 * `WP_Taxonomy`
 * `WP_Post_Type`
+* `WP_Role`
 * `WP_Network`
 
 ### Interfaces for REST API response objects

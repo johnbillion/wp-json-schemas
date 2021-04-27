@@ -26,6 +26,9 @@
 		"Post_Type" : {
 			"$ref": "schemas/post-type.json"
 		},
+		"Role" : {
+			"$ref": "schemas/role.json"
+		},
 		"Site" : {
 			"$ref": "schemas/site.json"
 		},
@@ -115,6 +118,7 @@
 		"Network",
 		"Post",
 		"Post_Type",
+		"Role",
 		"Site",
 		"Taxonomy",
 		"Term",
