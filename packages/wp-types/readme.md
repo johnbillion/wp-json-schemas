@@ -19,9 +19,7 @@ This package provides well-documented TypeScript definitions that describe the s
 * `WP_Site`
 * `WP_Taxonomy`
 * `WP_Post_Type`
-* `WP_Error`, plus:
-  - `WP_Error_With_Error`
-  - `WP_Error_Without_Error`
+* `WP_Error`
 
 ### Interfaces for REST API response objects
 
