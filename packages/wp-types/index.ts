@@ -123,7 +123,7 @@ export interface WP_Comment {
 	/**
 	 * Comment author IP address (IPv4 format).
 	 */
-	comment_author_IP: string;
+	comment_author_IP: string | "";
 	/**
 	 * Comment date in YYYY-MM-DD HH:MM:SS format.
 	 */
