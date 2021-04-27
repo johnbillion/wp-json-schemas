@@ -66,6 +66,7 @@ export interface WP {
 	Error: WP_Error;
 	Error_With_Error: WP_Error_With_Error;
 	Error_Without_Error: WP_Error_Without_Error;
+	Network: WP_Network;
 	Post: WP_Post;
 	Post_Type: WP_Post_Type;
 	Site: WP_Site;
@@ -225,6 +226,29 @@ export interface WP_Error_Without_Error {
 	 * Stores the list of data for error codes.
 	 */
 	error_data: [];
+}
+/**
+ * Core class used for interacting with a multisite network.
+ */
+export interface WP_Network {
+	/**
+	 * Domain of the network.
+	 */
+	domain: string;
+	/**
+	 * Path of the network.
+	 */
+	path: string;
+	/**
+	 * Domain used to set cookies for this network.
+	 */
+	cookie_domain: string;
+	/**
+	 * Name of this network.
+	 *
+	 * Named "site" vs. "network" for legacy reasons.
+	 */
+	site_name: string;
 }
 /**
  * Core class used to implement the WP_Post object.

@@ -17,6 +17,9 @@
 		"Error_Without_Error" : {
 			"$ref": "schemas/error-without-error.json"
 		},
+		"Network" : {
+			"$ref": "schemas/network.json"
+		},
 		"Post" : {
 			"$ref": "schemas/post.json"
 		},
@@ -109,6 +112,7 @@
 		"Error",
 		"Error_With_Error",
 		"Error_Without_Error",
+		"Network",
 		"Post",
 		"Post_Type",
 		"Site",

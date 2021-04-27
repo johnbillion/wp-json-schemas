@@ -1,0 +1,35 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/network.json",
+	"title": "WP_Network",
+	"description": "Core class used for interacting with a multisite network.",
+	"type": "object",
+	"required": [
+		"domain",
+		"path",
+		"cookie_domain",
+		"site_name"
+	],
+	"properties": {
+		"domain": {
+			"description": "Domain of the network.",
+			"type": "string",
+			"format": "hostname"
+		},
+		"path": {
+			"description": "Path of the network.",
+			"type": "string",
+			"format": "uri-reference"
+		},
+		"cookie_domain": {
+			"description": "Domain used to set cookies for this network.",
+			"type": "string",
+			"format": "hostname"
+		},
+		"site_name": {
+			"description": "Name of this network.\n\nNamed \"site\" vs. \"network\" for legacy reasons.",
+			"type": "string"
+		}
+	},
+	"additionalProperties": false
+}
