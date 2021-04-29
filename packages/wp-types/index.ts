@@ -344,7 +344,7 @@ export interface WP_Post {
 	/**
 	 * An attachment's mime type.
 	 */
-	post_mime_type: string;
+	post_mime_type: string | "";
 	/**
 	 * Cached comment count.
 	 *

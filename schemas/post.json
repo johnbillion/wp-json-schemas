@@ -191,7 +191,17 @@
 		},
 		"post_mime_type": {
 			"description": "An attachment's mime type.",
-			"type": "string"
+			"anyOf": [
+				{
+					"type": "string",
+					"pattern": "\\w+/[-+.\\w]+"
+				},
+				{
+					"enum": [
+						""
+					]
+				}
+			]
 		},
 		"comment_count": {
 			"description": "Cached comment count.\n\nA numeric string, for compatibility reasons.",
