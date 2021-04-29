@@ -116,9 +116,7 @@
 					"type": "string"
 				},
 				{
-					"enum": [
-						"none"
-					]
+					"const": "none"
 				}
 			]
 	},

@@ -58,9 +58,7 @@
 		},
 		"user_status": {
 			"description": "The user's status. This field does not appear to be used by WordPress core.",
-			"enum": [
-				"0"
-			]
+			"const": "0"
 		},
 		"user_url": {
 			"description": "The user's URL.",

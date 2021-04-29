@@ -111,9 +111,7 @@
 			"description": "Type of Post for the object.",
 			"type": "string",
 			"tsType": "WP_Post_Type_Name.attachment",
-			"enum": [
-				"attachment"
-			]
+			"const": "attachment"
 		},
 		"alt_text": {
 			"description": "Alternative text to display when attachment is not displayed.",
