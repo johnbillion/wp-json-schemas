@@ -20,7 +20,7 @@
 	"license": "MIT",
 	"devDependencies": {
 		"ajv-cli": "^3.1.0",
-		"json-schema-to-typescript": "^9.1.0",
+		"json-schema-to-typescript": "^10.1.4",
 		"typescript": ">=3"
 	},
 	"scripts": {
