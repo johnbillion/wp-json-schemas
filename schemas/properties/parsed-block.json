@@ -1,0 +1,32 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/properties/parsed-block.json",
+	"title": "WP_Block_Parsed",
+	"description": "Original parsed array representation of block.",
+	"type": "object",
+	"properties": {
+		"blockName": {
+			"type": "string",
+			"examples": [
+				"core/columns",
+				"core/media-text",
+				"foo/bar"
+			]
+		},
+		"attrs": {
+			"type": "object"
+		},
+		"innerBlocks": {
+			"type": "array",
+			"items": {
+				"$ref": "#"
+			}
+		},
+		"innerHTML": {
+			"type": "string"
+		},
+		"innerContent": {
+			"type": "array"
+		}
+	}
+}

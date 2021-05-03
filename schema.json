@@ -5,6 +5,9 @@
 	"description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
 	"type": "object",
 	"properties" : {
+		"Block" : {
+			"$ref": "schemas/block.json"
+		},
 		"Comment" : {
 			"$ref": "schemas/comment.json"
 		},
@@ -111,6 +114,7 @@
 		}
 	},
 	"required": [
+		"Block",
 		"Comment",
 		"Error",
 		"Error_With_Error",

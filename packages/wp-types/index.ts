@@ -62,6 +62,7 @@ export type WP_REST_API_Users = WP_REST_API_User[];
  * WordPress is open source software you can use to create a beautiful website, blog, or app.
  */
 export interface WP {
+	Block: WP_Block;
 	Comment: WP_Comment;
 	Error: WP_Error;
 	Error_With_Error: WP_Error_With_Error;
@@ -91,6 +92,35 @@ export interface WP {
 		Users: WP_REST_API_Users;
 		Error: WP_REST_API_Error;
 	};
+}
+/**
+ * Class representing a parsed instance of a block.
+ */
+export interface WP_Block {
+	parsed_block: WP_Block_Parsed;
+	name: string;
+	block_type: {
+		[k: string]: unknown;
+	};
+	context: {
+		[k: string]: unknown;
+	};
+	inner_blocks: unknown[];
+	inner_html: string;
+	inner_content: unknown[];
+}
+/**
+ * Original parsed array representation of block.
+ */
+export interface WP_Block_Parsed {
+	blockName?: string;
+	attrs?: {
+		[k: string]: unknown;
+	};
+	innerBlocks?: WP_Block_Parsed[];
+	innerHTML?: string;
+	innerContent?: unknown[];
+	[k: string]: unknown;
 }
 /**
  * Core class used to organize comments as instantiated objects with defined members.
