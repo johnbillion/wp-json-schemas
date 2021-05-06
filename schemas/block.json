@@ -18,21 +18,33 @@
 			"$ref": "properties/parsed-block.json"
 		},
 		"name": {
-			"type": "string"
+			"description": "Name of block.",
+			"type": "string",
+			"examples": [
+				"core/paragraph",
+				"core/columns",
+				"foo/bar"
+			]
 		},
 		"block_type": {
+			"description": "Block type associated with the instance.",
 			"type": "object"
 		},
 		"context": {
+			"description": "Block context values.",
 			"type": "object"
 		},
 		"inner_blocks": {
+			"description": "List of inner blocks (of this same class).",
 			"type": "array"
 		},
 		"inner_html": {
+			"description": "Resultant HTML from inside block comment delimiters after removing inner blocks.",
+			"contentMediaType": "text/html",
 			"type": "string"
 		},
 		"inner_content": {
+			"description": "List of string fragments and null markers where inner blocks were found.",
 			"type": "array"
 		}
 	},

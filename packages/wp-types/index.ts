@@ -98,27 +98,57 @@ export interface WP {
  */
 export interface WP_Block {
 	parsed_block: WP_Block_Parsed;
+	/**
+	 * Name of block.
+	 */
 	name: string;
+	/**
+	 * Block type associated with the instance.
+	 */
 	block_type: {
 		[k: string]: unknown;
 	};
+	/**
+	 * Block context values.
+	 */
 	context: {
 		[k: string]: unknown;
 	};
+	/**
+	 * List of inner blocks (of this same class).
+	 */
 	inner_blocks: unknown[];
+	/**
+	 * Resultant HTML from inside block comment delimiters after removing inner blocks.
+	 */
 	inner_html: string;
+	/**
+	 * List of string fragments and null markers where inner blocks were found.
+	 */
 	inner_content: unknown[];
 }
 /**
  * Original parsed array representation of block.
  */
 export interface WP_Block_Parsed {
+	/**
+	 * Name of block.
+	 */
 	blockName?: string;
 	attrs?: {
 		[k: string]: unknown;
 	};
+	/**
+	 * List of inner blocks (of this same class).
+	 */
 	innerBlocks?: WP_Block_Parsed[];
+	/**
+	 * Resultant HTML from inside block comment delimiters after removing inner blocks.
+	 */
 	innerHTML?: string;
+	/**
+	 * List of string fragments and null markers where inner blocks were found.
+	 */
 	innerContent?: unknown[];
 	[k: string]: unknown;
 }

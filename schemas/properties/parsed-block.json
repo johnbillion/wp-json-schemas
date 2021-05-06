@@ -6,10 +6,11 @@
 	"type": "object",
 	"properties": {
 		"blockName": {
+			"description": "Name of block.",
 			"type": "string",
 			"examples": [
+				"core/paragraph",
 				"core/columns",
-				"core/media-text",
 				"foo/bar"
 			]
 		},
@@ -17,15 +18,19 @@
 			"type": "object"
 		},
 		"innerBlocks": {
+			"description": "List of inner blocks (of this same class).",
 			"type": "array",
 			"items": {
 				"$ref": "#"
 			}
 		},
 		"innerHTML": {
+			"description": "Resultant HTML from inside block comment delimiters after removing inner blocks.",
+			"contentMediaType": "text/html",
 			"type": "string"
 		},
 		"innerContent": {
+			"description": "List of string fragments and null markers where inner blocks were found.",
 			"type": "array"
 		}
 	}
