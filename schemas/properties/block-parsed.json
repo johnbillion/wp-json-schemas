@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/properties/parsed-block.json",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/properties/block-parsed.json",
 	"title": "WP_Block_Parsed",
 	"description": "Original parsed array representation of block.",
 	"type": "object",

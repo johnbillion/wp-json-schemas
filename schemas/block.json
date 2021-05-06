@@ -15,7 +15,7 @@
 	],
 	"properties": {
 		"parsed_block": {
-			"$ref": "properties/parsed-block.json"
+			"$ref": "properties/block-parsed.json"
 		},
 		"name": {
 			"description": "Name of block.",
