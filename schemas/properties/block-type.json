@@ -89,7 +89,84 @@
 		},
 		"supports": {
 			"description": "Supported features.",
-			"type": "array"
+			"anyOf": [
+				{
+					"type": "object",
+					"properties": {
+						"anchor": {
+							"type": "boolean"
+						},
+						"align": {
+							"type": [
+								"boolean",
+								"array"
+							],
+							"items": {
+								"type": "string"
+							}
+						},
+						"alignWide": {
+							"type": "boolean"
+						},
+						"className": {
+							"type": "boolean"
+						},
+						"color": {
+							"type": [
+								"boolean",
+								"object"
+							],
+							"properties": {
+								"background": {
+									"type": "boolean"
+								},
+								"gradients": {
+									"type": "boolean"
+								},
+								"text": {
+									"type": "boolean"
+								},
+								"link": {
+									"type": "boolean"
+								},
+								"duotone": {
+									"type": "string"
+								}
+							}
+						},
+						"customClassName": {
+							"type": "boolean"
+						},
+						"defaultStylePicker": {
+							"type": "boolean"
+						},
+						"fontSize": {
+							"type": "boolean"
+						},
+						"html": {
+							"type": "boolean"
+						},
+						"inserter": {
+							"type": "boolean"
+						},
+						"lineHeight": {
+							"type": "boolean"
+						},
+						"multiple": {
+							"type": "boolean"
+						},
+						"reusable": {
+							"type": "boolean"
+						},
+						"spacing": {
+							"type": "boolean"
+						}
+					}
+				},
+				{
+					"type": "null"
+				}
+			]
 		},
 		"example": {
 			"description": "Structured data for the block preview.",
