@@ -17,6 +17,8 @@ This package provides well-documented TypeScript definitions that describe the s
 * `WP_User`
 * `WP_Comment`
 * `WP_Error`
+* `WP_Block`
+* `WP_Block_Type`
 * `WP_Site`
 * `WP_Taxonomy`
 * `WP_Post_Type`
