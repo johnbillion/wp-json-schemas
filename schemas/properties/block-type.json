@@ -79,7 +79,7 @@
 			"description": "Block type render callback.",
 			"anyOf": [
 				{
-					"$ref": "properties/callable.json"
+					"$ref": "callable.json"
 				},
 				{
 					"type": "null"
