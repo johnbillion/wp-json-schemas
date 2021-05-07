@@ -168,5 +168,6 @@
 				"null"
 			]
 		}
-	}
+	},
+	"additionalProperties": false
 }

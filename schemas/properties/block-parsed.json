@@ -22,7 +22,10 @@
 			]
 		},
 		"attrs": {
-			"type": "object"
+			"type": "object",
+			"additionalProperties": {
+				"tsType": "any"
+			}
 		},
 		"innerBlocks": {
 			"description": "List of inner blocks (of this same class).",
@@ -51,5 +54,6 @@
 				]
 			}
 		}
-	}
+	},
+	"additionalProperties": false
 }
