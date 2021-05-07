@@ -4,6 +4,13 @@
 	"title": "WP_Block_Parsed",
 	"description": "Original parsed array representation of block.",
 	"type": "object",
+	"required": [
+		"blockName",
+		"attrs",
+		"innerBlocks",
+		"innerHTML",
+		"innerContent"
+	],
 	"properties": {
 		"blockName": {
 			"description": "Name of block.",
