@@ -6,13 +6,13 @@
  */
 
 /**
- * Timestamp in MySQL DATETIME format (`YYYY-MM-DD hh:mm:ss`).
- */
-export type WP_Date_Time = string;
-/**
  * Any valid `callable` in PHP.
  */
 export type Callable = any;
+/**
+ * Timestamp in MySQL DATETIME format (`YYYY-MM-DD hh:mm:ss`).
+ */
+export type WP_Date_Time = string;
 /**
  * The name of an individual primitive capability or meta capability.
  */
@@ -97,6 +97,9 @@ export interface WP {
  * Class representing a parsed instance of a block.
  */
 export interface WP_Block {
+	/**
+	 * Original parsed array representation of block.
+	 */
 	parsed_block: WP_Block_Parsed;
 	/**
 	 * Name of block.
@@ -105,9 +108,7 @@ export interface WP_Block {
 	/**
 	 * Block type associated with the instance.
 	 */
-	block_type: {
-		[k: string]: unknown;
-	};
+	block_type: WP_Block_Type;
 	/**
 	 * Block context values.
 	 */
@@ -125,7 +126,7 @@ export interface WP_Block {
 	/**
 	 * List of string fragments and null markers where inner blocks were found.
 	 */
-	inner_content: unknown[];
+	inner_content: (string | null)[];
 }
 /**
  * Original parsed array representation of block.
@@ -134,23 +135,163 @@ export interface WP_Block_Parsed {
 	/**
 	 * Name of block.
 	 */
-	blockName?: string;
-	attrs?: {
-		[k: string]: unknown;
+	blockName: string;
+	attrs: {
+		[k: string]: any;
 	};
 	/**
 	 * List of inner blocks (of this same class).
 	 */
-	innerBlocks?: WP_Block_Parsed[];
+	innerBlocks: WP_Block_Parsed[];
 	/**
 	 * Resultant HTML from inside block comment delimiters after removing inner blocks.
 	 */
-	innerHTML?: string;
+	innerHTML: string;
 	/**
 	 * List of string fragments and null markers where inner blocks were found.
 	 */
-	innerContent?: unknown[];
-	[k: string]: unknown;
+	innerContent: (string | null)[];
+}
+/**
+ * Core class representing a block type.
+ */
+export interface WP_Block_Type {
+	/**
+	 * Block API version.
+	 */
+	api_version: number;
+	/**
+	 * Block type key.
+	 */
+	name: string;
+	/**
+	 * Human-readable block type label.
+	 */
+	title: string;
+	/**
+	 * Block type category classification, used in search interfaces to arrange block types by category.
+	 */
+	category: string | null;
+	/**
+	 * Setting parent lets a block require that it is only available when nested within the specified blocks.
+	 */
+	parent: string[] | null;
+	/**
+	 * Block type icon.
+	 */
+	icon: string | null;
+	/**
+	 * A detailed block type description.
+	 */
+	description: string;
+	/**
+	 * Additional keywords to produce block type as result in search interfaces.
+	 */
+	keywords: string[];
+	/**
+	 * The translation textdomain.
+	 */
+	textdomain: string;
+	/**
+	 * Alternative block styles.
+	 */
+	styles: unknown[];
+	/**
+	 * Block variations.
+	 */
+	variations: {
+		name: string;
+		title: string;
+		description?: string;
+		category?: string;
+		icon?:
+			| string
+			| {
+					[k: string]: unknown;
+			  };
+		isDefault?: boolean;
+		attributes?: {
+			[k: string]: unknown;
+		};
+		innerBlocks?: unknown[];
+		example?: {
+			[k: string]: unknown;
+		};
+		scope?: unknown[];
+		keywords?: string[];
+		isActive?: unknown;
+		[k: string]: unknown;
+	}[];
+	/**
+	 * Supported features.
+	 */
+	supports: {
+		anchor?: boolean;
+		align?: boolean | ("left" | "center" | "right" | "wide" | "full")[];
+		alignWide?: boolean;
+		className?: boolean;
+		color?:
+			| boolean
+			| {
+					background?: boolean;
+					gradients?: boolean;
+					text?: boolean;
+					link?: boolean;
+					duotone?: string;
+					[k: string]: unknown;
+			  };
+		customClassName?: boolean;
+		defaultStylePicker?: boolean;
+		fontSize?: boolean;
+		html?: boolean;
+		inserter?: boolean;
+		lineHeight?: boolean;
+		multiple?: boolean;
+		reusable?: boolean;
+		spacing?: boolean;
+		[k: string]: unknown;
+	} | null;
+	/**
+	 * Structured data for the block preview.
+	 */
+	example: unknown[] | null;
+	/**
+	 * Block type render callback.
+	 */
+	render_callback: Callable | null;
+	/**
+	 * Block type attributes property schemas.
+	 */
+	attributes:
+		| []
+		| {
+				[k: string]: unknown;
+		  }
+		| null;
+	/**
+	 * Context values inherited by blocks of this type.
+	 */
+	uses_context: string[];
+	/**
+	 * Context provided by blocks of this type.
+	 */
+	provides_context: string[];
+	/**
+	 * Block type editor script handle.
+	 */
+	editor_script: string | null;
+	/**
+	 * Block type front end script handle.
+	 */
+	script: string | null;
+	/**
+	 * Block type editor style handle.
+	 */
+	editor_style: string | null;
+	/**
+	 * Block type front end style handle.
+	 */
+	style: string | null;
 }
 /**
  * Core class used to organize comments as instantiated objects with defined members.
