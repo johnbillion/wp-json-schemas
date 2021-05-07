@@ -85,7 +85,56 @@
 		},
 		"variations": {
 			"description": "Block variations.",
-			"type": "array"
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": [
+					"name",
+					"title"
+				],
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"title": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"category": {
+						"type": "string"
+					},
+					"icon": {
+						"type": [
+							"string",
+							"object"
+						]
+					},
+					"isDefault": {
+						"type": "boolean"
+					},
+					"attributes": {
+						"type": "object"
+					},
+					"innerBlocks": {
+						"type": "array"
+					},
+					"example": {
+						"type": "object"
+					},
+					"scope": {
+						"type": "array"
+					},
+					"keywords": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					},
+					"isActive": {}
+				}
+			}
 		},
 		"supports": {
 			"description": "Supported features.",
