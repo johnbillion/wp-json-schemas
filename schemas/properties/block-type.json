@@ -102,7 +102,13 @@
 								"array"
 							],
 							"items": {
-								"type": "string"
+								"enum": [
+									"left",
+									"center",
+									"right",
+									"wide",
+									"full"
+								]
 							}
 						},
 						"alignWide": {
