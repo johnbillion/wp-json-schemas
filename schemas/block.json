@@ -27,8 +27,7 @@
 			]
 		},
 		"block_type": {
-			"description": "Block type associated with the instance.",
-			"type": "object"
+			"$ref": "properties/block-type.json"
 		},
 		"context": {
 			"description": "Block context values.",

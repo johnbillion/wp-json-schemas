@@ -1,0 +1,133 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/properties/block-type.json",
+	"title": "WP_Block_Type",
+	"description": "Core class representing a block type.",
+	"type": "object",
+	"properties": {
+		"api_version": {
+			"description": "Block API version.",
+			"type": "integer"
+		},
+		"name": {
+			"description": "Block type key.",
+			"type": "string"
+		},
+		"title": {
+			"description": "Human-readable block type label.",
+			"type": "string"
+		},
+		"category": {
+			"description": "Block type category classification, used in search interfaces to arrange block types by category.",
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"parent": {
+			"description": "Setting parent lets a block require that it is only available when nested within the specified blocks.",
+			"type": [
+				"array",
+				"null"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
+		"icon": {
+			"description": "Block type icon.",
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"description": {
+			"description": "A detailed block type description.",
+			"type": "string"
+		},
+		"keywords": {
+			"description": "Additional keywords to produce block type as result in search interfaces.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"textdomain": {
+			"description": "The translation textdomain.",
+			"type": "string"
+		},
+		"styles": {
+			"description": "Alternative block styles.",
+			"type": "array"
+		},
+		"variations": {
+			"description": "Block variations.",
+			"type": "array"
+		},
+		"supports": {
+			"description": "Supported features.",
+			"type": "array"
+		},
+		"example": {
+			"description": "Structured data for the block preview.",
+			"type": [
+				"array",
+				"null"
+			]
+		},
+		"render_callback": {
+			"description": "Block type render callback.",
+			"anyOf": [
+				{
+					"$ref": "properties/callable.json"
+				},
+				{
+					"type": "null"
+				}
+			]
+		},
+		"attributes": {
+			"description": "Block type attributes property schemas.",
+			"type": [
+				"array",
+				"null"
+			]
+		},
+		"uses_context": {
+			"description": "Context values inherited by blocks of this type.",
+			"type": "array"
+		},
+		"provides_context": {
+			"description": "Context provided by blocks of this type.",
+			"type": "array"
+		},
+		"editor_script": {
+			"description": "Block type editor script handle.",
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"script": {
+			"description": "Block type front end script handle.",
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"editor_style": {
+			"description": "Block type editor style handle.",
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"style": {
+			"description": "Block type front end style handle.",
+			"type": [
+				"string",
+				"null"
+			]
+		}
+	}
+}
