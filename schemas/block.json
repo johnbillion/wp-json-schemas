@@ -15,7 +15,12 @@
 	],
 	"properties": {
 		"parsed_block": {
-			"$ref": "properties/block-parsed.json"
+			"description": "Original parsed array representation of block.",
+			"allOf": [
+				{
+					"$ref": "properties/block-parsed.json"
+				}
+			]
 		},
 		"name": {
 			"description": "Name of block.",
@@ -27,7 +32,12 @@
 			]
 		},
 		"block_type": {
-			"$ref": "properties/block-type.json"
+			"description": "Block type associated with the instance.",
+			"allOf": [
+				{
+					"$ref": "properties/block-type.json"
+				}
+			]
 		},
 		"context": {
 			"description": "Block context values.",
@@ -44,7 +54,18 @@
 		},
 		"inner_content": {
 			"description": "List of string fragments and null markers where inner blocks were found.",
-			"type": "array"
+			"type": "array",
+			"items": {
+				"oneOf": [
+					{
+						"contentMediaType": "text/html",
+						"type": "string"
+					},
+					{
+						"type": "null"
+					}
+				]
+			}
 		}
 	},
 	"additionalProperties": false

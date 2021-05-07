@@ -31,7 +31,18 @@
 		},
 		"innerContent": {
 			"description": "List of string fragments and null markers where inner blocks were found.",
-			"type": "array"
+			"type": "array",
+			"items": {
+				"oneOf": [
+					{
+						"contentMediaType": "text/html",
+						"type": "string"
+					},
+					{
+						"type": "null"
+					}
+				]
+			}
 		}
 	}
 }
