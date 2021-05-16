@@ -1,0 +1,36 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/search-result.json",
+	"title": "WP_REST_API_Search_Result",
+	"description": "A search result in a REST API context.",
+	"type": "object",
+	"required": ["id", "title", "url", "type", "subtype", "_links"],
+	"properties": {
+		"id": {
+			"description": "Unique identifier for the object.",
+			"type": ["integer", "string"]
+		},
+		"title": {
+			"description": "The title for the object.",
+			"type": "string"
+		},
+		"url": {
+			"description": "URL to the object.",
+			"type": "string",
+			"format": "uri"
+		},
+		"type": {
+			"description": "Object type.",
+			"type": "string",
+			"enum": ["post", "term", "post-format"]
+		},
+		"subtype": {
+			"description": "Object subtype.",
+			"type": "string",
+			"enum": ["post", "page", "category", "post_tag"]
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	}
+}
