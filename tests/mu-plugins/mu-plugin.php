@@ -4,6 +4,7 @@ namespace WPJsonSchemas;
 
 use WP_CLI;
 use WP_Error;
+use WP_REST_Request;
 
 if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
 	return;
@@ -23,6 +24,13 @@ function save( array $data, string $dir ) : void {
 	}
 }
 
+function get_rest_response( string $method, string $path, array $args = [] ) {
+	$request = new WP_REST_Request( $method, $path );
+	$request->set_query_params( $args );
+
+	return rest_get_server()->response_to_data( rest_do_request( $request ), false );
+}
+
 /**
  * Test data for posts.
  */
@@ -40,6 +48,12 @@ WP_CLI::add_command( 'json-dump post', function() : void {
 	] );
 
 	save( $posts, 'post' );
+
+	$data = get_rest_response( 'GET', '/wp/v2/posts', [
+		'per_page' => 100,
+	] );
+
+	save( $data, 'rest-api/post' );
 } );
 
 /**

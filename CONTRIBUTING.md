@@ -22,6 +22,12 @@ The WordPress REST API response doesn't fully adhere to the JSON schema spec, so
 * Add `additionalProperties` information to any `object` properties as appropriate.
 * Cross-reference the properties with those in the `get_item_schema()` method of the controller class. There may be properties that are conditionally added. Add them to the schema if so.
 * Add the schema to the `REST_API` property in the root `schema.json` using a `$ref` to the schema file.
+* In `tests/mu-plugins/mu-plugin.php` add a new `json-dump` command for the new endpoint
+  - Start by copy-pasting an existing command such as the `json-dump post` one for `/wp/v2/posts`
+  - The command should perform a REST API request to the endpoint and pass the result to the `save()` function which saves it as JSON during the tests
+* In `package.json` add two entries to the `test` script if one doesn't already exist:
+  - `"wp json-dump {object-type}"`
+  - `"npm run test-{object-type}"`
 * Run `composer run test` to validate and test the schemas.
 * Run `npm run build-wp-types` and check the output of `packages/wp-types/index.ts`.
 
