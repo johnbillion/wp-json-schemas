@@ -68,7 +68,7 @@ WP_CLI::add_command( 'json-dump tag', function() : void {
 
 WP_CLI::add_command( 'json-dump category', function() : void {
 	$categories = get_terms( [
-		'taxonomy' => 'post_tag',
+		'taxonomy' => 'category',
 		'number'   => 0,
 		'orderby'  => 'term_id',
 		'order'    => 'ASC',
