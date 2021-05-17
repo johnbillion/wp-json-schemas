@@ -18,9 +18,8 @@ The WordPress REST API response doesn't fully adhere to the JSON schema spec, so
 * Add `additionalProperties` information to any `object` properties as appropriate.
 * Cross-reference the properties with those in the `get_item_schema()` method of the controller class. There may be properties that are conditionally added.
 * Add the schema to the root `schema.json` using a `$ref` to the schema file.
-* Run `npm run test` to validate the schemas.
+* Run `composer run test` to validate and test the schemas.
 * Run `npm run build-wp-types` and check the output of `packages/wp-types/index.ts`.
-* Run `composer run test` to test the REST API schemas against output from WordPress.
 
 ## Creating a PHP object schema
 
@@ -36,16 +35,15 @@ The schema for a PHP object is created using the docblocks from its class proper
   - Why? An object can have a public property that's not declared on the class. In this case, you'll need to provide the type and description yourself.
 * Wave your hands over your keyboard.
 * Add the schema to the root `schema.json` using a `$ref` to the schema file.
-* Run `npm run test` to validate the schemas.
+* Run `composer run test` to validate and test the schemas.
 * Run `npm run build-wp-types` and check the output of `packages/wp-types/index.ts`.
 
 ## Releasing a new version
 
 * `npm install`
 * `composer install`
-* `npm run build-wp-types`
-* `npm run test`
 * `composer run test`
+* `npm run build-wp-types`
 * `npm version <major|minor|patch>`
 * `git push`
 * `git push --tags`

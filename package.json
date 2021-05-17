@@ -33,7 +33,6 @@
 		"test-category": "ajv validate -m tests/hyper-schema.json -s schemas/term.json -d \"tests/data/category/*.json\" -r \"schemas/**/*.json\"",
 		"test-comment": "ajv validate -m tests/hyper-schema.json -s schemas/comment.json -d \"tests/data/comment/*.json\" -r \"schemas/**/*.json\"",
 		"test-error": "ajv validate -m tests/hyper-schema.json -s schemas/error.json -d \"tests/data/error/*.json\" -r \"schemas/**/*.json\"",
-		"test": "npm run validate && npm run test-rest-api-post && npm run test-wp-types",
 		"test-rest-api-post": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/post.json -d \"tests/rest-api/post/*.json\" -r \"schemas/**/*.json\"",
 		"validate": "ajv compile -m tests/hyper-schema.json -s schema.json -r \"schemas/**/*.json\""
 	}
