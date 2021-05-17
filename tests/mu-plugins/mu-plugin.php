@@ -5,18 +5,6 @@ namespace WPJsonSchemas;
 use WP_CLI;
 use WP_Error;
 
-add_action( 'init', function() : void {
-	if ( defined( 'WP_INSTALLING' ) ) {
-		return;
-	}
-
-	wp_insert_post( [
-		'post_type'   => 'post',
-		'post_title'  => 'Title',
-		'post_status' => 'publish',
-	] );
-} );
-
 if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
 	return;
 }
@@ -36,6 +24,12 @@ function save( array $data, string $dir ) : void {
 }
 
 WP_CLI::add_command( 'json-dump post', function() : void {
+	wp_insert_post( [
+		'post_type'   => 'post',
+		'post_title'  => 'Title',
+		'post_status' => 'publish',
+	] );
+
 	$posts = get_posts( [
 		'posts_per_page' => -1,
 		'orderby'        => 'ID',
