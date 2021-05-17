@@ -35,6 +35,12 @@ The schema for a PHP object is created using the docblocks from its class proper
   - Why? An object can have a public property that's not declared on the class. In this case, you'll need to provide the type and description yourself.
 * Wave your hands over your keyboard.
 * Add the schema to the root `schema.json` using a `$ref` to the schema file.
+* In `tests/mu-plugins/mu-plugin.php` add a new `json-dump` command for the object type
+  - Start by copy-pasting an existing command such as the `json-dump error` one
+  - The command should pass an array of one or more objects of this type to the `save()` function which saves it as JSON during the tests
+* In `package.json` add two entries to the `test` script:
+  - `"wp json-dump {object-type}"`
+  - `"npm run test-{object-type}"`
 * Run `composer run test` to validate and test the schemas.
 * Run `npm run build-wp-types` and check the output of `packages/wp-types/index.ts`.
 
