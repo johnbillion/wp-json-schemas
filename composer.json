@@ -32,7 +32,6 @@
 		],
 		"test": [
 			"npm run validate",
-			"npm run test-rest-api-post",
 			"npm run test-wp-types",
 			"wp db reset --yes",
 			"wp core multisite-install --url=example.org --title=Example --admin_user=admin --admin_email=admin@example.org --skip-email",
@@ -47,7 +46,8 @@
 			"wp json-dump error",
 			"npm run test-error",
 			"wp json-dump user",
-			"npm run test-user"
+			"npm run test-user",
+			"npm run test-rest-api-post"
 		]
 	},
 	"funding": [
