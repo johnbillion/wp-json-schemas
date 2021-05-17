@@ -4,6 +4,10 @@ Bug fixes and new schema contributions are very welcome.
 
 There is no fully automatic process to create these schemas. A schema for a PHP object is created from the public properties of its class, and a schema for a REST API response is created from an OPTIONS request to its REST API endpoint.
 
+* [Creating a REST API response schema](#creating-a-rest-api-response-schema)
+* [Creating a PHP object schema](#creating-a-php-object-schema)
+* [Releasing a new version](#releasing-a-new-version)
+
 ## Creating a REST API response schema
 
 The WordPress REST API response doesn't fully adhere to the JSON schema spec, so we need to tweak its output in order to generate a valid schema.
@@ -16,11 +20,10 @@ The WordPress REST API response doesn't fully adhere to the JSON schema spec, so
 * All properties that have a `context` of `view` should be added to the `required` property.
 * Remove the `context`, `required`, and `readonly` properties from each property as these are not valid JSON schema properties.
 * Add `additionalProperties` information to any `object` properties as appropriate.
-* Cross-reference the properties with those in the `get_item_schema()` method of the controller class. There may be properties that are conditionally added.
-* Add the schema to the root `schema.json` using a `$ref` to the schema file.
-* Run `npm run test` to validate the schemas.
+* Cross-reference the properties with those in the `get_item_schema()` method of the controller class. There may be properties that are conditionally added. Add them to the schema if so.
+* Add the schema to the `REST_API` property in the root `schema.json` using a `$ref` to the schema file.
+* Run `composer run test` to validate and test the schemas.
 * Run `npm run build-wp-types` and check the output of `packages/wp-types/index.ts`.
-* Run `composer run test` to test the REST API schemas against output from WordPress.
 
 ## Creating a PHP object schema
 
@@ -36,16 +39,21 @@ The schema for a PHP object is created using the docblocks from its class proper
   - Why? An object can have a public property that's not declared on the class. In this case, you'll need to provide the type and description yourself.
 * Wave your hands over your keyboard.
 * Add the schema to the root `schema.json` using a `$ref` to the schema file.
-* Run `npm run test` to validate the schemas.
+* In `tests/mu-plugins/mu-plugin.php` add a new `json-dump` command for the new object type
+  - Start by copy-pasting an existing command such as the `json-dump error` one
+  - The command should pass an array of one or more objects of this type to the `save()` function which saves it as JSON during the tests
+* In `package.json` add two entries to the `test` script:
+  - `"wp json-dump {object-type}"`
+  - `"npm run test-{object-type}"`
+* Run `composer run test` to validate and test the schemas.
 * Run `npm run build-wp-types` and check the output of `packages/wp-types/index.ts`.
 
 ## Releasing a new version
 
 * `npm install`
 * `composer install`
-* `npm run build-wp-types`
-* `npm run test`
 * `composer run test`
+* `npm run build-wp-types`
 * `npm version <major|minor|patch>`
 * `git push`
 * `git push --tags`

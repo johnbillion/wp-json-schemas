@@ -5,18 +5,6 @@ namespace WPJsonSchemas;
 use WP_CLI;
 use WP_Error;
 
-add_action( 'init', function() : void {
-	if ( defined( 'WP_INSTALLING' ) ) {
-		return;
-	}
-
-	wp_insert_post( [
-		'post_type'   => 'post',
-		'post_title'  => 'Title',
-		'post_status' => 'publish',
-	] );
-} );
-
 if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
 	return;
 }
@@ -35,7 +23,16 @@ function save( array $data, string $dir ) : void {
 	}
 }
 
+/**
+ * Test data for posts.
+ */
 WP_CLI::add_command( 'json-dump post', function() : void {
+	wp_insert_post( [
+		'post_type'   => 'post',
+		'post_title'  => 'Title',
+		'post_status' => 'publish',
+	] );
+
 	$posts = get_posts( [
 		'posts_per_page' => -1,
 		'orderby'        => 'ID',
@@ -45,6 +42,9 @@ WP_CLI::add_command( 'json-dump post', function() : void {
 	save( $posts, 'post' );
 } );
 
+/**
+ * Test data for users.
+ */
 WP_CLI::add_command( 'json-dump user', function() : void {
 	$users = get_users( [
 		'number'  => -1,
@@ -55,6 +55,9 @@ WP_CLI::add_command( 'json-dump user', function() : void {
 	save( $users, 'user' );
 } );
 
+/**
+ * Test data for tags.
+ */
 WP_CLI::add_command( 'json-dump tag', function() : void {
 	$tags = get_terms( [
 		'taxonomy' => 'post_tag',
@@ -66,9 +69,12 @@ WP_CLI::add_command( 'json-dump tag', function() : void {
 	save( $tags, 'tag' );
 } );
 
+/**
+ * Test data for categories.
+ */
 WP_CLI::add_command( 'json-dump category', function() : void {
 	$categories = get_terms( [
-		'taxonomy' => 'post_tag',
+		'taxonomy' => 'category',
 		'number'   => 0,
 		'orderby'  => 'term_id',
 		'order'    => 'ASC',
@@ -77,6 +83,9 @@ WP_CLI::add_command( 'json-dump category', function() : void {
 	save( $categories, 'category' );
 } );
 
+/**
+ * Test data for comments.
+ */
 WP_CLI::add_command( 'json-dump comment', function() : void {
 	$comment = get_comments( [
 		'number'  => 0,
@@ -87,6 +96,9 @@ WP_CLI::add_command( 'json-dump comment', function() : void {
 	save( $comment, 'comment' );
 } );
 
+/**
+ * Test data for WP_Error objects.
+ */
 WP_CLI::add_command( 'json-dump error', function() : void {
 	$errors = [];
 

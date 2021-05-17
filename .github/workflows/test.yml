@@ -45,7 +45,6 @@ jobs:
       - run: npm install
       - run: composer install
 
-      - run: npm run test
       - run: composer run test
         env:
           WP_TESTS_DB_HOST: 127.0.0.1:${{ job.services.mysql.ports['3306'] }}
