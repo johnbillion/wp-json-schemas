@@ -4,6 +4,10 @@ Bug fixes and new schema contributions are very welcome.
 
 There is no fully automatic process to create these schemas. A schema for a PHP object is created from the public properties of its class, and a schema for a REST API response is created from an OPTIONS request to its REST API endpoint.
 
+* [Creating a REST API response schema](#creating-a-rest-api-response-schema)
+* [Creating a PHP object schema](#creating-a-php-object-schema)
+* [Releasing a new version](#releasing-a-new-version)
+
 ## Creating a REST API response schema
 
 The WordPress REST API response doesn't fully adhere to the JSON schema spec, so we need to tweak its output in order to generate a valid schema.
