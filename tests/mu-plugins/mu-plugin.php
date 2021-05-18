@@ -10,6 +10,12 @@ if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
 	return;
 }
 
+/**
+ * Saves an array of test data as JSON in files ready for validating against a schema.
+ *
+ * @param mixed[] $data Array of test data objects.
+ * @param string  $dir  The directory to save the files.
+ */
 function save( array $data, string $dir ) : void {
 	$dir = dirname( ABSPATH ) . '/data/' . $dir;
 
@@ -24,9 +30,17 @@ function save( array $data, string $dir ) : void {
 	}
 }
 
-function get_rest_response( string $method, string $path, array $args = [] ) {
+/**
+ * Helper function for performing an internal REST API request and returning its repsonse data.
+ *
+ * @param string $method The HTTP method such as `GET` or `POST`.
+ * @param string $path   The REST API endpoint such as `wp/v2/posts`.
+ * @param array $params  Array of query parameters for the request.
+ * @return mixed[] The response data.
+ */
+function get_rest_response( string $method, string $path, array $params = [] ) {
 	$request = new WP_REST_Request( $method, $path );
-	$request->set_query_params( $args );
+	$request->set_query_params( $params );
 
 	return rest_get_server()->response_to_data( rest_do_request( $request ), false );
 }
