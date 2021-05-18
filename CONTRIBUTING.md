@@ -30,6 +30,7 @@ The WordPress REST API response doesn't fully adhere to the JSON schema spec, so
   - `"npm run test-{object-type}"`
 * Run `composer run test` to validate and test the schemas.
 * Run `npm run build-wp-types` and check the output of `packages/wp-types/index.ts`.
+* Add documentation for the schema in both `readme.md` and `packages/wp-types/readme.md`.
 
 ## Creating a PHP object schema
 
@@ -53,6 +54,7 @@ The schema for a PHP object is created using the docblocks from its class proper
   - `"npm run test-{object-type}"`
 * Run `composer run test` to validate and test the schemas.
 * Run `npm run build-wp-types` and check the output of `packages/wp-types/index.ts`.
+* Add documentation for the schema in both `readme.md` and `packages/wp-types/readme.md`.
 
 ## Releasing a new version
 
