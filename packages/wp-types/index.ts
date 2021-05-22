@@ -1863,7 +1863,7 @@ export interface WP_REST_API_Search_Result {
 	/**
 	 * Object subtype.
 	 */
-	subtype: "post" | "page" | "category" | "post_tag";
+	subtype: WP_Post_Type_Name | WP_Taxonomy_Name | string;
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }

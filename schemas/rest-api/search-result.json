@@ -26,9 +26,18 @@
 		},
 		"subtype": {
 			"description": "Object subtype.",
-			"type": "string",
-			"enum": ["post", "page", "category", "post_tag"]
-		},
+			"anyOf": [
+				{
+					"$ref": "../properties/post-type-name.json"
+				},
+				{
+					"$ref": "../properties/taxonomy-name.json"
+				},
+				{
+					"type": "string"
+				}
+			]
+	},
 		"_links": {
 			"$ref": "properties/object-links.json"
 		}
