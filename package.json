@@ -34,6 +34,7 @@
 		"test-comment": "ajv validate -m tests/hyper-schema.json -s schemas/comment.json -d \"tests/data/comment/*.json\" -r \"schemas/**/*.json\"",
 		"test-error": "ajv validate -m tests/hyper-schema.json -s schemas/error.json -d \"tests/data/error/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-post": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/post.json -d \"tests/data/rest-api/post/*.json\" -r \"schemas/**/*.json\"",
+		"test-rest-api-search-result": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/search-result.json -d \"tests/data/rest-api/search-result/*.json\" -r \"schemas/**/*.json\"",
 		"validate": "ajv compile -m tests/hyper-schema.json -s schema.json -r \"schemas/**/*.json\""
 	}
 }

@@ -178,3 +178,14 @@ WP_CLI::add_command( 'json-dump error', function() : void {
 
 	save( $errors, 'error' );
 } );
+
+/**
+ * Test data for REST API search results.
+ */
+WP_CLI::add_command( 'json-dump search-result', function() : void {
+	$data = get_rest_response( 'GET', '/wp/v2/search', [
+		'per_page' => 100,
+	] );
+
+	save( $data, 'rest-api/search-result' );
+} );

@@ -57,6 +57,10 @@ export type WP_REST_API_Categories = WP_REST_API_Category[];
  * A collection of user objects in a REST API context.
  */
 export type WP_REST_API_Users = WP_REST_API_User[];
+/**
+ * A collection of search result objects in a REST API context.
+ */
+export type WP_REST_API_Search_Results = WP_REST_API_Search_Result[];
 
 /**
  * WordPress is open source software you can use to create a beautiful website, blog, or app.
@@ -90,6 +94,8 @@ export interface WP {
 		Categories: WP_REST_API_Categories;
 		User: WP_REST_API_User;
 		Users: WP_REST_API_Users;
+		Search_Result: WP_REST_API_Search_Result;
+		Search_Results: WP_REST_API_Search_Results;
 		Error: WP_REST_API_Error;
 	};
 }
@@ -1831,6 +1837,33 @@ export interface WP_REST_API_User {
 		| {
 				[k: string]: unknown;
 		  };
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A search result in a REST API context.
+ */
+export interface WP_REST_API_Search_Result {
+	/**
+	 * Unique identifier for the object.
+	 */
+	id: number | string;
+	/**
+	 * The title for the object.
+	 */
+	title: string;
+	/**
+	 * URL to the object.
+	 */
+	url: string;
+	/**
+	 * Object type.
+	 */
+	type: "post" | "term" | "post-format";
+	/**
+	 * Object subtype.
+	 */
+	subtype: "post" | "page" | "category" | "post_tag";
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }

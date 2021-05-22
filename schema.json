@@ -89,6 +89,12 @@
 				"Users" : {
 					"$ref": "schemas/rest-api/users.json"
 				},
+				"Search_Result" : {
+					"$ref": "schemas/rest-api/search-result.json"
+				},
+				"Search_Results" : {
+					"$ref": "schemas/rest-api/search-results.json"
+				},
 				"Error" : {
 					"$ref": "schemas/rest-api/error.json"
 				}
@@ -108,6 +114,8 @@
 				"Categories",
 				"User",
 				"Users",
+				"Search_Result",
+				"Search_Results",
 				"Error"
 			],
 			"additionalProperties": false
