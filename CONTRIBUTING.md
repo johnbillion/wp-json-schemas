@@ -8,6 +8,25 @@ There is no fully automatic process to create these schemas. A schema for a PHP 
 * [Creating a PHP object schema](#creating-a-php-object-schema)
 * [Releasing a new version](#releasing-a-new-version)
 
+## Setting up Locally
+
+### Prerequisites
+
+* [Composer](https://getcomposer.org/)
+* [Node](https://nodejs.org/)
+
+### Setup
+
+1. Install the PHP dependencies:
+
+       composer install
+
+2. Install the Node dependencies:
+
+       npm install
+
+3. If you want to run the tests locally, check the MySQL database credentials in the `tests/.env` file and amend them as necessary.
+
 ## Creating a REST API response schema
 
 The WordPress REST API response doesn't fully adhere to the JSON schema spec, so we need to tweak its output in order to generate a valid schema.
