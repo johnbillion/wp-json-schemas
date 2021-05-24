@@ -61,6 +61,10 @@ export type WP_REST_API_Users = WP_REST_API_User[];
  * A collection of search result objects in a REST API context.
  */
 export type WP_REST_API_Search_Results = WP_REST_API_Search_Result[];
+/**
+ * A collection of taxonomy objects in a REST API context.
+ */
+export type WP_REST_API_Taxonomies = WP_REST_API_Taxonomy[];
 
 /**
  * WordPress is open source software you can use to create a beautiful website, blog, or app.
@@ -96,6 +100,8 @@ export interface WP {
 		Users: WP_REST_API_Users;
 		Search_Result: WP_REST_API_Search_Result;
 		Search_Results: WP_REST_API_Search_Results;
+		Taxonomy: WP_REST_API_Taxonomy;
+		Taxonomies: WP_REST_API_Taxonomies;
 		Error: WP_REST_API_Error;
 	};
 }
@@ -1865,6 +1871,82 @@ export interface WP_REST_API_Search_Result {
 	 */
 	subtype: WP_Post_Type_Name | WP_Taxonomy_Name | string;
 	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A taxonomy in a REST API context.
+ */
+export interface WP_REST_API_Taxonomy {
+	/**
+	 * All capabilities used by the taxonomy.
+	 */
+	capabilities?: {
+		[k: string]: unknown;
+	};
+	/**
+	 * A human-readable description of the taxonomy.
+	 */
+	description: string;
+	/**
+	 * Whether or not the taxonomy should have children.
+	 */
+	hierarchical: boolean;
+	/**
+	 * Human-readable labels for the taxonomy for various contexts.
+	 */
+	labels?: {
+		[k: string]: unknown;
+	};
+	/**
+	 * The title for the taxonomy.
+	 */
+	name: string;
+	/**
+	 * An alphanumeric identifier for the taxonomy.
+	 */
+	slug: string;
+	/**
+	 * Whether or not the term cloud should be displayed.
+	 */
+	show_cloud?: boolean;
+	/**
+	 * Types associated with the taxonomy.
+	 */
+	types: string[];
+	/**
+	 * REST base route for the taxonomy.
+	 */
+	rest_base: string;
+	/**
+	 * The visibility settings for the taxonomy.
+	 */
+	visibility?: {
+		/**
+		 * Whether a taxonomy is intended for use publicly either via the admin interface or by front-end users.
+		 */
+		public?: boolean;
+		/**
+		 * Whether the taxonomy is publicly queryable.
+		 */
+		publicly_queryable?: boolean;
+		/**
+		 * Whether to generate a default UI for managing this taxonomy.
+		 */
+		show_ui?: boolean;
+		/**
+		 * Whether to allow automatic creation of taxonomy columns on associated post-types table.
+		 */
+		show_admin_column?: boolean;
+		/**
+		 * Whether to make the taxonomy available for selection in navigation menus.
+		 */
+		show_in_nav_menus?: boolean;
+		/**
+		 * Whether to show the taxonomy in the quick/bulk edit panel.
+		 */
+		show_in_quick_edit?: boolean;
+	};
+	_links?: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }
 /**

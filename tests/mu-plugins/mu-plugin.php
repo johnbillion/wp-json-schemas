@@ -189,3 +189,12 @@ WP_CLI::add_command( 'json-dump search-result', function() : void {
 
 	save( $data, 'rest-api/search-result' );
 } );
+
+/**
+ * Test data for REST API taxonomies.
+ */
+WP_CLI::add_command( 'json-dump taxonomy', function() : void {
+	$data = get_rest_response( 'GET', '/wp/v2/taxonomies' );
+
+	save( $data, 'rest-api/taxonomy' );
+} );

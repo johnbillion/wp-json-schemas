@@ -1,0 +1,83 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/taxonomy.json",
+	"title": "WP_REST_API_Taxonomy",
+	"description": "A taxonomy in a REST API context.",
+	"type": "object",
+	"required": ["description", "hierarchical", "name", "slug", "types", "rest_base"],
+	"properties": {
+		"capabilities":{
+			"description":"All capabilities used by the taxonomy.",
+			"type":"object"
+		},
+		"description":{
+			"description":"A human-readable description of the taxonomy.",
+			"type":"string"
+		},
+		"hierarchical":{
+			"description":"Whether or not the taxonomy should have children.",
+			"type":"boolean"
+		},
+		"labels":{
+			"description":"Human-readable labels for the taxonomy for various contexts.",
+			"type":"object"
+		},
+		"name":{
+			"description":"The title for the taxonomy.",
+			"type":"string"
+		},
+		"slug":{
+			"description":"An alphanumeric identifier for the taxonomy.",
+			"type":"string"
+		},
+		"show_cloud":{
+			"description":"Whether or not the term cloud should be displayed.",
+			"type":"boolean"
+		},
+		"types":{
+			"description":"Types associated with the taxonomy.",
+			"type":"array",
+			"items":{
+				"type":"string"
+			}
+		},
+		"rest_base":{
+			"description":"REST base route for the taxonomy.",
+			"type":"string"
+		},
+		"visibility":{
+			"description":"The visibility settings for the taxonomy.",
+			"type":"object",
+			"properties":{
+				"public":{
+					"description":"Whether a taxonomy is intended for use publicly either via the admin interface or by front-end users.",
+					"type":"boolean"
+				},
+				"publicly_queryable":{
+					"description":"Whether the taxonomy is publicly queryable.",
+					"type":"boolean"
+				},
+				"show_ui":{
+					"description":"Whether to generate a default UI for managing this taxonomy.",
+					"type":"boolean"
+				},
+				"show_admin_column":{
+					"description":"Whether to allow automatic creation of taxonomy columns on associated post-types table.",
+					"type":"boolean"
+				},
+				"show_in_nav_menus":{
+					"description":"Whether to make the taxonomy available for selection in navigation menus.",
+					"type":"boolean"
+				},
+				"show_in_quick_edit":{
+					"description":"Whether to show the taxonomy in the quick\/bulk edit panel.",
+					"type":"boolean"
+				}
+			},
+			"additionalProperties": false
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	}
+}
