@@ -220,8 +220,10 @@ WP_CLI::add_command( 'json-dump search-results', function() : void {
 /**
  * Test data for REST API taxonomies.
  */
-WP_CLI::add_command( 'json-dump taxonomy', function() : void {
+WP_CLI::add_command( 'json-dump taxonomies', function() : void {
 	$data = get_rest_response( 'GET', '/wp/v2/taxonomies' );
 
-	save( $data, 'rest-api/taxonomy' );
+	save_rest( [
+		$data
+	], 'rest-api/taxonomies' );
 } );
