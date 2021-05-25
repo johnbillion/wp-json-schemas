@@ -4,7 +4,7 @@
 	"title": "WP_REST_API_Taxonomy",
 	"description": "A taxonomy in a REST API context.",
 	"type": "object",
-	"required": ["description", "hierarchical", "name", "slug", "types", "rest_base"],
+	"required": ["description", "hierarchical", "name", "slug", "types", "rest_base", "_links"],
 	"properties": {
 		"capabilities":{
 			"description":"All capabilities used by the taxonomy.",
