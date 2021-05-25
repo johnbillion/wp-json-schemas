@@ -3,8 +3,8 @@
 	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/taxonomies.json",
 	"title": "WP_REST_API_Taxonomies",
 	"description": "A collection of taxonomy objects in a REST API context.",
-	"type": "array",
-	"items": {
+	"type": "object",
+	"additionalProperties": {
 		"$ref": "taxonomy.json"
 	},
 	"links": [

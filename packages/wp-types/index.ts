@@ -61,10 +61,6 @@ export type WP_REST_API_Users = WP_REST_API_User[];
  * A collection of search result objects in a REST API context.
  */
 export type WP_REST_API_Search_Results = WP_REST_API_Search_Result[];
-/**
- * A collection of taxonomy objects in a REST API context.
- */
-export type WP_REST_API_Taxonomies = WP_REST_API_Taxonomy[];
 
 /**
  * WordPress is open source software you can use to create a beautiful website, blog, or app.
@@ -1948,6 +1944,12 @@ export interface WP_REST_API_Taxonomy {
 	};
 	_links?: WP_REST_API_Object_Links;
 	[k: string]: unknown;
+}
+/**
+ * A collection of taxonomy objects in a REST API context.
+ */
+export interface WP_REST_API_Taxonomies {
+	[k: string]: WP_REST_API_Taxonomy;
 }
 /**
  * A REST API error response.
