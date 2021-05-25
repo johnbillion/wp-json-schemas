@@ -95,6 +95,12 @@
 				"Search_Results" : {
 					"$ref": "schemas/rest-api/search-results.json"
 				},
+				"Taxonomy" : {
+					"$ref": "schemas/rest-api/taxonomy.json"
+				},
+				"Taxonomies" : {
+					"$ref": "schemas/rest-api/taxonomies.json"
+				},
 				"Type" : {
 					"$ref": "schemas/rest-api/type.json"
 				},
@@ -122,6 +128,8 @@
 				"Users",
 				"Search_Result",
 				"Search_Results",
+				"Taxonomy",
+				"Taxonomies",
 				"Type",
 				"Types",
 				"Error"

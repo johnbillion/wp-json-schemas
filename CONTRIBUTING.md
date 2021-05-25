@@ -44,7 +44,8 @@ The WordPress REST API response doesn't fully adhere to the JSON schema spec, so
 * In `tests/mu-plugins/mu-plugin.php` add a new `json-dump` command for the new endpoint
   - Start by copy-pasting an existing command such as the `json-dump post` one for `/wp/v2/posts`
   - The command should perform a REST API request to the endpoint and pass the result to the `save()` function which saves it as JSON during the tests
-* In `package.json` add two entries to the `test` script if one doesn't already exist:
+* In `package.json` add a new `"test-{object-type}"` entry to `scripts` if one doesn't already exist.
+* In `composer.json` add two entries to the `test` script if one doesn't already exist:
   - `"wp json-dump {object-type}"`
   - `"npm run test-{object-type}"`
 * Run `composer run test` to validate and test the schemas.

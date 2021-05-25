@@ -47,9 +47,11 @@
 			"npm run test-error",
 			"wp json-dump user",
 			"npm run test-user",
-			"wp json-dump search-result",
-			"npm run test-rest-api-search-result",
-			"npm run test-rest-api-post",
+			"wp json-dump search-results",
+			"npm run test-rest-api-search-results",
+			"npm run test-rest-api-posts",
+			"wp json-dump taxonomies",
+			"npm run test-rest-api-taxonomies",
 			"wp json-dump type",
 			"npm run test-rest-api-type"
 		]
