@@ -35,7 +35,7 @@
 		"test-error": "ajv validate -m tests/hyper-schema.json -s schemas/error.json -d \"tests/data/error/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-posts": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/posts.json -d \"tests/data/rest-api/posts/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-search-results": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/search-results.json -d \"tests/data/rest-api/search-results/*.json\" -r \"schemas/**/*.json\"",
-		"test-rest-api-type": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/type.json -d \"tests/data/rest-api/type/*.json\" -r \"schemas/**/*.json\"",
+		"test-rest-api-types": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/types.json -d \"tests/data/rest-api/types/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-taxonomies": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/taxonomies.json -d \"tests/data/rest-api/taxonomies/*.json\" -r \"schemas/**/*.json\"",
 		"validate": "ajv compile -m tests/hyper-schema.json -s schema.json -r \"schemas/**/*.json\""
 	}
