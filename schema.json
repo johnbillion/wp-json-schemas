@@ -95,6 +95,12 @@
 				"Search_Results" : {
 					"$ref": "schemas/rest-api/search-results.json"
 				},
+				"Type" : {
+					"$ref": "schemas/rest-api/type.json"
+				},
+				"Types" : {
+					"$ref": "schemas/rest-api/types.json"
+				},
 				"Error" : {
 					"$ref": "schemas/rest-api/error.json"
 				}
@@ -116,6 +122,8 @@
 				"Users",
 				"Search_Result",
 				"Search_Results",
+				"Type",
+				"Types",
 				"Error"
 			],
 			"additionalProperties": false

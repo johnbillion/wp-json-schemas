@@ -1,0 +1,64 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/type.json",
+	"title": "WP_REST_API_Type",
+	"description": "A type record in a REST API context.",
+	"type": "object",
+	"required": [
+		"description",
+		"hierarchical",
+		"name",
+		"slug",
+		"taxonomies",
+		"rest_base",
+		"_links"
+	],
+	"properties": {
+		"capabilities": {
+			"description": "All capabilities used by the post type.",
+			"type": "object"
+		},
+		"description": {
+			"description": "A human-readable description of the post type.",
+			"type": "string"
+		},
+		"hierarchical": {
+			"description": "Whether or not the post type should have children.",
+			"type": "boolean"
+		},
+		"viewable": {
+			"description": "Whether or not the post type can be viewed.",
+			"type": "boolean"
+		},
+		"labels": {
+			"description": "Human-readable labels for the post type for various contexts.",
+			"type": "object"
+		},
+		"name": {
+			"description": "The title for the post type.",
+			"type": "string"
+		},
+		"slug": {
+			"description": "An alphanumeric identifier for the post type.",
+			"type": "string"
+		},
+		"supports": {
+			"description": "All features, supported by the post type.",
+			"type": "object"
+		},
+		"taxonomies": {
+			"description": "Taxonomies associated with post type.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"rest_base": {
+			"description": "REST base route for the post type.",
+			"type": "string"
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	}
+}

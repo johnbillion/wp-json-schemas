@@ -49,6 +49,8 @@ Schema                       | Applies to
 `WP_REST_API_Attachment`     | /wp/v2/media/{id}
 `WP_REST_API_Search_Results` | /wp/v2/search
 `WP_REST_API_Search_Result`  | /wp/v2/search
+`WP_REST_API_Types`          | /wp/v2/types
+`WP_REST_API_Type`           | /wp/v2/types/{type}
 `WP_REST_API_Error`          | Any REST API error
 
 The REST API schemas use JSON Hyper-Schema.

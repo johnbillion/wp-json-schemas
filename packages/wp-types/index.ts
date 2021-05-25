@@ -61,6 +61,10 @@ export type WP_REST_API_Users = WP_REST_API_User[];
  * A collection of search result objects in a REST API context.
  */
 export type WP_REST_API_Search_Results = WP_REST_API_Search_Result[];
+/**
+ * A collection of type records in a REST API context.
+ */
+export type WP_REST_API_Types = WP_REST_API_Type[];
 
 /**
  * WordPress is open source software you can use to create a beautiful website, blog, or app.
@@ -96,6 +100,8 @@ export interface WP {
 		Users: WP_REST_API_Users;
 		Search_Result: WP_REST_API_Search_Result;
 		Search_Results: WP_REST_API_Search_Results;
+		Type: WP_REST_API_Type;
+		Types: WP_REST_API_Types;
 		Error: WP_REST_API_Error;
 	};
 }
@@ -1864,6 +1870,59 @@ export interface WP_REST_API_Search_Result {
 	 * Object subtype.
 	 */
 	subtype: WP_Post_Type_Name | WP_Taxonomy_Name | string;
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A type record in a REST API context.
+ */
+export interface WP_REST_API_Type {
+	/**
+	 * All capabilities used by the post type.
+	 */
+	capabilities?: {
+		[k: string]: unknown;
+	};
+	/**
+	 * A human-readable description of the post type.
+	 */
+	description: string;
+	/**
+	 * Whether or not the post type should have children.
+	 */
+	hierarchical: boolean;
+	/**
+	 * Whether or not the post type can be viewed.
+	 */
+	viewable?: boolean;
+	/**
+	 * Human-readable labels for the post type for various contexts.
+	 */
+	labels?: {
+		[k: string]: unknown;
+	};
+	/**
+	 * The title for the post type.
+	 */
+	name: string;
+	/**
+	 * An alphanumeric identifier for the post type.
+	 */
+	slug: string;
+	/**
+	 * All features, supported by the post type.
+	 */
+	supports?: {
+		[k: string]: unknown;
+	};
+	/**
+	 * Taxonomies associated with post type.
+	 */
+	taxonomies: string[];
+	/**
+	 * REST base route for the post type.
+	 */
+	rest_base: string;
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }

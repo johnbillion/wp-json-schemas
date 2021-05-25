@@ -49,7 +49,9 @@
 			"npm run test-user",
 			"wp json-dump search-result",
 			"npm run test-rest-api-search-result",
-			"npm run test-rest-api-post"
+			"npm run test-rest-api-post",
+			"wp json-dump type",
+			"npm run test-rest-api-type"
 		]
 	},
 	"funding": [
