@@ -44,9 +44,10 @@ function save_rest( array $data, string $dir ) : void {
 		mkdir( $dir, 0777, true );
 	}
 
-	foreach ( $data as $i => $item ) {
-		$save = rest_get_server()->response_to_data( $item, false );
+	$server = rest_get_server();
 
+	foreach ( $data as $i => $item ) {
+		$save = $server->response_to_data( $item, false );
 		$json = json_encode( $save, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
 
 		file_put_contents( $dir . '/' . $i . '.json', $json );
