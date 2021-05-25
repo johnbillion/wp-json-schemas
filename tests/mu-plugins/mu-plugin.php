@@ -11,6 +11,15 @@ if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
 	return;
 }
 
+if ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) {
+	return;
+}
+
+add_action( 'init', function() : void {
+	// Ensure we're authenticated as an admin during test data generation.
+	wp_set_current_user( 1 );
+} );
+
 /**
  * Saves an array of test data as JSON in files ready for validating against a schema.
  *
