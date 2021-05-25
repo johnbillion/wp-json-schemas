@@ -51,7 +51,9 @@
 			"npm run test-rest-api-search-results",
 			"npm run test-rest-api-posts",
 			"wp json-dump taxonomies",
-			"npm run test-rest-api-taxonomies"
+			"npm run test-rest-api-taxonomies",
+			"wp json-dump types",
+			"npm run test-rest-api-types"
 		]
 	},
 	"funding": [

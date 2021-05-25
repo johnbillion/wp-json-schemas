@@ -98,6 +98,8 @@ export interface WP {
 		Search_Results: WP_REST_API_Search_Results;
 		Taxonomy: WP_REST_API_Taxonomy;
 		Taxonomies: WP_REST_API_Taxonomies;
+		Type: WP_REST_API_Type;
+		Types: WP_REST_API_Types;
 		Error: WP_REST_API_Error;
 	};
 }
@@ -1942,7 +1944,7 @@ export interface WP_REST_API_Taxonomy {
 		 */
 		show_in_quick_edit?: boolean;
 	};
-	_links?: WP_REST_API_Object_Links;
+	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }
 /**
@@ -1950,6 +1952,65 @@ export interface WP_REST_API_Taxonomy {
  */
 export interface WP_REST_API_Taxonomies {
 	[k: string]: WP_REST_API_Taxonomy;
+}
+/**
+ * A type record in a REST API context.
+ */
+export interface WP_REST_API_Type {
+	/**
+	 * All capabilities used by the post type.
+	 */
+	capabilities?: {
+		[k: string]: unknown;
+	};
+	/**
+	 * A human-readable description of the post type.
+	 */
+	description: string;
+	/**
+	 * Whether or not the post type should have children.
+	 */
+	hierarchical: boolean;
+	/**
+	 * Whether or not the post type can be viewed.
+	 */
+	viewable?: boolean;
+	/**
+	 * Human-readable labels for the post type for various contexts.
+	 */
+	labels?: {
+		[k: string]: unknown;
+	};
+	/**
+	 * The title for the post type.
+	 */
+	name: string;
+	/**
+	 * An alphanumeric identifier for the post type.
+	 */
+	slug: string;
+	/**
+	 * All features, supported by the post type.
+	 */
+	supports?: {
+		[k: string]: unknown;
+	};
+	/**
+	 * Taxonomies associated with post type.
+	 */
+	taxonomies: string[];
+	/**
+	 * REST base route for the post type.
+	 */
+	rest_base: string;
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A collection of type records in a REST API context.
+ */
+export interface WP_REST_API_Types {
+	[k: string]: WP_REST_API_Type;
 }
 /**
  * A REST API error response.

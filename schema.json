@@ -101,6 +101,12 @@
 				"Taxonomies" : {
 					"$ref": "schemas/rest-api/taxonomies.json"
 				},
+				"Type" : {
+					"$ref": "schemas/rest-api/type.json"
+				},
+				"Types" : {
+					"$ref": "schemas/rest-api/types.json"
+				},
 				"Error" : {
 					"$ref": "schemas/rest-api/error.json"
 				}
@@ -124,6 +130,8 @@
 				"Search_Results",
 				"Taxonomy",
 				"Taxonomies",
+				"Type",
+				"Types",
 				"Error"
 			],
 			"additionalProperties": false
