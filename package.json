@@ -33,8 +33,8 @@
 		"test-category": "ajv validate -m tests/hyper-schema.json -s schemas/term.json -d \"tests/data/category/*.json\" -r \"schemas/**/*.json\"",
 		"test-comment": "ajv validate -m tests/hyper-schema.json -s schemas/comment.json -d \"tests/data/comment/*.json\" -r \"schemas/**/*.json\"",
 		"test-error": "ajv validate -m tests/hyper-schema.json -s schemas/error.json -d \"tests/data/error/*.json\" -r \"schemas/**/*.json\"",
-		"test-rest-api-post": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/post.json -d \"tests/data/rest-api/post/*.json\" -r \"schemas/**/*.json\"",
-		"test-rest-api-search-result": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/search-result.json -d \"tests/data/rest-api/search-result/*.json\" -r \"schemas/**/*.json\"",
+		"test-rest-api-posts": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/posts.json -d \"tests/data/rest-api/posts/*.json\" -r \"schemas/**/*.json\"",
+		"test-rest-api-search-results": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/search-results.json -d \"tests/data/rest-api/search-results/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-taxonomy": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/taxonomy.json -d \"tests/data/rest-api/taxonomy/*.json\" -r \"schemas/**/*.json\"",
 		"validate": "ajv compile -m tests/hyper-schema.json -s schema.json -r \"schemas/**/*.json\""
 	}

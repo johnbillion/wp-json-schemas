@@ -5,6 +5,7 @@ namespace WPJsonSchemas;
 use WP_CLI;
 use WP_Error;
 use WP_REST_Request;
+use WP_REST_Response;
 
 if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
 	return;
@@ -16,7 +17,7 @@ if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
  * @param mixed[] $data Array of test data objects.
  * @param string  $dir  The directory to save the files.
  */
-function save( array $data, string $dir ) : void {
+function save_array( array $data, string $dir ) : void {
 	$dir = dirname( ABSPATH ) . '/data/' . $dir;
 
 	if ( ! file_exists( $dir ) ) {
@@ -31,18 +32,40 @@ function save( array $data, string $dir ) : void {
 }
 
 /**
- * Helper function for performing an internal REST API request and returning its repsonse data.
+ * Saves an array of REST API responses as JSON ready for validating against a schema.
+ *
+ * @param WP_REST_Response[] $data Array of responses to a REST API request.
+ * @param string             $dir  The directory to save the files.
+ */
+function save_rest( array $data, string $dir ) : void {
+	$dir = dirname( ABSPATH ) . '/data/' . $dir;
+
+	if ( ! file_exists( $dir ) ) {
+		mkdir( $dir, 0777, true );
+	}
+
+	foreach ( $data as $i => $item ) {
+		$save = rest_get_server()->response_to_data( $item, false );
+
+		$json = json_encode( $save, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
+
+		file_put_contents( $dir . '/' . $i . '.json', $json );
+	}
+}
+
+/**
+ * Helper function for performing an internal REST API request and returning its response data.
  *
  * @param string $method The HTTP method such as `GET` or `POST`.
  * @param string $path   The REST API endpoint such as `wp/v2/posts`.
  * @param array $params  Array of query parameters for the request.
- * @return mixed[] The response data.
+ * @return WP_Rest_Response The response data.
  */
 function get_rest_response( string $method, string $path, array $params = [] ) {
 	$request = new WP_REST_Request( $method, $path );
 	$request->set_query_params( $params );
 
-	return rest_get_server()->response_to_data( rest_do_request( $request ), false );
+	return rest_do_request( $request );
 }
 
 /**
@@ -61,13 +84,15 @@ WP_CLI::add_command( 'json-dump post', function() : void {
 		'order'          => 'ASC',
 	] );
 
-	save( $posts, 'post' );
+	save_array( $posts, 'post' );
 
 	$data = get_rest_response( 'GET', '/wp/v2/posts', [
 		'per_page' => 100,
 	] );
 
-	save( $data, 'rest-api/post' );
+	save_rest( [
+		$data
+	], 'rest-api/posts' );
 } );
 
 /**
@@ -80,7 +105,7 @@ WP_CLI::add_command( 'json-dump user', function() : void {
 		'order'   => 'ASC',
 	] );
 
-	save( $users, 'user' );
+	save_array( $users, 'user' );
 } );
 
 /**
@@ -94,7 +119,7 @@ WP_CLI::add_command( 'json-dump tag', function() : void {
 		'order'    => 'ASC',
 	] );
 
-	save( $tags, 'tag' );
+	save_array( $tags, 'tag' );
 } );
 
 /**
@@ -108,7 +133,7 @@ WP_CLI::add_command( 'json-dump category', function() : void {
 		'order'    => 'ASC',
 	] );
 
-	save( $categories, 'category' );
+	save_array( $categories, 'category' );
 } );
 
 /**
@@ -121,7 +146,7 @@ WP_CLI::add_command( 'json-dump comment', function() : void {
 		'order'   => 'ASC',
 	] );
 
-	save( $comment, 'comment' );
+	save_array( $comment, 'comment' );
 } );
 
 /**
@@ -176,18 +201,20 @@ WP_CLI::add_command( 'json-dump error', function() : void {
 	$multi_code_1->merge_from( $multi_code_2 );
 	$errors[] = $multi_code_1;
 
-	save( $errors, 'error' );
+	save_array( $errors, 'error' );
 } );
 
 /**
  * Test data for REST API search results.
  */
-WP_CLI::add_command( 'json-dump search-result', function() : void {
+WP_CLI::add_command( 'json-dump search-results', function() : void {
 	$data = get_rest_response( 'GET', '/wp/v2/search', [
 		'per_page' => 100,
 	] );
 
-	save( $data, 'rest-api/search-result' );
+	save_rest( [
+		$data
+	], 'rest-api/search-results' );
 } );
 
 /**
