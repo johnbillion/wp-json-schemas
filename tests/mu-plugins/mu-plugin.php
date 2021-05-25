@@ -87,6 +87,7 @@ WP_CLI::add_command( 'json-dump post', function() : void {
 	save_array( $posts, 'post' );
 
 	$data = get_rest_response( 'GET', '/wp/v2/posts', [
+		'context' => 'edit',
 		'per_page' => 100,
 	] );
 
@@ -209,6 +210,7 @@ WP_CLI::add_command( 'json-dump error', function() : void {
  */
 WP_CLI::add_command( 'json-dump search-results', function() : void {
 	$data = get_rest_response( 'GET', '/wp/v2/search', [
+		'context' => 'view',
 		'per_page' => 100,
 	] );
 
@@ -221,7 +223,9 @@ WP_CLI::add_command( 'json-dump search-results', function() : void {
  * Test data for REST API taxonomies.
  */
 WP_CLI::add_command( 'json-dump taxonomies', function() : void {
-	$data = get_rest_response( 'GET', '/wp/v2/taxonomies' );
+	$data = get_rest_response( 'GET', '/wp/v2/taxonomies', [
+		'context' => 'edit',
+	] );
 
 	save_rest( [
 		$data
