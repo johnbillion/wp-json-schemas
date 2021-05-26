@@ -622,11 +622,11 @@ export interface WP_Post_Type {
 	/**
 	 * The position in the menu order the post type should appear.
 	 */
-	menu_position: number;
+	menu_position: number | null;
 	/**
-	 * The URL or reference to the icon to be used for this menu. Can include a URL, a base64-encoded SVG using a data URI, the name of a Dashicons helper class, or 'none'.
+	 * The URL or reference to the icon to be used for this menu. Can include a URL, a base64-encoded SVG using a data URI, the name of a Dashicons helper class, or 'none'. Can include null for post types without a UI.
 	 */
-	menu_icon: string | "none";
+	menu_icon: string | "none" | null;
 	/**
 	 * The string to use to build the read, edit, and delete capabilities.
 	 */
@@ -658,7 +658,7 @@ export interface WP_Post_Type {
 	/**
 	 * Whether to delete posts of this type when deleting a user.
 	 */
-	delete_with_user: boolean;
+	delete_with_user: boolean | null;
 	/**
 	 * Array of blocks to use as the default initial state for an editor session.
 	 */
@@ -700,7 +700,7 @@ export interface WP_Post_Type {
 	/**
 	 * The controller for this post type's REST API endpoints.
 	 */
-	rest_controller_class: string;
+	rest_controller_class: string | false;
 	/**
 	 * The controller instance for this post type's REST API endpoints.
 	 */
