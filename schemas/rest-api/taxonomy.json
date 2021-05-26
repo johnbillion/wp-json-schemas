@@ -78,6 +78,14 @@
 		"visibility": {
 			"description": "The visibility settings for the taxonomy. Only present when using the 'edit' context.",
 			"type": "object",
+			"required": [
+				"public",
+				"publicly_queryable",
+				"show_ui",
+				"show_admin_column",
+				"show_in_nav_menus",
+				"show_in_quick_edit"
+			],
 			"properties": {
 				"public": {
 					"description": "Whether a taxonomy is intended for use publicly either via the admin interface or by front-end users.",
