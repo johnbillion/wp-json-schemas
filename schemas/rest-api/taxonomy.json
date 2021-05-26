@@ -15,7 +15,7 @@
 	],
 	"properties": {
 		"capabilities": {
-			"description": "All capabilities used by the taxonomy.",
+			"description": "All capabilities used by the taxonomy. Only present when using the 'edit' context.",
 			"type": "object"
 		},
 		"description": {
@@ -27,7 +27,7 @@
 			"type": "boolean"
 		},
 		"labels": {
-			"description": "Human-readable labels for the taxonomy for various contexts.",
+			"description": "Human-readable labels for the taxonomy for various contexts. Only present when using the 'edit' context.",
 			"type": "object"
 		},
 		"name": {
@@ -50,11 +50,11 @@
 			}
 		},
 		"rest_base": {
-			"description": "REST base route for the taxonomy.",
+			"description": "REST base route for the taxonomy. Only present when using the 'edit' context.",
 			"type": "string"
 		},
 		"visibility": {
-			"description": "The visibility settings for the taxonomy.",
+			"description": "The visibility settings for the taxonomy. Only present when using the 'edit' context.",
 			"type": "object",
 			"properties": {
 				"public": {

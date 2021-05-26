@@ -1876,7 +1876,7 @@ export interface WP_REST_API_Search_Result {
  */
 export interface WP_REST_API_Taxonomy {
 	/**
-	 * All capabilities used by the taxonomy.
+	 * All capabilities used by the taxonomy. Only present when using the 'edit' context.
 	 */
 	capabilities?: {
 		[k: string]: unknown;
@@ -1890,7 +1890,7 @@ export interface WP_REST_API_Taxonomy {
 	 */
 	hierarchical: boolean;
 	/**
-	 * Human-readable labels for the taxonomy for various contexts.
+	 * Human-readable labels for the taxonomy for various contexts. Only present when using the 'edit' context.
 	 */
 	labels?: {
 		[k: string]: unknown;
@@ -1912,11 +1912,11 @@ export interface WP_REST_API_Taxonomy {
 	 */
 	types: string[];
 	/**
-	 * REST base route for the taxonomy.
+	 * REST base route for the taxonomy. Only present when using the 'edit' context.
 	 */
 	rest_base: string;
 	/**
-	 * The visibility settings for the taxonomy.
+	 * The visibility settings for the taxonomy. Only present when using the 'edit' context.
 	 */
 	visibility?: {
 		/**
@@ -1958,7 +1958,7 @@ export interface WP_REST_API_Taxonomies {
  */
 export interface WP_REST_API_Type {
 	/**
-	 * All capabilities used by the post type.
+	 * All capabilities used by the post type. Only present when using the 'edit' context.
 	 */
 	capabilities?: {
 		[k: string]: unknown;
@@ -1972,11 +1972,11 @@ export interface WP_REST_API_Type {
 	 */
 	hierarchical: boolean;
 	/**
-	 * Whether or not the post type can be viewed.
+	 * Whether or not the post type can be viewed. Only present when using the 'edit' context.
 	 */
 	viewable?: boolean;
 	/**
-	 * Human-readable labels for the post type for various contexts.
+	 * Human-readable labels for the post type for various contexts. Only present when using the 'edit' context.
 	 */
 	labels?: {
 		[k: string]: unknown;
@@ -1990,7 +1990,7 @@ export interface WP_REST_API_Type {
 	 */
 	slug: string;
 	/**
-	 * All features, supported by the post type.
+	 * All features, supported by the post type. Only present when using the 'edit' context.
 	 */
 	supports?: {
 		[k: string]: unknown;
@@ -2000,7 +2000,7 @@ export interface WP_REST_API_Type {
 	 */
 	taxonomies: string[];
 	/**
-	 * REST base route for the post type.
+	 * REST base route for the post type. Only present when using the 'edit' context.
 	 */
 	rest_base: string;
 	_links: WP_REST_API_Object_Links;

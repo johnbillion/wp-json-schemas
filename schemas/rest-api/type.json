@@ -15,7 +15,7 @@
 	],
 	"properties": {
 		"capabilities": {
-			"description": "All capabilities used by the post type.",
+			"description": "All capabilities used by the post type. Only present when using the 'edit' context.",
 			"type": "object"
 		},
 		"description": {
@@ -27,11 +27,11 @@
 			"type": "boolean"
 		},
 		"viewable": {
-			"description": "Whether or not the post type can be viewed.",
+			"description": "Whether or not the post type can be viewed. Only present when using the 'edit' context.",
 			"type": "boolean"
 		},
 		"labels": {
-			"description": "Human-readable labels for the post type for various contexts.",
+			"description": "Human-readable labels for the post type for various contexts. Only present when using the 'edit' context.",
 			"type": "object"
 		},
 		"name": {
@@ -43,7 +43,7 @@
 			"type": "string"
 		},
 		"supports": {
-			"description": "All features, supported by the post type.",
+			"description": "All features, supported by the post type. Only present when using the 'edit' context.",
 			"type": "object"
 		},
 		"taxonomies": {
@@ -54,7 +54,7 @@
 			}
 		},
 		"rest_base": {
-			"description": "REST base route for the post type.",
+			"description": "REST base route for the post type. Only present when using the 'edit' context.",
 			"type": "string"
 		},
 		"_links": {
