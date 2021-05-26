@@ -757,12 +757,12 @@ export interface WP_Post_Type_Caps {
 	delete_posts: WP_User_Cap_Name;
 	publish_posts: WP_User_Cap_Name;
 	read_private_posts: WP_User_Cap_Name;
-	read: WP_User_Cap_Name;
-	delete_private_posts: WP_User_Cap_Name;
-	delete_published_posts: WP_User_Cap_Name;
-	delete_others_posts: WP_User_Cap_Name;
-	edit_private_posts: WP_User_Cap_Name;
-	edit_published_posts: WP_User_Cap_Name;
+	read?: WP_User_Cap_Name;
+	delete_private_posts?: WP_User_Cap_Name;
+	delete_published_posts?: WP_User_Cap_Name;
+	delete_others_posts?: WP_User_Cap_Name;
+	edit_private_posts?: WP_User_Cap_Name;
+	edit_published_posts?: WP_User_Cap_Name;
 	create_posts: WP_User_Cap_Name;
 }
 /**
