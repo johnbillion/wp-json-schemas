@@ -984,6 +984,10 @@ export interface WP_Taxonomy {
 	 */
 	rest_controller_class: string | false;
 	/**
+	 * The controller instance for this taxonomy's REST API endpoints.
+	 */
+	rest_controller: null;
+	/**
 	 * The default term name for this taxonomy. If you pass an array you have to set 'name' and optionally 'slug' and 'description'.
 	 */
 	default_term:

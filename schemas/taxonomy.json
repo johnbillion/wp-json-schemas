@@ -128,7 +128,7 @@
 			"description": "An array of object types this taxonomy is registered for.",
 			"type": "array",
 			"items": {
-				"oneOf": [
+				"anyOf": [
 					{
 						"$ref": "properties/post-type-name.json"
 					},
@@ -200,6 +200,10 @@
 					]
 				}
 			]
+		},
+		"rest_controller": {
+			"description": "The controller instance for this taxonomy's REST API endpoints.",
+			"type": "null"
 		},
 		"default_term": {
 			"description": "The default term name for this taxonomy. If you pass an array you have to set 'name' and optionally 'slug' and 'description'.",
