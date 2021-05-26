@@ -1878,9 +1878,7 @@ export interface WP_REST_API_Taxonomy {
 	/**
 	 * All capabilities used by the taxonomy. Only present when using the 'edit' context.
 	 */
-	capabilities?: {
-		[k: string]: unknown;
-	};
+	capabilities?: WP_Taxonomy_Caps;
 	/**
 	 * A human-readable description of the taxonomy.
 	 */
@@ -1892,9 +1890,7 @@ export interface WP_REST_API_Taxonomy {
 	/**
 	 * Human-readable labels for the taxonomy for various contexts. Only present when using the 'edit' context.
 	 */
-	labels?: {
-		[k: string]: unknown;
-	};
+	labels?: WP_Taxonomy_Labels;
 	/**
 	 * The title for the taxonomy.
 	 */
@@ -1960,9 +1956,7 @@ export interface WP_REST_API_Type {
 	/**
 	 * All capabilities used by the post type. Only present when using the 'edit' context.
 	 */
-	capabilities?: {
-		[k: string]: unknown;
-	};
+	capabilities?: WP_Post_Type_Caps;
 	/**
 	 * A human-readable description of the post type.
 	 */
@@ -1978,9 +1972,7 @@ export interface WP_REST_API_Type {
 	/**
 	 * Human-readable labels for the post type for various contexts. Only present when using the 'edit' context.
 	 */
-	labels?: {
-		[k: string]: unknown;
-	};
+	labels?: WP_Post_Type_Labels;
 	/**
 	 * The title for the post type.
 	 */

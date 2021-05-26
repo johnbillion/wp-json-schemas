@@ -16,7 +16,11 @@
 	"properties": {
 		"capabilities": {
 			"description": "All capabilities used by the taxonomy. Only present when using the 'edit' context.",
-			"type": "object"
+			"allOf": [
+				{
+					"$ref": "../properties/taxonomy-caps.json"
+				}
+			]
 		},
 		"description": {
 			"description": "A human-readable description of the taxonomy.",
@@ -28,7 +32,11 @@
 		},
 		"labels": {
 			"description": "Human-readable labels for the taxonomy for various contexts. Only present when using the 'edit' context.",
-			"type": "object"
+			"allOf": [
+				{
+					"$ref": "../properties/taxonomy-labels.json"
+				}
+			]
 		},
 		"name": {
 			"description": "The title for the taxonomy.",
