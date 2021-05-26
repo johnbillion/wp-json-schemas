@@ -1904,7 +1904,7 @@ export interface WP_REST_API_Taxonomy {
 	 */
 	slug: string;
 	/**
-	 * Whether or not the term cloud should be displayed.
+	 * Whether or not the term cloud should be displayed. Only present when using the 'edit' context.
 	 */
 	show_cloud?: boolean;
 	/**

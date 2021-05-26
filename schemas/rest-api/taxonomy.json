@@ -46,7 +46,7 @@
 			"type": "string"
 		},
 		"show_cloud": {
-			"description": "Whether or not the term cloud should be displayed.",
+			"description": "Whether or not the term cloud should be displayed. Only present when using the 'edit' context.",
 			"type": "boolean"
 		},
 		"types": {
