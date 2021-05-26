@@ -1894,11 +1894,11 @@ export interface WP_REST_API_Taxonomy {
 	/**
 	 * The title for the taxonomy.
 	 */
-	name: WP_Taxonomy_Name | string;
+	name: string;
 	/**
 	 * An alphanumeric identifier for the taxonomy.
 	 */
-	slug: string;
+	slug: WP_Taxonomy_Name | string;
 	/**
 	 * Whether or not the term cloud should be displayed. Only present when using the 'edit' context.
 	 */

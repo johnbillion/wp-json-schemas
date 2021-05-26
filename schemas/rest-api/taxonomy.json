@@ -40,6 +40,10 @@
 		},
 		"name": {
 			"description": "The title for the taxonomy.",
+			"type": "string"
+		},
+		"slug": {
+			"description": "An alphanumeric identifier for the taxonomy.",
 			"anyOf": [
 				{
 					"$ref": "../properties/taxonomy-name.json"
@@ -48,10 +52,6 @@
 					"type": "string"
 				}
 			]
-		},
-		"slug": {
-			"description": "An alphanumeric identifier for the taxonomy.",
-			"type": "string"
 		},
 		"show_cloud": {
 			"description": "Whether or not the term cloud should be displayed. Only present when using the 'edit' context.",
