@@ -230,9 +230,13 @@ WP_CLI::add_command( 'json-dump search-results', function() : void {
 } );
 
 /**
- * Test data for REST API taxonomies.
+ * Test data for taxonomies.
  */
 WP_CLI::add_command( 'json-dump taxonomies', function() : void {
+	$taxos = get_taxonomies( [], 'objects' );
+
+	save_array( $taxos, 'taxonomy' );
+
 	$data = get_rest_response( 'GET', '/wp/v2/taxonomies', [
 		'context' => 'edit',
 	] );

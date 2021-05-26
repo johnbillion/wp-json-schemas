@@ -28,6 +28,7 @@
 		"build-wp-types": "json2ts -i schema.json -o packages/wp-types/index.ts --style.trailingComma=all --style.useTabs && cat packages/wp-types/append.ts >> packages/wp-types/index.ts",
 		"test-wp-types": "tsc packages/wp-types/tests/test.ts --noEmit --strict",
 		"test-post": "ajv validate -m tests/hyper-schema.json -s schemas/post.json -d \"tests/data/post/*.json\" -r \"schemas/**/*.json\"",
+		"test-taxonomy": "ajv validate -m tests/hyper-schema.json -s schemas/taxonomy.json -d \"tests/data/taxonomy/*.json\" -r \"schemas/**/*.json\"",
 		"test-user": "ajv validate -m tests/hyper-schema.json -s schemas/user.json -d \"tests/data/user/*.json\" -r \"schemas/**/*.json\"",
 		"test-tag": "ajv validate -m tests/hyper-schema.json -s schemas/term.json -d \"tests/data/tag/*.json\" -r \"schemas/**/*.json\"",
 		"test-category": "ajv validate -m tests/hyper-schema.json -s schemas/term.json -d \"tests/data/category/*.json\" -r \"schemas/**/*.json\"",
