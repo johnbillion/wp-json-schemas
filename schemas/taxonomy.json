@@ -159,13 +159,9 @@
 		},
 		"query_var": {
 			"description": "Query var string for this taxonomy.",
-			"oneOf": [
-				{
-					"type": "string"
-				},
-				{
-					"type": "boolean"
-				}
+			"type": [
+				"string",
+				"boolean"
 			]
 		},
 		"update_count_callback": {
@@ -187,13 +183,9 @@
 		},
 		"rest_base": {
 			"description": "The base path for this taxonomy's REST API endpoints.",
-			"oneOf": [
-				{
-					"type": "string"
-				},
-				{
-					"type": "boolean"
-				}
+			"type": [
+				"string",
+				"boolean"
 			]
 		},
 		"rest_controller_class": {
@@ -240,24 +232,16 @@
 		},
 		"sort": {
 			"description": "Whether terms in this taxonomy should be sorted in the order they are provided to `wp_set_object_terms()`.\n\nUse this in combination with `'orderby' => 'term_order'` when fetching terms.",
-			"oneOf": [
-				{
-					"type": "boolean"
-				},
-				{
-					"type": "null"
-				}
+			"type": [
+				"boolean",
+				"null"
 			]
 		},
 		"args": {
 			"description": "Array of arguments to automatically use inside `wp_get_object_terms()` for this taxonomy.",
-			"oneOf": [
-				{
-					"type": "object"
-				},
-				{
-					"type": "null"
-				}
+			"type": [
+				"object",
+				"null"
 			]
 		},
 		"_builtin": {
