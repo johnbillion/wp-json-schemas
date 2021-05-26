@@ -72,7 +72,10 @@
 			"type": "string"
 		},
 		"parent_item_colon": {
-			"type": "string"
+			"type": [
+				"string",
+				"null"
+			]
 		},
 		"all_items": {
 			"type": "string"
@@ -133,6 +136,9 @@
 		}
 	},
 	"additionalProperties": {
-		"type": "string"
+		"type": [
+			"string",
+			"null"
+		]
 	}
 }

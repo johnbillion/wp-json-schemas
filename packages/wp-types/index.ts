@@ -723,7 +723,7 @@ export interface WP_Post_Type_Labels {
 	search_items: string;
 	not_found: string;
 	not_found_in_trash: string;
-	parent_item_colon: string;
+	parent_item_colon: string | null;
 	all_items: string;
 	archives: string;
 	attributes: string;
@@ -743,7 +743,7 @@ export interface WP_Post_Type_Labels {
 	item_updated: string;
 	menu_name: string;
 	name_admin_bar: string;
-	[k: string]: string;
+	[k: string]: string | null;
 }
 /**
  * Post type capabilities.
@@ -1018,28 +1018,28 @@ export interface WP_Taxonomy_Labels {
 	name: string;
 	singular_name: string;
 	search_items: string;
-	popular_items: string;
+	popular_items: string | null;
 	all_items: string;
-	parent_item: string;
-	parent_item_colon: string;
+	parent_item: string | null;
+	parent_item_colon: string | null;
 	edit_item: string;
 	view_item: string;
 	update_item: string;
 	add_new_item: string;
 	new_item_name: string;
-	separate_items_with_commas: string;
-	add_or_remove_items: string;
-	choose_from_most_used: string;
+	separate_items_with_commas: string | null;
+	add_or_remove_items: string | null;
+	choose_from_most_used: string | null;
 	not_found: string;
 	no_terms: string;
-	filter_by_item: string;
+	filter_by_item: string | null;
 	items_list_navigation: string;
 	items_list: string;
 	most_used: string;
 	back_to_items: string;
 	menu_name: string;
 	name_admin_bar: string;
-	[k: string]: string;
+	[k: string]: string | null;
 }
 /**
  * Taxonomy capabilities.

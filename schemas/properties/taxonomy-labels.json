@@ -41,16 +41,25 @@
 			"type": "string"
 		},
 		"popular_items": {
-			"type": "string"
+			"type": [
+				"string",
+				"null"
+			]
 		},
 		"all_items": {
 			"type": "string"
 		},
 		"parent_item": {
-			"type": "string"
+			"type": [
+				"string",
+				"null"
+			]
 		},
 		"parent_item_colon": {
-			"type": "string"
+			"type": [
+				"string",
+				"null"
+			]
 		},
 		"edit_item": {
 			"type": "string"
@@ -68,13 +77,22 @@
 			"type": "string"
 		},
 		"separate_items_with_commas": {
-			"type": "string"
+			"type": [
+				"string",
+				"null"
+			]
 		},
 		"add_or_remove_items": {
-			"type": "string"
+			"type": [
+				"string",
+				"null"
+			]
 		},
 		"choose_from_most_used": {
-			"type": "string"
+			"type": [
+				"string",
+				"null"
+			]
 		},
 		"not_found": {
 			"type": "string"
@@ -83,7 +101,10 @@
 			"type": "string"
 		},
 		"filter_by_item": {
-			"type": "string"
+			"type": [
+				"string",
+				"null"
+			]
 		},
 		"items_list_navigation": {
 			"type": "string"
@@ -105,6 +126,9 @@
 		}
 	},
 	"additionalProperties": {
-		"type": "string"
+		"type": [
+			"string",
+			"null"
+		]
 	}
 }
