@@ -40,7 +40,14 @@
 		},
 		"slug": {
 			"description": "An alphanumeric identifier for the post type.",
-			"type": "string"
+			"anyOf": [
+				{
+					"$ref": "../properties/post-type-name.json"
+				},
+				{
+					"type": "string"
+				}
+			]
 		},
 		"supports": {
 			"description": "All features, supported by the post type. Only present when using the 'edit' context.",
@@ -50,7 +57,14 @@
 			"description": "Taxonomies associated with post type.",
 			"type": "array",
 			"items": {
-				"type": "string"
+				"anyOf": [
+					{
+						"$ref": "../properties/taxonomy-name.json"
+					},
+					{
+						"type": "string"
+					}
+				]
 			}
 		},
 		"rest_base": {

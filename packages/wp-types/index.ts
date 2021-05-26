@@ -1898,7 +1898,7 @@ export interface WP_REST_API_Taxonomy {
 	/**
 	 * The title for the taxonomy.
 	 */
-	name: string;
+	name: WP_Taxonomy_Name | string;
 	/**
 	 * An alphanumeric identifier for the taxonomy.
 	 */
@@ -1910,7 +1910,7 @@ export interface WP_REST_API_Taxonomy {
 	/**
 	 * Types associated with the taxonomy.
 	 */
-	types: string[];
+	types: (WP_Post_Type_Name | string)[];
 	/**
 	 * REST base route for the taxonomy. Only present when using the 'edit' context.
 	 */
@@ -1988,7 +1988,7 @@ export interface WP_REST_API_Type {
 	/**
 	 * An alphanumeric identifier for the post type.
 	 */
-	slug: string;
+	slug: WP_Post_Type_Name | string;
 	/**
 	 * All features, supported by the post type. Only present when using the 'edit' context.
 	 */
@@ -1998,7 +1998,7 @@ export interface WP_REST_API_Type {
 	/**
 	 * Taxonomies associated with post type.
 	 */
-	taxonomies: string[];
+	taxonomies: (WP_Taxonomy_Name | string)[];
 	/**
 	 * REST base route for the post type. Only present when using the 'edit' context.
 	 */

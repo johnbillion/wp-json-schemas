@@ -32,7 +32,14 @@
 		},
 		"name": {
 			"description": "The title for the taxonomy.",
-			"type": "string"
+			"anyOf": [
+				{
+					"$ref": "../properties/taxonomy-name.json"
+				},
+				{
+					"type": "string"
+				}
+			]
 		},
 		"slug": {
 			"description": "An alphanumeric identifier for the taxonomy.",
@@ -46,7 +53,14 @@
 			"description": "Types associated with the taxonomy.",
 			"type": "array",
 			"items": {
-				"type": "string"
+				"anyOf": [
+					{
+						"$ref": "../properties/post-type-name.json"
+					},
+					{
+						"type": "string"
+					}
+				]
 			}
 		},
 		"rest_base": {
