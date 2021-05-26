@@ -247,9 +247,13 @@ WP_CLI::add_command( 'json-dump taxonomies', function() : void {
 } );
 
 /**
- * Test data for REST API types.
+ * Test data for post types.
  */
 WP_CLI::add_command( 'json-dump types', function() : void {
+	$types = get_post_types( [], 'objects' );
+
+	save_array( $types, 'post-type' );
+
 	$data = get_rest_response( 'GET', '/wp/v2/types', [
 		'context' => 'view',
 	] );

@@ -54,6 +54,7 @@
 			"npm run test-taxonomy",
 			"npm run test-rest-api-taxonomies",
 			"wp json-dump types",
+			"npm run test-post-type",
 			"npm run test-rest-api-types"
 		]
 	},
