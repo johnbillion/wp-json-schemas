@@ -23,6 +23,7 @@
 	],
 	"properties": {
 		"comment_ID": {
+			"readOnly": true,
 			"description": "Comment ID.\n\nA numeric string, for compatibility reasons.",
 			"type": "string"
 		},

@@ -4,6 +4,7 @@
 	"title": "WP_Error",
 	"description": "WordPress Error class.\n\nContainer for checking for WordPress errors and error messages. Many core WordPress functions pass this class in the event of an error.",
 	"type": "object",
+	"readOnly": true,
 	"required": [
 		"error_data",
 		"errors"

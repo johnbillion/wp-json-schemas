@@ -18,6 +18,7 @@
 	],
 	"properties": {
 		"term_id": {
+			"readOnly": true,
 			"description": "Term ID.",
 			"type": "integer"
 		},

@@ -15,6 +15,7 @@
 	],
 	"properties": {
 		"ID": {
+			"readOnly": true,
 			"description": "The user's ID.",
 			"type": "integer"
 		},

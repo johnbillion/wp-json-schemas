@@ -60,6 +60,7 @@
 			"additionalProperties": false
 		},
 		"id": {
+			"readOnly": true,
 			"description": "Unique identifier for the object.",
 			"type": "integer"
 		},

@@ -4,6 +4,7 @@
 	"title": "WP_REST_API_Search_Result",
 	"description": "A search result in a REST API context.",
 	"type": "object",
+	"readOnly": true,
 	"required": ["id", "title", "url", "type", "subtype", "_links"],
 	"properties": {
 		"id": {

@@ -4,6 +4,7 @@
 	"title": "WP_Post_Type",
 	"description": "Core class used for interacting with post types.",
 	"type": "object",
+	"readOnly": true,
 	"required": [
 		"name",
 		"label",

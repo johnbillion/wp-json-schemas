@@ -4,6 +4,7 @@
 	"title": "WP_Block",
 	"description": "Class representing a parsed instance of a block.",
 	"type": "object",
+	"readOnly": true,
 	"required": [
 		"parsed_block",
 		"name",

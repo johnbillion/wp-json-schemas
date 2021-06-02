@@ -4,6 +4,7 @@
 	"title": "WP_Error_With_Error",
 	"description": "WordPress Error class.\n\nRepresents a WP_Error object that contains at least one error.",
 	"type": "object",
+	"readOnly": true,
 	"required": [
 		"error_data",
 		"errors"

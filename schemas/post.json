@@ -32,6 +32,7 @@
 	],
 	"properties": {
 		"ID": {
+			"readOnly": true,
 			"description": "Post ID.",
 			"type": "integer"
 		},

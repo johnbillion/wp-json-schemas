@@ -4,6 +4,7 @@
 	"title": "WP_REST_API_Taxonomy",
 	"description": "A taxonomy in a REST API context.",
 	"type": "object",
+	"readOnly": true,
 	"required": [
 		"description",
 		"hierarchical",

@@ -4,6 +4,7 @@
 	"title": "WP_Taxonomy",
 	"description": "Core class used for interacting with taxonomies.",
 	"type": "object",
+	"readOnly": true,
 	"required": [
 		"name",
 		"label",

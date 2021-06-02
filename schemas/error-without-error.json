@@ -4,6 +4,7 @@
 	"title": "WP_Error_Without_Error",
 	"description": "Empty WordPress Error class.\n\nRepresents a WP_Error object that contains no errors.",
 	"type": "object",
+	"readOnly": true,
 	"required": [
 		"error_data",
 		"errors"

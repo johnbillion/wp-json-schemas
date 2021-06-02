@@ -4,6 +4,7 @@
 	"title": "WP_Role",
 	"description": "Core class used to extend the user roles API.",
 	"type": "object",
+	"readOnly": true,
 	"required": [
 		"name",
 		"capabilities"

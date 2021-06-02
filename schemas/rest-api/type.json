@@ -4,6 +4,7 @@
 	"title": "WP_REST_API_Type",
 	"description": "A type record in a REST API context.",
 	"type": "object",
+	"readOnly": true,
 	"required": [
 		"description",
 		"hierarchical",

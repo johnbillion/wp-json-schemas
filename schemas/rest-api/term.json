@@ -17,6 +17,7 @@
 	],
 	"properties": {
 		"id": {
+			"readOnly": true,
 			"description": "Unique identifier for the term.",
 			"type": "integer"
 		},

@@ -20,6 +20,7 @@
 	],
 	"properties": {
 		"blog_id": {
+			"readOnly": true,
 			"description": "Site ID.\n\nA numeric string, for compatibility reasons.",
 			"type": "string"
 		},
