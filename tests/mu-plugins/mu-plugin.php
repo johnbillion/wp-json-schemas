@@ -26,7 +26,7 @@ add_action( 'init', function() : void {
  * @param mixed[] $data Array of test data objects.
  * @param string  $dir  The directory to save the files.
  */
-function save_array( array $data, string $dir ) : void {
+function save_object_array( array $data, string $dir ) : void {
 	$dir = dirname( ABSPATH ) . '/data/' . $dir;
 
 	if ( ! file_exists( $dir ) ) {
@@ -46,7 +46,7 @@ function save_array( array $data, string $dir ) : void {
  * @param WP_REST_Response[] $data Array of responses to a REST API request.
  * @param string             $dir  The directory to save the files.
  */
-function save_rest( array $data, string $dir ) : void {
+function save_rest_array( array $data, string $dir ) : void {
 	$dir = dirname( ABSPATH ) . '/data/' . $dir;
 
 	if ( ! file_exists( $dir ) ) {
@@ -94,7 +94,7 @@ WP_CLI::add_command( 'json-dump post', function() : void {
 		'order'          => 'ASC',
 	] );
 
-	save_array( $posts, 'post' );
+	save_object_array( $posts, 'post' );
 
 	$view_data = get_rest_response( 'GET', '/wp/v2/posts', [
 		'context' => 'view',
@@ -105,7 +105,7 @@ WP_CLI::add_command( 'json-dump post', function() : void {
 		'per_page' => 100,
 	] );
 
-	save_rest( [
+	save_rest_array( [
 		$view_data,
 		$edit_data,
 	], 'rest-api/posts' );
@@ -121,7 +121,7 @@ WP_CLI::add_command( 'json-dump user', function() : void {
 		'order'   => 'ASC',
 	] );
 
-	save_array( $users, 'user' );
+	save_object_array( $users, 'user' );
 
 	$view_data = get_rest_response( 'GET', '/wp/v2/users', [
 		'context' => 'view',
@@ -132,7 +132,7 @@ WP_CLI::add_command( 'json-dump user', function() : void {
 		'per_page' => 100,
 	] );
 
-	save_rest( [
+	save_rest_array( [
 		$view_data,
 		$edit_data,
 	], 'rest-api/users' );
@@ -149,7 +149,7 @@ WP_CLI::add_command( 'json-dump tag', function() : void {
 		'order'    => 'ASC',
 	] );
 
-	save_array( $tags, 'tag' );
+	save_object_array( $tags, 'tag' );
 
 	$view_data = get_rest_response( 'GET', '/wp/v2/tags', [
 		'context' => 'view',
@@ -160,7 +160,7 @@ WP_CLI::add_command( 'json-dump tag', function() : void {
 		'per_page' => 100,
 	] );
 
-	save_rest( [
+	save_rest_array( [
 		$view_data,
 		$edit_data,
 	], 'rest-api/tags' );
@@ -177,7 +177,7 @@ WP_CLI::add_command( 'json-dump category', function() : void {
 		'order'    => 'ASC',
 	] );
 
-	save_array( $categories, 'category' );
+	save_object_array( $categories, 'category' );
 
 	$view_data = get_rest_response( 'GET', '/wp/v2/categories', [
 		'context' => 'view',
@@ -188,7 +188,7 @@ WP_CLI::add_command( 'json-dump category', function() : void {
 		'per_page' => 100,
 	] );
 
-	save_rest( [
+	save_rest_array( [
 		$view_data,
 		$edit_data,
 	], 'rest-api/categories' );
@@ -213,7 +213,7 @@ WP_CLI::add_command( 'json-dump comment', function() : void {
 		'order'   => 'ASC',
 	] );
 
-	save_array( $comment, 'comment' );
+	save_object_array( $comment, 'comment' );
 
 	$view_data = get_rest_response( 'GET', '/wp/v2/comments', [
 		'context' => 'view',
@@ -224,7 +224,7 @@ WP_CLI::add_command( 'json-dump comment', function() : void {
 		'per_page' => 100,
 	] );
 
-	save_rest( [
+	save_rest_array( [
 		$view_data,
 		$edit_data,
 	], 'rest-api/comments' );
@@ -282,7 +282,7 @@ WP_CLI::add_command( 'json-dump error', function() : void {
 	$multi_code_1->merge_from( $multi_code_2 );
 	$errors[] = $multi_code_1;
 
-	save_array( $errors, 'error' );
+	save_object_array( $errors, 'error' );
 } );
 
 /**
@@ -294,7 +294,7 @@ WP_CLI::add_command( 'json-dump search-results', function() : void {
 		'per_page' => 100,
 	] );
 
-	save_rest( [
+	save_rest_array( [
 		$data
 	], 'rest-api/search-results' );
 } );
@@ -305,7 +305,7 @@ WP_CLI::add_command( 'json-dump search-results', function() : void {
 WP_CLI::add_command( 'json-dump taxonomies', function() : void {
 	$taxos = get_taxonomies( [], 'objects' );
 
-	save_array( $taxos, 'taxonomy' );
+	save_object_array( $taxos, 'taxonomy' );
 
 	$view_data = get_rest_response( 'GET', '/wp/v2/taxonomies', [
 		'context' => 'view',
@@ -314,7 +314,7 @@ WP_CLI::add_command( 'json-dump taxonomies', function() : void {
 		'context' => 'edit',
 	] );
 
-	save_rest( [
+	save_rest_array( [
 		$view_data,
 		$edit_data,
 	], 'rest-api/taxonomies' );
@@ -326,13 +326,13 @@ WP_CLI::add_command( 'json-dump taxonomies', function() : void {
 WP_CLI::add_command( 'json-dump types', function() : void {
 	$types = get_post_types( [], 'objects' );
 
-	save_array( $types, 'post-type' );
+	save_object_array( $types, 'post-type' );
 
 	$data = get_rest_response( 'GET', '/wp/v2/types', [
 		'context' => 'view',
 	] );
 
-	save_rest( [
+	save_rest_array( [
 		$data
 	], 'rest-api/types' );
 } );
@@ -343,7 +343,7 @@ WP_CLI::add_command( 'json-dump types', function() : void {
 WP_CLI::add_command( 'json-dump sites', function() : void {
 	$sites = get_sites();
 
-	save_array( $sites, 'site' );
+	save_object_array( $sites, 'site' );
 } );
 
 /**
@@ -352,7 +352,7 @@ WP_CLI::add_command( 'json-dump sites', function() : void {
 WP_CLI::add_command( 'json-dump networks', function() : void {
 	$networks = get_networks();
 
-	save_array( $networks, 'network' );
+	save_object_array( $networks, 'network' );
 } );
 
 /**
@@ -361,5 +361,5 @@ WP_CLI::add_command( 'json-dump networks', function() : void {
 WP_CLI::add_command( 'json-dump roles', function() : void {
 	$roles = wp_roles()->role_objects;
 
-	save_array( $roles, 'role' );
+	save_object_array( $roles, 'role' );
 } );
