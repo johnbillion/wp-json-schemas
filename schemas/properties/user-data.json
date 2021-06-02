@@ -6,6 +6,7 @@
 	"description": "User data container.",
 	"properties": {
 		"ID": {
+			"readOnly": true,
 			"description": "The user's ID.\n\nA numeric string, for compatibility reasons.",
 			"type": "string"
 		},
