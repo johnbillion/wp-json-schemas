@@ -49,6 +49,7 @@
 			"npm run test-rest-api-comments",
 			"wp json-dump error",
 			"npm run test-error",
+			"npm run test-rest-api-error",
 			"wp json-dump user",
 			"npm run test-user",
 			"npm run test-rest-api-users",

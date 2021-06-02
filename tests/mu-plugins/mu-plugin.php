@@ -283,6 +283,23 @@ WP_CLI::add_command( 'json-dump error', function() : void {
 	$errors[] = $multi_code_1;
 
 	save_object_array( $errors, 'error' );
+
+	$post_id = get_posts( [
+		'posts_per_page' => 1,
+		'post_status' => 'publish',
+	] )[0]->ID;
+
+	$data_route_404 = get_rest_response( 'GET', '/wp/v2/bananas' );
+	$data_object_404 = get_rest_response( 'GET', '/wp/v2/posts/99999' );
+	$data_save_error = get_rest_response( 'POST', "/wp/v2/posts/{$post_id}", [
+		'slug' => false,
+	] );
+
+	save_rest_array( [
+		$data_route_404,
+		$data_object_404,
+		$data_save_error,
+	], 'rest-api/error' );
 } );
 
 /**

@@ -46,6 +46,7 @@
 		"test-rest-api-tags": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/tags.json -d \"tests/data/rest-api/tags/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-categories": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/categories.json -d \"tests/data/rest-api/categories/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-comments": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/comments.json -d \"tests/data/rest-api/comments/*.json\" -r \"schemas/**/*.json\"",
+		"test-rest-api-error": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/error.json -d \"tests/data/rest-api/error/*.json\" -r \"schemas/**/*.json\"",
 		"validate": "ajv compile -m tests/hyper-schema.json -s schema.json -r \"schemas/**/*.json\""
 	}
 }
