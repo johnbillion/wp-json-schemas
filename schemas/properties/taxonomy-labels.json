@@ -49,6 +49,9 @@
 		"all_items": {
 			"type": "string"
 		},
+		"archives": {
+			"type": "string"
+		},
 		"parent_item": {
 			"type": [
 				"string",

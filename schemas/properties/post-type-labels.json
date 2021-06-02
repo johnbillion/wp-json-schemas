@@ -27,6 +27,7 @@
 		"remove_featured_image",
 		"use_featured_image",
 		"filter_items_list",
+		"filter_by_date",
 		"items_list_navigation",
 		"items_list",
 		"item_published",
@@ -105,6 +106,9 @@
 			"type": "string"
 		},
 		"filter_items_list": {
+			"type": "string"
+		},
+		"filter_by_date": {
 			"type": "string"
 		},
 		"items_list_navigation": {
