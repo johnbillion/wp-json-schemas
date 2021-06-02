@@ -748,7 +748,6 @@ export interface WP_Post_Type_Labels {
 	item_updated: string;
 	menu_name: string;
 	name_admin_bar: string;
-	[k: string]: string | null;
 }
 /**
  * Post type capabilities.
@@ -1049,7 +1048,6 @@ export interface WP_Taxonomy_Labels {
 	back_to_items: string;
 	menu_name: string;
 	name_admin_bar: string;
-	[k: string]: string | null;
 }
 /**
  * Taxonomy capabilities.
