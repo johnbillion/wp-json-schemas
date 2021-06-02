@@ -74,6 +74,7 @@
 					"type": "string"
 				},
 				"rendered": {
+					"readOnly": true,
 					"description": "HTML content for the object, transformed for display.",
 					"type": "string"
 				}
@@ -98,6 +99,7 @@
 			]
 		},
 		"link": {
+			"readOnly": true,
 			"description": "URL to the object.",
 			"type": "string",
 			"format": "uri"
@@ -130,6 +132,7 @@
 			]
 		},
 		"type": {
+			"readOnly": true,
 			"description": "Type of Comment for the object.",
 			"anyOf": [
 				{
@@ -141,6 +144,7 @@
 			]
 		},
 		"author_avatar_urls": {
+			"readOnly": true,
 			"description": "Avatar URLs for the object author.",
 			"type": "object",
 			"required": [

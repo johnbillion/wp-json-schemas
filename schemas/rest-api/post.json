@@ -42,6 +42,7 @@
 			]
 		},
 		"guid": {
+			"readOnly": true,
 			"description": "The globally unique identifier for the object.",
 			"type": "object",
 			"required": [
@@ -49,10 +50,12 @@
 			],
 			"properties": {
 				"raw": {
+					"readOnly": true,
 					"description": "GUID for the object, as it exists in the database. Only present when using the 'edit' context.",
 					"type": "string"
 				},
 				"rendered": {
+					"readOnly": true,
 					"description": "GUID for the object, transformed for display.",
 					"type": "string"
 				}
@@ -65,11 +68,13 @@
 			"type": "integer"
 		},
 		"link": {
+			"readOnly": true,
 			"description": "URL to the object.",
 			"type": "string",
 			"format": "uri"
 		},
 		"modified": {
+			"readOnly": true,
 			"description": "The date the object was last modified, in the site's timezone.",
 			"anyOf": [
 				{
@@ -78,6 +83,7 @@
 			]
 		},
 		"modified_gmt": {
+			"readOnly": true,
 			"description": "The date the object was last modified, as GMT.",
 			"anyOf": [
 				{
@@ -101,6 +107,7 @@
 			]
 		},
 		"type": {
+			"readOnly": true,
 			"description": "Type of Post for the object.",
 			"anyOf": [
 				{
@@ -116,10 +123,12 @@
 			"type": "string"
 		},
 		"permalink_template": {
+			"readOnly": true,
 			"description": "Permalink template for the object. Only present when using the 'edit' context and the post type is public.",
 			"type": "string"
 		},
 		"generated_slug": {
+			"readOnly": true,
 			"description": "Slug automatically generated from the object title. Only present when using the 'edit' context and the post type is public.",
 			"type": "string"
 		},
@@ -143,6 +152,7 @@
 					"type": "string"
 				},
 				"rendered": {
+					"readOnly": true,
 					"description": "HTML title for the object, transformed for display.",
 					"type": "string"
 				}
@@ -163,15 +173,18 @@
 					"type": "string"
 				},
 				"rendered": {
+					"readOnly": true,
 					"description": "HTML content for the object, transformed for display.",
 					"contentMediaType": "text/html",
 					"type": "string"
 				},
 				"block_version": {
+					"readOnly": true,
 					"description": "Version of the content block format used by the object. Only present when using the 'edit' context.",
 					"type": "integer"
 				},
 				"protected": {
+					"readOnly": true,
 					"description": "Whether the content is protected with a password.",
 					"type": "boolean"
 				}
@@ -199,10 +212,12 @@
 					"type": "string"
 				},
 				"rendered": {
+					"readOnly": true,
 					"description": "HTML excerpt for the object, transformed for display.",
 					"type": "string"
 				},
 				"protected": {
+					"readOnly": true,
 					"description": "Whether the excerpt is protected with a password.",
 					"type": "boolean"
 				}

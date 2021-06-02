@@ -52,6 +52,7 @@
 			"type": "string"
 		},
 		"link": {
+			"readOnly": true,
 			"description": "Author URL of the user.",
 			"type": "string",
 			"format": "uri"
@@ -69,6 +70,7 @@
 			"type": "string"
 		},
 		"registered_date": {
+			"readOnly": true,
 			"description": "Registration date for the user in UTC. Only present when using the 'edit' context.",
 			"anyOf": [
 				{
@@ -91,6 +93,7 @@
 			}
 		},
 		"capabilities": {
+			"readOnly": true,
 			"description": "All capabilities assigned to the user. Only present when using the 'edit' context.",
 			"allOf": [
 				{
@@ -99,6 +102,7 @@
 			]
 		},
 		"extra_capabilities": {
+			"readOnly": true,
 			"description": "Any extra capabilities assigned to the user. Only present when using the 'edit' context.",
 			"allOf": [
 				{
@@ -107,6 +111,7 @@
 			]
 		},
 		"avatar_urls": {
+			"readOnly": true,
 			"description": "Avatar URLs for the user.",
 			"type": "object",
 			"required": [

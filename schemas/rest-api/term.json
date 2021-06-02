@@ -22,6 +22,7 @@
 			"type": "integer"
 		},
 		"count": {
+			"readOnly": true,
 			"description": "Number of published posts for the term.",
 			"type": "integer"
 		},
@@ -31,6 +32,7 @@
 			"type": "string"
 		},
 		"link": {
+			"readOnly": true,
 			"description": "URL of the term.",
 			"type": "string",
 			"format": "uri"
@@ -44,6 +46,7 @@
 			"type": "string"
 		},
 		"taxonomy": {
+			"readOnly": true,
 			"description": "Type attribution for the term.",
 			"anyOf": [
 				{
