@@ -59,11 +59,11 @@
 				"Posts" : {
 					"$ref": "schemas/rest-api/posts.json"
 				},
-				"Attachments" : {
-					"$ref": "schemas/rest-api/attachments.json"
-				},
 				"Attachment" : {
 					"$ref": "schemas/rest-api/attachment.json"
+				},
+				"Attachments" : {
+					"$ref": "schemas/rest-api/attachments.json"
 				},
 				"Term" : {
 					"$ref": "schemas/rest-api/term.json"
@@ -116,8 +116,8 @@
 				"Comments",
 				"Post",
 				"Posts",
-				"Attachments",
 				"Attachment",
+				"Attachments",
 				"Term",
 				"Terms",
 				"Tag",

@@ -88,8 +88,8 @@ export interface WP {
 		Comments: WP_REST_API_Comments;
 		Post: WP_REST_API_Post;
 		Posts: WP_REST_API_Posts;
-		Attachments: WP_REST_API_Attachments;
 		Attachment: WP_REST_API_Attachment;
+		Attachments: WP_REST_API_Attachments;
 		Term: WP_REST_API_Term;
 		Terms: WP_REST_API_Terms;
 		Tag: WP_REST_API_Tag;
