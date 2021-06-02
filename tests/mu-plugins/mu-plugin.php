@@ -336,3 +336,12 @@ WP_CLI::add_command( 'json-dump types', function() : void {
 		$data
 	], 'rest-api/types' );
 } );
+
+/**
+ * Test data for sites on a Multisite network.
+ */
+WP_CLI::add_command( 'json-dump sites', function() : void {
+	$types = get_sites();
+
+	save_array( $types, 'site' );
+} );
