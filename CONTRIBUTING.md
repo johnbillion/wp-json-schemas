@@ -39,6 +39,7 @@ The WordPress REST API response doesn't fully adhere to the JSON schema spec, so
 * All properties that have a `context` of `view` should be added to the `required` property.
 * Remove the `context`, `required`, and `readonly` properties from each property as these are not valid JSON schema properties.
 * Add `additionalProperties` information to any `object` properties as appropriate.
+* During testing, the root `additionalProperties` property should be set to `true` to ensure all properties are present in the schema, but it should be removed for the final schema so that custom fields added with `register_rest_field()` can be accessed.
 * Cross-reference the properties with those in the `get_item_schema()` method of the controller class. There may be properties that are conditionally added. Add them to the schema if so.
 * Add the schema to the `REST_API` property in the root `schema.json` using a `$ref` to the schema file.
 * In `tests/mu-plugins/mu-plugin.php` add a new `json-dump` command for the new endpoint
@@ -65,6 +66,7 @@ The schema for a PHP object is created using the docblocks from its class proper
 * Correlate this public property list with those defined in the class.
   - Why? An object can have a public property that's not declared on the class. In this case, you'll need to provide the type and description yourself.
 * Wave your hands over your keyboard.
+* The root `additionalProperties` property should be set to `false`.
 * Add the schema to the root `schema.json` using a `$ref` to the schema file.
 * In `tests/mu-plugins/mu-plugin.php` add a new `json-dump` command for the new object type
   - Start by copy-pasting an existing command such as the `json-dump error` one
