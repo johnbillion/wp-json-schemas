@@ -40,6 +40,8 @@
 		"test-rest-api-types": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/types.json -d \"tests/data/rest-api/types/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-taxonomies": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/taxonomies.json -d \"tests/data/rest-api/taxonomies/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-users": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/users.json -d \"tests/data/rest-api/users/*.json\" -r \"schemas/**/*.json\"",
+		"test-rest-api-tags": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/tags.json -d \"tests/data/rest-api/tags/*.json\" -r \"schemas/**/*.json\"",
+		"test-rest-api-categories": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/categories.json -d \"tests/data/rest-api/categories/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-comments": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/comments.json -d \"tests/data/rest-api/comments/*.json\" -r \"schemas/**/*.json\"",
 		"validate": "ajv compile -m tests/hyper-schema.json -s schema.json -r \"schemas/**/*.json\""
 	}

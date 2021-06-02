@@ -150,6 +150,20 @@ WP_CLI::add_command( 'json-dump tag', function() : void {
 	] );
 
 	save_array( $tags, 'tag' );
+
+	$view_data = get_rest_response( 'GET', '/wp/v2/tags', [
+		'context' => 'view',
+		'per_page' => 100,
+	] );
+	$edit_data = get_rest_response( 'GET', '/wp/v2/tags', [
+		'context' => 'edit',
+		'per_page' => 100,
+	] );
+
+	save_rest( [
+		$view_data,
+		$edit_data,
+	], 'rest-api/tags' );
 } );
 
 /**
@@ -164,6 +178,20 @@ WP_CLI::add_command( 'json-dump category', function() : void {
 	] );
 
 	save_array( $categories, 'category' );
+
+	$view_data = get_rest_response( 'GET', '/wp/v2/categories', [
+		'context' => 'view',
+		'per_page' => 100,
+	] );
+	$edit_data = get_rest_response( 'GET', '/wp/v2/categories', [
+		'context' => 'edit',
+		'per_page' => 100,
+	] );
+
+	save_rest( [
+		$view_data,
+		$edit_data,
+	], 'rest-api/categories' );
 } );
 
 /**
