@@ -291,14 +291,14 @@ WP_CLI::add_command( 'json-dump error', function() : void {
 
 	$data_route_404 = get_rest_response( 'GET', '/wp/v2/bananas' );
 	$data_object_404 = get_rest_response( 'GET', '/wp/v2/posts/99999' );
-	$data_save_error = get_rest_response( 'POST', "/wp/v2/posts/{$post_id}", [
+	$data_save_400 = get_rest_response( 'POST', "/wp/v2/posts/{$post_id}", [
 		'slug' => false,
 	] );
 
 	save_rest_array( [
 		$data_route_404,
 		$data_object_404,
-		$data_save_error,
+		$data_save_400,
 	], 'rest-api/error' );
 } );
 
