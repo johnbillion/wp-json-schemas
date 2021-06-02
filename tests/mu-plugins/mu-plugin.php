@@ -96,13 +96,18 @@ WP_CLI::add_command( 'json-dump post', function() : void {
 
 	save_array( $posts, 'post' );
 
-	$data = get_rest_response( 'GET', '/wp/v2/posts', [
+	$view_data = get_rest_response( 'GET', '/wp/v2/posts', [
+		'context' => 'view',
+		'per_page' => 100,
+	] );
+	$edit_data = get_rest_response( 'GET', '/wp/v2/posts', [
 		'context' => 'edit',
 		'per_page' => 100,
 	] );
 
 	save_rest( [
-		$data
+		$view_data,
+		$edit_data,
 	], 'rest-api/posts' );
 } );
 
@@ -237,12 +242,16 @@ WP_CLI::add_command( 'json-dump taxonomies', function() : void {
 
 	save_array( $taxos, 'taxonomy' );
 
-	$data = get_rest_response( 'GET', '/wp/v2/taxonomies', [
+	$view_data = get_rest_response( 'GET', '/wp/v2/taxonomies', [
+		'context' => 'view',
+	] );
+	$edit_data = get_rest_response( 'GET', '/wp/v2/taxonomies', [
 		'context' => 'edit',
 	] );
 
 	save_rest( [
-		$data
+		$view_data,
+		$edit_data,
 	], 'rest-api/taxonomies' );
 } );
 
