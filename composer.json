@@ -43,6 +43,7 @@
 			"npm run test-category",
 			"wp json-dump comment",
 			"npm run test-comment",
+			"npm run test-rest-api-comments",
 			"wp json-dump error",
 			"npm run test-error",
 			"wp json-dump user",

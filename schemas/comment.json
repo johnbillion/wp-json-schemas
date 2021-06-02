@@ -64,12 +64,6 @@
 				{
 					"type": "string",
 					"format": "ipv6"
-				},
-				{
-					"type": "string",
-					"enum": [
-						""
-					]
 				}
 			]
 		},

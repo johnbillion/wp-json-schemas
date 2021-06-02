@@ -170,6 +170,15 @@ WP_CLI::add_command( 'json-dump category', function() : void {
  * Test data for comments.
  */
 WP_CLI::add_command( 'json-dump comment', function() : void {
+	$updated = wp_update_comment( [
+		'comment_ID' => 1,
+		'comment_author_IP' => '127.0.0.1',
+	], true );
+
+	if ( is_wp_error( $updated ) ) {
+		WP_CLI::error( $updated );
+	}
+
 	$comment = get_comments( [
 		'number'  => 0,
 		'orderby' => 'comment_ID',
@@ -177,6 +186,20 @@ WP_CLI::add_command( 'json-dump comment', function() : void {
 	] );
 
 	save_array( $comment, 'comment' );
+
+	$view_data = get_rest_response( 'GET', '/wp/v2/comments', [
+		'context' => 'view',
+		'per_page' => 100,
+	] );
+	$edit_data = get_rest_response( 'GET', '/wp/v2/comments', [
+		'context' => 'edit',
+		'per_page' => 100,
+	] );
+
+	save_rest( [
+		$view_data,
+		$edit_data,
+	], 'rest-api/comments' );
 } );
 
 /**
