@@ -1,21 +1,21 @@
 {
-  "name": "wp-types",
-  "version": "2.5.3",
-  "description": "TypeScript definitions of WordPress PHP objects and REST API responses.",
-  "main": "",
-  "types": "index.ts",
-  "files": [
-    "index.ts"
-  ],
-  "homepage": "https://github.com/johnbillion/wp-json-schemas/tree/trunk/packages/wp-types",
-  "funding": "https://github.com/sponsors/johnbillion",
-  "keywords": [
-    "typescript",
-    "wordpress"
-  ],
-  "author": "John Blackbourn",
-  "license": "MIT",
-  "dependencies": {
-    "typescript": ">=3"
-  }
+	"name": "wp-types",
+	"version": "2.5.3",
+	"description": "TypeScript definitions of WordPress PHP objects and REST API responses.",
+	"main": "",
+	"types": "index.ts",
+	"files": [
+		"index.ts"
+	],
+	"homepage": "https://github.com/johnbillion/wp-json-schemas/tree/trunk/packages/wp-types",
+	"funding": "https://github.com/sponsors/johnbillion",
+	"keywords": [
+		"typescript",
+		"wordpress"
+	],
+	"author": "John Blackbourn",
+	"license": "MIT",
+	"dependencies": {
+		"typescript": ">=3"
+	}
 }
