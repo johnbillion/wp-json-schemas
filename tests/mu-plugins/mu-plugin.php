@@ -338,10 +338,19 @@ WP_CLI::add_command( 'json-dump types', function() : void {
 } );
 
 /**
- * Test data for sites on a Multisite network.
+ * Test data for sites on a Multisite installation.
  */
 WP_CLI::add_command( 'json-dump sites', function() : void {
 	$types = get_sites();
 
 	save_array( $types, 'site' );
+} );
+
+/**
+ * Test data for networks on a Multisite or Multi-network installation.
+ */
+WP_CLI::add_command( 'json-dump networks', function() : void {
+	$types = get_networks();
+
+	save_array( $types, 'network' );
 } );
