@@ -36,8 +36,18 @@
 		},
 		"author_email": {
 			"description": "Email address for the object author. Only present when using the 'edit' context.",
-			"type": "string",
-			"format": "email"
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "email"
+				},
+				{
+					"type": "string",
+					"enum": [
+						""
+					]
+				}
+			]
 		},
 		"author_ip": {
 			"description": "IP address for the object author. Only present when using the 'edit' context.",
@@ -49,6 +59,12 @@
 				{
 					"type": "string",
 					"format": "ipv6"
+				},
+				{
+					"type": "string",
+					"enum": [
+						""
+					]
 				}
 			]
 		},
@@ -58,8 +74,18 @@
 		},
 		"author_url": {
 			"description": "URL for the object author.",
-			"type": "string",
-			"format": "uri"
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri"
+				},
+				{
+					"type": "string",
+					"enum": [
+						""
+					]
+				}
+			]
 		},
 		"author_user_agent": {
 			"description": "User agent for the object author. Only present when using the 'edit' context.",

@@ -330,7 +330,7 @@ export interface WP_Comment {
 	/**
 	 * Comment author email address.
 	 */
-	comment_author_email: string;
+	comment_author_email: string | "";
 	/**
 	 * Comment author URL.
 	 */
@@ -338,7 +338,7 @@ export interface WP_Comment {
 	/**
 	 * Comment author IP address (IPv4 format).
 	 */
-	comment_author_IP: string;
+	comment_author_IP: string | "";
 	/**
 	 * Comment date in YYYY-MM-DD HH:MM:SS format.
 	 */
@@ -1189,7 +1189,7 @@ export interface WP_User_Data {
 	/**
 	 * The user's email address.
 	 */
-	user_email?: string;
+	user_email?: string | "";
 	/**
 	 * The user's login name.
 	 */
@@ -1213,7 +1213,7 @@ export interface WP_User_Data {
 	/**
 	 * The user's URL.
 	 */
-	user_url?: string;
+	user_url?: string | "";
 }
 /**
  * A comment object in a REST API context.
@@ -1230,11 +1230,11 @@ export interface WP_REST_API_Comment {
 	/**
 	 * Email address for the object author. Only present when using the 'edit' context.
 	 */
-	author_email?: string;
+	author_email?: string | "";
 	/**
 	 * IP address for the object author. Only present when using the 'edit' context.
 	 */
-	author_ip?: string;
+	author_ip?: string | "";
 	/**
 	 * Display name for the object author.
 	 */
@@ -1242,7 +1242,7 @@ export interface WP_REST_API_Comment {
 	/**
 	 * URL for the object author.
 	 */
-	author_url: string;
+	author_url: string | "";
 	/**
 	 * User agent for the object author. Only present when using the 'edit' context.
 	 */
@@ -1778,11 +1778,11 @@ export interface WP_REST_API_User {
 	/**
 	 * The email address for the user. Only present when using the 'edit' context.
 	 */
-	email?: string;
+	email?: string | "";
 	/**
 	 * URL of the user.
 	 */
-	url: string;
+	url: string | "";
 	/**
 	 * Description of the user.
 	 */

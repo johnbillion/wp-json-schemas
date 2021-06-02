@@ -37,8 +37,18 @@
 		},
 		"comment_author_email": {
 			"description": "Comment author email address.",
-			"type": "string",
-			"format": "email"
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "email"
+				},
+				{
+					"type": "string",
+					"enum": [
+						""
+					]
+				}
+			]
 		},
 		"comment_author_url": {
 			"description": "Comment author URL.",
@@ -65,6 +75,12 @@
 				{
 					"type": "string",
 					"format": "ipv6"
+				},
+				{
+					"type": "string",
+					"enum": [
+						""
+					]
 				}
 			]
 		},

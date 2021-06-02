@@ -198,15 +198,6 @@ WP_CLI::add_command( 'json-dump category', function() : void {
  * Test data for comments.
  */
 WP_CLI::add_command( 'json-dump comment', function() : void {
-	$updated = wp_update_comment( [
-		'comment_ID' => 1,
-		'comment_author_IP' => '127.0.0.1',
-	], true );
-
-	if ( is_wp_error( $updated ) ) {
-		WP_CLI::error( $updated );
-	}
-
 	$comment = get_comments( [
 		'number'  => 0,
 		'orderby' => 'comment_ID',
