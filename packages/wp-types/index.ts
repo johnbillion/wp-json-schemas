@@ -54,6 +54,10 @@ export type WP_REST_API_Category = WP_REST_API_Term;
  */
 export type WP_REST_API_Categories = WP_REST_API_Category[];
 /**
+ * UTC timestamp in IETF RFC 3339 date-time format (`YYYY-MM-DDThh:mm:ss+00:00`).
+ */
+export type WP_REST_API_Date_Time_UTC = string;
+/**
  * A collection of user objects in a REST API context.
  */
 export type WP_REST_API_Users = WP_REST_API_User[];
@@ -334,7 +338,7 @@ export interface WP_Comment {
 	/**
 	 * Comment author IP address (IPv4 format).
 	 */
-	comment_author_IP: string | "";
+	comment_author_IP: string;
 	/**
 	 * Comment date in YYYY-MM-DD HH:MM:SS format.
 	 */
@@ -734,6 +738,7 @@ export interface WP_Post_Type_Labels {
 	remove_featured_image: string;
 	use_featured_image: string;
 	filter_items_list: string;
+	filter_by_date: string;
 	items_list_navigation: string;
 	items_list: string;
 	item_published: string;
@@ -1024,6 +1029,7 @@ export interface WP_Taxonomy_Labels {
 	search_items: string;
 	popular_items: string | null;
 	all_items: string;
+	archives?: string;
 	parent_item: string | null;
 	parent_item_colon: string | null;
 	edit_item: string;
@@ -1210,7 +1216,6 @@ export interface WP_User_Data {
 	 * The user's URL.
 	 */
 	user_url?: string;
-	[k: string]: unknown;
 }
 /**
  * A comment object in a REST API context.
@@ -1801,9 +1806,9 @@ export interface WP_REST_API_User {
 	 */
 	slug: string;
 	/**
-	 * Registration date for the user. Only present when using the 'edit' context.
+	 * Registration date for the user in UTC. Only present when using the 'edit' context.
 	 */
-	registered_date?: WP_REST_API_Date_Time;
+	registered_date?: WP_REST_API_Date_Time_UTC;
 	/**
 	 * Roles assigned to the user. Only present when using the 'edit' context.
 	 */
