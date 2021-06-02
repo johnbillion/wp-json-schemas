@@ -139,10 +139,5 @@
 			"type": "string"
 		}
 	},
-	"additionalProperties": {
-		"type": [
-			"string",
-			"null"
-		]
-	}
+	"additionalProperties": false
 }
