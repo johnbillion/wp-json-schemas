@@ -48,3 +48,5 @@ jobs:
       - run: composer run test
         env:
           WP_TESTS_DB_HOST: 127.0.0.1:${{ job.services.mysql.ports['3306'] }}
+
+      - run: git diff --exit-code
