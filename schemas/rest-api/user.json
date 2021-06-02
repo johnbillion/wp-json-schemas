@@ -68,10 +68,10 @@
 			"type": "string"
 		},
 		"registered_date": {
-			"description": "Registration date for the user. Only present when using the 'edit' context.",
+			"description": "Registration date for the user in UTC. Only present when using the 'edit' context.",
 			"anyOf": [
 				{
-					"$ref": "properties/date-time.json"
+					"$ref": "properties/date-time-utc.json"
 				}
 			]
 		},
