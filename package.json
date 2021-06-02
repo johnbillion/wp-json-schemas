@@ -37,6 +37,7 @@
 		"test-error": "ajv validate -m tests/hyper-schema.json -s schemas/error.json -d \"tests/data/error/*.json\" -r \"schemas/**/*.json\"",
 		"test-site": "ajv validate -m tests/hyper-schema.json -s schemas/site.json -d \"tests/data/site/*.json\" -r \"schemas/**/*.json\"",
 		"test-network": "ajv validate -m tests/hyper-schema.json -s schemas/network.json -d \"tests/data/network/*.json\" -r \"schemas/**/*.json\"",
+		"test-role": "ajv validate -m tests/hyper-schema.json -s schemas/role.json -d \"tests/data/role/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-posts": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/posts.json -d \"tests/data/rest-api/posts/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-search-results": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/search-results.json -d \"tests/data/rest-api/search-results/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-types": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/types.json -d \"tests/data/rest-api/types/*.json\" -r \"schemas/**/*.json\"",

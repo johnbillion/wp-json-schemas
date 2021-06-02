@@ -62,6 +62,8 @@
 			"npm run test-site",
 			"wp json-dump networks",
 			"npm run test-network",
+			"wp json-dump roles",
+			"npm run test-role",
 			"wp json-dump types",
 			"npm run test-post-type",
 			"npm run test-rest-api-types"

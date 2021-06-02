@@ -354,3 +354,12 @@ WP_CLI::add_command( 'json-dump networks', function() : void {
 
 	save_array( $networks, 'network' );
 } );
+
+/**
+ * Test data for user roles.
+ */
+WP_CLI::add_command( 'json-dump roles', function() : void {
+	$roles = wp_roles()->role_objects;
+
+	save_array( $roles, 'role' );
+} );
