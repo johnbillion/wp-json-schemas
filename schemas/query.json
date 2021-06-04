@@ -1,0 +1,263 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/query.json",
+	"title": "WP_Query",
+	"description": "The WordPress Query class.",
+	"type": "object",
+	"required": [
+		"query",
+		"query_vars",
+		"tax_query",
+		"meta_query",
+		"date_query",
+		"queried_object",
+		"queried_object_id",
+		"request",
+		"posts",
+		"post_count",
+		"current_post",
+		"in_the_loop",
+		"post",
+		"comments",
+		"comment_count",
+		"current_comment",
+		"comment",
+		"found_posts",
+		"max_num_pages",
+		"max_num_comment_pages",
+		"is_single",
+		"is_preview",
+		"is_page",
+		"is_archive",
+		"is_date",
+		"is_year",
+		"is_month",
+		"is_day",
+		"is_time",
+		"is_author",
+		"is_category",
+		"is_tag",
+		"is_tax",
+		"is_search",
+		"is_feed",
+		"is_comment_feed",
+		"is_trackback",
+		"is_home",
+		"is_privacy_policy",
+		"is_404",
+		"is_embed",
+		"is_paged",
+		"is_admin",
+		"is_attachment",
+		"is_singular",
+		"is_robots",
+		"is_favicon",
+		"is_posts_page",
+		"is_post_type_archive",
+		"thumbnails_cached"
+	],
+	"properties": {
+		"query": {
+			"description": "Query vars set by the user.",
+			"type": "null"
+		},
+		"query_vars": {
+			"description": "Query vars, after parsing.",
+			"type": "array",
+			"items": {}
+		},
+		"tax_query": {
+			"description": "Taxonomy query, as passed to get_tax_sql().",
+			"type": "null"
+		},
+		"meta_query": {
+			"description": "Metadata query container.",
+			"type": "boolean"
+		},
+		"date_query": {
+			"description": "Date query container.",
+			"type": "boolean"
+		},
+		"queried_object": {
+			"description": "Holds the data for a single object that is queried. Holds the contents of a post, page, category, attachment.",
+			"type": "null"
+		},
+		"queried_object_id": {
+			"description": "The ID of the queried object.",
+			"type": "null"
+		},
+		"request": {
+			"description": "SQL for the database query.",
+			"type": "null"
+		},
+		"posts": {
+			"description": "Array of post objects or post IDs.",
+			"type": "null"
+		},
+		"post_count": {
+			"description": "The number of posts for the current query.",
+			"type": "integer"
+		},
+		"current_post": {
+			"description": "Index of the current item in the loop.",
+			"type": "integer"
+		},
+		"in_the_loop": {
+			"description": "Whether the loop has started and the caller is in the loop.",
+			"type": "boolean"
+		},
+		"post": {
+			"description": "The current post.",
+			"type": "null"
+		},
+		"comments": {
+			"description": "The list of comments for current post.",
+			"type": "null"
+		},
+		"comment_count": {
+			"description": "The number of comments for the posts.",
+			"type": "integer"
+		},
+		"current_comment": {
+			"description": "The index of the comment in the comment loop.",
+			"type": "integer"
+		},
+		"comment": {
+			"description": "Current comment object.",
+			"type": "null"
+		},
+		"found_posts": {
+			"description": "The number of found posts for the current query. If limit clause was not used, equals $post_count.",
+			"type": "integer"
+		},
+		"max_num_pages": {
+			"description": "The number of pages.",
+			"type": "integer"
+		},
+		"max_num_comment_pages": {
+			"description": "The number of comment pages.",
+			"type": "integer"
+		},
+		"is_single": {
+			"description": "Signifies whether the current query is for a single post.",
+			"type": "boolean"
+		},
+		"is_preview": {
+			"description": "Signifies whether the current query is for a preview.",
+			"type": "boolean"
+		},
+		"is_page": {
+			"description": "Signifies whether the current query is for a page.",
+			"type": "boolean"
+		},
+		"is_archive": {
+			"description": "Signifies whether the current query is for an archive.",
+			"type": "boolean"
+		},
+		"is_date": {
+			"description": "Signifies whether the current query is for a date archive.",
+			"type": "boolean"
+		},
+		"is_year": {
+			"description": "Signifies whether the current query is for a year archive.",
+			"type": "boolean"
+		},
+		"is_month": {
+			"description": "Signifies whether the current query is for a month archive.",
+			"type": "boolean"
+		},
+		"is_day": {
+			"description": "Signifies whether the current query is for a day archive.",
+			"type": "boolean"
+		},
+		"is_time": {
+			"description": "Signifies whether the current query is for a specific time.",
+			"type": "boolean"
+		},
+		"is_author": {
+			"description": "Signifies whether the current query is for an author archive.",
+			"type": "boolean"
+		},
+		"is_category": {
+			"description": "Signifies whether the current query is for a category archive.",
+			"type": "boolean"
+		},
+		"is_tag": {
+			"description": "Signifies whether the current query is for a tag archive.",
+			"type": "boolean"
+		},
+		"is_tax": {
+			"description": "Signifies whether the current query is for a taxonomy archive.",
+			"type": "boolean"
+		},
+		"is_search": {
+			"description": "Signifies whether the current query is for a search.",
+			"type": "boolean"
+		},
+		"is_feed": {
+			"description": "Signifies whether the current query is for a feed.",
+			"type": "boolean"
+		},
+		"is_comment_feed": {
+			"description": "Signifies whether the current query is for a comment feed.",
+			"type": "boolean"
+		},
+		"is_trackback": {
+			"description": "Signifies whether the current query is for trackback endpoint call.",
+			"type": "boolean"
+		},
+		"is_home": {
+			"description": "Signifies whether the current query is for the site homepage.",
+			"type": "boolean"
+		},
+		"is_privacy_policy": {
+			"description": "Signifies whether the current query is for the Privacy Policy page.",
+			"type": "boolean"
+		},
+		"is_404": {
+			"description": "Signifies whether the current query couldn't find anything.",
+			"type": "boolean"
+		},
+		"is_embed": {
+			"description": "Signifies whether the current query is for an embed.",
+			"type": "boolean"
+		},
+		"is_paged": {
+			"description": "Signifies whether the current query is for a paged result and not for the first page.",
+			"type": "boolean"
+		},
+		"is_admin": {
+			"description": "Signifies whether the current query is for an administrative interface page.",
+			"type": "boolean"
+		},
+		"is_attachment": {
+			"description": "Signifies whether the current query is for an attachment page.",
+			"type": "boolean"
+		},
+		"is_singular": {
+			"description": "Signifies whether the current query is for an existing single post of any post type (post, attachment, page, custom post types).",
+			"type": "boolean"
+		},
+		"is_robots": {
+			"description": "Signifies whether the current query is for the robots.txt file.",
+			"type": "boolean"
+		},
+		"is_favicon": {
+			"description": "Signifies whether the current query is for the favicon.ico file.",
+			"type": "boolean"
+		},
+		"is_posts_page": {
+			"description": "Signifies whether the current query is for the page_for_posts page. Basically, the homepage if the option isn't set for the static homepage.",
+			"type": "boolean"
+		},
+		"is_post_type_archive": {
+			"description": "Signifies whether the current query is for a post type archive.",
+			"type": "boolean"
+		},
+		"thumbnails_cached": {
+			"description": "Set if post thumbnails are cached",
+			"type": "boolean"
+		}
+	},
+	"additionalProperties": false
+}

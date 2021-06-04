@@ -4,6 +4,7 @@ namespace WPJsonSchemas;
 
 use WP_CLI;
 use WP_Error;
+use WP_Query;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -370,4 +371,14 @@ WP_CLI::add_command( 'json-dump roles', function() : void {
 	$roles = wp_roles()->role_objects;
 
 	save_object_array( $roles, 'role' );
+} );
+
+/**
+ * Test data for `WP_Query`.
+ */
+WP_CLI::add_command( 'json-dump query', function() : void {
+	$queries = [];
+	$queries[] = $GLOBALS['wp_query'];
+	$queries[] = new WP_Query;
+	save_object_array( $queries, 'query' );
 } );

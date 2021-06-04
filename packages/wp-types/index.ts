@@ -78,6 +78,7 @@ export interface WP {
 	Network: WP_Network;
 	Post: WP_Post;
 	Post_Type: WP_Post_Type;
+	Query: WP_Query;
 	Role: WP_Role;
 	Site: WP_Site;
 	Taxonomy: WP_Taxonomy;
@@ -794,6 +795,211 @@ export interface WP_Post_Type_Rewrite {
 	 */
 	ep_mask: number;
 	[k: string]: unknown;
+}
+/**
+ * The WordPress Query class.
+ */
+export interface WP_Query {
+	/**
+	 * Query vars set by the user.
+	 */
+	query: null;
+	/**
+	 * Query vars, after parsing.
+	 */
+	query_vars: unknown[];
+	/**
+	 * Taxonomy query, as passed to get_tax_sql().
+	 */
+	tax_query: null;
+	/**
+	 * Metadata query container.
+	 */
+	meta_query: boolean;
+	/**
+	 * Date query container.
+	 */
+	date_query: boolean;
+	/**
+	 * Holds the data for a single object that is queried. Holds the contents of a post, page, category, attachment.
+	 */
+	queried_object: null;
+	/**
+	 * The ID of the queried object.
+	 */
+	queried_object_id: null;
+	/**
+	 * SQL for the database query.
+	 */
+	request: null;
+	/**
+	 * Array of post objects or post IDs.
+	 */
+	posts: null;
+	/**
+	 * The number of posts for the current query.
+	 */
+	post_count: number;
+	/**
+	 * Index of the current item in the loop.
+	 */
+	current_post: number;
+	/**
+	 * Whether the loop has started and the caller is in the loop.
+	 */
+	in_the_loop: boolean;
+	/**
+	 * The current post.
+	 */
+	post: null;
+	/**
+	 * The list of comments for current post.
+	 */
+	comments: null;
+	/**
+	 * The number of comments for the posts.
+	 */
+	comment_count: number;
+	/**
+	 * The index of the comment in the comment loop.
+	 */
+	current_comment: number;
+	/**
+	 * Current comment object.
+	 */
+	comment: null;
+	/**
+	 * The number of found posts for the current query. If limit clause was not used, equals $post_count.
+	 */
+	found_posts: number;
+	/**
+	 * The number of pages.
+	 */
+	max_num_pages: number;
+	/**
+	 * The number of comment pages.
+	 */
+	max_num_comment_pages: number;
+	/**
+	 * Signifies whether the current query is for a single post.
+	 */
+	is_single: boolean;
+	/**
+	 * Signifies whether the current query is for a preview.
+	 */
+	is_preview: boolean;
+	/**
+	 * Signifies whether the current query is for a page.
+	 */
+	is_page: boolean;
+	/**
+	 * Signifies whether the current query is for an archive.
+	 */
+	is_archive: boolean;
+	/**
+	 * Signifies whether the current query is for a date archive.
+	 */
+	is_date: boolean;
+	/**
+	 * Signifies whether the current query is for a year archive.
+	 */
+	is_year: boolean;
+	/**
+	 * Signifies whether the current query is for a month archive.
+	 */
+	is_month: boolean;
+	/**
+	 * Signifies whether the current query is for a day archive.
+	 */
+	is_day: boolean;
+	/**
+	 * Signifies whether the current query is for a specific time.
+	 */
+	is_time: boolean;
+	/**
+	 * Signifies whether the current query is for an author archive.
+	 */
+	is_author: boolean;
+	/**
+	 * Signifies whether the current query is for a category archive.
+	 */
+	is_category: boolean;
+	/**
+	 * Signifies whether the current query is for a tag archive.
+	 */
+	is_tag: boolean;
+	/**
+	 * Signifies whether the current query is for a taxonomy archive.
+	 */
+	is_tax: boolean;
+	/**
+	 * Signifies whether the current query is for a search.
+	 */
+	is_search: boolean;
+	/**
+	 * Signifies whether the current query is for a feed.
+	 */
+	is_feed: boolean;
+	/**
+	 * Signifies whether the current query is for a comment feed.
+	 */
+	is_comment_feed: boolean;
+	/**
+	 * Signifies whether the current query is for trackback endpoint call.
+	 */
+	is_trackback: boolean;
+	/**
+	 * Signifies whether the current query is for the site homepage.
+	 */
+	is_home: boolean;
+	/**
+	 * Signifies whether the current query is for the Privacy Policy page.
+	 */
+	is_privacy_policy: boolean;
+	/**
+	 * Signifies whether the current query couldn't find anything.
+	 */
+	is_404: boolean;
+	/**
+	 * Signifies whether the current query is for an embed.
+	 */
+	is_embed: boolean;
+	/**
+	 * Signifies whether the current query is for a paged result and not for the first page.
+	 */
+	is_paged: boolean;
+	/**
+	 * Signifies whether the current query is for an administrative interface page.
+	 */
+	is_admin: boolean;
+	/**
+	 * Signifies whether the current query is for an attachment page.
+	 */
+	is_attachment: boolean;
+	/**
+	 * Signifies whether the current query is for an existing single post of any post type (post, attachment, page, custom post types).
+	 */
+	is_singular: boolean;
+	/**
+	 * Signifies whether the current query is for the robots.txt file.
+	 */
+	is_robots: boolean;
+	/**
+	 * Signifies whether the current query is for the favicon.ico file.
+	 */
+	is_favicon: boolean;
+	/**
+	 * Signifies whether the current query is for the page_for_posts page. Basically, the homepage if the option isn't set for the static homepage.
+	 */
+	is_posts_page: boolean;
+	/**
+	 * Signifies whether the current query is for a post type archive.
+	 */
+	is_post_type_archive: boolean;
+	/**
+	 * Set if post thumbnails are cached
+	 */
+	thumbnails_cached: boolean;
 }
 /**
  * Core class used to extend the user roles API.
