@@ -10,18 +10,12 @@
 		"tax_query",
 		"meta_query",
 		"date_query",
-		"queried_object",
-		"queried_object_id",
 		"request",
 		"posts",
 		"post_count",
 		"current_post",
 		"in_the_loop",
-		"post",
-		"comments",
-		"comment_count",
 		"current_comment",
-		"comment",
 		"found_posts",
 		"max_num_pages",
 		"max_num_comment_pages",
@@ -59,40 +53,119 @@
 	"properties": {
 		"query": {
 			"description": "Query vars set by the user.",
-			"type": "null"
+			"type": [
+				"object",
+				"null"
+			]
 		},
 		"query_vars": {
 			"description": "Query vars, after parsing.",
-			"type": "array",
-			"items": {}
+			"oneOf": [
+				{
+					"type": "object"
+				},
+				{
+					"type": "array",
+					"tsType": "[]",
+					"items": {},
+					"additionalItems": false
+				}
+			]
 		},
 		"tax_query": {
 			"description": "Taxonomy query, as passed to get_tax_sql().",
-			"type": "null"
+			"type": [
+				"object",
+				"null"
+			]
 		},
 		"meta_query": {
 			"description": "Metadata query container.",
-			"type": "boolean"
+			"oneOf": [
+				{
+					"type": "object"
+				},
+				{
+					"enum": [
+						false
+					]
+				}
+			]
 		},
 		"date_query": {
 			"description": "Date query container.",
-			"type": "boolean"
+			"oneOf": [
+				{
+					"type": "object"
+				},
+				{
+					"enum": [
+						false
+					]
+				}
+			]
 		},
 		"queried_object": {
 			"description": "Holds the data for a single object that is queried. Holds the contents of a post, page, category, attachment.",
-			"type": "null"
+			"oneOf": [
+				{
+					"$ref": "post.json"
+				},
+				{
+					"$ref": "post-type.json"
+				},
+				{
+					"$ref": "term.json"
+				},
+				{
+					"$ref": "user.json"
+				},
+				{
+					"enum": [
+						null
+					]
+				}
+			]
 		},
 		"queried_object_id": {
 			"description": "The ID of the queried object.",
-			"type": "null"
+			"type": [
+				"integer",
+				"null"
+			]
 		},
 		"request": {
 			"description": "SQL for the database query.",
-			"type": "null"
+			"type": [
+				"string",
+				"null"
+			]
 		},
 		"posts": {
 			"description": "Array of post objects or post IDs.",
-			"type": "null"
+			"anyOf": [
+				{
+					"type": "array",
+					"items": {
+						"$ref": "post.json"
+					}
+				},
+				{
+					"type": "array",
+					"items": {
+						"$ref": "post.json#/properties/ID"
+					}
+				},
+				{
+					"type": "array",
+					"tsType": "[]",
+					"items": {},
+					"additionalItems": false
+				},
+				{
+					"type": "null"
+				}
+			]
 		},
 		"post_count": {
 			"description": "The number of posts for the current query.",
@@ -108,11 +181,34 @@
 		},
 		"post": {
 			"description": "The current post.",
-			"type": "null"
+			"oneOf": [
+				{
+					"$ref": "post.json"
+				},
+				{
+					"type": "null"
+				}
+			]
 		},
 		"comments": {
 			"description": "The list of comments for current post.",
-			"type": "null"
+			"anyOf": [
+				{
+					"type": "array",
+					"items": {
+						"$ref": "comment.json"
+					}
+				},
+				{
+					"type": "array",
+					"tsType": "[]",
+					"items": {},
+					"additionalItems": false
+				},
+				{
+					"type": "null"
+				}
+			]
 		},
 		"comment_count": {
 			"description": "The number of comments for the posts.",
@@ -124,7 +220,14 @@
 		},
 		"comment": {
 			"description": "Current comment object.",
-			"type": "null"
+			"oneOf": [
+				{
+					"$ref": "comment.json"
+				},
+				{
+					"type": "null"
+				}
+			]
 		},
 		"found_posts": {
 			"description": "The number of found posts for the current query. If limit clause was not used, equals $post_count.",

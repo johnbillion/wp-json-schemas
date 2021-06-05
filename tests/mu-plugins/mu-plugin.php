@@ -380,5 +380,18 @@ WP_CLI::add_command( 'json-dump query', function() : void {
 	$queries = [];
 	$queries[] = $GLOBALS['wp_query'];
 	$queries[] = new WP_Query;
+
+	query_posts( [] );
+
+	$queries[] = $GLOBALS['wp_the_query'];
+	$queries[] = new WP_Query( [
+		'post_type' => 'page',
+		'posts_per_page' => -1,
+	] );
+	$queries[] = new WP_Query( [
+		'post_type' => 'does_not_exist',
+		'paged' => 7,
+	] );
+
 	save_object_array( $queries, 'query' );
 } );

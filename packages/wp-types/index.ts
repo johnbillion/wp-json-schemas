@@ -803,39 +803,55 @@ export interface WP_Query {
 	/**
 	 * Query vars set by the user.
 	 */
-	query: null;
+	query: {
+		[k: string]: unknown;
+	} | null;
 	/**
 	 * Query vars, after parsing.
 	 */
-	query_vars: unknown[];
+	query_vars:
+		| {
+				[k: string]: unknown;
+		  }
+		| [];
 	/**
 	 * Taxonomy query, as passed to get_tax_sql().
 	 */
-	tax_query: null;
+	tax_query: {
+		[k: string]: unknown;
+	} | null;
 	/**
 	 * Metadata query container.
 	 */
-	meta_query: boolean;
+	meta_query:
+		| {
+				[k: string]: unknown;
+		  }
+		| false;
 	/**
 	 * Date query container.
 	 */
-	date_query: boolean;
+	date_query:
+		| {
+				[k: string]: unknown;
+		  }
+		| false;
 	/**
 	 * Holds the data for a single object that is queried. Holds the contents of a post, page, category, attachment.
 	 */
-	queried_object: null;
+	queried_object?: WP_Post | WP_Post_Type | WP_Term | WP_User | null;
 	/**
 	 * The ID of the queried object.
 	 */
-	queried_object_id: null;
+	queried_object_id?: number | null;
 	/**
 	 * SQL for the database query.
 	 */
-	request: null;
+	request: string | null;
 	/**
 	 * Array of post objects or post IDs.
 	 */
-	posts: null;
+	posts: WP_Post[] | number[] | [] | null;
 	/**
 	 * The number of posts for the current query.
 	 */
@@ -851,15 +867,15 @@ export interface WP_Query {
 	/**
 	 * The current post.
 	 */
-	post: null;
+	post?: WP_Post | null;
 	/**
 	 * The list of comments for current post.
 	 */
-	comments: null;
+	comments?: WP_Comment[] | [] | null;
 	/**
 	 * The number of comments for the posts.
 	 */
-	comment_count: number;
+	comment_count?: number;
 	/**
 	 * The index of the comment in the comment loop.
 	 */
@@ -867,7 +883,7 @@ export interface WP_Query {
 	/**
 	 * Current comment object.
 	 */
-	comment: null;
+	comment?: WP_Comment | null;
 	/**
 	 * The number of found posts for the current query. If limit clause was not used, equals $post_count.
 	 */
@@ -1002,6 +1018,149 @@ export interface WP_Query {
 	thumbnails_cached: boolean;
 }
 /**
+ * Core class used to implement the WP_Term object.
+ */
+export interface WP_Term {
+	/**
+	 * Term ID.
+	 */
+	term_id: number;
+	/**
+	 * The term's name.
+	 */
+	name: string;
+	/**
+	 * The term's slug.
+	 */
+	slug: string;
+	/**
+	 * The term's term_group.
+	 */
+	term_group: number;
+	/**
+	 * Term Taxonomy ID.
+	 */
+	term_taxonomy_id: number;
+	/**
+	 * The term's taxonomy name.
+	 */
+	taxonomy: WP_Taxonomy_Name | string;
+	/**
+	 * The term's description.
+	 */
+	description: string;
+	/**
+	 * ID of a term's parent term.
+	 */
+	parent: number;
+	/**
+	 * Cached object count for this term.
+	 */
+	count: number;
+	/**
+	 * Stores the term object's sanitization level.
+	 */
+	filter: WP_Object_Filter_Context | null;
+}
+/**
+ * Core class used to implement the WP_User object.
+ */
+export interface WP_User {
+	/**
+	 * The user's ID.
+	 */
+	ID: number;
+	/**
+	 * All capabilities the user has, including individual and role based.
+	 */
+	allcaps: WP_User_Caps;
+	/**
+	 * User metadata option name.
+	 */
+	cap_key: string;
+	/**
+	 * The individual capabilities the user has been given.
+	 *
+	 * See the allcaps property for a complete list of caps that the user has.
+	 */
+	caps: WP_User_Caps;
+	/**
+	 * User data container.
+	 */
+	data: WP_User_Data;
+	/**
+	 * The filter context applied to user data fields.
+	 */
+	filter: WP_Object_Filter_Context | null;
+	/**
+	 * The roles the user is part of.
+	 */
+	roles: (WP_User_Role_Name | string)[];
+}
+/**
+ * A dictionary of user capabilities.
+ *
+ * Property names represent a capability name and boolean values represent whether the user has that capability.
+ */
+export interface WP_User_Caps {
+	[k: string]: boolean;
+}
+/**
+ * User data container.
+ */
+export interface WP_User_Data {
+	/**
+	 * The user's ID.
+	 *
+	 * A numeric string, for compatibility reasons.
+	 */
+	ID?: string;
+	/**
+	 * The user's deletion status. Only used on Multisite.
+	 */
+	deleted?: "0" | "1";
+	/**
+	 * The user's full display name.
+	 */
+	display_name?: string;
+	/**
+	 * The user's spam status. Only used on Multisite.
+	 */
+	spam?: "0" | "1";
+	/**
+	 * The user's activation key. Be careful not to expose this in your application.
+	 */
+	user_activation_key?: string;
+	/**
+	 * The user's email address.
+	 */
+	user_email?: string | "";
+	/**
+	 * The user's login name.
+	 */
+	user_login?: string;
+	/**
+	 * The user's name as used in their author archive URL slug.
+	 */
+	user_nicename?: string;
+	/**
+	 * The one-way hash of the user's password.
+	 */
+	user_pass?: string;
+	/**
+	 * The user's registration date.
+	 */
+	user_registered?: WP_Date_Time;
+	/**
+	 * The user's status. This field does not appear to be used by WordPress core.
+	 */
+	user_status?: "0";
+	/**
+	 * The user's URL.
+	 */
+	user_url?: string | "";
+}
+/**
  * Core class used to extend the user roles API.
  */
 export interface WP_Role {
@@ -1013,14 +1172,6 @@ export interface WP_Role {
 	 * List of capabilities the role contains.
 	 */
 	capabilities: WP_User_Caps;
-}
-/**
- * A dictionary of user capabilities.
- *
- * Property names represent a capability name and boolean values represent whether the user has that capability.
- */
-export interface WP_User_Caps {
-	[k: string]: boolean;
 }
 /**
  * Core class used for interacting with a multisite site.
@@ -1285,141 +1436,6 @@ export interface WP_Taxonomy_Rewrite {
 	 */
 	slug: string;
 	[k: string]: unknown;
-}
-/**
- * Core class used to implement the WP_Term object.
- */
-export interface WP_Term {
-	/**
-	 * Term ID.
-	 */
-	term_id: number;
-	/**
-	 * The term's name.
-	 */
-	name: string;
-	/**
-	 * The term's slug.
-	 */
-	slug: string;
-	/**
-	 * The term's term_group.
-	 */
-	term_group: number;
-	/**
-	 * Term Taxonomy ID.
-	 */
-	term_taxonomy_id: number;
-	/**
-	 * The term's taxonomy name.
-	 */
-	taxonomy: WP_Taxonomy_Name | string;
-	/**
-	 * The term's description.
-	 */
-	description: string;
-	/**
-	 * ID of a term's parent term.
-	 */
-	parent: number;
-	/**
-	 * Cached object count for this term.
-	 */
-	count: number;
-	/**
-	 * Stores the term object's sanitization level.
-	 */
-	filter: WP_Object_Filter_Context | null;
-}
-/**
- * Core class used to implement the WP_User object.
- */
-export interface WP_User {
-	/**
-	 * The user's ID.
-	 */
-	ID: number;
-	/**
-	 * All capabilities the user has, including individual and role based.
-	 */
-	allcaps: WP_User_Caps;
-	/**
-	 * User metadata option name.
-	 */
-	cap_key: string;
-	/**
-	 * The individual capabilities the user has been given.
-	 *
-	 * See the allcaps property for a complete list of caps that the user has.
-	 */
-	caps: WP_User_Caps;
-	/**
-	 * User data container.
-	 */
-	data: WP_User_Data;
-	/**
-	 * The filter context applied to user data fields.
-	 */
-	filter: WP_Object_Filter_Context | null;
-	/**
-	 * The roles the user is part of.
-	 */
-	roles: (WP_User_Role_Name | string)[];
-}
-/**
- * User data container.
- */
-export interface WP_User_Data {
-	/**
-	 * The user's ID.
-	 *
-	 * A numeric string, for compatibility reasons.
-	 */
-	ID?: string;
-	/**
-	 * The user's deletion status. Only used on Multisite.
-	 */
-	deleted?: "0" | "1";
-	/**
-	 * The user's full display name.
-	 */
-	display_name?: string;
-	/**
-	 * The user's spam status. Only used on Multisite.
-	 */
-	spam?: "0" | "1";
-	/**
-	 * The user's activation key. Be careful not to expose this in your application.
-	 */
-	user_activation_key?: string;
-	/**
-	 * The user's email address.
-	 */
-	user_email?: string | "";
-	/**
-	 * The user's login name.
-	 */
-	user_login?: string;
-	/**
-	 * The user's name as used in their author archive URL slug.
-	 */
-	user_nicename?: string;
-	/**
-	 * The one-way hash of the user's password.
-	 */
-	user_pass?: string;
-	/**
-	 * The user's registration date.
-	 */
-	user_registered?: WP_Date_Time;
-	/**
-	 * The user's status. This field does not appear to be used by WordPress core.
-	 */
-	user_status?: "0";
-	/**
-	 * The user's URL.
-	 */
-	user_url?: string | "";
 }
 /**
  * A comment object in a REST API context.
