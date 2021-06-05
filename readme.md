@@ -21,6 +21,7 @@ The schemas in this library are used to generate [the WordPress TypeScript defin
 * `WP_User`
 * `WP_Comment`
 * `WP_Error`
+* `WP_Query`
 * `WP_Block`
 * `WP_Block_Type`
 * `WP_Site`
