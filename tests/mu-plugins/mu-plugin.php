@@ -393,5 +393,17 @@ WP_CLI::add_command( 'json-dump query', function() : void {
 		'paged' => 7,
 	] );
 
+	$cats = get_terms( [
+		'taxonomy' => 'category',
+		'number' => 1,
+	] );
+
+	$cat_query = new WP_Query( [
+		'cat' => $cats[0]->term_id,
+	] );
+	$cat_query->get_queried_object();
+
+	$queries[] = $cat_query;
+
 	save_object_array( $queries, 'query' );
 } );

@@ -1058,6 +1058,30 @@ export interface WP_Term {
 	 */
 	count: number;
 	/**
+	 * Term ID. Only present if the term object has passed through `_make_cat_compat()`.
+	 */
+	cat_ID?: number;
+	/**
+	 * Cached object count for this term. Only present if the term object has passed through `_make_cat_compat()`.
+	 */
+	category_count?: number;
+	/**
+	 * The term's description. Only present if the term object has passed through `_make_cat_compat()`.
+	 */
+	category_description?: string;
+	/**
+	 * The term's name. Only present if the term object has passed through `_make_cat_compat()`.
+	 */
+	cat_name?: string;
+	/**
+	 * The term's slug. Only present if the term object has passed through `_make_cat_compat()`.
+	 */
+	category_nicename?: string;
+	/**
+	 * ID of a term's parent term. Only present if the term object has passed through `_make_cat_compat()`.
+	 */
+	category_parent?: number;
+	/**
 	 * Stores the term object's sanitization level.
 	 */
 	filter: WP_Object_Filter_Context | null;

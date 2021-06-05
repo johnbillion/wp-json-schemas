@@ -66,6 +66,54 @@
 			"description": "Cached object count for this term.",
 			"type": "integer"
 		},
+		"cat_ID": {
+			"description": "Term ID. Only present if the term object has passed through `_make_cat_compat()`.",
+			"allOf": [
+				{
+					"$ref": "#/properties/term_id"
+				}
+			]
+		},
+		"category_count": {
+			"description": "Cached object count for this term. Only present if the term object has passed through `_make_cat_compat()`.",
+			"allOf": [
+				{
+					"$ref": "#/properties/count"
+				}
+			]
+		},
+		"category_description": {
+			"description": "The term's description. Only present if the term object has passed through `_make_cat_compat()`.",
+			"allOf": [
+				{
+					"$ref": "#/properties/description"
+				}
+			]
+		},
+		"cat_name": {
+			"description": "The term's name. Only present if the term object has passed through `_make_cat_compat()`.",
+			"allOf": [
+				{
+					"$ref": "#/properties/name"
+				}
+			]
+		},
+		"category_nicename": {
+			"description": "The term's slug. Only present if the term object has passed through `_make_cat_compat()`.",
+			"allOf": [
+				{
+					"$ref": "#/properties/slug"
+				}
+			]
+		},
+		"category_parent": {
+			"description": "ID of a term's parent term. Only present if the term object has passed through `_make_cat_compat()`.",
+			"allOf": [
+				{
+					"$ref": "#/properties/parent"
+				}
+			]
+		},
 		"filter": {
 			"description": "Stores the term object's sanitization level.",
 			"anyOf": [
