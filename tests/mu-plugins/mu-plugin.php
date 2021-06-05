@@ -48,7 +48,7 @@ function save_object_array( array $data, string $dir ) : void {
  * @param string             $dir  The directory to save the files.
  */
 function save_rest_array( array $data, string $dir ) : void {
-	$dir = dirname( ABSPATH ) . '/data/' . $dir;
+	$dir = dirname( ABSPATH ) . '/data/rest-api/' . $dir;
 
 	if ( ! file_exists( $dir ) ) {
 		mkdir( $dir, 0777, true );
@@ -119,7 +119,7 @@ WP_CLI::add_command( 'json-dump post', function() : void {
 		$view_data,
 		$edit_data,
 		$empty_response,
-	], 'rest-api/posts' );
+	], 'posts' );
 } );
 
 /**
@@ -146,7 +146,7 @@ WP_CLI::add_command( 'json-dump user', function() : void {
 	save_rest_array( [
 		$view_data,
 		$edit_data,
-	], 'rest-api/users' );
+	], 'users' );
 } );
 
 /**
@@ -174,7 +174,7 @@ WP_CLI::add_command( 'json-dump tag', function() : void {
 	save_rest_array( [
 		$view_data,
 		$edit_data,
-	], 'rest-api/tags' );
+	], 'tags' );
 } );
 
 /**
@@ -202,7 +202,7 @@ WP_CLI::add_command( 'json-dump category', function() : void {
 	save_rest_array( [
 		$view_data,
 		$edit_data,
-	], 'rest-api/categories' );
+	], 'categories' );
 } );
 
 /**
@@ -229,7 +229,7 @@ WP_CLI::add_command( 'json-dump comment', function() : void {
 	save_rest_array( [
 		$view_data,
 		$edit_data,
-	], 'rest-api/comments' );
+	], 'comments' );
 } );
 
 /**
@@ -301,7 +301,7 @@ WP_CLI::add_command( 'json-dump error', function() : void {
 		$data_route_404,
 		$data_object_404,
 		$data_save_400,
-	], 'rest-api/error' );
+	], 'error' );
 } );
 
 /**
@@ -315,7 +315,7 @@ WP_CLI::add_command( 'json-dump search-results', function() : void {
 
 	save_rest_array( [
 		$data
-	], 'rest-api/search-results' );
+	], 'search-results' );
 } );
 
 /**
@@ -336,7 +336,7 @@ WP_CLI::add_command( 'json-dump taxonomies', function() : void {
 	save_rest_array( [
 		$view_data,
 		$edit_data,
-	], 'rest-api/taxonomies' );
+	], 'taxonomies' );
 } );
 
 /**
@@ -353,7 +353,7 @@ WP_CLI::add_command( 'json-dump types', function() : void {
 
 	save_rest_array( [
 		$data
-	], 'rest-api/types' );
+	], 'types' );
 } );
 
 /**
