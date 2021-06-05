@@ -106,9 +106,14 @@ WP_CLI::add_command( 'json-dump post', function() : void {
 		'per_page' => 100,
 	] );
 
+	$empty_response = get_rest_response( 'GET', '/wp/v2/posts', [
+		'search' => '1234567890',
+	] );
+
 	save_rest_array( [
 		$view_data,
 		$edit_data,
+		$empty_response,
 	], 'rest-api/posts' );
 } );
 
@@ -379,6 +384,14 @@ WP_CLI::add_command( 'json-dump roles', function() : void {
 WP_CLI::add_command( 'json-dump query', function() : void {
 	$queries = [];
 	$queries[] = new WP_Query;
+	$queries[] = new WP_Query( [
+		'post_type' => 'post',
+		'posts_per_page' => 1,
+	] );
+	$queries[] = new WP_Query( [
+		'post_type' => 'post',
+		's' => 'Hello',
+	] );
 	$queries[] = new WP_Query( [
 		'post_type' => 'page',
 		'posts_per_page' => -1,
