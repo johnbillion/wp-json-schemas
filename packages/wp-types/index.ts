@@ -1571,7 +1571,7 @@ export interface WP_REST_API_Comment {
 		/**
 		 * The author of the comment.
 		 */
-		author: unknown[];
+		author?: unknown[];
 		/**
 		 * The associated post.
 		 */

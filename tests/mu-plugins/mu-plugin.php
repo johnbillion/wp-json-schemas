@@ -61,6 +61,11 @@ function save_rest_array( array $data, string $dir ) : void {
 		$json = json_encode( $save, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
 
 		file_put_contents( $dir . '/' . $i . '.json', $json );
+
+		$save = $server->response_to_data( $item, true );
+		$json = json_encode( $save, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
+
+		file_put_contents( $dir . '/' . $i . '-embedded.json', $json );
 	}
 }
 
