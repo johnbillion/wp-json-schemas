@@ -1,0 +1,113 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/locale.json",
+	"title": "WP_Locale",
+	"description": "Core class used to store translated data for a locale.",
+	"type": "object",
+	"required": [
+		"weekday",
+		"weekday_initial",
+		"weekday_abbrev",
+		"month",
+		"month_genitive",
+		"month_abbrev",
+		"meridiem",
+		"text_direction",
+		"number_format"
+	],
+	"properties": {
+		"weekday": {
+			"description": "Stores the translated strings for the full weekday names.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"weekday_initial": {
+			"description": "Stores the translated strings for the one character weekday names.",
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
+		},
+		"weekday_abbrev": {
+			"description": "Stores the translated strings for the abbreviated weekday names.",
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
+		},
+		"month": {
+			"description": "Stores the translated strings for the full month names.",
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
+		},
+		"month_genitive": {
+			"description": "Stores the translated strings for the month names in genitive case, if the locale specifies.",
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
+		},
+		"month_abbrev": {
+			"description": "Stores the translated strings for the abbreviated month names.",
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			}
+		},
+		"meridiem": {
+			"description": "Stores the translated strings for 'am', 'pm', 'AM', and 'PM'.",
+			"type": "object",
+			"required": [
+				"am",
+				"pm",
+				"AM",
+				"PM"
+			],
+			"properties": {
+				"am": {
+					"type": "string"
+				},
+				"pm": {
+					"type": "string"
+				},
+				"AM": {
+					"type": "string"
+				},
+				"PM": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"text_direction": {
+			"description": "The text direction of the locale language.",
+			"type": "string",
+			"enum": [
+				"ltr",
+				"rtl"
+			]
+		},
+		"number_format": {
+			"description": "The thousands separator and decimal point values used for localizing numbers.",
+			"type": "object",
+			"required": [
+				"thousands_sep",
+				"decimal_point"
+			],
+			"properties": {
+				"thousands_sep": {
+					"type": "string"
+				},
+				"decimal_point": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"additionalProperties": false
+}

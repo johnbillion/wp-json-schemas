@@ -21,6 +21,7 @@ This package provides well-documented TypeScript definitions that describe the s
 * `WP_Block`
 * `WP_Block_Type`
 * `WP_Site`
+* `WP_Locale`
 * `WP_Taxonomy`
 * `WP_Post_Type`
 * `WP_Role`

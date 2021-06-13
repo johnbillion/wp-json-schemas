@@ -75,6 +75,7 @@ export interface WP {
 	Error: WP_Error;
 	Error_With_Error: WP_Error_With_Error;
 	Error_Without_Error: WP_Error_Without_Error;
+	Locale: WP_Locale;
 	Network: WP_Network;
 	Post: WP_Post;
 	Post_Type: WP_Post_Type;
@@ -443,6 +444,65 @@ export interface WP_Error_Without_Error {
 	 * Stores the list of data for error codes.
 	 */
 	error_data: [];
+}
+/**
+ * Core class used to store translated data for a locale.
+ */
+export interface WP_Locale {
+	/**
+	 * Stores the translated strings for the full weekday names.
+	 */
+	weekday: string[];
+	/**
+	 * Stores the translated strings for the one character weekday names.
+	 */
+	weekday_initial: {
+		[k: string]: string;
+	};
+	/**
+	 * Stores the translated strings for the abbreviated weekday names.
+	 */
+	weekday_abbrev: {
+		[k: string]: string;
+	};
+	/**
+	 * Stores the translated strings for the full month names.
+	 */
+	month: {
+		[k: string]: string;
+	};
+	/**
+	 * Stores the translated strings for the month names in genitive case, if the locale specifies.
+	 */
+	month_genitive: {
+		[k: string]: string;
+	};
+	/**
+	 * Stores the translated strings for the abbreviated month names.
+	 */
+	month_abbrev: {
+		[k: string]: string;
+	};
+	/**
+	 * Stores the translated strings for 'am', 'pm', 'AM', and 'PM'.
+	 */
+	meridiem: {
+		am: string;
+		pm: string;
+		AM: string;
+		PM: string;
+	};
+	/**
+	 * The text direction of the locale language.
+	 */
+	text_direction: "ltr" | "rtl";
+	/**
+	 * The thousands separator and decimal point values used for localizing numbers.
+	 */
+	number_format: {
+		thousands_sep: string;
+		decimal_point: string;
+	};
 }
 /**
  * Core class used for interacting with a multisite network.

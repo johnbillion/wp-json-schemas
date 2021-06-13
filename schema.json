@@ -20,6 +20,9 @@
 		"Error_Without_Error" : {
 			"$ref": "schemas/error-without-error.json"
 		},
+		"Locale" : {
+			"$ref": "schemas/locale.json"
+		},
 		"Network" : {
 			"$ref": "schemas/network.json"
 		},
@@ -146,6 +149,7 @@
 		"Error",
 		"Error_With_Error",
 		"Error_Without_Error",
+		"Locale",
 		"Network",
 		"Post",
 		"Post_Type",

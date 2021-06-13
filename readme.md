@@ -25,6 +25,7 @@ The schemas in this library are used to generate [the WordPress TypeScript defin
 * `WP_Block`
 * `WP_Block_Type`
 * `WP_Site`
+* `WP_Locale`
 * `WP_Taxonomy`
 * `WP_Post_Type`
 * `WP_Role`
