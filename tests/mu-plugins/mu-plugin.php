@@ -94,23 +94,6 @@ foreach ( glob( dirname( __DIR__ ) . '/output/*.php' ) as $file ) {
 }
 
 /**
- * Test data for post types.
- */
-WP_CLI::add_command( 'json-dump types', function() : void {
-	$types = get_post_types( [], 'objects' );
-
-	save_object_array( $types, 'post-type' );
-
-	$data = get_rest_response( 'GET', '/wp/v2/types', [
-		'context' => 'view',
-	] );
-
-	save_rest_array( [
-		$data
-	], 'types' );
-} );
-
-/**
  * Test data for sites on a Multisite installation.
  */
 WP_CLI::add_command( 'json-dump sites', function() : void {

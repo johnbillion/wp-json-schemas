@@ -71,7 +71,7 @@
 			"npm run test-network",
 			"wp json-dump roles",
 			"npm run test-role",
-			"wp json-dump types",
+			"wp json-dump type",
 			"npm run test-post-type",
 			"npm run test-rest-api-types"
 		]
