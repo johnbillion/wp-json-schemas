@@ -65,7 +65,7 @@
 			"wp json-dump taxonomy",
 			"npm run test-taxonomy",
 			"npm run test-rest-api-taxonomies",
-			"wp json-dump sites",
+			"wp json-dump site",
 			"npm run test-site",
 			"wp json-dump networks",
 			"npm run test-network",
