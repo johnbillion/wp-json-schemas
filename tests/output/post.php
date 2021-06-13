@@ -16,21 +16,23 @@ $posts = get_posts( [
 
 save_object_array( $posts, 'post' );
 
-$view_data = get_rest_response( 'GET', '/wp/v2/posts', [
-	'context' => 'view',
-	'per_page' => 100,
-] );
-$edit_data = get_rest_response( 'GET', '/wp/v2/posts', [
-	'context' => 'edit',
-	'per_page' => 100,
-] );
+foreach ( [ 'posts', 'pages', 'media' ] as $type ) {
+	$view_data = get_rest_response( 'GET', "/wp/v2/{$type}", [
+		'context' => 'view',
+		'per_page' => 100,
+	] );
+	$edit_data = get_rest_response( 'GET', "/wp/v2/{$type}", [
+		'context' => 'edit',
+		'per_page' => 100,
+	] );
 
-$empty_response = get_rest_response( 'GET', '/wp/v2/posts', [
-	'search' => '1234567890',
-] );
+	$empty_response = get_rest_response( 'GET', "/wp/v2/{$type}", [
+		'search' => '1234567890',
+	] );
 
-save_rest_array( [
-	$view_data,
-	$edit_data,
-	$empty_response,
-], 'posts' );
+	save_rest_array( [
+		$view_data,
+		$edit_data,
+		$empty_response,
+	], $type );
+}

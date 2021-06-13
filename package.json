@@ -41,6 +41,8 @@
 		"test-locale": "ajv validate -m tests/hyper-schema.json -s schemas/locale.json -d \"tests/data/locale/*.json\" -r \"schemas/**/*.json\"",
 		"test-query": "ajv validate -m tests/hyper-schema.json -s schemas/query.json -d \"tests/data/query/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-posts": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/posts.json -d \"tests/data/rest-api/posts/*.json\" -r \"schemas/**/*.json\"",
+		"test-rest-api-pages": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/posts.json -d \"tests/data/rest-api/posts/*.json\" -r \"schemas/**/*.json\"",
+		"test-rest-api-media": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/attachments.json -d \"tests/data/rest-api/media/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-search-results": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/search-results.json -d \"tests/data/rest-api/search-results/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-statuses": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/statuses.json -d \"tests/data/rest-api/statuses/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-types": "ajv validate -m tests/hyper-schema.json -s schemas/rest-api/types.json -d \"tests/data/rest-api/types/*.json\" -r \"schemas/**/*.json\"",
