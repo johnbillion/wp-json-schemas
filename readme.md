@@ -87,7 +87,7 @@ Enums are provided for various values:
 * `WP_Post_Type_Name`
 * `WP_Taxonomy_Name`
 * `WP_User_Role_Name`
-* `WP_Http_Status_Code`
+* `WP_HTTP_Status_Code`
 
 ## Installation
 
