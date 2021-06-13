@@ -94,15 +94,6 @@ foreach ( glob( dirname( __DIR__ ) . '/output/*.php' ) as $file ) {
 }
 
 /**
- * Test data for networks on a Multisite or Multi-network installation.
- */
-WP_CLI::add_command( 'json-dump networks', function() : void {
-	$networks = get_networks();
-
-	save_object_array( $networks, 'network' );
-} );
-
-/**
  * Test data for user roles.
  */
 WP_CLI::add_command( 'json-dump roles', function() : void {
