@@ -62,7 +62,7 @@
 			"wp json-dump search-results",
 			"npm run test-rest-api-search-results",
 			"npm run test-rest-api-posts",
-			"wp json-dump taxonomies",
+			"wp json-dump taxonomy",
 			"npm run test-taxonomy",
 			"npm run test-rest-api-taxonomies",
 			"wp json-dump sites",
