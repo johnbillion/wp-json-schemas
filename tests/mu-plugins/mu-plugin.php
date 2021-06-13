@@ -94,20 +94,6 @@ foreach ( glob( dirname( __DIR__ ) . '/output/*.php' ) as $file ) {
 }
 
 /**
- * Test data for REST API search results.
- */
-WP_CLI::add_command( 'json-dump search-results', function() : void {
-	$data = get_rest_response( 'GET', '/wp/v2/search', [
-		'context' => 'view',
-		'per_page' => 100,
-	] );
-
-	save_rest_array( [
-		$data
-	], 'search-results' );
-} );
-
-/**
  * Test data for taxonomies.
  */
 WP_CLI::add_command( 'json-dump taxonomies', function() : void {
