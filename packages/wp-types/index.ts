@@ -92,6 +92,8 @@ export interface WP {
 		Posts: WP_REST_API_Posts;
 		Attachment: WP_REST_API_Attachment;
 		Attachments: WP_REST_API_Attachments;
+		Status?: WP_REST_API_Status;
+		Statuses?: WP_REST_API_Statuses;
 		Term: WP_REST_API_Term;
 		Terms: WP_REST_API_Terms;
 		Tag: WP_REST_API_Tag;
@@ -2009,6 +2011,51 @@ export interface WP_REST_API_Attachment {
 		[k: string]: unknown;
 	};
 	[k: string]: unknown;
+}
+/**
+ * A post status object in a REST API context.
+ */
+export interface WP_REST_API_Status {
+	/**
+	 * The title for the status.
+	 */
+	name: string;
+	/**
+	 * Whether posts with this status should be private. Only present when using the 'edit' context.
+	 */
+	private?: boolean;
+	/**
+	 * Whether posts with this status should be protected. Only present when using the 'edit' context.
+	 */
+	protected?: boolean;
+	/**
+	 * Whether posts of this status should be shown in the front end of the site.
+	 */
+	public: boolean;
+	/**
+	 * Whether posts with this status should be publicly-queryable.
+	 */
+	queryable: boolean;
+	/**
+	 * Whether to include posts in the edit listing for their post type. Only present when using the 'edit' context.
+	 */
+	show_in_list?: boolean;
+	/**
+	 * An alphanumeric identifier for the status.
+	 */
+	slug: string;
+	/**
+	 * Whether posts of this status may have floating published dates.
+	 */
+	date_floating: boolean;
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A collection of post status objects in a REST API context.
+ */
+export interface WP_REST_API_Statuses {
+	[k: string]: WP_REST_API_Status;
 }
 /**
  * A taxonomy term object in a REST API context.

@@ -71,6 +71,12 @@
 				"Attachments" : {
 					"$ref": "schemas/rest-api/attachments.json"
 				},
+				"Status" : {
+					"$ref": "schemas/rest-api/status.json"
+				},
+				"Statuses" : {
+					"$ref": "schemas/rest-api/statuses.json"
+				},
 				"Term" : {
 					"$ref": "schemas/rest-api/term.json"
 				},

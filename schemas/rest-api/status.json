@@ -1,0 +1,61 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/status.json",
+	"title": "WP_REST_API_Status",
+	"description": "A post status object in a REST API context.",
+	"readOnly": true,
+	"type": "object",
+	"required": [
+		"name",
+		"public",
+		"queryable",
+		"slug",
+		"date_floating",
+		"_links"
+	],
+	"properties": {
+		"name": {
+			"description": "The title for the status.",
+			"type": "string",
+			"readOnly": true
+		},
+		"private": {
+			"description": "Whether posts with this status should be private. Only present when using the 'edit' context.",
+			"type": "boolean",
+			"readOnly": true
+		},
+		"protected": {
+			"description": "Whether posts with this status should be protected. Only present when using the 'edit' context.",
+			"type": "boolean",
+			"readOnly": true
+		},
+		"public": {
+			"description": "Whether posts of this status should be shown in the front end of the site.",
+			"type": "boolean",
+			"readOnly": true
+		},
+		"queryable": {
+			"description": "Whether posts with this status should be publicly-queryable.",
+			"type": "boolean",
+			"readOnly": true
+		},
+		"show_in_list": {
+			"description": "Whether to include posts in the edit listing for their post type. Only present when using the 'edit' context.",
+			"type": "boolean",
+			"readOnly": true
+		},
+		"slug": {
+			"description": "An alphanumeric identifier for the status.",
+			"type": "string",
+			"readOnly": true
+		},
+		"date_floating": {
+			"description": "Whether posts of this status may have floating published dates.",
+			"type": "boolean",
+			"readOnly": true
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	}
+}
