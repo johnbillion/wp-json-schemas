@@ -84,11 +84,14 @@ function get_rest_response( string $method, string $path, array $params = [] ) {
 	return rest_do_request( $request );
 }
 
-// Register the WP-CLI commands for outputting test data:
-foreach ( glob( dirname( __DIR__ ) . '/output/*.php' ) as $file ) {
-	$type = basename( $file, '.php' );
+// Register the WP-CLI command for outputting test data:
+WP_CLI::add_command( 'json-dump', function( array $args, array $assoc_args ) : void {
+	$filename = $args[0];
+	$file = dirname( __DIR__ ) . "/output/{$filename}.php";
 
-	WP_CLI::add_command( "json-dump {$type}", function() use ( $file ) : void {
-		require_once $file;
-	} );
-}
+	if ( ! file_exists( $file ) ) {
+		WP_CLI::error( "File tests/output/{$filename}.php does not exist." );
+	}
+
+	require_once $file;
+} );
