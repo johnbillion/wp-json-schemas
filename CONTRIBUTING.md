@@ -32,7 +32,7 @@ There is no fully automatic process to create these schemas. A schema for a PHP 
 The WordPress REST API response doesn't fully adhere to the JSON schema spec, so we need to tweak its output in order to generate a valid schema.
 
 * Perform an `OPTIONS` request to an endpoint that returns the object (or array of the objects) that you want to create a schema for. For example `/wp-json/wp/v2/users`.
-* Use the `schema` property from the response as a basis for the schema.
+* Use the `schema` property from the response as a basis for the schema in a new file in `schemas/rest-api`
 * Set the `$schema`, `$id`, `title`, and `description` properties using the same format as existing schemas.
 * Remove any properties that have a `context` of `[]` as these are write-only and not exposed. So far I've only seen this for the `password` property of a user.
 * Remove any `properties` properties that have a value of `[]`.
@@ -40,12 +40,12 @@ The WordPress REST API response doesn't fully adhere to the JSON schema spec, so
 * Remove the `context` and `required` properties from each property as these are not valid JSON schema properties.
 * Rename any `readonly` properties to `readOnly`.
 * Add `additionalProperties` information to any `object` properties as appropriate.
-* During testing, the root `additionalProperties` property should be set to `true` to ensure all properties are present in the schema, but it should be removed for the final schema so that custom fields added with `register_rest_field()` can be accessed.
+* During testing, the root `additionalProperties` property should be set to `false` to ensure all properties are present in the schema, but it should be removed for the final schema so that custom fields added with `register_rest_field()` can be accessed.
 * Cross-reference the properties with those in the `get_item_schema()` method of the controller class. There may be properties that are conditionally added. Add them to the schema if so.
 * Add the schema to the `REST_API` property in the root `schema.json` using a `$ref` to the schema file.
-* In `tests/mu-plugins/mu-plugin.php` add a new `json-dump` command for the new endpoint
-  - Start by copy-pasting an existing command such as the `json-dump post` one for `/wp/v2/posts`
-  - The command should perform a REST API request to the endpoint and pass the result to the `save()` function which saves it as JSON during the tests
+* In `tests/output` create a file for the new object type
+  - Start by copy-pasting an existing file such as `post.php` which is for `/wp/v2/posts`
+  - The command should perform a REST API request to the endpoint and pass the result to the `save_rest_array()` function which saves it as JSON during the tests
 * In `package.json` add a new `"test-{object-type}"` entry to `scripts` if one doesn't already exist.
 * In `composer.json` add two entries to the `test` script if one doesn't already exist:
   - `"wp json-dump {object-type}"`
@@ -70,9 +70,9 @@ The schema for a PHP object is created using the docblocks from its class proper
 * The root `additionalProperties` property should be set to `false`.
 * The `readOnly` property should be set to `true` for the unique ID property of the object if appropriate.
 * Add the schema to the root `schema.json` using a `$ref` to the schema file.
-* In `tests/mu-plugins/mu-plugin.php` add a new `json-dump` command for the new object type
-  - Start by copy-pasting an existing command such as the `json-dump error` one
-  - The command should pass an array of one or more objects of this type to the `save()` function which saves it as JSON during the tests
+* In `tests/output` create a file for the new object type
+  - Start by copy-pasting an existing file such as `error.php` one
+  - The file should pass an array of one or more objects of this type to the `save_object_array()` function which saves it as JSON during the tests
 * In `package.json` add two entries to the `test` script:
   - `"wp json-dump {object-type}"`
   - `"npm run test-{object-type}"`
