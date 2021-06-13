@@ -92,8 +92,8 @@ export interface WP {
 		Posts: WP_REST_API_Posts;
 		Attachment: WP_REST_API_Attachment;
 		Attachments: WP_REST_API_Attachments;
-		Status?: WP_REST_API_Status;
-		Statuses?: WP_REST_API_Statuses;
+		Status: WP_REST_API_Status;
+		Statuses: WP_REST_API_Statuses;
 		Term: WP_REST_API_Term;
 		Terms: WP_REST_API_Terms;
 		Tag: WP_REST_API_Tag;
