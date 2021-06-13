@@ -94,15 +94,6 @@ foreach ( glob( dirname( __DIR__ ) . '/output/*.php' ) as $file ) {
 }
 
 /**
- * Test data for user roles.
- */
-WP_CLI::add_command( 'json-dump roles', function() : void {
-	$roles = wp_roles()->role_objects;
-
-	save_object_array( $roles, 'role' );
-} );
-
-/**
  * Test data for `WP_Query`.
  */
 WP_CLI::add_command( 'json-dump query', function() : void {

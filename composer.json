@@ -69,7 +69,7 @@
 			"npm run test-site",
 			"wp json-dump network",
 			"npm run test-network",
-			"wp json-dump roles",
+			"wp json-dump role",
 			"npm run test-role",
 			"wp json-dump type",
 			"npm run test-post-type",
