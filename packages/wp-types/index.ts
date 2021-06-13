@@ -34,6 +34,10 @@ export type WP_REST_API_Posts = WP_REST_API_Post[];
  */
 export type WP_REST_API_Attachments = WP_REST_API_Attachment[];
 /**
+ * A collection of block type objects in a REST API context.
+ */
+export type WP_REST_API_Block_Types = WP_REST_API_Block_Type[];
+/**
  * A collection of term objects in a REST API context.
  */
 export type WP_REST_API_Terms = WP_REST_API_Term[];
@@ -92,6 +96,8 @@ export interface WP {
 		Posts: WP_REST_API_Posts;
 		Attachment: WP_REST_API_Attachment;
 		Attachments: WP_REST_API_Attachments;
+		Block_Type: WP_REST_API_Block_Type;
+		Block_Types: WP_REST_API_Block_Types;
 		Status: WP_REST_API_Status;
 		Statuses: WP_REST_API_Statuses;
 		Term: WP_REST_API_Term;
@@ -2011,6 +2017,241 @@ export interface WP_REST_API_Attachment {
 		[k: string]: unknown;
 	};
 	[k: string]: unknown;
+}
+/**
+ * A block type object in a REST API context.
+ */
+export interface WP_REST_API_Block_Type {
+	/**
+	 * Version of block API.
+	 */
+	api_version: number;
+	/**
+	 * Title of block type.
+	 */
+	title: string;
+	/**
+	 * Unique name identifying the block type.
+	 */
+	name: string;
+	/**
+	 * Description of block type.
+	 */
+	description: string;
+	/**
+	 * Icon of block type.
+	 */
+	icon: string | null;
+	/**
+	 * Block attributes.
+	 */
+	attributes: {
+		[k: string]: {
+			[k: string]: unknown;
+		};
+	} | null;
+	/**
+	 * Context provided by blocks of this type.
+	 */
+	provides_context: {
+		[k: string]: string;
+	};
+	/**
+	 * Context values inherited by blocks of this type.
+	 */
+	uses_context: string[];
+	/**
+	 * Block supports.
+	 */
+	supports: {
+		[k: string]: unknown;
+	};
+	/**
+	 * Block category.
+	 */
+	category: string | null;
+	/**
+	 * Is the block dynamically rendered.
+	 */
+	is_dynamic: boolean;
+	/**
+	 * Editor script handle.
+	 */
+	editor_script: string | null;
+	/**
+	 * Public facing script handle.
+	 */
+	script: string | null;
+	/**
+	 * Editor style handle.
+	 */
+	editor_style: string | null;
+	/**
+	 * Public facing style handle.
+	 */
+	style: string | null;
+	/**
+	 * Block style variations.
+	 */
+	styles: {
+		/**
+		 * Unique name identifying the style.
+		 */
+		name: string;
+		/**
+		 * The human-readable label for the style.
+		 */
+		label?: string;
+		/**
+		 * Inline CSS code that registers the CSS class required for the style.
+		 */
+		inline_style?: string;
+		/**
+		 * Contains the handle that defines the block style.
+		 */
+		style_handle?: string;
+		[k: string]: unknown;
+	}[];
+	/**
+	 * Block variations.
+	 */
+	variations: {
+		/**
+		 * The unique and machine-readable name.
+		 */
+		name: string;
+		/**
+		 * A human-readable variation title.
+		 */
+		title: string;
+		/**
+		 * A detailed variation description.
+		 */
+		description?: string;
+		/**
+		 * Block category.
+		 */
+		category?: string | null;
+		/**
+		 * Icon of block type.
+		 */
+		icon?: string | null;
+		/**
+		 * Indicates whether the current variation is the default one.
+		 */
+		isDefault?: boolean;
+		/**
+		 * The initial values for attributes.
+		 */
+		attributes?: {
+			[k: string]: unknown;
+		};
+		/**
+		 * The list of inner blocks used in the example.
+		 */
+		innerBlocks?: {
+			/**
+			 * The name of the inner block.
+			 */
+			name?: string;
+			/**
+			 * The attributes of the inner block.
+			 */
+			attributes?: {
+				[k: string]: unknown;
+			};
+			/**
+			 * A list of the inner block's own inner blocks. This is a recursive definition following the parent innerBlocks schema.
+			 */
+			innerBlocks?: unknown[];
+			[k: string]: unknown;
+		}[];
+		/**
+		 * Block example.
+		 */
+		example?: {
+			/**
+			 * The attributes used in the example.
+			 */
+			attributes?: {
+				[k: string]: unknown;
+			};
+			/**
+			 * The list of inner blocks used in the example.
+			 */
+			innerBlocks?: {
+				/**
+				 * The name of the inner block.
+				 */
+				name?: string;
+				/**
+				 * The attributes of the inner block.
+				 */
+				attributes?: {
+					[k: string]: unknown;
+				};
+				/**
+				 * A list of the inner block's own inner blocks. This is a recursive definition following the parent innerBlocks schema.
+				 */
+				innerBlocks?: unknown[];
+				[k: string]: unknown;
+			}[];
+			[k: string]: unknown;
+		} | null;
+		/**
+		 * The list of scopes where the variation is applicable. When not provided, it assumes all available scopes.
+		 */
+		scope?: ("block" | "inserter" | "transform")[] | null;
+		/**
+		 * Block keywords.
+		 */
+		keywords?: string[];
+		[k: string]: unknown;
+	}[];
+	/**
+	 * Public text domain.
+	 */
+	textdomain: string | null;
+	/**
+	 * Parent blocks.
+	 */
+	parent: string[] | null;
+	/**
+	 * Block keywords.
+	 */
+	keywords: string[];
+	/**
+	 * Block example.
+	 */
+	example: {
+		/**
+		 * The attributes used in the example.
+		 */
+		attributes?: {
+			[k: string]: unknown;
+		};
+		/**
+		 * The list of inner blocks used in the example.
+		 */
+		innerBlocks?: {
+			/**
+			 * The name of the inner block.
+			 */
+			name?: string;
+			/**
+			 * The attributes of the inner block.
+			 */
+			attributes?: {
+				[k: string]: unknown;
+			};
+			/**
+			 * A list of the inner block's own inner blocks. This is a recursive definition following the parent innerBlocks schema.
+			 */
+			innerBlocks?: unknown[];
+			[k: string]: unknown;
+		}[];
+		[k: string]: unknown;
+	} | null;
 }
 /**
  * A post status object in a REST API context.

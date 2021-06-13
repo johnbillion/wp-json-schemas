@@ -1,0 +1,402 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/block-type.json",
+	"title": "WP_REST_API_Block_Type",
+	"description": "A block type object in a REST API context.",
+	"type": "object",
+	"additionalProperties": false,
+	"required": [
+		"api_version",
+		"title",
+		"name",
+		"description",
+		"icon",
+		"attributes",
+		"provides_context",
+		"uses_context",
+		"supports",
+		"category",
+		"is_dynamic",
+		"editor_script",
+		"script",
+		"editor_style",
+		"style",
+		"styles",
+		"variations",
+		"textdomain",
+		"parent",
+		"keywords",
+		"example"
+	],
+	"properties": {
+		"api_version": {
+			"description": "Version of block API.",
+			"type": "integer",
+			"readOnly": true
+		},
+		"title": {
+			"description": "Title of block type.",
+			"type": "string",
+			"readOnly": true
+		},
+		"name": {
+			"description": "Unique name identifying the block type.",
+			"type": "string",
+			"readOnly": true
+		},
+		"description": {
+			"description": "Description of block type.",
+			"type": "string",
+			"readOnly": true
+		},
+		"icon": {
+			"description": "Icon of block type.",
+			"type": [
+				"string",
+				"null"
+			],
+			"readOnly": true
+		},
+		"attributes": {
+			"description": "Block attributes.",
+			"type": [
+				"object",
+				"null"
+			],
+			"additionalProperties": {
+				"type": "object"
+			},
+			"readOnly": true
+		},
+		"provides_context": {
+			"description": "Context provided by blocks of this type.",
+			"type": "object",
+			"additionalProperties": {
+				"type": "string"
+			},
+			"readOnly": true
+		},
+		"uses_context": {
+			"description": "Context values inherited by blocks of this type.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"readOnly": true
+		},
+		"supports": {
+			"description": "Block supports.",
+			"type": "object",
+			"readOnly": true
+		},
+		"category": {
+			"description": "Block category.",
+			"type": [
+				"string",
+				"null"
+			],
+			"readOnly": true
+		},
+		"is_dynamic": {
+			"description": "Is the block dynamically rendered.",
+			"type": "boolean",
+			"readOnly": true
+		},
+		"editor_script": {
+			"description": "Editor script handle.",
+			"type": [
+				"string",
+				"null"
+			],
+			"readOnly": true
+		},
+		"script": {
+			"description": "Public facing script handle.",
+			"type": [
+				"string",
+				"null"
+			],
+			"readOnly": true
+		},
+		"editor_style": {
+			"description": "Editor style handle.",
+			"type": [
+				"string",
+				"null"
+			],
+			"readOnly": true
+		},
+		"style": {
+			"description": "Public facing style handle.",
+			"type": [
+				"string",
+				"null"
+			],
+			"readOnly": true
+		},
+		"styles": {
+			"description": "Block style variations.",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": [
+					"name"
+				],
+				"properties": {
+					"name": {
+						"description": "Unique name identifying the style.",
+						"type": "string"
+					},
+					"label": {
+						"description": "The human-readable label for the style.",
+						"type": "string"
+					},
+					"inline_style": {
+						"description": "Inline CSS code that registers the CSS class required for the style.",
+						"type": "string"
+					},
+					"style_handle": {
+						"description": "Contains the handle that defines the block style.",
+						"type": "string"
+					}
+				}
+			},
+			"readOnly": true
+		},
+		"variations": {
+			"description": "Block variations.",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": [
+					"name",
+					"title"
+				],
+				"properties": {
+					"name": {
+						"description": "The unique and machine-readable name.",
+						"type": "string"
+					},
+					"title": {
+						"description": "A human-readable variation title.",
+						"type": "string"
+					},
+					"description": {
+						"description": "A detailed variation description.",
+						"type": "string"
+					},
+					"category": {
+						"description": "Block category.",
+						"type": [
+							"string",
+							"null"
+						],
+						"readOnly": true
+					},
+					"icon": {
+						"description": "Icon of block type.",
+						"type": [
+							"string",
+							"null"
+						],
+						"readOnly": true
+					},
+					"isDefault": {
+						"description": "Indicates whether the current variation is the default one.",
+						"type": "boolean"
+					},
+					"attributes": {
+						"description": "The initial values for attributes.",
+						"type": "object"
+					},
+					"innerBlocks": {
+						"description": "The list of inner blocks used in the example.",
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"name": {
+									"description": "The name of the inner block.",
+									"type": "string"
+								},
+								"attributes": {
+									"description": "The attributes of the inner block.",
+									"type": "object"
+								},
+								"innerBlocks": {
+									"description": "A list of the inner block's own inner blocks. This is a recursive definition following the parent innerBlocks schema.",
+									"type": "array"
+								}
+							}
+						}
+					},
+					"example": {
+						"description": "Block example.",
+						"type": [
+							"object",
+							"null"
+						],
+						"properties": {
+							"attributes": {
+								"description": "The attributes used in the example.",
+								"type": "object"
+							},
+							"innerBlocks": {
+								"description": "The list of inner blocks used in the example.",
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"name": {
+											"description": "The name of the inner block.",
+											"type": "string"
+										},
+										"attributes": {
+											"description": "The attributes of the inner block.",
+											"type": "object"
+										},
+										"innerBlocks": {
+											"description": "A list of the inner block's own inner blocks. This is a recursive definition following the parent innerBlocks schema.",
+											"type": "array"
+										}
+									}
+								}
+							}
+						},
+						"readOnly": true
+					},
+					"scope": {
+						"description": "The list of scopes where the variation is applicable. When not provided, it assumes all available scopes.",
+						"type": [
+							"array",
+							"null"
+						],
+						"items": {
+							"type": "string",
+							"enum": [
+								"block",
+								"inserter",
+								"transform"
+							]
+						},
+						"readOnly": true
+					},
+					"keywords": {
+						"description": "Block keywords.",
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"readOnly": true
+					}
+				}
+			},
+			"readOnly": true
+		},
+		"textdomain": {
+			"description": "Public text domain.",
+			"type": [
+				"string",
+				"null"
+			],
+			"readOnly": true
+		},
+		"parent": {
+			"description": "Parent blocks.",
+			"type": [
+				"array",
+				"null"
+			],
+			"items": {
+				"type": "string"
+			},
+			"readOnly": true
+		},
+		"keywords": {
+			"description": "Block keywords.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"readOnly": true
+		},
+		"example": {
+			"description": "Block example.",
+			"type": [
+				"object",
+				"null"
+			],
+			"properties": {
+				"attributes": {
+					"description": "The attributes used in the example.",
+					"type": "object"
+				},
+				"innerBlocks": {
+					"description": "The list of inner blocks used in the example.",
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"description": "The name of the inner block.",
+								"type": "string"
+							},
+							"attributes": {
+								"description": "The attributes of the inner block.",
+								"type": "object"
+							},
+							"innerBlocks": {
+								"description": "A list of the inner block's own inner blocks. This is a recursive definition following the parent innerBlocks schema.",
+								"type": "array"
+							}
+						}
+					}
+				}
+			},
+			"readOnly": true
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/block-types/{name}",
+			"hrefSchema": {
+				"properties": {
+					"name": {
+						"$ref": "#/properties/name"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/block-types/{namespace}",
+			"hrefSchema": {
+				"properties": {
+					"namespace": {
+						"type": "string"
+					}
+				}
+			},
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/block-types",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}

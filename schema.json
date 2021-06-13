@@ -71,6 +71,12 @@
 				"Attachments" : {
 					"$ref": "schemas/rest-api/attachments.json"
 				},
+				"Block_Type" : {
+					"$ref": "schemas/rest-api/block-type.json"
+				},
+				"Block_Types" : {
+					"$ref": "schemas/rest-api/block-types.json"
+				},
 				"Status" : {
 					"$ref": "schemas/rest-api/status.json"
 				},
@@ -130,6 +136,8 @@
 				"Posts",
 				"Attachment",
 				"Attachments",
+				"Block_Type",
+				"Block_Types",
 				"Term",
 				"Terms",
 				"Tag",

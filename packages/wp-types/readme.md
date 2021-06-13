@@ -45,6 +45,8 @@ Schema                       | Applies to
 `WP_REST_API_Comment`        | /wp/v2/comments/{id}
 `WP_REST_API_Attachments`    | /wp/v2/media
 `WP_REST_API_Attachment`     | /wp/v2/media/{id}
+`WP_REST_API_Block_Types`    | /wp/v2/block-types
+`WP_REST_API_Block_Type`     | /wp/v2/block-types/{id}
 `WP_REST_API_Search_Results` | /wp/v2/search
 `WP_REST_API_Search_Result`  | /wp/v2/search
 `WP_REST_API_Statuses`       | /wp/v2/statuses
