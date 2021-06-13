@@ -92,21 +92,3 @@ foreach ( glob( dirname( __DIR__ ) . '/output/*.php' ) as $file ) {
 		require_once $file;
 	} );
 }
-
-/**
- * Test data for `WP_Locale`.
- */
-WP_CLI::add_command( 'json-dump locale', function() : void {
-	$locales = [
-		'en_US' => $GLOBALS['wp_locale'],
-	];
-
-	$translations = array_keys( wp_get_installed_translations( 'core' )['default'] );
-
-	foreach ( $translations as $locale ) {
-		switch_to_locale( $locale );
-		$locales[ $locale ] = $GLOBALS['wp_locale'];
-	}
-
-	save_object_array( $locales, 'locale' );
-} );
