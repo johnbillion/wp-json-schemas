@@ -118,5 +118,31 @@
 		"_links": {
 			"$ref": "properties/object-links.json"
 		}
-	}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/taxonomies/{slug}",
+			"hrefSchema": {
+				"properties": {
+					"slug": {
+						"$ref": "#/properties/slug"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/taxonomies",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
 }

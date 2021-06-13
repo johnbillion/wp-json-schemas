@@ -83,5 +83,31 @@
 		"_links": {
 			"$ref": "properties/object-links.json"
 		}
-	}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/types/{slug}",
+			"hrefSchema": {
+				"properties": {
+					"slug": {
+						"$ref": "#/properties/slug"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/types",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
 }

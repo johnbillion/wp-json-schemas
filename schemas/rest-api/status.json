@@ -57,5 +57,31 @@
 		"_links": {
 			"$ref": "properties/object-links.json"
 		}
-	}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/statuses/{name}",
+			"hrefSchema": {
+				"properties": {
+					"name": {
+						"$ref": "#/properties/name"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/statuses",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
 }
