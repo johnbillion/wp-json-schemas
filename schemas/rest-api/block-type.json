@@ -4,7 +4,7 @@
 	"title": "WP_REST_API_Block_Type",
 	"description": "A block type object in a REST API context.",
 	"type": "object",
-	"additionalProperties": false,
+	"readOnly": true,
 	"required": [
 		"api_version",
 		"title",
@@ -31,31 +31,26 @@
 	"properties": {
 		"api_version": {
 			"description": "Version of block API.",
-			"type": "integer",
-			"readOnly": true
+			"type": "integer"
 		},
 		"title": {
 			"description": "Title of block type.",
-			"type": "string",
-			"readOnly": true
+			"type": "string"
 		},
 		"name": {
 			"description": "Unique name identifying the block type.",
-			"type": "string",
-			"readOnly": true
+			"type": "string"
 		},
 		"description": {
 			"description": "Description of block type.",
-			"type": "string",
-			"readOnly": true
+			"type": "string"
 		},
 		"icon": {
 			"description": "Icon of block type.",
 			"type": [
 				"string",
 				"null"
-			],
-			"readOnly": true
+			]
 		},
 		"attributes": {
 			"description": "Block attributes.",
@@ -65,74 +60,64 @@
 			],
 			"additionalProperties": {
 				"type": "object"
-			},
-			"readOnly": true
+			}
 		},
 		"provides_context": {
 			"description": "Context provided by blocks of this type.",
 			"type": "object",
 			"additionalProperties": {
 				"type": "string"
-			},
-			"readOnly": true
+			}
 		},
 		"uses_context": {
 			"description": "Context values inherited by blocks of this type.",
 			"type": "array",
 			"items": {
 				"type": "string"
-			},
-			"readOnly": true
+			}
 		},
 		"supports": {
 			"description": "Block supports.",
-			"type": "object",
-			"readOnly": true
+			"type": "object"
 		},
 		"category": {
 			"description": "Block category.",
 			"type": [
 				"string",
 				"null"
-			],
-			"readOnly": true
+			]
 		},
 		"is_dynamic": {
 			"description": "Is the block dynamically rendered.",
-			"type": "boolean",
-			"readOnly": true
+			"type": "boolean"
 		},
 		"editor_script": {
 			"description": "Editor script handle.",
 			"type": [
 				"string",
 				"null"
-			],
-			"readOnly": true
+			]
 		},
 		"script": {
 			"description": "Public facing script handle.",
 			"type": [
 				"string",
 				"null"
-			],
-			"readOnly": true
+			]
 		},
 		"editor_style": {
 			"description": "Editor style handle.",
 			"type": [
 				"string",
 				"null"
-			],
-			"readOnly": true
+			]
 		},
 		"style": {
 			"description": "Public facing style handle.",
 			"type": [
 				"string",
 				"null"
-			],
-			"readOnly": true
+			]
 		},
 		"styles": {
 			"description": "Block style variations.",
@@ -160,8 +145,7 @@
 						"type": "string"
 					}
 				}
-			},
-			"readOnly": true
+			}
 		},
 		"variations": {
 			"description": "Block variations.",
@@ -190,16 +174,14 @@
 						"type": [
 							"string",
 							"null"
-						],
-						"readOnly": true
+						]
 					},
 					"icon": {
 						"description": "Icon of block type.",
 						"type": [
 							"string",
 							"null"
-						],
-						"readOnly": true
+						]
 					},
 					"isDefault": {
 						"description": "Indicates whether the current variation is the default one.",
@@ -262,8 +244,7 @@
 									}
 								}
 							}
-						},
-						"readOnly": true
+						}
 					},
 					"scope": {
 						"description": "The list of scopes where the variation is applicable. When not provided, it assumes all available scopes.",
@@ -278,28 +259,24 @@
 								"inserter",
 								"transform"
 							]
-						},
-						"readOnly": true
+						}
 					},
 					"keywords": {
 						"description": "Block keywords.",
 						"type": "array",
 						"items": {
 							"type": "string"
-						},
-						"readOnly": true
+						}
 					}
 				}
-			},
-			"readOnly": true
+			}
 		},
 		"textdomain": {
 			"description": "Public text domain.",
 			"type": [
 				"string",
 				"null"
-			],
-			"readOnly": true
+			]
 		},
 		"parent": {
 			"description": "Parent blocks.",
@@ -309,16 +286,14 @@
 			],
 			"items": {
 				"type": "string"
-			},
-			"readOnly": true
+			}
 		},
 		"keywords": {
 			"description": "Block keywords.",
 			"type": "array",
 			"items": {
 				"type": "string"
-			},
-			"readOnly": true
+			}
 		},
 		"example": {
 			"description": "Block example.",
@@ -352,8 +327,7 @@
 						}
 					}
 				}
-			},
-			"readOnly": true
+			}
 		}
 	},
 	"links": [
