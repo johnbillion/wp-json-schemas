@@ -94,33 +94,6 @@ foreach ( glob( dirname( __DIR__ ) . '/output/*.php' ) as $file ) {
 }
 
 /**
- * Test data for users.
- */
-WP_CLI::add_command( 'json-dump user', function() : void {
-	$users = get_users( [
-		'number'  => -1,
-		'orderby' => 'ID',
-		'order'   => 'ASC',
-	] );
-
-	save_object_array( $users, 'user' );
-
-	$view_data = get_rest_response( 'GET', '/wp/v2/users', [
-		'context' => 'view',
-		'per_page' => 100,
-	] );
-	$edit_data = get_rest_response( 'GET', '/wp/v2/users', [
-		'context' => 'edit',
-		'per_page' => 100,
-	] );
-
-	save_rest_array( [
-		$view_data,
-		$edit_data,
-	], 'users' );
-} );
-
-/**
  * Test data for tags.
  */
 WP_CLI::add_command( 'json-dump tag', function() : void {
