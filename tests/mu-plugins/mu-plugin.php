@@ -94,34 +94,6 @@ foreach ( glob( dirname( __DIR__ ) . '/output/*.php' ) as $file ) {
 }
 
 /**
- * Test data for categories.
- */
-WP_CLI::add_command( 'json-dump category', function() : void {
-	$categories = get_terms( [
-		'taxonomy' => 'category',
-		'number'   => 0,
-		'orderby'  => 'term_id',
-		'order'    => 'ASC',
-	] );
-
-	save_object_array( $categories, 'category' );
-
-	$view_data = get_rest_response( 'GET', '/wp/v2/categories', [
-		'context' => 'view',
-		'per_page' => 100,
-	] );
-	$edit_data = get_rest_response( 'GET', '/wp/v2/categories', [
-		'context' => 'edit',
-		'per_page' => 100,
-	] );
-
-	save_rest_array( [
-		$view_data,
-		$edit_data,
-	], 'categories' );
-} );
-
-/**
  * Test data for comments.
  */
 WP_CLI::add_command( 'json-dump comment', function() : void {
