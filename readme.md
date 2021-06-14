@@ -35,30 +35,51 @@ The schemas in this library are used to generate [the WordPress TypeScript defin
 
 Route                                | Schema
 ------------------------------------ | ------
+/wp/v2/block-directory/search        | Todo
+/wp/v2/block-renderer/{name}         | Todo
 /wp/v2/block-types                   | `WP_REST_API_Block_Types`
-/wp/v2/block-types/{id}              | `WP_REST_API_Block_Type`
+/wp/v2/block-types/{name}            | `WP_REST_API_Block_Type`
+/wp/v2/blocks                        | Todo
+/wp/v2/blocks/{id}                   | Todo
+/wp/v2/blocks/{id}/autosaves         | Todo
+/wp/v2/blocks/{parent}/autosaves/{id}| Todo
 /wp/v2/categories                    | `WP_REST_API_Categories`
 /wp/v2/categories/{id}               | `WP_REST_API_Category`
 /wp/v2/comments                      | `WP_REST_API_Comments`
 /wp/v2/comments/{id}                 | `WP_REST_API_Comment`
 /wp/v2/media                         | `WP_REST_API_Attachments`
 /wp/v2/media/{id}                    | `WP_REST_API_Attachment`
+/wp/v2/media/{id}/edit               | Todo
+/wp/v2/media/{id}/post-process       | Todo
 /wp/v2/pages                         | `WP_REST_API_Posts`
 /wp/v2/pages/{id}                    | `WP_REST_API_Post`
+/wp/v2/pages/{id}/autosaves          | Todo
+/wp/v2/pages/{parent}/autosaves/{id} | Todo
+/wp/v2/pages/{parent}/revisions      | Todo
+/wp/v2/pages/{parent}/revisions/{id} | Todo
+/wp/v2/plugins                       | Todo
+/wp/v2/plugins/{plugin}              | Todo
 /wp/v2/posts                         | `WP_REST_API_Posts`
 /wp/v2/posts/{id}                    | `WP_REST_API_Post`
-/wp/v2/search                        | `WP_REST_API_Search_Result`
+/wp/v2/posts/{id}/autosaves          | Todo
+/wp/v2/posts/{parent}/autosaves/{id} | Todo
+/wp/v2/posts/{parent}/revisions      | Todo
+/wp/v2/posts/{parent}/revisions/{id} | Todo
 /wp/v2/search                        | `WP_REST_API_Search_Results`
+/wp/v2/settings                      | Todo
 /wp/v2/statuses                      | `WP_REST_API_Statuses`
 /wp/v2/statuses/{status}             | `WP_REST_API_Status`
 /wp/v2/tags                          | `WP_REST_API_Tags`
 /wp/v2/tags/{id}                     | `WP_REST_API_Tag`
 /wp/v2/taxonomies                    | `WP_REST_API_Taxonomies`
 /wp/v2/taxonomies/{taxonomy}         | `WP_REST_API_Taxonomy`
+/wp/v2/themes                        | Todo
+/wp/v2/themes/{stylesheet}           | Todo
 /wp/v2/types                         | `WP_REST_API_Types`
 /wp/v2/types/{type}                  | `WP_REST_API_Type`
 /wp/v2/users                         | `WP_REST_API_Users`
 /wp/v2/users/{id}                    | `WP_REST_API_User`
+/wp/v2/users/me                      | `WP_REST_API_User`
 Any REST API error                   | `WP_REST_API_Error`
 
 The REST API schemas use JSON Hyper-Schema.
