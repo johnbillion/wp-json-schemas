@@ -76,6 +76,7 @@
 			"wp json-dump status",
 			"npm run test-rest-api-statuses",
 			"wp json-dump block-type",
+			"npm run test-block-type",
 			"npm run test-rest-api-block-types",
 			"wp json-dump type",
 			"npm run test-post-type",

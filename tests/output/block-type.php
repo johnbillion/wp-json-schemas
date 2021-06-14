@@ -2,6 +2,13 @@
 
 namespace WPJsonSchemas;
 
+use WP_Block_Type_Registry;
+
+$registry = WP_Block_Type_Registry::get_instance();
+$block_types = array_values( $registry->get_all_registered() );
+
+save_object_array( $block_types, 'block-type' );
+
 $view_data = get_rest_response( 'GET', '/wp/v2/block-types', [
 	'context' => 'view',
 ] );
