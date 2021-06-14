@@ -78,11 +78,10 @@ Route                                                   | Schema
 /wp/v2/types                                            | `WP_REST_API_Types`
 /wp/v2/types/{type}                                     | `WP_REST_API_Type`
 /wp/v2/users                                            | `WP_REST_API_Users`
+/wp/v2/users/({id}\|me)                                 | `WP_REST_API_User`
 /wp/v2/users/({id}\|me)/application-passwords           | Todo
 /wp/v2/users/({id}\|me)/application-passwords/{uuid}    | Todo
 /wp/v2/users/({id}\|me)/application-passwords/introspect| Todo
-/wp/v2/users/{id}                                       | `WP_REST_API_User`
-/wp/v2/users/me                                         | `WP_REST_API_User`
 Any REST API error                                      | `WP_REST_API_Error`
 
 The REST API schemas use JSON Hyper-Schema.
