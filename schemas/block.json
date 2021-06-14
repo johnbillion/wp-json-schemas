@@ -36,7 +36,7 @@
 			"description": "Block type associated with the instance.",
 			"allOf": [
 				{
-					"$ref": "properties/block-type.json"
+					"$ref": "block-type.json"
 				}
 			]
 		},
