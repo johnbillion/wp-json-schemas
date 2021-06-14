@@ -2045,17 +2045,20 @@ export interface WP_REST_API_Block_Type {
 	/**
 	 * Block attributes.
 	 */
-	attributes: {
-		[k: string]: {
-			[k: string]: unknown;
-		};
-	} | null;
+	attributes:
+		| []
+		| {
+				[k: string]: unknown;
+		  }
+		| null;
 	/**
 	 * Context provided by blocks of this type.
 	 */
-	provides_context: {
-		[k: string]: string;
-	};
+	provides_context:
+		| []
+		| {
+				[k: string]: string;
+		  };
 	/**
 	 * Context values inherited by blocks of this type.
 	 */
@@ -2156,6 +2159,7 @@ export interface WP_REST_API_Block_Type {
 		}[];
 		[k: string]: unknown;
 	} | null;
+	[k: string]: unknown;
 }
 /**
  * A post status object in a REST API context.

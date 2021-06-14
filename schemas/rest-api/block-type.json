@@ -22,7 +22,6 @@
 		"editor_style",
 		"style",
 		"styles",
-		"variations",
 		"textdomain",
 		"parent",
 		"keywords",
@@ -54,9 +53,19 @@
 		},
 		"attributes": {
 			"description": "Block attributes.",
-			"type": [
-				"object",
-				"null"
+			"oneOf": [
+				{
+					"type": "array",
+					"tsType": "[]",
+					"items": {},
+					"additionalItems": false
+				},
+				{
+					"type": "object"
+				},
+				{
+					"type": "null"
+				}
 			],
 			"additionalProperties": {
 				"type": "object"
@@ -64,10 +73,20 @@
 		},
 		"provides_context": {
 			"description": "Context provided by blocks of this type.",
-			"type": "object",
-			"additionalProperties": {
-				"type": "string"
-			}
+			"oneOf": [
+				{
+					"type": "array",
+					"tsType": "[]",
+					"items": {},
+					"additionalItems": false
+				},
+				{
+					"type": "object",
+					"additionalProperties": {
+						"type": "string"
+					}
+				}
+			]
 		},
 		"uses_context": {
 			"description": "Context values inherited by blocks of this type.",
