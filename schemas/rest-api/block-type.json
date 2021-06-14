@@ -180,7 +180,7 @@
 				"null"
 			],
 			"items": {
-				"type": "string"
+				"$ref": "#/properties/name"
 			}
 		},
 		"keywords": {
