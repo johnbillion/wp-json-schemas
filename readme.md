@@ -33,33 +33,33 @@ The schemas in this library are used to generate [the WordPress TypeScript defin
 
 ### REST API Response Schemas
 
-Schema                       | Applies to
----------------------------- | ----------
-`WP_REST_API_Posts`          | /wp/v2/posts <br> /wp/v2/pages
-`WP_REST_API_Post`           | /wp/v2/posts/{id} <br> /wp/v2/pages/{id}
-`WP_REST_API_Tags`           | /wp/v2/tags
-`WP_REST_API_Tag`            | /wp/v2/tags/{id}
-`WP_REST_API_Categories`     | /wp/v2/categories
-`WP_REST_API_Category`       | /wp/v2/categories/{id}
-`WP_REST_API_Terms`          | /wp/v2/{taxonomy}
-`WP_REST_API_Term`           | /wp/v2/{taxonomy}/{id}
-`WP_REST_API_Users`          | /wp/v2/users
-`WP_REST_API_User`           | /wp/v2/users/{id}
-`WP_REST_API_Comments`       | /wp/v2/comments
-`WP_REST_API_Comment`        | /wp/v2/comments/{id}
-`WP_REST_API_Attachments`    | /wp/v2/media
-`WP_REST_API_Attachment`     | /wp/v2/media/{id}
-`WP_REST_API_Block_Types`    | /wp/v2/block-types
-`WP_REST_API_Block_Type`     | /wp/v2/block-types/{id}
-`WP_REST_API_Search_Results` | /wp/v2/search
-`WP_REST_API_Search_Result`  | /wp/v2/search
-`WP_REST_API_Taxonomies`     | /wp/v2/taxonomies
-`WP_REST_API_Taxonomy`       | /wp/v2/taxonomies/{taxonomy}
-`WP_REST_API_Statuses`       | /wp/v2/statuses
-`WP_REST_API_Status`         | /wp/v2/statuses/{status}
-`WP_REST_API_Types`          | /wp/v2/types
-`WP_REST_API_Type`           | /wp/v2/types/{type}
-`WP_REST_API_Error`          | Any REST API error
+Route                                | Schema
+------------------------------------ | ------
+/wp/v2/block-types                   | `WP_REST_API_Block_Types`
+/wp/v2/block-types/{id}              | `WP_REST_API_Block_Type`
+/wp/v2/categories                    | `WP_REST_API_Categories`
+/wp/v2/categories/{id}               | `WP_REST_API_Category`
+/wp/v2/comments                      | `WP_REST_API_Comments`
+/wp/v2/comments/{id}                 | `WP_REST_API_Comment`
+/wp/v2/media                         | `WP_REST_API_Attachments`
+/wp/v2/media/{id}                    | `WP_REST_API_Attachment`
+/wp/v2/pages                         | `WP_REST_API_Posts`
+/wp/v2/pages/{id}                    | `WP_REST_API_Post`
+/wp/v2/posts                         | `WP_REST_API_Posts`
+/wp/v2/posts/{id}                    | `WP_REST_API_Post`
+/wp/v2/search                        | `WP_REST_API_Search_Result`
+/wp/v2/search                        | `WP_REST_API_Search_Results`
+/wp/v2/statuses                      | `WP_REST_API_Statuses`
+/wp/v2/statuses/{status}             | `WP_REST_API_Status`
+/wp/v2/tags                          | `WP_REST_API_Tags`
+/wp/v2/tags/{id}                     | `WP_REST_API_Tag`
+/wp/v2/taxonomies                    | `WP_REST_API_Taxonomies`
+/wp/v2/taxonomies/{taxonomy}         | `WP_REST_API_Taxonomy`
+/wp/v2/types                         | `WP_REST_API_Types`
+/wp/v2/types/{type}                  | `WP_REST_API_Type`
+/wp/v2/users                         | `WP_REST_API_Users`
+/wp/v2/users/{id}                    | `WP_REST_API_User`
+Any REST API error                   | `WP_REST_API_Error`
 
 The REST API schemas use JSON Hyper-Schema.
 
