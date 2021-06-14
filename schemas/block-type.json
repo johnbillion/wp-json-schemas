@@ -15,7 +15,6 @@
 		"keywords",
 		"textdomain",
 		"styles",
-		"variations",
 		"supports",
 		"example",
 		"render_callback",
@@ -77,64 +76,14 @@
 		},
 		"textdomain": {
 			"description": "The translation textdomain.",
-			"type": "string"
+			"type": [
+				"string",
+				"null"
+			]
 		},
 		"styles": {
 			"description": "Alternative block styles.",
 			"type": "array"
-		},
-		"variations": {
-			"description": "Block variations.",
-			"type": "array",
-			"items": {
-				"type": "object",
-				"required": [
-					"name",
-					"title"
-				],
-				"properties": {
-					"name": {
-						"type": "string"
-					},
-					"title": {
-						"type": "string"
-					},
-					"description": {
-						"type": "string"
-					},
-					"category": {
-						"type": "string"
-					},
-					"icon": {
-						"type": [
-							"string",
-							"object"
-						]
-					},
-					"isDefault": {
-						"type": "boolean"
-					},
-					"attributes": {
-						"type": "object"
-					},
-					"innerBlocks": {
-						"type": "array"
-					},
-					"example": {
-						"type": "object"
-					},
-					"scope": {
-						"type": "array"
-					},
-					"keywords": {
-						"type": "array",
-						"items": {
-							"type": "string"
-						}
-					},
-					"isActive": {}
-				}
-			}
 		},
 		"supports": {
 			"description": "Supported features.",
@@ -191,10 +140,17 @@
 		},
 		"provides_context": {
 			"description": "Context provided by blocks of this type.",
-			"type": "array",
-			"items": {
-				"type": "string"
-			}
+			"oneOf": [
+				{
+					"type": "object",
+					"additionalProperties": {
+						"type": "string"
+					}
+				},
+				{
+					"type": "null"
+				}
+			]
 		},
 		"editor_script": {
 			"description": "Block type editor script handle.",

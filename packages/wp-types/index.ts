@@ -215,64 +215,15 @@ export interface WP_Block_Type {
 	/**
 	 * The translation textdomain.
 	 */
-	textdomain: string;
+	textdomain: string | null;
 	/**
 	 * Alternative block styles.
 	 */
 	styles: unknown[];
 	/**
-	 * Block variations.
-	 */
-	variations: {
-		name: string;
-		title: string;
-		description?: string;
-		category?: string;
-		icon?:
-			| string
-			| {
-					[k: string]: unknown;
-			  };
-		isDefault?: boolean;
-		attributes?: {
-			[k: string]: unknown;
-		};
-		innerBlocks?: unknown[];
-		example?: {
-			[k: string]: unknown;
-		};
-		scope?: unknown[];
-		keywords?: string[];
-		isActive?: unknown;
-		[k: string]: unknown;
-	}[];
-	/**
 	 * Supported features.
 	 */
 	supports: {
-		anchor?: boolean;
-		align?: boolean | ("left" | "center" | "right" | "wide" | "full")[];
-		alignWide?: boolean;
-		className?: boolean;
-		color?:
-			| boolean
-			| {
-					background?: boolean;
-					gradients?: boolean;
-					text?: boolean;
-					link?: boolean;
-					duotone?: string;
-					[k: string]: unknown;
-			  };
-		customClassName?: boolean;
-		defaultStylePicker?: boolean;
-		fontSize?: boolean;
-		html?: boolean;
-		inserter?: boolean;
-		lineHeight?: boolean;
-		multiple?: boolean;
-		reusable?: boolean;
-		spacing?: boolean;
 		[k: string]: unknown;
 	} | null;
 	/**
@@ -299,7 +250,9 @@ export interface WP_Block_Type {
 	/**
 	 * Context provided by blocks of this type.
 	 */
-	provides_context: string[];
+	provides_context: {
+		[k: string]: string;
+	} | null;
 	/**
 	 * Block type editor script handle.
 	 */
