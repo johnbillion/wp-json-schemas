@@ -217,6 +217,7 @@
 				},
 				"rendered": {
 					"readOnly": true,
+					"contentMediaType": "text/html",
 					"description": "HTML title for the attachment, transformed for display.",
 					"type": "string"
 				}

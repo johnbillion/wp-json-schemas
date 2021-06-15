@@ -153,6 +153,7 @@
 				},
 				"rendered": {
 					"readOnly": true,
+					"contentMediaType": "text/html",
 					"description": "HTML title for the post, transformed for display.",
 					"type": "string"
 				}
