@@ -105,14 +105,9 @@
 		"type": {
 			"readOnly": true,
 			"description": "Type of Post for the block.",
-			"anyOf": [
-				{
-					"$ref": "../properties/post-type-name.json"
-				},
-				{
-					"type": "string"
-				}
-			]
+			"type": "string",
+			"tsType": "WP_Post_Type_Name.wp_block",
+			"const": "wp_block"
 		},
 		"password": {
 			"description": "A password to protect access to the content and excerpt. Only present when using the 'edit' context.",

@@ -2029,7 +2029,7 @@ export interface WP_REST_API_Block {
 	/**
 	 * Type of Post for the block.
 	 */
-	type: WP_Post_Type_Name | string;
+	type: WP_Post_Type_Name.wp_block;
 	/**
 	 * A password to protect access to the content and excerpt. Only present when using the 'edit' context.
 	 */
