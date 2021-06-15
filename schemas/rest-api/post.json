@@ -26,7 +26,7 @@
 	],
 	"properties": {
 		"date": {
-			"description": "The date the object was published, in the site's timezone.",
+			"description": "The date the post was published, in the site's timezone.",
 			"anyOf": [
 				{
 					"$ref": "properties/date-time.json"
@@ -34,7 +34,7 @@
 			]
 		},
 		"date_gmt": {
-			"description": "The date the object was published, as GMT.",
+			"description": "The date the post was published, as GMT.",
 			"anyOf": [
 				{
 					"$ref": "properties/date-time.json"
@@ -43,7 +43,7 @@
 		},
 		"guid": {
 			"readOnly": true,
-			"description": "The globally unique identifier for the object.",
+			"description": "The globally unique identifier for the post.",
 			"type": "object",
 			"required": [
 				"rendered"
@@ -51,12 +51,12 @@
 			"properties": {
 				"raw": {
 					"readOnly": true,
-					"description": "GUID for the object, as it exists in the database. Only present when using the 'edit' context.",
+					"description": "GUID for the post, as it exists in the database. Only present when using the 'edit' context.",
 					"type": "string"
 				},
 				"rendered": {
 					"readOnly": true,
-					"description": "GUID for the object, transformed for display.",
+					"description": "GUID for the post, transformed for display.",
 					"type": "string"
 				}
 			},
@@ -64,18 +64,18 @@
 		},
 		"id": {
 			"readOnly": true,
-			"description": "Unique identifier for the object.",
+			"description": "Unique identifier for the post.",
 			"type": "integer"
 		},
 		"link": {
 			"readOnly": true,
-			"description": "URL to the object.",
+			"description": "URL to the post.",
 			"type": "string",
 			"format": "uri"
 		},
 		"modified": {
 			"readOnly": true,
-			"description": "The date the object was last modified, in the site's timezone.",
+			"description": "The date the post was last modified, in the site's timezone.",
 			"anyOf": [
 				{
 					"$ref": "properties/date-time.json"
@@ -84,7 +84,7 @@
 		},
 		"modified_gmt": {
 			"readOnly": true,
-			"description": "The date the object was last modified, as GMT.",
+			"description": "The date the post was last modified, as GMT.",
 			"anyOf": [
 				{
 					"$ref": "properties/date-time.json"
@@ -92,11 +92,11 @@
 			]
 		},
 		"slug": {
-			"description": "An alphanumeric identifier for the object unique to its type.",
+			"description": "An alphanumeric identifier for the post unique to its type.",
 			"type": "string"
 		},
 		"status": {
-			"description": "A named status for the object.",
+			"description": "A named status for the post.",
 			"anyOf": [
 				{
 					"$ref": "../properties/post-status-name.json"
@@ -108,7 +108,7 @@
 		},
 		"type": {
 			"readOnly": true,
-			"description": "Type of Post for the object.",
+			"description": "Type of Post for the post.",
 			"anyOf": [
 				{
 					"$ref": "../properties/post-type-name.json"
@@ -124,16 +124,16 @@
 		},
 		"permalink_template": {
 			"readOnly": true,
-			"description": "Permalink template for the object. Only present when using the 'edit' context and the post type is public.",
+			"description": "Permalink template for the post. Only present when using the 'edit' context and the post type is public.",
 			"type": "string"
 		},
 		"generated_slug": {
 			"readOnly": true,
-			"description": "Slug automatically generated from the object title. Only present when using the 'edit' context and the post type is public.",
+			"description": "Slug automatically generated from the post title. Only present when using the 'edit' context and the post type is public.",
 			"type": "string"
 		},
 		"parent": {
-			"description": "The ID for the parent of the object. Only present for hierarchical post types.",
+			"description": "The ID for the parent of the post. Only present for hierarchical post types.",
 			"allOf": [
 				{
 					"$ref": "#/properties/id"
@@ -141,26 +141,26 @@
 			]
 		},
 		"title": {
-			"description": "The title for the object.",
+			"description": "The title for the post.",
 			"type": "object",
 			"required": [
 				"rendered"
 			],
 			"properties": {
 				"raw": {
-					"description": "Title for the object, as it exists in the database. Only present when using the 'edit' context.",
+					"description": "Title for the post, as it exists in the database. Only present when using the 'edit' context.",
 					"type": "string"
 				},
 				"rendered": {
 					"readOnly": true,
-					"description": "HTML title for the object, transformed for display.",
+					"description": "HTML title for the post, transformed for display.",
 					"type": "string"
 				}
 			},
 			"additionalProperties": false
 		},
 		"content": {
-			"description": "The content for the object.",
+			"description": "The content for the post.",
 			"type": "object",
 			"required": [
 				"rendered",
@@ -168,19 +168,19 @@
 			],
 			"properties": {
 				"raw": {
-					"description": "Content for the object, as it exists in the database. Only present when using the 'edit' context.",
+					"description": "Content for the post, as it exists in the database. Only present when using the 'edit' context.",
 					"contentMediaType": "text/html",
 					"type": "string"
 				},
 				"rendered": {
 					"readOnly": true,
-					"description": "HTML content for the object, transformed for display.",
+					"description": "HTML content for the post, transformed for display.",
 					"contentMediaType": "text/html",
 					"type": "string"
 				},
 				"block_version": {
 					"readOnly": true,
-					"description": "Version of the content block format used by the object. Only present when using the 'edit' context.",
+					"description": "Version of the content block format used by the post. Only present when using the 'edit' context.",
 					"type": "integer"
 				},
 				"protected": {
@@ -192,7 +192,7 @@
 			"additionalProperties": false
 		},
 		"author": {
-			"description": "The ID for the author of the object.",
+			"description": "The ID for the author of the post.",
 			"allOf": [
 				{
 					"$ref": "user.json#/properties/id"
@@ -200,7 +200,7 @@
 			]
 		},
 		"excerpt": {
-			"description": "The excerpt for the object.",
+			"description": "The excerpt for the post.",
 			"type": "object",
 			"required": [
 				"rendered",
@@ -208,12 +208,12 @@
 			],
 			"properties": {
 				"raw": {
-					"description": "Excerpt for the object, as it exists in the database. Only present when using the 'edit' context.",
+					"description": "Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.",
 					"type": "string"
 				},
 				"rendered": {
 					"readOnly": true,
-					"description": "HTML excerpt for the object, transformed for display.",
+					"description": "HTML excerpt for the post, transformed for display.",
 					"type": "string"
 				},
 				"protected": {
@@ -226,7 +226,7 @@
 			"additionalProperties": false
 		},
 		"featured_media": {
-			"description": "The ID of the featured media for the object.",
+			"description": "The ID of the featured media for the post.",
 			"allOf": [
 				{
 					"$ref": "#/properties/id"
@@ -234,7 +234,7 @@
 			]
 		},
 		"comment_status": {
-			"description": "Whether or not comments are open on the object.",
+			"description": "Whether or not comments are open on the post.",
 			"anyOf": [
 				{
 					"$ref": "../properties/post-comment-status-name.json"
@@ -242,7 +242,7 @@
 			]
 		},
 		"ping_status": {
-			"description": "Whether or not the object can be pinged.",
+			"description": "Whether or not the post can be pinged.",
 			"anyOf": [
 				{
 					"$ref": "../properties/post-comment-status-name.json"
@@ -250,7 +250,7 @@
 			]
 		},
 		"format": {
-			"description": "The format for the object.",
+			"description": "The format for the post.",
 			"anyOf": [
 				{
 					"$ref": "../properties/post-format-name.json"
@@ -272,22 +272,22 @@
 			]
 		},
 		"sticky": {
-			"description": "Whether or not the object should be treated as sticky. Only present for the 'post' post type.",
+			"description": "Whether or not the post should be treated as sticky. Only present for the 'post' post type.",
 			"type": "boolean"
 		},
 		"template": {
-			"description": "The theme file to use to display the object.",
+			"description": "The theme file to use to display the post.",
 			"type": "string"
 		},
 		"categories": {
-			"description": "The terms assigned to the object in the category taxonomy. Only present for post types that support categories.",
+			"description": "The terms assigned to the post in the category taxonomy. Only present for post types that support categories.",
 			"type": "array",
 			"items": {
 				"$ref": "term.json#/properties/id"
 			}
 		},
 		"tags": {
-			"description": "The terms assigned to the object in the post_tag taxonomy. Only present for post types that support tags.",
+			"description": "The terms assigned to the post in the post_tag taxonomy. Only present for post types that support tags.",
 			"type": "array",
 			"items": {
 				"$ref": "term.json#/properties/id"

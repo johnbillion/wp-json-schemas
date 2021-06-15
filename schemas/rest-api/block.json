@@ -22,7 +22,7 @@
 	],
 	"properties": {
 		"date": {
-			"description": "The date the object was published, in the site's timezone.",
+			"description": "The date the block was published, in the site's timezone.",
 			"anyOf": [
 				{
 					"$ref": "properties/date-time.json"
@@ -30,7 +30,7 @@
 			]
 		},
 		"date_gmt": {
-			"description": "The date the object was published, as GMT.",
+			"description": "The date the block was published, as GMT.",
 			"anyOf": [
 				{
 					"$ref": "properties/date-time.json"
@@ -39,7 +39,7 @@
 		},
 		"guid": {
 			"readOnly": true,
-			"description": "The globally unique identifier for the object.",
+			"description": "The globally unique identifier for the block.",
 			"type": "object",
 			"required": [
 				"rendered"
@@ -47,12 +47,12 @@
 			"properties": {
 				"raw": {
 					"readOnly": true,
-					"description": "GUID for the object, as it exists in the database. Only present when using the 'edit' context.",
+					"description": "GUID for the block, as it exists in the database. Only present when using the 'edit' context.",
 					"type": "string"
 				},
 				"rendered": {
 					"readOnly": true,
-					"description": "GUID for the object, transformed for display.",
+					"description": "GUID for the block, transformed for display.",
 					"type": "string"
 				}
 			},
@@ -60,18 +60,18 @@
 		},
 		"id": {
 			"readOnly": true,
-			"description": "Unique identifier for the object.",
+			"description": "Unique identifier for the block.",
 			"type": "integer"
 		},
 		"link": {
 			"readOnly": true,
-			"description": "URL to the object.",
+			"description": "URL to the block.",
 			"type": "string",
 			"format": "uri"
 		},
 		"modified": {
 			"readOnly": true,
-			"description": "The date the object was last modified, in the site's timezone.",
+			"description": "The date the block was last modified, in the site's timezone.",
 			"anyOf": [
 				{
 					"$ref": "properties/date-time.json"
@@ -80,7 +80,7 @@
 		},
 		"modified_gmt": {
 			"readOnly": true,
-			"description": "The date the object was last modified, as GMT.",
+			"description": "The date the block was last modified, as GMT.",
 			"anyOf": [
 				{
 					"$ref": "properties/date-time.json"
@@ -88,11 +88,11 @@
 			]
 		},
 		"slug": {
-			"description": "An alphanumeric identifier for the object unique to its type.",
+			"description": "An alphanumeric identifier for the block unique to its type.",
 			"type": "string"
 		},
 		"status": {
-			"description": "A named status for the object.",
+			"description": "A named status for the block.",
 			"anyOf": [
 				{
 					"$ref": "../properties/post-status-name.json"
@@ -104,7 +104,7 @@
 		},
 		"type": {
 			"readOnly": true,
-			"description": "Type of Post for the object.",
+			"description": "Type of Post for the block.",
 			"anyOf": [
 				{
 					"$ref": "../properties/post-type-name.json"
@@ -119,21 +119,21 @@
 			"type": "string"
 		},
 		"title": {
-			"description": "The title for the object.",
+			"description": "The title for the block.",
 			"type": "object",
 			"required": [
 				"raw"
 			],
 			"properties": {
 				"raw": {
-					"description": "Title for the object, as it exists in the database.",
+					"description": "Title for the block, as it exists in the database.",
 					"type": "string"
 				}
 			},
 			"additionalProperties": false
 		},
 		"content": {
-			"description": "The content for the object.",
+			"description": "The content for the block.",
 			"type": "object",
 			"required": [
 				"raw",
@@ -141,13 +141,13 @@
 			],
 			"properties": {
 				"raw": {
-					"description": "Content for the object, as it exists in the database.",
+					"description": "Content for the block, as it exists in the database.",
 					"contentMediaType": "text/html",
 					"type": "string"
 				},
 				"block_version": {
 					"readOnly": true,
-					"description": "Version of the content block format used by the object. Only present when using the 'edit' context.",
+					"description": "Version of the content block format used by the block. Only present when using the 'edit' context.",
 					"type": "integer"
 				},
 				"protected": {
@@ -159,7 +159,7 @@
 			"additionalProperties": false
 		},
 		"template": {
-			"description": "The theme file to use to display the object.",
+			"description": "The theme file to use to display the block.",
 			"type": "string"
 		},
 		"_links": {

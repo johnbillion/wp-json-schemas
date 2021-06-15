@@ -35,7 +35,7 @@
 			]
 		},
 		"author_email": {
-			"description": "Email address for the object author. Only present when using the 'edit' context.",
+			"description": "Email address for the comment author. Only present when using the 'edit' context.",
 			"oneOf": [
 				{
 					"type": "string",
@@ -50,7 +50,7 @@
 			]
 		},
 		"author_ip": {
-			"description": "IP address for the object author. Only present when using the 'edit' context.",
+			"description": "IP address for the comment author. Only present when using the 'edit' context.",
 			"oneOf": [
 				{
 					"type": "string",
@@ -69,11 +69,11 @@
 			]
 		},
 		"author_name": {
-			"description": "Display name for the object author.",
+			"description": "Display name for the comment author.",
 			"type": "string"
 		},
 		"author_url": {
-			"description": "URL for the object author.",
+			"description": "URL for the comment author.",
 			"oneOf": [
 				{
 					"type": "string",
@@ -88,20 +88,20 @@
 			]
 		},
 		"author_user_agent": {
-			"description": "User agent for the object author. Only present when using the 'edit' context.",
+			"description": "User agent for the comment author. Only present when using the 'edit' context.",
 			"type": "string"
 		},
 		"content": {
-			"description": "The content for the object.",
+			"description": "The content for the comment.",
 			"type": "object",
 			"properties": {
 				"raw": {
-					"description": "Content for the object, as it exists in the database. Only present when using the 'edit' context.",
+					"description": "Content for the comment, as it exists in the database. Only present when using the 'edit' context.",
 					"type": "string"
 				},
 				"rendered": {
 					"readOnly": true,
-					"description": "HTML content for the object, transformed for display.",
+					"description": "HTML content for the comment, transformed for display.",
 					"type": "string"
 				}
 			},
@@ -109,7 +109,7 @@
 			"additionalProperties": false
 		},
 		"date": {
-			"description": "The date the object was published, in the site's timezone.",
+			"description": "The date the comment was published, in the site's timezone.",
 			"anyOf": [
 				{
 					"$ref": "properties/date-time.json"
@@ -117,7 +117,7 @@
 			]
 		},
 		"date_gmt": {
-			"description": "The date the object was published, as GMT.",
+			"description": "The date the comment was published, as GMT.",
 			"anyOf": [
 				{
 					"$ref": "properties/date-time.json"
@@ -126,12 +126,12 @@
 		},
 		"link": {
 			"readOnly": true,
-			"description": "URL to the object.",
+			"description": "URL to the comment.",
 			"type": "string",
 			"format": "uri"
 		},
 		"parent": {
-			"description": "The ID for the parent of the object.",
+			"description": "The ID for the parent of the comment.",
 			"allOf": [
 				{
 					"$ref": "#/properties/id"
@@ -147,7 +147,7 @@
 			]
 		},
 		"status": {
-			"description": "State of the object.",
+			"description": "State of the comment.",
 			"anyOf": [
 				{
 					"$ref": "../properties/comment-status-name.json"
@@ -159,7 +159,7 @@
 		},
 		"type": {
 			"readOnly": true,
-			"description": "Type of Comment for the object.",
+			"description": "Type of comment.",
 			"anyOf": [
 				{
 					"$ref": "../properties/comment-type-name.json"
@@ -171,7 +171,7 @@
 		},
 		"author_avatar_urls": {
 			"readOnly": true,
-			"description": "Avatar URLs for the object author.",
+			"description": "Avatar URLs for the comment author.",
 			"type": "object",
 			"required": [
 				"24",

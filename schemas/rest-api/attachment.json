@@ -34,7 +34,7 @@
 	],
 	"properties": {
 		"date": {
-			"description": "The date the object was published, in the site's timezone.",
+			"description": "The date the attachment was published, in the site's timezone.",
 			"anyOf": [
 				{
 					"$ref": "properties/date-time.json"
@@ -42,7 +42,7 @@
 			]
 		},
 		"date_gmt": {
-			"description": "The date the object was published, as GMT.",
+			"description": "The date the attachment was published, as GMT.",
 			"anyOf": [
 				{
 					"$ref": "properties/date-time.json"
@@ -51,7 +51,7 @@
 		},
 		"guid": {
 			"readOnly": true,
-			"description": "The globally unique identifier for the object.",
+			"description": "The globally unique identifier for the attachment.",
 			"type": "object",
 			"required": [
 				"rendered"
@@ -59,12 +59,12 @@
 			"properties": {
 				"raw": {
 					"readOnly": true,
-					"description": "GUID for the object, as it exists in the database. Only present when using the 'edit' context.",
+					"description": "GUID for the attachment, as it exists in the database. Only present when using the 'edit' context.",
 					"type": "string"
 				},
 				"rendered": {
 					"readOnly": true,
-					"description": "GUID for the object, transformed for display.",
+					"description": "GUID for the attachment, transformed for display.",
 					"type": "string"
 				}
 			},
@@ -72,18 +72,18 @@
 		},
 		"id": {
 			"readOnly": true,
-			"description": "Unique identifier for the object.",
+			"description": "Unique identifier for the attachment.",
 			"type": "integer"
 		},
 		"link": {
 			"readOnly": true,
-			"description": "URL to the object.",
+			"description": "URL to the attachment.",
 			"type": "string",
 			"format": "uri"
 		},
 		"modified": {
 			"readOnly": true,
-			"description": "The date the object was last modified, in the site's timezone.",
+			"description": "The date the attachment was last modified, in the site's timezone.",
 			"anyOf": [
 				{
 					"$ref": "properties/date-time.json"
@@ -92,7 +92,7 @@
 		},
 		"modified_gmt": {
 			"readOnly": true,
-			"description": "The date the object was last modified, as GMT.",
+			"description": "The date the attachment was last modified, as GMT.",
 			"anyOf": [
 				{
 					"$ref": "properties/date-time.json"
@@ -100,11 +100,11 @@
 			]
 		},
 		"slug": {
-			"description": "An alphanumeric identifier for the object unique to its type.",
+			"description": "An alphanumeric identifier for the attachment unique to its type.",
 			"type": "string"
 		},
 		"status": {
-			"description": "A named status for the object.",
+			"description": "A named status for the attachment.",
 			"anyOf": [
 				{
 					"$ref": "../properties/post-status-name.json"
@@ -116,10 +116,10 @@
 		},
 		"type": {
 			"readOnly": true,
-			"description": "Type of Post for the object.",
+			"description": "Type of Post for the attachment.",
 			"type": "string",
 			"tsType": "WP_Post_Type_Name.attachment",
-			"const": "attachment"
+			"const": "object"
 		},
 		"alt_text": {
 			"description": "Alternative text to display when attachment is not displayed.",
@@ -153,12 +153,12 @@
 			],
 			"properties": {
 				"raw": {
-					"description": "Description for the object, as it exists in the database. Only present when using the 'edit' context.",
+					"description": "Description for the attachment, as it exists in the database. Only present when using the 'edit' context.",
 					"type": "string"
 				},
 				"rendered": {
 					"readOnly": true,
-					"description": "HTML description for the object, transformed for display.",
+					"description": "HTML description for the attachment, transformed for display.",
 					"type": "string"
 				}
 			},
@@ -196,35 +196,35 @@
 		},
 		"permalink_template": {
 			"readOnly": true,
-			"description": "Permalink template for the object. Only present when using the 'edit' context and the post type is public.",
+			"description": "Permalink template for the attachment. Only present when using the 'edit' context and the post type is public.",
 			"type": "string"
 		},
 		"generated_slug": {
 			"readOnly": true,
-			"description": "Slug automatically generated from the object title. Only present when using the 'edit' context and the post type is public.",
+			"description": "Slug automatically generated from the attachment title. Only present when using the 'edit' context and the post type is public.",
 			"type": "string"
 		},
 		"title": {
-			"description": "The title for the object.",
+			"description": "The title for the attachment.",
 			"type": "object",
 			"required": [
 				"rendered"
 			],
 			"properties": {
 				"raw": {
-					"description": "Title for the object, as it exists in the database. Only present when using the 'edit' context.",
+					"description": "Title for the attachment, as it exists in the database. Only present when using the 'edit' context.",
 					"type": "string"
 				},
 				"rendered": {
 					"readOnly": true,
-					"description": "HTML title for the object, transformed for display.",
+					"description": "HTML title for the attachment, transformed for display.",
 					"type": "string"
 				}
 			},
 			"additionalProperties": false
 		},
 		"author": {
-			"description": "The ID for the author of the object.",
+			"description": "The ID for the author of the attachment.",
 			"allOf": [
 				{
 					"$ref": "user.json#/properties/id"
@@ -232,7 +232,7 @@
 			]
 		},
 		"comment_status": {
-			"description": "Whether or not comments are open on the object.",
+			"description": "Whether or not comments are open on the attachment.",
 			"anyOf": [
 				{
 					"$ref": "../properties/post-comment-status-name.json"
@@ -240,7 +240,7 @@
 			]
 		},
 		"ping_status": {
-			"description": "Whether or not the object can be pinged.",
+			"description": "Whether or not the attachment can be pinged.",
 			"anyOf": [
 				{
 					"$ref": "../properties/post-comment-status-name.json"
@@ -262,7 +262,7 @@
 			]
 		},
 		"template": {
-			"description": "The theme file to use to display the object.",
+			"description": "The theme file to use to display the attachment.",
 			"type": "string"
 		},
 		"_links": {

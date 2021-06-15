@@ -1501,52 +1501,52 @@ export interface WP_REST_API_Comment {
 	 */
 	author: number;
 	/**
-	 * Email address for the object author. Only present when using the 'edit' context.
+	 * Email address for the comment author. Only present when using the 'edit' context.
 	 */
 	author_email?: string | "";
 	/**
-	 * IP address for the object author. Only present when using the 'edit' context.
+	 * IP address for the comment author. Only present when using the 'edit' context.
 	 */
 	author_ip?: string | "";
 	/**
-	 * Display name for the object author.
+	 * Display name for the comment author.
 	 */
 	author_name: string;
 	/**
-	 * URL for the object author.
+	 * URL for the comment author.
 	 */
 	author_url: string | "";
 	/**
-	 * User agent for the object author. Only present when using the 'edit' context.
+	 * User agent for the comment author. Only present when using the 'edit' context.
 	 */
 	author_user_agent?: string;
 	/**
-	 * The content for the object.
+	 * The content for the comment.
 	 */
 	content: {
 		/**
-		 * Content for the object, as it exists in the database. Only present when using the 'edit' context.
+		 * Content for the comment, as it exists in the database. Only present when using the 'edit' context.
 		 */
 		raw?: string;
 		/**
-		 * HTML content for the object, transformed for display.
+		 * HTML content for the comment, transformed for display.
 		 */
 		rendered?: string;
 	};
 	/**
-	 * The date the object was published, in the site's timezone.
+	 * The date the comment was published, in the site's timezone.
 	 */
 	date: WP_REST_API_Date_Time;
 	/**
-	 * The date the object was published, as GMT.
+	 * The date the comment was published, as GMT.
 	 */
 	date_gmt: WP_REST_API_Date_Time;
 	/**
-	 * URL to the object.
+	 * URL to the comment.
 	 */
 	link: string;
 	/**
-	 * The ID for the parent of the object.
+	 * The ID for the parent of the comment.
 	 */
 	parent: number;
 	/**
@@ -1554,15 +1554,15 @@ export interface WP_REST_API_Comment {
 	 */
 	post: number;
 	/**
-	 * State of the object.
+	 * State of the comment.
 	 */
 	status: WP_Comment_Status_Name | string;
 	/**
-	 * Type of Comment for the object.
+	 * Type of comment.
 	 */
 	type: WP_Comment_Type_Name | string;
 	/**
-	 * Avatar URLs for the object author.
+	 * Avatar URLs for the comment author.
 	 */
 	author_avatar_urls?: {
 		/**
@@ -1622,52 +1622,52 @@ export interface WP_REST_API_Object_Links {
  */
 export interface WP_REST_API_Post {
 	/**
-	 * The date the object was published, in the site's timezone.
+	 * The date the post was published, in the site's timezone.
 	 */
 	date: WP_REST_API_Date_Time;
 	/**
-	 * The date the object was published, as GMT.
+	 * The date the post was published, as GMT.
 	 */
 	date_gmt: WP_REST_API_Date_Time;
 	/**
-	 * The globally unique identifier for the object.
+	 * The globally unique identifier for the post.
 	 */
 	guid: {
 		/**
-		 * GUID for the object, as it exists in the database. Only present when using the 'edit' context.
+		 * GUID for the post, as it exists in the database. Only present when using the 'edit' context.
 		 */
 		raw?: string;
 		/**
-		 * GUID for the object, transformed for display.
+		 * GUID for the post, transformed for display.
 		 */
 		rendered: string;
 	};
 	/**
-	 * Unique identifier for the object.
+	 * Unique identifier for the post.
 	 */
 	id: number;
 	/**
-	 * URL to the object.
+	 * URL to the post.
 	 */
 	link: string;
 	/**
-	 * The date the object was last modified, in the site's timezone.
+	 * The date the post was last modified, in the site's timezone.
 	 */
 	modified: WP_REST_API_Date_Time;
 	/**
-	 * The date the object was last modified, as GMT.
+	 * The date the post was last modified, as GMT.
 	 */
 	modified_gmt: WP_REST_API_Date_Time;
 	/**
-	 * An alphanumeric identifier for the object unique to its type.
+	 * An alphanumeric identifier for the post unique to its type.
 	 */
 	slug: string;
 	/**
-	 * A named status for the object.
+	 * A named status for the post.
 	 */
 	status: WP_Post_Status_Name | string;
 	/**
-	 * Type of Post for the object.
+	 * Type of Post for the post.
 	 */
 	type: WP_Post_Type_Name | string;
 	/**
@@ -1675,44 +1675,44 @@ export interface WP_REST_API_Post {
 	 */
 	password?: string;
 	/**
-	 * Permalink template for the object. Only present when using the 'edit' context and the post type is public.
+	 * Permalink template for the post. Only present when using the 'edit' context and the post type is public.
 	 */
 	permalink_template?: string;
 	/**
-	 * Slug automatically generated from the object title. Only present when using the 'edit' context and the post type is public.
+	 * Slug automatically generated from the post title. Only present when using the 'edit' context and the post type is public.
 	 */
 	generated_slug?: string;
 	/**
-	 * The ID for the parent of the object. Only present for hierarchical post types.
+	 * The ID for the parent of the post. Only present for hierarchical post types.
 	 */
 	parent?: number;
 	/**
-	 * The title for the object.
+	 * The title for the post.
 	 */
 	title: {
 		/**
-		 * Title for the object, as it exists in the database. Only present when using the 'edit' context.
+		 * Title for the post, as it exists in the database. Only present when using the 'edit' context.
 		 */
 		raw?: string;
 		/**
-		 * HTML title for the object, transformed for display.
+		 * HTML title for the post, transformed for display.
 		 */
 		rendered: string;
 	};
 	/**
-	 * The content for the object.
+	 * The content for the post.
 	 */
 	content: {
 		/**
-		 * Content for the object, as it exists in the database. Only present when using the 'edit' context.
+		 * Content for the post, as it exists in the database. Only present when using the 'edit' context.
 		 */
 		raw?: string;
 		/**
-		 * HTML content for the object, transformed for display.
+		 * HTML content for the post, transformed for display.
 		 */
 		rendered: string;
 		/**
-		 * Version of the content block format used by the object. Only present when using the 'edit' context.
+		 * Version of the content block format used by the post. Only present when using the 'edit' context.
 		 */
 		block_version?: number;
 		/**
@@ -1721,19 +1721,19 @@ export interface WP_REST_API_Post {
 		protected: boolean;
 	};
 	/**
-	 * The ID for the author of the object.
+	 * The ID for the author of the post.
 	 */
 	author: number;
 	/**
-	 * The excerpt for the object.
+	 * The excerpt for the post.
 	 */
 	excerpt: {
 		/**
-		 * Excerpt for the object, as it exists in the database. Only present when using the 'edit' context.
+		 * Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.
 		 */
 		raw?: string;
 		/**
-		 * HTML excerpt for the object, transformed for display.
+		 * HTML excerpt for the post, transformed for display.
 		 */
 		rendered: string;
 		/**
@@ -1742,19 +1742,19 @@ export interface WP_REST_API_Post {
 		protected: boolean;
 	};
 	/**
-	 * The ID of the featured media for the object.
+	 * The ID of the featured media for the post.
 	 */
 	featured_media?: number;
 	/**
-	 * Whether or not comments are open on the object.
+	 * Whether or not comments are open on the post.
 	 */
 	comment_status: WP_Post_Comment_Status_Name;
 	/**
-	 * Whether or not the object can be pinged.
+	 * Whether or not the post can be pinged.
 	 */
 	ping_status: WP_Post_Comment_Status_Name;
 	/**
-	 * The format for the object.
+	 * The format for the post.
 	 */
 	format?: WP_Post_Format_Name;
 	/**
@@ -1766,19 +1766,19 @@ export interface WP_REST_API_Post {
 				[k: string]: unknown;
 		  };
 	/**
-	 * Whether or not the object should be treated as sticky. Only present for the 'post' post type.
+	 * Whether or not the post should be treated as sticky. Only present for the 'post' post type.
 	 */
 	sticky?: boolean;
 	/**
-	 * The theme file to use to display the object.
+	 * The theme file to use to display the post.
 	 */
 	template?: string;
 	/**
-	 * The terms assigned to the object in the category taxonomy. Only present for post types that support categories.
+	 * The terms assigned to the post in the category taxonomy. Only present for post types that support categories.
 	 */
 	categories?: number[];
 	/**
-	 * The terms assigned to the object in the post_tag taxonomy. Only present for post types that support tags.
+	 * The terms assigned to the post in the post_tag taxonomy. Only present for post types that support tags.
 	 */
 	tags?: number[];
 	_links: WP_REST_API_Object_Links;
@@ -1815,52 +1815,52 @@ export interface WP_REST_API_Post {
  */
 export interface WP_REST_API_Attachment {
 	/**
-	 * The date the object was published, in the site's timezone.
+	 * The date the attachment was published, in the site's timezone.
 	 */
 	date: WP_REST_API_Date_Time;
 	/**
-	 * The date the object was published, as GMT.
+	 * The date the attachment was published, as GMT.
 	 */
 	date_gmt: WP_REST_API_Date_Time;
 	/**
-	 * The globally unique identifier for the object.
+	 * The globally unique identifier for the attachment.
 	 */
 	guid: {
 		/**
-		 * GUID for the object, as it exists in the database. Only present when using the 'edit' context.
+		 * GUID for the attachment, as it exists in the database. Only present when using the 'edit' context.
 		 */
 		raw?: string;
 		/**
-		 * GUID for the object, transformed for display.
+		 * GUID for the attachment, transformed for display.
 		 */
 		rendered: string;
 	};
 	/**
-	 * Unique identifier for the object.
+	 * Unique identifier for the attachment.
 	 */
 	id: number;
 	/**
-	 * URL to the object.
+	 * URL to the attachment.
 	 */
 	link: string;
 	/**
-	 * The date the object was last modified, in the site's timezone.
+	 * The date the attachment was last modified, in the site's timezone.
 	 */
 	modified: WP_REST_API_Date_Time;
 	/**
-	 * The date the object was last modified, as GMT.
+	 * The date the attachment was last modified, as GMT.
 	 */
 	modified_gmt: WP_REST_API_Date_Time;
 	/**
-	 * An alphanumeric identifier for the object unique to its type.
+	 * An alphanumeric identifier for the attachment unique to its type.
 	 */
 	slug: string;
 	/**
-	 * A named status for the object.
+	 * A named status for the attachment.
 	 */
 	status: WP_Post_Status_Name | string;
 	/**
-	 * Type of Post for the object.
+	 * Type of Post for the attachment.
 	 */
 	type: WP_Post_Type_Name.attachment;
 	/**
@@ -1885,11 +1885,11 @@ export interface WP_REST_API_Attachment {
 	 */
 	description: {
 		/**
-		 * Description for the object, as it exists in the database. Only present when using the 'edit' context.
+		 * Description for the attachment, as it exists in the database. Only present when using the 'edit' context.
 		 */
 		raw?: string;
 		/**
-		 * HTML description for the object, transformed for display.
+		 * HTML description for the attachment, transformed for display.
 		 */
 		rendered: string;
 	};
@@ -1916,36 +1916,36 @@ export interface WP_REST_API_Attachment {
 	 */
 	missing_image_sizes: string[];
 	/**
-	 * Permalink template for the object. Only present when using the 'edit' context and the post type is public.
+	 * Permalink template for the attachment. Only present when using the 'edit' context and the post type is public.
 	 */
 	permalink_template?: string;
 	/**
-	 * Slug automatically generated from the object title. Only present when using the 'edit' context and the post type is public.
+	 * Slug automatically generated from the attachment title. Only present when using the 'edit' context and the post type is public.
 	 */
 	generated_slug?: string;
 	/**
-	 * The title for the object.
+	 * The title for the attachment.
 	 */
 	title: {
 		/**
-		 * Title for the object, as it exists in the database. Only present when using the 'edit' context.
+		 * Title for the attachment, as it exists in the database. Only present when using the 'edit' context.
 		 */
 		raw?: string;
 		/**
-		 * HTML title for the object, transformed for display.
+		 * HTML title for the attachment, transformed for display.
 		 */
 		rendered: string;
 	};
 	/**
-	 * The ID for the author of the object.
+	 * The ID for the author of the attachment.
 	 */
 	author: number;
 	/**
-	 * Whether or not comments are open on the object.
+	 * Whether or not comments are open on the attachment.
 	 */
 	comment_status: WP_Post_Comment_Status_Name;
 	/**
-	 * Whether or not the object can be pinged.
+	 * Whether or not the attachment can be pinged.
 	 */
 	ping_status: WP_Post_Comment_Status_Name;
 	/**
@@ -1957,7 +1957,7 @@ export interface WP_REST_API_Attachment {
 				[k: string]: unknown;
 		  };
 	/**
-	 * The theme file to use to display the object.
+	 * The theme file to use to display the attachment.
 	 */
 	template: string;
 	_links: WP_REST_API_Object_Links;
@@ -1982,52 +1982,52 @@ export interface WP_REST_API_Attachment {
  */
 export interface WP_REST_API_Block {
 	/**
-	 * The date the object was published, in the site's timezone.
+	 * The date the block was published, in the site's timezone.
 	 */
 	date: WP_REST_API_Date_Time;
 	/**
-	 * The date the object was published, as GMT.
+	 * The date the block was published, as GMT.
 	 */
 	date_gmt: WP_REST_API_Date_Time;
 	/**
-	 * The globally unique identifier for the object.
+	 * The globally unique identifier for the block.
 	 */
 	guid: {
 		/**
-		 * GUID for the object, as it exists in the database. Only present when using the 'edit' context.
+		 * GUID for the block, as it exists in the database. Only present when using the 'edit' context.
 		 */
 		raw?: string;
 		/**
-		 * GUID for the object, transformed for display.
+		 * GUID for the block, transformed for display.
 		 */
 		rendered: string;
 	};
 	/**
-	 * Unique identifier for the object.
+	 * Unique identifier for the block.
 	 */
 	id: number;
 	/**
-	 * URL to the object.
+	 * URL to the block.
 	 */
 	link: string;
 	/**
-	 * The date the object was last modified, in the site's timezone.
+	 * The date the block was last modified, in the site's timezone.
 	 */
 	modified: WP_REST_API_Date_Time;
 	/**
-	 * The date the object was last modified, as GMT.
+	 * The date the block was last modified, as GMT.
 	 */
 	modified_gmt: WP_REST_API_Date_Time;
 	/**
-	 * An alphanumeric identifier for the object unique to its type.
+	 * An alphanumeric identifier for the block unique to its type.
 	 */
 	slug: string;
 	/**
-	 * A named status for the object.
+	 * A named status for the block.
 	 */
 	status: WP_Post_Status_Name | string;
 	/**
-	 * Type of Post for the object.
+	 * Type of Post for the block.
 	 */
 	type: WP_Post_Type_Name | string;
 	/**
@@ -2035,24 +2035,24 @@ export interface WP_REST_API_Block {
 	 */
 	password?: string;
 	/**
-	 * The title for the object.
+	 * The title for the block.
 	 */
 	title: {
 		/**
-		 * Title for the object, as it exists in the database.
+		 * Title for the block, as it exists in the database.
 		 */
 		raw: string;
 	};
 	/**
-	 * The content for the object.
+	 * The content for the block.
 	 */
 	content: {
 		/**
-		 * Content for the object, as it exists in the database.
+		 * Content for the block, as it exists in the database.
 		 */
 		raw: string;
 		/**
-		 * Version of the content block format used by the object. Only present when using the 'edit' context.
+		 * Version of the content block format used by the block. Only present when using the 'edit' context.
 		 */
 		block_version?: number;
 		/**
@@ -2061,7 +2061,7 @@ export interface WP_REST_API_Block {
 		protected: boolean;
 	};
 	/**
-	 * The theme file to use to display the object.
+	 * The theme file to use to display the block.
 	 */
 	template?: string;
 	_links: WP_REST_API_Object_Links;
