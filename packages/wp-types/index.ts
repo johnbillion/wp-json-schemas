@@ -2039,7 +2039,7 @@ export interface WP_REST_API_Block {
 	 */
 	title: {
 		/**
-		 * Title for the object, as it exists in the database. Only present when using the 'edit' context.
+		 * Title for the object, as it exists in the database.
 		 */
 		raw: string;
 	};
@@ -2048,7 +2048,7 @@ export interface WP_REST_API_Block {
 	 */
 	content: {
 		/**
-		 * Content for the object, as it exists in the database. Only present when using the 'edit' context.
+		 * Content for the object, as it exists in the database.
 		 */
 		raw: string;
 		/**

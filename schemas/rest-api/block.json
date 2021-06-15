@@ -126,7 +126,7 @@
 			],
 			"properties": {
 				"raw": {
-					"description": "Title for the object, as it exists in the database. Only present when using the 'edit' context.",
+					"description": "Title for the object, as it exists in the database.",
 					"type": "string"
 				}
 			},
@@ -141,7 +141,7 @@
 			],
 			"properties": {
 				"raw": {
-					"description": "Content for the object, as it exists in the database. Only present when using the 'edit' context.",
+					"description": "Content for the object, as it exists in the database.",
 					"contentMediaType": "text/html",
 					"type": "string"
 				},
