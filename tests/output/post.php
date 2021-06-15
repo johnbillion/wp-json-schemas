@@ -17,6 +17,7 @@ wp_insert_post( [
 
 $posts = get_posts( [
 	'posts_per_page' => -1,
+	'post_status'    => 'any',
 	'orderby'        => 'ID',
 	'order'          => 'ASC',
 ] );
