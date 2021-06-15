@@ -2050,7 +2050,7 @@ export interface WP_REST_API_Block {
 		/**
 		 * Content for the object, as it exists in the database. Only present when using the 'edit' context.
 		 */
-		raw?: string;
+		raw: string;
 		/**
 		 * Version of the content block format used by the object. Only present when using the 'edit' context.
 		 */

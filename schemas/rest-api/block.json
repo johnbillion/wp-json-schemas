@@ -136,6 +136,7 @@
 			"description": "The content for the object.",
 			"type": "object",
 			"required": [
+				"raw",
 				"protected"
 			],
 			"properties": {
