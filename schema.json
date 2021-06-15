@@ -83,6 +83,12 @@
 				"Block_Types" : {
 					"$ref": "schemas/rest-api/block-types.json"
 				},
+				"Revision" : {
+					"$ref": "schemas/rest-api/revision.json"
+				},
+				"Revisions" : {
+					"$ref": "schemas/rest-api/revisions.json"
+				},
 				"Status" : {
 					"$ref": "schemas/rest-api/status.json"
 				},

@@ -42,6 +42,10 @@ export type WP_REST_API_Blocks = WP_REST_API_Block[];
  */
 export type WP_REST_API_Block_Types = WP_REST_API_Block_Type[];
 /**
+ * A collection of revision objects in a REST API context.
+ */
+export type WP_REST_API_Revisions = WP_REST_API_Revision[];
+/**
  * A collection of term objects in a REST API context.
  */
 export type WP_REST_API_Terms = WP_REST_API_Term[];
@@ -104,6 +108,8 @@ export interface WP {
 		Blocks?: WP_REST_API_Blocks;
 		Block_Type: WP_REST_API_Block_Type;
 		Block_Types: WP_REST_API_Block_Types;
+		Revision?: WP_REST_API_Revision;
+		Revisions?: WP_REST_API_Revisions;
 		Status: WP_REST_API_Status;
 		Statuses: WP_REST_API_Statuses;
 		Term: WP_REST_API_Term;
@@ -2065,6 +2071,7 @@ export interface WP_REST_API_Block {
 	 */
 	template?: string;
 	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
 }
 /**
  * A block type object in a REST API context.
@@ -2208,6 +2215,104 @@ export interface WP_REST_API_Block_Type {
 		[k: string]: unknown;
 	} | null;
 	[k: string]: unknown;
+}
+/**
+ * A revision object in a REST API context.
+ */
+export interface WP_REST_API_Revision {
+	/**
+	 * The ID for the author of the revision.
+	 */
+	author: number;
+	/**
+	 * The date the revision was published, in the site's timezone.
+	 */
+	date: WP_REST_API_Date_Time;
+	/**
+	 * The date the revision was published, as GMT.
+	 */
+	date_gmt: WP_REST_API_Date_Time;
+	/**
+	 * The globally unique identifier for the post.
+	 */
+	guid: {
+		/**
+		 * GUID for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * GUID for the post, transformed for display.
+		 */
+		rendered: string;
+		[k: string]: unknown;
+	};
+	/**
+	 * Unique identifier for the revision.
+	 */
+	id: number;
+	/**
+	 * The date the revision was last modified, in the site's timezone.
+	 */
+	modified: WP_REST_API_Date_Time;
+	/**
+	 * The date the revision was last modified, as GMT.
+	 */
+	modified_gmt: WP_REST_API_Date_Time;
+	/**
+	 * The ID for the parent of the revision.
+	 */
+	parent: number;
+	/**
+	 * An alphanumeric identifier for the revision unique to its type.
+	 */
+	slug: string;
+	/**
+	 * The title for the post.
+	 */
+	title: {
+		/**
+		 * Title for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML title for the post, transformed for display.
+		 */
+		rendered: string;
+		[k: string]: unknown;
+	};
+	/**
+	 * The content for the post.
+	 */
+	content: {
+		/**
+		 * Content for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML content for the post, transformed for display.
+		 */
+		rendered: string;
+		/**
+		 * Version of the content block format used by the post. Only present when using the 'edit' context.
+		 */
+		block_version?: number;
+		[k: string]: unknown;
+	};
+	/**
+	 * The excerpt for the post.
+	 */
+	excerpt: {
+		/**
+		 * Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML excerpt for the post, transformed for display.
+		 */
+		rendered: string;
+		[k: string]: unknown;
+	};
+	_links: WP_REST_API_Object_Links;
 }
 /**
  * A post status object in a REST API context.

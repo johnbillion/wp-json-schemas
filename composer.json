@@ -44,6 +44,8 @@
 			"npm run test-query",
 			"wp json-dump post",
 			"npm run test-post",
+			"wp json-dump revision",
+			"npm run test-rest-api-revisions",
 			"wp json-dump tag",
 			"npm run test-tag",
 			"npm run test-rest-api-tags",

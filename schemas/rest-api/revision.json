@@ -1,0 +1,166 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/revision.json",
+	"title": "WP_REST_API_Revision",
+	"description": "A revision object in a REST API context.",
+	"type": "object",
+	"additionalProperties": false,
+	"required": [
+		"author",
+		"date",
+		"date_gmt",
+		"guid",
+		"id",
+		"modified",
+		"modified_gmt",
+		"parent",
+		"slug",
+		"title",
+		"content",
+		"excerpt",
+		"_links"
+	],
+	"properties": {
+		"author": {
+			"description": "The ID for the author of the revision.",
+			"allOf": [
+				{
+					"$ref": "user.json#/properties/id"
+				}
+			]
+		},
+		"date": {
+			"description": "The date the revision was published, in the site's timezone.",
+			"anyOf": [
+				{
+					"$ref": "properties/date-time.json"
+				}
+			]
+		},
+		"date_gmt": {
+			"description": "The date the revision was published, as GMT.",
+			"anyOf": [
+				{
+					"$ref": "properties/date-time.json"
+				}
+			]
+		},
+		"guid": {
+			"description": "The globally unique identifier for the post.",
+			"type": "object",
+			"readOnly": true,
+			"required": [
+				"rendered"
+			],
+			"properties": {
+				"raw": {
+					"description": "GUID for the post, as it exists in the database. Only present when using the 'edit' context.",
+					"type": "string",
+					"readOnly": true
+				},
+				"rendered": {
+					"description": "GUID for the post, transformed for display.",
+					"type": "string",
+					"readOnly": true
+				}
+			}
+		},
+		"id": {
+			"description": "Unique identifier for the revision.",
+			"type": "integer"
+		},
+		"modified": {
+			"description": "The date the revision was last modified, in the site's timezone.",
+			"anyOf": [
+				{
+					"$ref": "properties/date-time.json"
+				}
+			]
+		},
+		"modified_gmt": {
+			"description": "The date the revision was last modified, as GMT.",
+			"anyOf": [
+				{
+					"$ref": "properties/date-time.json"
+				}
+			]
+		},
+		"parent": {
+			"description": "The ID for the parent of the revision.",
+			"allOf": [
+				{
+					"$ref": "#/properties/id"
+				}
+			]
+		},
+		"slug": {
+			"description": "An alphanumeric identifier for the revision unique to its type.",
+			"type": "string"
+		},
+		"title": {
+			"description": "The title for the post.",
+			"type": "object",
+			"required": [
+				"rendered"
+			],
+			"properties": {
+				"raw": {
+					"description": "Title for the post, as it exists in the database. Only present when using the 'edit' context.",
+					"type": "string"
+				},
+				"rendered": {
+					"readOnly": true,
+					"contentMediaType": "text/html",
+					"description": "HTML title for the post, transformed for display.",
+					"type": "string"
+				}
+			}
+		},
+		"content": {
+			"description": "The content for the post.",
+			"type": "object",
+			"required": [
+				"rendered"
+			],
+			"properties": {
+				"raw": {
+					"description": "Content for the post, as it exists in the database. Only present when using the 'edit' context.",
+					"type": "string"
+				},
+				"rendered": {
+					"description": "HTML content for the post, transformed for display.",
+					"contentMediaType": "text/html",
+					"type": "string",
+					"readOnly": true
+				},
+				"block_version": {
+					"description": "Version of the content block format used by the post. Only present when using the 'edit' context.",
+					"type": "integer",
+					"readOnly": true
+				}
+			}
+		},
+		"excerpt": {
+			"description": "The excerpt for the post.",
+			"type": "object",
+			"required": [
+				"rendered"
+			],
+			"properties": {
+				"raw": {
+					"description": "Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.",
+					"type": "string"
+				},
+				"rendered": {
+					"description": "HTML excerpt for the post, transformed for display.",
+					"readOnly": true,
+					"contentMediaType": "text/html",
+					"type": "string"
+				}
+			}
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	}
+}
