@@ -34,6 +34,10 @@ export type WP_REST_API_Posts = WP_REST_API_Post[];
  */
 export type WP_REST_API_Attachments = WP_REST_API_Attachment[];
 /**
+ * A collection of reusable block objects in a REST API context.
+ */
+export type WP_REST_API_Blocks = WP_REST_API_Block[];
+/**
  * A collection of block type objects in a REST API context.
  */
 export type WP_REST_API_Block_Types = WP_REST_API_Block_Type[];
@@ -96,6 +100,8 @@ export interface WP {
 		Posts: WP_REST_API_Posts;
 		Attachment: WP_REST_API_Attachment;
 		Attachments: WP_REST_API_Attachments;
+		Block?: WP_REST_API_Block;
+		Blocks?: WP_REST_API_Blocks;
 		Block_Type: WP_REST_API_Block_Type;
 		Block_Types: WP_REST_API_Block_Types;
 		Status: WP_REST_API_Status;
@@ -1970,6 +1976,95 @@ export interface WP_REST_API_Attachment {
 		[k: string]: unknown;
 	};
 	[k: string]: unknown;
+}
+/**
+ * A reusable block object in a REST API context.
+ */
+export interface WP_REST_API_Block {
+	/**
+	 * The date the object was published, in the site's timezone.
+	 */
+	date: WP_REST_API_Date_Time;
+	/**
+	 * The date the object was published, as GMT.
+	 */
+	date_gmt: WP_REST_API_Date_Time;
+	/**
+	 * The globally unique identifier for the object.
+	 */
+	guid: {
+		/**
+		 * GUID for the object, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * GUID for the object, transformed for display.
+		 */
+		rendered: string;
+	};
+	/**
+	 * Unique identifier for the object.
+	 */
+	id: number;
+	/**
+	 * URL to the object.
+	 */
+	link: string;
+	/**
+	 * The date the object was last modified, in the site's timezone.
+	 */
+	modified: WP_REST_API_Date_Time;
+	/**
+	 * The date the object was last modified, as GMT.
+	 */
+	modified_gmt: WP_REST_API_Date_Time;
+	/**
+	 * An alphanumeric identifier for the object unique to its type.
+	 */
+	slug: string;
+	/**
+	 * A named status for the object.
+	 */
+	status: WP_Post_Status_Name | string;
+	/**
+	 * Type of Post for the object.
+	 */
+	type: WP_Post_Type_Name | string;
+	/**
+	 * A password to protect access to the content and excerpt. Only present when using the 'edit' context.
+	 */
+	password?: string;
+	/**
+	 * The title for the object.
+	 */
+	title: {
+		/**
+		 * Title for the object, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw: string;
+	};
+	/**
+	 * The content for the object.
+	 */
+	content: {
+		/**
+		 * Content for the object, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * Version of the content block format used by the object. Only present when using the 'edit' context.
+		 */
+		block_version?: number;
+		/**
+		 * Whether the content is protected with a password.
+		 */
+		protected: boolean;
+	};
+	/**
+	 * The theme file to use to display the object.
+	 */
+	template?: string;
+	_links: WP_REST_API_Object_Links;
 }
 /**
  * A block type object in a REST API context.

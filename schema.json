@@ -71,6 +71,12 @@
 				"Attachments" : {
 					"$ref": "schemas/rest-api/attachments.json"
 				},
+				"Block" : {
+					"$ref": "schemas/rest-api/block.json"
+				},
+				"Blocks" : {
+					"$ref": "schemas/rest-api/blocks.json"
+				},
 				"Block_Type" : {
 					"$ref": "schemas/rest-api/block-type.json"
 				},

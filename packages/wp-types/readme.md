@@ -35,8 +35,8 @@ Route                                                   | Schema
 /wp/v2/block-renderer/{name}                            | Todo
 /wp/v2/block-types                                      | `WP_REST_API_Block_Types`
 /wp/v2/block-types/{name}                               | `WP_REST_API_Block_Type`
-/wp/v2/blocks                                           | Todo
-/wp/v2/blocks/{id}                                      | Todo
+/wp/v2/blocks                                           | `WP_REST_API_Blocks`
+/wp/v2/blocks/{id}                                      | `WP_REST_API_Block`
 /wp/v2/blocks/{id}/autosaves                            | Todo
 /wp/v2/blocks/{parent}/autosaves/{id}                   | Todo
 /wp/v2/categories                                       | `WP_REST_API_Categories`

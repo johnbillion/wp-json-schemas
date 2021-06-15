@@ -64,6 +64,7 @@
 			"npm run test-rest-api-posts",
 			"npm run test-rest-api-pages",
 			"npm run test-rest-api-media",
+			"npm run test-rest-api-blocks",
 			"wp json-dump taxonomy",
 			"npm run test-taxonomy",
 			"npm run test-rest-api-taxonomies",
