@@ -4,7 +4,6 @@
 	"title": "WP_REST_API_Block",
 	"description": "A reusable block object in a REST API context.",
 	"type": "object",
-	"additionalProperties": false,
 	"required": [
 		"date",
 		"date_gmt",
