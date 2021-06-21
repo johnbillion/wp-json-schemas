@@ -5,11 +5,21 @@
 	"description": "A search result in a REST API context.",
 	"type": "object",
 	"readOnly": true,
-	"required": ["id", "title", "url", "type", "subtype", "_links"],
+	"required": [
+		"id",
+		"title",
+		"url",
+		"type",
+		"subtype",
+		"_links"
+	],
 	"properties": {
 		"id": {
 			"description": "Unique identifier for the object.",
-			"type": ["integer", "string"]
+			"type": [
+				"integer",
+				"string"
+			]
 		},
 		"title": {
 			"description": "The title for the object.",
@@ -23,7 +33,11 @@
 		"type": {
 			"description": "Object type.",
 			"type": "string",
-			"enum": ["post", "term", "post-format"]
+			"enum": [
+				"post",
+				"term",
+				"post-format"
+			]
 		},
 		"subtype": {
 			"description": "Object subtype.",

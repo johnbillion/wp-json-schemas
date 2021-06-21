@@ -126,7 +126,7 @@
 					"type": "null"
 				}
 			]
-	},
+		},
 		"capability_type": {
 			"description": "The string to use to build the read, edit, and delete capabilities.",
 			"type": "string"

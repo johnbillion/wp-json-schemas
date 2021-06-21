@@ -4,140 +4,140 @@
 	"title": "WP",
 	"description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
 	"type": "object",
-	"properties" : {
-		"Block" : {
+	"properties": {
+		"Block": {
 			"$ref": "schemas/block.json"
 		},
-		"Comment" : {
+		"Comment": {
 			"$ref": "schemas/comment.json"
 		},
-		"Error" : {
+		"Error": {
 			"$ref": "schemas/error.json"
 		},
-		"Error_With_Error" : {
+		"Error_With_Error": {
 			"$ref": "schemas/error-with-error.json"
 		},
-		"Error_Without_Error" : {
+		"Error_Without_Error": {
 			"$ref": "schemas/error-without-error.json"
 		},
-		"Locale" : {
+		"Locale": {
 			"$ref": "schemas/locale.json"
 		},
-		"Network" : {
+		"Network": {
 			"$ref": "schemas/network.json"
 		},
-		"Post" : {
+		"Post": {
 			"$ref": "schemas/post.json"
 		},
-		"Post_Type" : {
+		"Post_Type": {
 			"$ref": "schemas/post-type.json"
 		},
-		"Query" : {
+		"Query": {
 			"$ref": "schemas/query.json"
 		},
-		"Role" : {
+		"Role": {
 			"$ref": "schemas/role.json"
 		},
-		"Site" : {
+		"Site": {
 			"$ref": "schemas/site.json"
 		},
-		"Taxonomy" : {
+		"Taxonomy": {
 			"$ref": "schemas/taxonomy.json"
 		},
-		"Term" : {
+		"Term": {
 			"$ref": "schemas/term.json"
 		},
-		"User" : {
+		"User": {
 			"$ref": "schemas/user.json"
 		},
 		"REST_API": {
 			"type": "object",
-			"properties" : {
-				"Comment" : {
+			"properties": {
+				"Comment": {
 					"$ref": "schemas/rest-api/comment.json"
 				},
-				"Comments" : {
+				"Comments": {
 					"$ref": "schemas/rest-api/comments.json"
 				},
-				"Post" : {
+				"Post": {
 					"$ref": "schemas/rest-api/post.json"
 				},
-				"Posts" : {
+				"Posts": {
 					"$ref": "schemas/rest-api/posts.json"
 				},
-				"Attachment" : {
+				"Attachment": {
 					"$ref": "schemas/rest-api/attachment.json"
 				},
-				"Attachments" : {
+				"Attachments": {
 					"$ref": "schemas/rest-api/attachments.json"
 				},
-				"Block" : {
+				"Block": {
 					"$ref": "schemas/rest-api/block.json"
 				},
-				"Blocks" : {
+				"Blocks": {
 					"$ref": "schemas/rest-api/blocks.json"
 				},
-				"Block_Type" : {
+				"Block_Type": {
 					"$ref": "schemas/rest-api/block-type.json"
 				},
-				"Block_Types" : {
+				"Block_Types": {
 					"$ref": "schemas/rest-api/block-types.json"
 				},
-				"Revision" : {
+				"Revision": {
 					"$ref": "schemas/rest-api/revision.json"
 				},
-				"Revisions" : {
+				"Revisions": {
 					"$ref": "schemas/rest-api/revisions.json"
 				},
-				"Status" : {
+				"Status": {
 					"$ref": "schemas/rest-api/status.json"
 				},
-				"Statuses" : {
+				"Statuses": {
 					"$ref": "schemas/rest-api/statuses.json"
 				},
-				"Term" : {
+				"Term": {
 					"$ref": "schemas/rest-api/term.json"
 				},
-				"Terms" : {
+				"Terms": {
 					"$ref": "schemas/rest-api/terms.json"
 				},
-				"Tag" : {
+				"Tag": {
 					"$ref": "schemas/rest-api/tag.json"
 				},
-				"Tags" : {
+				"Tags": {
 					"$ref": "schemas/rest-api/tags.json"
 				},
-				"Category" : {
+				"Category": {
 					"$ref": "schemas/rest-api/category.json"
 				},
-				"Categories" : {
+				"Categories": {
 					"$ref": "schemas/rest-api/categories.json"
 				},
-				"User" : {
+				"User": {
 					"$ref": "schemas/rest-api/user.json"
 				},
-				"Users" : {
+				"Users": {
 					"$ref": "schemas/rest-api/users.json"
 				},
-				"Search_Result" : {
+				"Search_Result": {
 					"$ref": "schemas/rest-api/search-result.json"
 				},
-				"Search_Results" : {
+				"Search_Results": {
 					"$ref": "schemas/rest-api/search-results.json"
 				},
-				"Taxonomy" : {
+				"Taxonomy": {
 					"$ref": "schemas/rest-api/taxonomy.json"
 				},
-				"Taxonomies" : {
+				"Taxonomies": {
 					"$ref": "schemas/rest-api/taxonomies.json"
 				},
-				"Type" : {
+				"Type": {
 					"$ref": "schemas/rest-api/type.json"
 				},
-				"Types" : {
+				"Types": {
 					"$ref": "schemas/rest-api/types.json"
 				},
-				"Error" : {
+				"Error": {
 					"$ref": "schemas/rest-api/error.json"
 				}
 			},
