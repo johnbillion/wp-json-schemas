@@ -12,7 +12,6 @@ if ( is_readable( $_env_dir . '/.env' ) ) {
 
 // Features we don't need during testing:
 define( 'WP_DEBUG', true );
-define( 'DISALLOW_FILE_MODS', true );
 define( 'DISABLE_WP_CRON', true );
 define( 'WPMU_PLUGIN_DIR', __DIR__ . '/mu-plugins' );
 
