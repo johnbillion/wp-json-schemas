@@ -129,6 +129,7 @@ export interface WP {
 		Users: WP_REST_API_Users;
 		Search_Result: WP_REST_API_Search_Result;
 		Search_Results: WP_REST_API_Search_Results;
+		Settings: WP_REST_API_Settings;
 		Taxonomy: WP_REST_API_Taxonomy;
 		Taxonomies: WP_REST_API_Taxonomies;
 		Type: WP_REST_API_Type;
@@ -2609,6 +2610,71 @@ export interface WP_REST_API_Search_Result {
 	subtype: WP_Post_Type_Name | WP_Taxonomy_Name | string;
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
+}
+/**
+ * Site settings in a REST API context.
+ */
+export interface WP_REST_API_Settings {
+	/**
+	 * Site title.
+	 */
+	title: string;
+	/**
+	 * Site tagline.
+	 */
+	description: string;
+	/**
+	 * Site URL. Not available on Multisite.
+	 */
+	url?: string;
+	/**
+	 * This address is used for admin purposes, like new user notification. Not available on Multisite.
+	 */
+	email?: string;
+	/**
+	 * A city in the same timezone as you.
+	 */
+	timezone: string;
+	/**
+	 * A date format for all date strings.
+	 */
+	date_format: string;
+	/**
+	 * A time format for all time strings.
+	 */
+	time_format: string;
+	/**
+	 * A day number of the week that the week should start on.
+	 */
+	start_of_week: number;
+	/**
+	 * WordPress locale code.
+	 */
+	language: string;
+	/**
+	 * Convert emoticons like :-) and :-P to graphics on display.
+	 */
+	use_smilies: boolean;
+	/**
+	 * Default post category.
+	 */
+	default_category: number;
+	/**
+	 * Default post format.
+	 */
+	default_post_format: string;
+	/**
+	 * Blog pages show at most.
+	 */
+	posts_per_page: number;
+	/**
+	 * Allow link notifications from other blogs (pingbacks and trackbacks) on new articles.
+	 */
+	default_ping_status: WP_Post_Comment_Status_Name;
+	/**
+	 * Allow people to submit comments on new posts.
+	 */
+	default_comment_status: WP_Post_Comment_Status_Name;
 }
 /**
  * A taxonomy in a REST API context.

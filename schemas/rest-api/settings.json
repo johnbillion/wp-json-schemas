@@ -1,0 +1,95 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/settings.json",
+	"title": "WP_REST_API_Settings",
+	"description": "Site settings in a REST API context.",
+	"type": "object",
+	"additionalProperties": false,
+	"required": [
+		"title",
+		"description",
+		"timezone",
+		"date_format",
+		"time_format",
+		"start_of_week",
+		"language",
+		"use_smilies",
+		"default_category",
+		"default_post_format",
+		"posts_per_page",
+		"default_ping_status",
+		"default_comment_status"
+	],
+	"properties": {
+		"title": {
+			"type": "string",
+			"description": "Site title."
+		},
+		"description": {
+			"type": "string",
+			"description": "Site tagline."
+		},
+		"url": {
+			"type": "string",
+			"description": "Site URL. Not available on Multisite.",
+			"format": "uri"
+		},
+		"email": {
+			"type": "string",
+			"description": "This address is used for admin purposes, like new user notification. Not available on Multisite.",
+			"format": "email"
+		},
+		"timezone": {
+			"type": "string",
+			"description": "A city in the same timezone as you."
+		},
+		"date_format": {
+			"type": "string",
+			"description": "A date format for all date strings."
+		},
+		"time_format": {
+			"type": "string",
+			"description": "A time format for all time strings."
+		},
+		"start_of_week": {
+			"type": "integer",
+			"description": "A day number of the week that the week should start on."
+		},
+		"language": {
+			"type": "string",
+			"description": "WordPress locale code."
+		},
+		"use_smilies": {
+			"type": "boolean",
+			"description": "Convert emoticons like :-) and :-P to graphics on display."
+		},
+		"default_category": {
+			"type": "integer",
+			"description": "Default post category."
+		},
+		"default_post_format": {
+			"type": "string",
+			"description": "Default post format."
+		},
+		"posts_per_page": {
+			"type": "integer",
+			"description": "Blog pages show at most."
+		},
+		"default_ping_status": {
+			"description": "Allow link notifications from other blogs (pingbacks and trackbacks) on new articles.",
+			"anyOf": [
+				{
+					"$ref": "../properties/post-comment-status-name.json"
+				}
+			]
+		},
+		"default_comment_status": {
+			"description": "Allow people to submit comments on new posts.",
+			"anyOf": [
+				{
+					"$ref": "../properties/post-comment-status-name.json"
+				}
+			]
+		}
+	}
+}

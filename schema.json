@@ -134,6 +134,9 @@
 				"Search_Results": {
 					"$ref": "schemas/rest-api/search-results.json"
 				},
+				"Settings": {
+					"$ref": "schemas/rest-api/settings.json"
+				},
 				"Taxonomy": {
 					"$ref": "schemas/rest-api/taxonomy.json"
 				},
@@ -176,6 +179,7 @@
 				"Revisions",
 				"Search_Result",
 				"Search_Results",
+				"Settings",
 				"Status",
 				"Statuses",
 				"Taxonomy",
