@@ -2379,6 +2379,7 @@ export interface WP_REST_API_Revision {
 		[k: string]: unknown;
 	};
 	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
 }
 /**
  * A rendered dynamic block in a REST API context. Only accessible with the 'edit' context.

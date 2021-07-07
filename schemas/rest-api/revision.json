@@ -4,7 +4,6 @@
 	"title": "WP_REST_API_Revision",
 	"description": "A revision object in a REST API context.",
 	"type": "object",
-	"additionalProperties": false,
 	"required": [
 		"author",
 		"date",
