@@ -43,6 +43,7 @@ The WordPress REST API response doesn't fully adhere to the JSON schema spec, so
 * During testing, the root `additionalProperties` property should be set to `false` to ensure all properties are present in the schema, but it should be removed for the final schema so that custom fields added with `register_rest_field()` can be accessed.
 * Cross-reference the properties with those in the `get_item_schema()` method of the controller class. There may be properties that are conditionally added. Add them to the schema if so.
 * Add the schema to the `REST_API` property in the root `schema.json` using a `$ref` to the schema file.
+* Add the new schema property key to the `required` property.
 * In `tests/output` create a file for the new object type
   - Start by copy-pasting an existing file such as `post.php` which is for `/wp/v2/posts`
   - The command should perform a REST API request to the endpoint and pass the result to the `save_rest_array()` function which saves it as JSON during the tests
@@ -70,6 +71,7 @@ The schema for a PHP object is created using the docblocks from its class proper
 * The root `additionalProperties` property should be set to `false`.
 * The `readOnly` property should be set to `true` for the unique ID property of the object if appropriate.
 * Add the schema to the root `schema.json` using a `$ref` to the schema file.
+* Add the new schema property key to the `required` property.
 * In `tests/output` create a file for the new object type
   - Start by copy-pasting an existing file such as `error.php` one
   - The file should pass an array of one or more objects of this type to the `save_object_array()` function which saves it as JSON during the tests
