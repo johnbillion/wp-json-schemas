@@ -1,0 +1,94 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/block-directory-item.json",
+	"title": "WP_REST_API_Block_Directory_Item",
+	"description": "A block directory search result in a REST API context.",
+	"type": "object",
+	"readOnly": true,
+	"required": [
+		"name",
+		"title",
+		"description",
+		"id",
+		"rating",
+		"rating_count",
+		"active_installs",
+		"author_block_rating",
+		"author_block_count",
+		"author",
+		"icon",
+		"last_updated",
+		"humanized_updated",
+		"_links"
+	],
+	"properties": {
+		"name": {
+			"description": "The block name, in namespace\/block-name format.",
+			"type": "string"
+		},
+		"title": {
+			"description": "The block title, in human readable format.",
+			"type": "string"
+		},
+		"description": {
+			"description": "A short description of the block, in human readable format.",
+			"type": "string"
+		},
+		"id": {
+			"description": "The block slug.",
+			"type": "string"
+		},
+		"rating": {
+			"description": "The star rating of the block.",
+			"type": "number"
+		},
+		"rating_count": {
+			"description": "The number of ratings.",
+			"type": "integer"
+		},
+		"active_installs": {
+			"description": "The number sites that have activated this block.",
+			"type": "integer"
+		},
+		"author_block_rating": {
+			"description": "The average rating of blocks published by the same author.",
+			"type": "number"
+		},
+		"author_block_count": {
+			"description": "The number of blocks published by the same author.",
+			"type": "integer"
+		},
+		"author": {
+			"description": "The WordPress.org username of the block author.",
+			"type": "string"
+		},
+		"icon": {
+			"description": "The block icon.",
+			"type": "string",
+			"format": "uri"
+		},
+		"last_updated": {
+			"description": "The date when the block was last updated.",
+			"type": "string"
+		},
+		"humanized_updated": {
+			"description": "The date when the block was last updated, in fuzzy human readable format.",
+			"type": "string"
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	},
+	"links": [
+		{
+			"rel": "collection",
+			"href": "/wp/v2/block-directory/search",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}

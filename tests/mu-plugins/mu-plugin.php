@@ -18,6 +18,7 @@ if ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) {
 
 add_action( 'init', function() : void {
 	// Ensure we're authenticated as an admin during test data generation.
+	grant_super_admin( 1 );
 	wp_set_current_user( 1 );
 } );
 

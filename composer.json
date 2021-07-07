@@ -41,6 +41,8 @@
 			"wp json-dump routes",
 			"wp json-dump rendered-block",
 			"npm run test-rest-api-rendered-block",
+			"wp json-dump block-directory-item",
+			"npm run test-rest-api-block-directory-items",
 			"wp json-dump locale",
 			"npm run test-locale",
 			"wp json-dump query",

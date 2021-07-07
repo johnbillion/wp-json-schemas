@@ -38,6 +38,10 @@ export type WP_REST_API_Attachments = WP_REST_API_Attachment[];
  */
 export type WP_REST_API_Blocks = WP_REST_API_Block[];
 /**
+ * A collection of block directory search results in a REST API context.
+ */
+export type WP_REST_API_Block_Directory_Items = WP_REST_API_Block_Directory_Item[];
+/**
  * A collection of block type objects in a REST API context.
  */
 export type WP_REST_API_Block_Types = WP_REST_API_Block_Type[];
@@ -106,6 +110,8 @@ export interface WP {
 		Attachments: WP_REST_API_Attachments;
 		Block?: WP_REST_API_Block;
 		Blocks?: WP_REST_API_Blocks;
+		Block_Directory_Item?: WP_REST_API_Block_Directory_Item;
+		Block_Directory_Items?: WP_REST_API_Block_Directory_Items;
 		Block_Type: WP_REST_API_Block_Type;
 		Block_Types: WP_REST_API_Block_Types;
 		Revision?: WP_REST_API_Revision;
@@ -2071,6 +2077,65 @@ export interface WP_REST_API_Block {
 	 * The theme file to use to display the block.
 	 */
 	template?: string;
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A block directory search result in a REST API context.
+ */
+export interface WP_REST_API_Block_Directory_Item {
+	/**
+	 * The block name, in namespace/block-name format.
+	 */
+	name: string;
+	/**
+	 * The block title, in human readable format.
+	 */
+	title: string;
+	/**
+	 * A short description of the block, in human readable format.
+	 */
+	description: string;
+	/**
+	 * The block slug.
+	 */
+	id: string;
+	/**
+	 * The star rating of the block.
+	 */
+	rating: number;
+	/**
+	 * The number of ratings.
+	 */
+	rating_count: number;
+	/**
+	 * The number sites that have activated this block.
+	 */
+	active_installs: number;
+	/**
+	 * The average rating of blocks published by the same author.
+	 */
+	author_block_rating: number;
+	/**
+	 * The number of blocks published by the same author.
+	 */
+	author_block_count: number;
+	/**
+	 * The WordPress.org username of the block author.
+	 */
+	author: string;
+	/**
+	 * The block icon.
+	 */
+	icon: string;
+	/**
+	 * The date when the block was last updated.
+	 */
+	last_updated: string;
+	/**
+	 * The date when the block was last updated, in fuzzy human readable format.
+	 */
+	humanized_updated: string;
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }

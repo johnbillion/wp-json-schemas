@@ -77,6 +77,12 @@
 				"Blocks": {
 					"$ref": "schemas/rest-api/blocks.json"
 				},
+				"Block_Directory_Item": {
+					"$ref": "schemas/rest-api/block-directory-item.json"
+				},
+				"Block_Directory_Items": {
+					"$ref": "schemas/rest-api/block-directory-items.json"
+				},
 				"Block_Type": {
 					"$ref": "schemas/rest-api/block-type.json"
 				},
