@@ -4,6 +4,7 @@
 	"title": "WP_REST_API_Rendered_Block",
 	"description": "A rendered dynamic block in a REST API context. Only accessible with the 'edit' context.",
 	"type": "object",
+	"readOnly": true,
 	"required": [
 		"rendered"
 	],
