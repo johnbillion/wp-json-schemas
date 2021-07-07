@@ -2623,7 +2623,7 @@ export interface WP_REST_API_Taxonomies {
 	[k: string]: WP_REST_API_Taxonomy;
 }
 /**
- * A type record in a REST API context.
+ * A post type object in a REST API context.
  */
 export interface WP_REST_API_Type {
 	/**
@@ -2672,7 +2672,7 @@ export interface WP_REST_API_Type {
 	[k: string]: unknown;
 }
 /**
- * A collection of type records in a REST API context.
+ * A collection of post type object in a REST API context.
  */
 export interface WP_REST_API_Types {
 	[k: string]: WP_REST_API_Type;

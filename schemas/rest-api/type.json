@@ -2,7 +2,7 @@
 	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
 	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/type.json",
 	"title": "WP_REST_API_Type",
-	"description": "A type record in a REST API context.",
+	"description": "A post type object in a REST API context.",
 	"type": "object",
 	"readOnly": true,
 	"required": [
