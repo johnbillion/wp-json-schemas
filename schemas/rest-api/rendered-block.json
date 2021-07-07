@@ -1,0 +1,17 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/rendered-block.json",
+	"title": "WP_REST_API_Rendered_Block",
+	"description": "A rendered dynamic block in a REST API context. Only accessible with the 'edit' context.",
+	"type": "object",
+	"required": [
+		"rendered"
+	],
+	"properties": {
+		"rendered": {
+			"description": "The rendered block.",
+			"contentMediaType": "text/html",
+			"type": "string"
+		}
+	}
+}

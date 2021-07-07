@@ -86,6 +86,9 @@
 				"Revision": {
 					"$ref": "schemas/rest-api/revision.json"
 				},
+				"Rendered_Block": {
+					"$ref": "schemas/rest-api/rendered-block.json"
+				},
 				"Revisions": {
 					"$ref": "schemas/rest-api/revisions.json"
 				},

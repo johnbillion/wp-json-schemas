@@ -34,7 +34,7 @@ The definitions were last updated for WordPress 4.7.
 Route                                                   | Schema
 ------------------------------------------------------- | ------
 /wp/v2/block-directory/search                           | Todo
-/wp/v2/block-renderer/{name}                            | Todo
+/wp/v2/block-renderer/{name}                            | `WP_REST_API_Rendered_Block`
 /wp/v2/block-types                                      | `WP_REST_API_Block_Types`
 /wp/v2/block-types/{name}                               | `WP_REST_API_Block_Type`
 /wp/v2/blocks                                           | `WP_REST_API_Blocks`

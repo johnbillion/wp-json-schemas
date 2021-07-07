@@ -109,6 +109,7 @@ export interface WP {
 		Block_Type: WP_REST_API_Block_Type;
 		Block_Types: WP_REST_API_Block_Types;
 		Revision?: WP_REST_API_Revision;
+		Rendered_Block?: WP_REST_API_Rendered_Block;
 		Revisions?: WP_REST_API_Revisions;
 		Status: WP_REST_API_Status;
 		Statuses: WP_REST_API_Statuses;
@@ -2313,6 +2314,16 @@ export interface WP_REST_API_Revision {
 		[k: string]: unknown;
 	};
 	_links: WP_REST_API_Object_Links;
+}
+/**
+ * A rendered dynamic block in a REST API context. Only accessible with the 'edit' context.
+ */
+export interface WP_REST_API_Rendered_Block {
+	/**
+	 * The rendered block.
+	 */
+	rendered: string;
+	[k: string]: unknown;
 }
 /**
  * A post status object in a REST API context.
