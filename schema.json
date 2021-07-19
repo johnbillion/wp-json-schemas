@@ -149,6 +149,12 @@
 				"Types": {
 					"$ref": "schemas/rest-api/types.json"
 				},
+				"Application_Password": {
+					"$ref": "schemas/rest-api/application-password.json"
+				},
+				"Application_Passwords": {
+					"$ref": "schemas/rest-api/application-passwords.json"
+				},
 				"Error": {
 					"$ref": "schemas/rest-api/error.json"
 				}
@@ -186,6 +192,8 @@
 				"Taxonomies",
 				"Type",
 				"Types",
+				"Application_Password",
+				"Application_Passwords",
 				"Error"
 			],
 			"additionalProperties": false

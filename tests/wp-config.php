@@ -10,10 +10,11 @@ if ( is_readable( $_env_dir . '/.env' ) ) {
 	Dotenv\Dotenv::createImmutable( $_env_dir )->load();
 }
 
-// Features we don't need during testing:
+// Configuration needed during testing:
 define( 'WP_DEBUG', true );
 define( 'DISABLE_WP_CRON', true );
 define( 'WPMU_PLUGIN_DIR', __DIR__ . '/mu-plugins' );
+define( 'WP_ENVIRONMENT_TYPE', 'local' );
 
 // WARNING WARNING WARNING!
 // These tests will DROP ALL TABLES in the database with the prefix named below.

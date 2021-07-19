@@ -77,9 +77,9 @@ Route                                                   | Schema
 /wp/v2/types/{type}                                     | `WP_REST_API_Type`
 /wp/v2/users                                            | `WP_REST_API_Users`
 /wp/v2/users/({id}\|me)                                 | `WP_REST_API_User`
-/wp/v2/users/({id}\|me)/application-passwords           | Todo
-/wp/v2/users/({id}\|me)/application-passwords/{uuid}    | Todo
-/wp/v2/users/({id}\|me)/application-passwords/introspect| Todo
+/wp/v2/users/({id}\|me)/application-passwords           | `WP_REST_API_Application_Passwords`
+/wp/v2/users/({id}\|me)/application-passwords/{uuid}    | `WP_REST_API_Application_Password`
+/wp/v2/users/({id}\|me)/application-passwords/introspect| `WP_REST_API_Application_Password`
 Any enveloped REST API response                         | `WP_REST_API_Envelope<T>`
 Any REST API error                                      | `WP_REST_API_Error`
 

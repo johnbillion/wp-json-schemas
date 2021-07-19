@@ -81,6 +81,10 @@ export type WP_REST_API_Users = WP_REST_API_User[];
  * A collection of search result objects in a REST API context.
  */
 export type WP_REST_API_Search_Results = WP_REST_API_Search_Result[];
+/**
+ * A collection of user application passwords in a REST API context.
+ */
+export type WP_REST_API_Application_Passwords = WP_REST_API_Application_Password[];
 
 /**
  * WordPress is open source software you can use to create a beautiful website, blog, or app.
@@ -134,6 +138,8 @@ export interface WP {
 		Taxonomies: WP_REST_API_Taxonomies;
 		Type: WP_REST_API_Type;
 		Types: WP_REST_API_Types;
+		Application_Password: WP_REST_API_Application_Password;
+		Application_Passwords: WP_REST_API_Application_Passwords;
 		Error: WP_REST_API_Error;
 	};
 }
@@ -2808,6 +2814,40 @@ export interface WP_REST_API_Type {
  */
 export interface WP_REST_API_Types {
 	[k: string]: WP_REST_API_Type;
+}
+/**
+ * A user application password in a REST API context.
+ */
+export interface WP_REST_API_Application_Password {
+	/**
+	 * The unique identifier for the application password.
+	 */
+	uuid: string;
+	/**
+	 * A UUID provided by the application to uniquely identify it. It is recommended to use an UUID v5 with the URL or DNS namespace.
+	 */
+	app_id: string;
+	/**
+	 * The name of the application password.
+	 */
+	name: string;
+	/**
+	 * The generated password. Only available after adding an application.
+	 */
+	password?: string;
+	/**
+	 * The GMT date the application password was created.
+	 */
+	created: WP_REST_API_Date_Time;
+	/**
+	 * The GMT date the application password was last used.
+	 */
+	last_used: WP_REST_API_Date_Time | null;
+	/**
+	 * The IP address the application password was last used by.
+	 */
+	last_ip: string | null;
+	_links?: WP_REST_API_Object_Links;
 }
 /**
  * A REST API error response.

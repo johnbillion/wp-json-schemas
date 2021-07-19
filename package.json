@@ -28,6 +28,7 @@
 		"build-wp-types": "json2ts -i schema.json -o packages/wp-types/index.ts --style.trailingComma=all --style.useTabs && cat packages/wp-types/append.ts >> packages/wp-types/index.ts",
 		"build-hyper-schema-types": "json2ts -i tests/hyper-schema/hyper-schema.json -o tests/hyper-schema/index.ts --style.trailingComma=all --style.useTabs",
 		"test-wp-types": "tsc packages/wp-types/tests/test.ts --noEmit --strict",
+		"test-rest-api-application-passwords": "ajv validate -m tests/hyper-schema/hyper-schema.json -s schemas/rest-api/application-passwords.json -d \"tests/data/rest-api/application-passwords/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-settings": "ajv validate -m tests/hyper-schema/hyper-schema.json -s schemas/rest-api/settings.json -d \"tests/data/rest-api/settings/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-rendered-block": "ajv validate -m tests/hyper-schema/hyper-schema.json -s schemas/rest-api/rendered-block.json -d \"tests/data/rest-api/rendered-block/*.json\" -r \"schemas/**/*.json\"",
 		"test-rest-api-block-directory-items": "ajv validate -m tests/hyper-schema/hyper-schema.json -s schemas/rest-api/block-directory-items.json -d \"tests/data/rest-api/block-directory-items/*.json\" -r \"schemas/**/*.json\"",

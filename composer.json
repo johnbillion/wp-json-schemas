@@ -39,6 +39,8 @@
 			"wp core multisite-install --url=example.org --title=Example --admin_user=admin --admin_email=admin@example.org --skip-email",
 			"wp language core install de_DE it_IT ar he_IL",
 			"wp json-dump routes",
+			"wp json-dump application-password",
+			"npm run test-rest-api-application-passwords",
 			"wp json-dump settings",
 			"npm run test-rest-api-settings",
 			"wp json-dump rendered-block",
