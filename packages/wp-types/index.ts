@@ -247,6 +247,10 @@ export interface WP_Block_Type {
 	 */
 	styles: unknown[];
 	/**
+	 * Block variations.
+	 */
+	variations?: unknown[];
+	/**
 	 * Supported features.
 	 */
 	supports: {
@@ -290,11 +294,12 @@ export interface WP_Block_Type {
 	/**
 	 * Block type editor style handle.
 	 */
-	editor_style: string | null;
+	editor_style: string | null | false;
 	/**
 	 * Block type front end style handle.
 	 */
-	style: string | null;
+	style: string | null | false;
+	skip_inner_blocks?: boolean;
 }
 /**
  * Core class used to organize comments as instantiated objects with defined members.

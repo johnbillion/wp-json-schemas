@@ -85,6 +85,10 @@
 			"description": "Alternative block styles.",
 			"type": "array"
 		},
+		"variations": {
+			"description": "Block variations.",
+			"type": "array"
+		},
 		"supports": {
 			"description": "Supported features.",
 			"anyOf": [
@@ -168,17 +172,38 @@
 		},
 		"editor_style": {
 			"description": "Block type editor style handle.",
-			"type": [
-				"string",
-				"null"
+			"oneOf": [
+				{
+					"type": "string"
+				},
+				{
+					"type": "null"
+				},
+				{
+					"enum": [
+						false
+					]
+				}
 			]
 		},
 		"style": {
 			"description": "Block type front end style handle.",
-			"type": [
-				"string",
-				"null"
+			"oneOf": [
+				{
+					"type": "string"
+				},
+				{
+					"type": "null"
+				},
+				{
+					"enum": [
+						false
+					]
+				}
 			]
+		},
+		"skip_inner_blocks": {
+			"type": "boolean"
 		}
 	},
 	"additionalProperties": false
