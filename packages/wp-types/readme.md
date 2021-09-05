@@ -8,7 +8,7 @@ This package provides well-documented TypeScript definitions that describe the s
 * WordPress REST API responses such as from `/wp/v2/posts` and `/wp/v2/users`
 * Various property types and allowed values of both
 
-The definitions were last updated for WordPress 4.7.
+The definitions were last updated for WordPress 5.8.
 
 ## What's included?
 

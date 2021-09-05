@@ -14,7 +14,7 @@
 	},
 	"require-dev": {
 		"ergebnis/composer-normalize": "^2",
-		"roots/wordpress": "~5.7.0",
+		"roots/wordpress": "~5.8.0",
 		"vlucas/phpdotenv": "^5",
 		"wp-cli/db-command": "^2",
 		"wp-cli/language-command": "^2",
