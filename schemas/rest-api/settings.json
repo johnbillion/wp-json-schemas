@@ -90,6 +90,13 @@
 					"$ref": "../properties/post-comment-status-name.json"
 				}
 			]
+		},
+		"site_logo": {
+			"type": [
+				"integer",
+				"null"
+			],
+			"description": "Site logo."
 		}
 	}
 }

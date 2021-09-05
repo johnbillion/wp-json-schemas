@@ -2685,6 +2685,10 @@ export interface WP_REST_API_Settings {
 	 * Allow people to submit comments on new posts.
 	 */
 	default_comment_status: WP_Post_Comment_Status_Name;
+	/**
+	 * Site logo.
+	 */
+	site_logo?: number | null;
 }
 /**
  * A taxonomy in a REST API context.
