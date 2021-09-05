@@ -12,7 +12,7 @@ This package provides well-documented JSON schemas that describe the shape of:
 
 The schemas in this library are used to generate [the WordPress TypeScript definitions provided by the `wp-types` package](https://www.npmjs.com/package/wp-types).
 
-The schemas were last updated for WordPress 4.7.
+The schemas were last updated for WordPress 5.7.
 
 ## What's included?
 
