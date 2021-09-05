@@ -35,6 +35,8 @@
 		"item_reverted_to_draft",
 		"item_scheduled",
 		"item_updated",
+		"item_link",
+		"item_link_description",
 		"menu_name",
 		"name_admin_bar"
 	],
@@ -130,6 +132,12 @@
 			"type": "string"
 		},
 		"item_updated": {
+			"type": "string"
+		},
+		"item_link": {
+			"type": "string"
+		},
+		"item_link_description": {
 			"type": "string"
 		},
 		"menu_name": {

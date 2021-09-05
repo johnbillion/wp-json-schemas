@@ -27,6 +27,8 @@
 		"items_list",
 		"most_used",
 		"back_to_items",
+		"item_link",
+		"item_link_description",
 		"menu_name",
 		"name_admin_bar"
 	],
@@ -119,6 +121,12 @@
 			"type": "string"
 		},
 		"back_to_items": {
+			"type": "string"
+		},
+		"item_link": {
+			"type": "string"
+		},
+		"item_link_description": {
 			"type": "string"
 		},
 		"menu_name": {
