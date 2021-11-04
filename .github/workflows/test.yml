@@ -2,11 +2,17 @@
 
 name: Test
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - 'develop'
+      - 'trunk'
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
   validate:
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout repository
