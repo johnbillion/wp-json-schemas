@@ -13,7 +13,6 @@
 		"php": "^7 || ^8"
 	},
 	"require-dev": {
-		"ergebnis/composer-normalize": "^2",
 		"roots/wordpress": "~5.8.0",
 		"vlucas/phpdotenv": "^5",
 		"wp-cli/db-command": "^2",
@@ -35,61 +34,84 @@
 			"npm run validate",
 			"npm run build-wp-types",
 			"npm run test-wp-types",
+
 			"wp db reset --yes",
 			"wp core multisite-install --url=example.org --title=Example --admin_user=admin --admin_email=admin@example.org --skip-email",
 			"wp language core install de_DE it_IT ar he_IL",
+
 			"wp json-dump routes",
+
 			"wp json-dump application-password",
 			"npm run test-rest-api-application-passwords",
+
 			"wp json-dump settings",
 			"npm run test-rest-api-settings",
+
 			"wp json-dump rendered-block",
 			"npm run test-rest-api-rendered-block",
+
 			"wp json-dump block-directory-item",
 			"npm run test-rest-api-block-directory-items",
+
 			"wp json-dump locale",
 			"npm run test-locale",
+
 			"wp json-dump query",
 			"npm run test-query",
+
 			"wp json-dump post",
 			"npm run test-post",
-			"wp json-dump revision",
-			"npm run test-rest-api-revisions",
-			"wp json-dump tag",
-			"npm run test-tag",
-			"npm run test-rest-api-tags",
-			"wp json-dump category",
-			"npm run test-category",
-			"npm run test-rest-api-categories",
-			"wp json-dump comment",
-			"npm run test-comment",
-			"npm run test-rest-api-comments",
-			"wp json-dump error",
-			"npm run test-error",
-			"npm run test-rest-api-error",
-			"wp json-dump user",
-			"npm run test-user",
-			"npm run test-rest-api-users",
-			"wp json-dump search-results",
-			"npm run test-rest-api-search-results",
 			"npm run test-rest-api-posts",
 			"npm run test-rest-api-pages",
 			"npm run test-rest-api-media",
 			"npm run test-rest-api-blocks",
+
+			"wp json-dump revision",
+			"npm run test-rest-api-revisions",
+
+			"wp json-dump tag",
+			"npm run test-tag",
+			"npm run test-rest-api-tags",
+
+			"wp json-dump category",
+			"npm run test-category",
+			"npm run test-rest-api-categories",
+
+			"wp json-dump comment",
+			"npm run test-comment",
+			"npm run test-rest-api-comments",
+
+			"wp json-dump error",
+			"npm run test-error",
+			"npm run test-rest-api-error",
+
+			"wp json-dump user",
+			"npm run test-user",
+			"npm run test-rest-api-users",
+
+			"wp json-dump search-results",
+			"npm run test-rest-api-search-results",
+
 			"wp json-dump taxonomy",
 			"npm run test-taxonomy",
 			"npm run test-rest-api-taxonomies",
+
 			"wp json-dump site",
 			"npm run test-site",
+
 			"wp json-dump network",
 			"npm run test-network",
+
 			"wp json-dump role",
 			"npm run test-role",
+
 			"wp json-dump status",
 			"npm run test-rest-api-statuses",
+
 			"wp json-dump block-type",
 			"npm run test-block-type",
 			"npm run test-rest-api-block-types",
+
 			"wp json-dump type",
 			"npm run test-post-type",
 			"npm run test-rest-api-types"
