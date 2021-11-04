@@ -18,11 +18,36 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
 
+      - name: Get Composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Composer cache
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-composer-dependencies
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: php-7.4-composer-${{ hashFiles('composer.json') }}
+
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+          echo "::set-output name=npm-version::$(npm -v)"
+          echo "::set-output name=node-version::$(node-v)"
+
+      - name: Cache Dependencies
+        id: npm-cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: npm-${{ steps.npm-cache-dir.outputs.node-version }}-${{ steps.npm-cache-dir.outputs.npm-version }}-${{ hashFiles('package-lock.json') }}
+
       - name: Set up Node
         uses: actions/setup-node@v1
         with:
           node-version: 12
-          registry-url: https://registry.npmjs.org/
 
       - name: Install PHP
         uses: shivammathur/setup-php@2.7.0
@@ -42,6 +67,8 @@ jobs:
           php -m
           composer --version
           mysql --version
+          npm --version
+          node --version
 
       - run: npm install
 
