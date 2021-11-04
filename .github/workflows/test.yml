@@ -8,15 +8,6 @@ jobs:
   validate:
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-18.04
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_DATABASE: wordpress_test
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-        ports:
-          - 3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
@@ -36,17 +27,23 @@ jobs:
         env:
           fail-fast: true
 
+      - name: Start MySQL
+        run: sudo systemctl start mysql.service
+
       - name: Debugging
         run: |
           php --version
           php -m
           composer --version
+          mysql --version
 
       - run: npm install
+
       - run: composer install
 
       - run: composer run test
         env:
-          WP_TESTS_DB_HOST: 127.0.0.1:${{ job.services.mysql.ports['3306'] }}
+          MYSQL_DATABASE: wordpress_test
+          WP_TESTS_DB_PASS: root
 
       - run: git diff --exit-code
