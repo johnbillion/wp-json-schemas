@@ -31,7 +31,6 @@ $cats = get_terms( [
 $cat_query = new WP_Query( [
 	'cat' => $cats[0]->term_id,
 ] );
-$cat_query->get_queried_object();
 
 $queries[] = $cat_query;
 
