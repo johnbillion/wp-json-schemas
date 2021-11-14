@@ -300,6 +300,10 @@ export interface WP_Block_Type {
 	 */
 	script: string | null;
 	/**
+	 * Public facing script handle.
+	 */
+	view_script: string | null;
+	/**
 	 * Block type editor style handle.
 	 */
 	editor_style: string | null | false;
