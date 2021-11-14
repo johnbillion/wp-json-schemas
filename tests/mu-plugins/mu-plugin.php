@@ -110,4 +110,11 @@ WP_CLI::add_command( 'json-dump', function( array $args, array $assoc_args ) : v
 	}
 
 	require_once $file;
+
+	WP_CLI::success(
+		sprintf(
+			'Dumped %s',
+			$filename
+		)
+	);
 } );

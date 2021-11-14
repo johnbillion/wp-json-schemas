@@ -12,6 +12,8 @@ if ( is_readable( $_env_dir . '/.env' ) ) {
 
 // Configuration needed during testing:
 define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_DISPLAY', true );
+define( 'WP_DISABLE_FATAL_ERROR_HANDLER', true );
 define( 'DISABLE_WP_CRON', true );
 define( 'WPMU_PLUGIN_DIR', __DIR__ . '/mu-plugins' );
 define( 'WP_ENVIRONMENT_TYPE', 'local' );
