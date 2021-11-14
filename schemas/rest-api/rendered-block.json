@@ -9,6 +9,10 @@
 		"rendered"
 	],
 	"properties": {
+		"$schema": {
+			"description": "JSON schema definition.",
+			"type": "string"
+		},
 		"rendered": {
 			"description": "The rendered block.",
 			"contentMediaType": "text/html",

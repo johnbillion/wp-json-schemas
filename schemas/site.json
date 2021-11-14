@@ -19,6 +19,10 @@
 		"lang_id"
 	],
 	"properties": {
+		"$schema": {
+			"description": "JSON schema definition.",
+			"type": "string"
+		},
 		"blog_id": {
 			"readOnly": true,
 			"description": "Site ID.\n\nA numeric string, for compatibility reasons.",

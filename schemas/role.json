@@ -10,6 +10,10 @@
 		"capabilities"
 	],
 	"properties": {
+		"$schema": {
+			"description": "JSON schema definition.",
+			"type": "string"
+		},
 		"name": {
 			"description": "Role name.",
 			"anyOf": [

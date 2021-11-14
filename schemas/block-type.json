@@ -27,6 +27,10 @@
 		"style"
 	],
 	"properties": {
+		"$schema": {
+			"description": "JSON schema definition.",
+			"type": "string"
+		},
 		"api_version": {
 			"description": "Block API version.",
 			"type": "integer"

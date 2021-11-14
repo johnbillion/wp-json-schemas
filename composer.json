@@ -13,6 +13,7 @@
 		"php": "^7 || ^8"
 	},
 	"require-dev": {
+		"johnbillion/args": "^0.7.0",
 		"roots/wordpress": "dev-nightly",
 		"vlucas/phpdotenv": "^5",
 		"wp-cli/core-command": "^2",

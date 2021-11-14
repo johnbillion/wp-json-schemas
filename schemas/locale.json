@@ -16,6 +16,10 @@
 		"number_format"
 	],
 	"properties": {
+		"$schema": {
+			"description": "JSON schema definition.",
+			"type": "string"
+		},
 		"weekday": {
 			"description": "Stores the translated strings for the full weekday names.",
 			"type": "array",
