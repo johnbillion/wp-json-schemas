@@ -24,6 +24,16 @@
                     "description": "Limit to the specified post id.",
                     "type": "integer",
                     "required": false
+                },
+                "area": {
+                    "description": "Limit to the specified template part area.",
+                    "type": "string",
+                    "required": false
+                },
+                "post_type": {
+                    "description": "Post type to get the templates for.",
+                    "type": "string",
+                    "required": false
                 }
             }
         },

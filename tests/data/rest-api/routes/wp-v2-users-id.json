@@ -85,7 +85,11 @@
                     "type": "string",
                     "enum": [
                         "",
-                        "en_US"
+                        "en_US",
+                        "ar",
+                        "de_DE",
+                        "he_IL",
+                        "it_IT"
                     ],
                     "required": false
                 },
