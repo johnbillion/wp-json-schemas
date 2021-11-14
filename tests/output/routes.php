@@ -33,7 +33,7 @@ foreach ( $routes as $item ) {
 
 $all_routes = array_column( $routes, 'route' );
 
-sort( $routes );
+sort( $all_routes );
 
 $json = json_encode( $all_routes, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
 
