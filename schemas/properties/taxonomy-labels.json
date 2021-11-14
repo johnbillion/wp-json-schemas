@@ -6,12 +6,16 @@
 	"description": "Taxonomy labels.",
 	"required": [
 		"name",
+		"name_description",
 		"singular_name",
 		"search_items",
 		"popular_items",
 		"all_items",
 		"parent_item",
 		"parent_item_colon",
+		"parent_description",
+		"slug_description",
+		"description_description",
 		"edit_item",
 		"view_item",
 		"update_item",
@@ -35,6 +39,12 @@
 	"properties": {
 		"name": {
 			"type": "string"
+		},
+		"name_description": {
+			"type": [
+				"string",
+				"null"
+			]
 		},
 		"singular_name": {
 			"type": "string"
@@ -61,6 +71,24 @@
 			]
 		},
 		"parent_item_colon": {
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"parent_description": {
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"slug_description": {
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"description_description": {
 			"type": [
 				"string",
 				"null"

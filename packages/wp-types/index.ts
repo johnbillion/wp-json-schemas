@@ -1459,6 +1459,7 @@ export interface WP_Taxonomy {
  */
 export interface WP_Taxonomy_Labels {
 	name: string;
+	name_description: string | null;
 	singular_name: string;
 	search_items: string;
 	popular_items: string | null;
@@ -1466,6 +1467,9 @@ export interface WP_Taxonomy_Labels {
 	archives?: string;
 	parent_item: string | null;
 	parent_item_colon: string | null;
+	parent_description: string | null;
+	slug_description: string | null;
+	description_description: string | null;
 	edit_item: string;
 	view_item: string;
 	update_item: string;
