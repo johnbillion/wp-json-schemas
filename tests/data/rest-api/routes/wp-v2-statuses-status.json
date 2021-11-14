@@ -1,0 +1,32 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "status": {
+                    "description": "An alphanumeric identifier for the status.",
+                    "type": "string",
+                    "required": false
+                },
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "route": "/wp/v2/statuses/(?P<status>[\\w-]+)"
+}

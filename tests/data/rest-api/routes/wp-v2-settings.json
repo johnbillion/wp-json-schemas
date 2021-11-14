@@ -1,0 +1,112 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": []
+        },
+        {
+            "methods": [
+                "POST",
+                "PUT",
+                "PATCH"
+            ],
+            "args": {
+                "title": {
+                    "description": "Site title.",
+                    "type": "string",
+                    "required": false
+                },
+                "description": {
+                    "description": "Site tagline.",
+                    "type": "string",
+                    "required": false
+                },
+                "timezone": {
+                    "description": "A city in the same timezone as you.",
+                    "type": "string",
+                    "required": false
+                },
+                "date_format": {
+                    "description": "A date format for all date strings.",
+                    "type": "string",
+                    "required": false
+                },
+                "time_format": {
+                    "description": "A time format for all time strings.",
+                    "type": "string",
+                    "required": false
+                },
+                "start_of_week": {
+                    "description": "A day number of the week that the week should start on.",
+                    "type": "integer",
+                    "required": false
+                },
+                "language": {
+                    "description": "WordPress locale code.",
+                    "type": "string",
+                    "required": false
+                },
+                "use_smilies": {
+                    "description": "Convert emoticons like :-) and :-P to graphics on display.",
+                    "type": "boolean",
+                    "required": false
+                },
+                "default_category": {
+                    "description": "Default post category.",
+                    "type": "integer",
+                    "required": false
+                },
+                "default_post_format": {
+                    "description": "Default post format.",
+                    "type": "string",
+                    "required": false
+                },
+                "posts_per_page": {
+                    "description": "Blog pages show at most.",
+                    "type": "integer",
+                    "required": false
+                },
+                "default_ping_status": {
+                    "description": "Allow link notifications from other blogs (pingbacks and trackbacks) on new articles.",
+                    "type": "string",
+                    "enum": [
+                        "open",
+                        "closed"
+                    ],
+                    "required": false
+                },
+                "default_comment_status": {
+                    "description": "Allow people to submit comments on new posts.",
+                    "type": "string",
+                    "enum": [
+                        "open",
+                        "closed"
+                    ],
+                    "required": false
+                },
+                "site_logo": {
+                    "description": "Site logo.",
+                    "type": "integer",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "_links": {
+        "self": [
+            {
+                "href": "http://example.org/wp-json/wp/v2/settings"
+            }
+        ]
+    },
+    "route": "/wp/v2/settings"
+}

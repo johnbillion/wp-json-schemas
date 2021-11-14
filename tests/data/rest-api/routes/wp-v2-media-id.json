@@ -1,0 +1,218 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "id": {
+                    "description": "Unique identifier for the post.",
+                    "type": "integer",
+                    "required": false
+                },
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "POST",
+                "PUT",
+                "PATCH"
+            ],
+            "args": {
+                "id": {
+                    "description": "Unique identifier for the post.",
+                    "type": "integer",
+                    "required": false
+                },
+                "date": {
+                    "description": "The date the post was published, in the site's timezone.",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "date-time",
+                    "required": false
+                },
+                "date_gmt": {
+                    "description": "The date the post was published, as GMT.",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "date-time",
+                    "required": false
+                },
+                "slug": {
+                    "description": "An alphanumeric identifier for the post unique to its type.",
+                    "type": "string",
+                    "required": false
+                },
+                "status": {
+                    "description": "A named status for the post.",
+                    "type": "string",
+                    "enum": [
+                        "publish",
+                        "future",
+                        "draft",
+                        "pending",
+                        "private"
+                    ],
+                    "required": false
+                },
+                "title": {
+                    "description": "The title for the post.",
+                    "type": "object",
+                    "properties": {
+                        "raw": {
+                            "description": "Title for the post, as it exists in the database.",
+                            "type": "string",
+                            "context": [
+                                "edit"
+                            ]
+                        },
+                        "rendered": {
+                            "description": "HTML title for the post, transformed for display.",
+                            "type": "string",
+                            "context": [
+                                "view",
+                                "edit",
+                                "embed"
+                            ],
+                            "readonly": true
+                        }
+                    },
+                    "required": false
+                },
+                "author": {
+                    "description": "The ID for the author of the post.",
+                    "type": "integer",
+                    "required": false
+                },
+                "comment_status": {
+                    "description": "Whether or not comments are open on the post.",
+                    "type": "string",
+                    "enum": [
+                        "open",
+                        "closed"
+                    ],
+                    "required": false
+                },
+                "ping_status": {
+                    "description": "Whether or not the post can be pinged.",
+                    "type": "string",
+                    "enum": [
+                        "open",
+                        "closed"
+                    ],
+                    "required": false
+                },
+                "meta": {
+                    "description": "Meta fields.",
+                    "type": "object",
+                    "properties": [],
+                    "required": false
+                },
+                "template": {
+                    "description": "The theme file to use to display the post.",
+                    "type": "string",
+                    "required": false
+                },
+                "alt_text": {
+                    "description": "Alternative text to display when attachment is not displayed.",
+                    "type": "string",
+                    "required": false
+                },
+                "caption": {
+                    "description": "The attachment caption.",
+                    "type": "object",
+                    "properties": {
+                        "raw": {
+                            "description": "Caption for the attachment, as it exists in the database.",
+                            "type": "string",
+                            "context": [
+                                "edit"
+                            ]
+                        },
+                        "rendered": {
+                            "description": "HTML caption for the attachment, transformed for display.",
+                            "type": "string",
+                            "context": [
+                                "view",
+                                "edit",
+                                "embed"
+                            ],
+                            "readonly": true
+                        }
+                    },
+                    "required": false
+                },
+                "description": {
+                    "description": "The attachment description.",
+                    "type": "object",
+                    "properties": {
+                        "raw": {
+                            "description": "Description for the attachment, as it exists in the database.",
+                            "type": "string",
+                            "context": [
+                                "edit"
+                            ]
+                        },
+                        "rendered": {
+                            "description": "HTML description for the attachment, transformed for display.",
+                            "type": "string",
+                            "context": [
+                                "view",
+                                "edit"
+                            ],
+                            "readonly": true
+                        }
+                    },
+                    "required": false
+                },
+                "post": {
+                    "description": "The ID for the associated post of the attachment.",
+                    "type": "integer",
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "DELETE"
+            ],
+            "args": {
+                "id": {
+                    "description": "Unique identifier for the post.",
+                    "type": "integer",
+                    "required": false
+                },
+                "force": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Whether to bypass Trash and force deletion.",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "route": "/wp/v2/media/(?P<id>[\\d]+)"
+}

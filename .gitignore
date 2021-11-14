@@ -1,5 +1,8 @@
 /node_modules
-/tests/data
+/tests/data/*
+!/tests/data/rest-api
+/tests/data/rest-api/*
+!/tests/data/rest-api/routes
 /tests/wordpress
 /vendor
 

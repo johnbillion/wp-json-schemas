@@ -1,0 +1,32 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "type": {
+                    "description": "An alphanumeric identifier for the post type.",
+                    "type": "string",
+                    "required": false
+                },
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "route": "/wp/v2/types/(?P<type>[\\w-]+)"
+}

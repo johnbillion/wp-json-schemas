@@ -1,0 +1,94 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                },
+                "plugin": {
+                    "type": "string",
+                    "pattern": "[^.\\/]+(?:\\/[^.\\/]+)?",
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "POST",
+                "PUT",
+                "PATCH"
+            ],
+            "args": {
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                },
+                "plugin": {
+                    "type": "string",
+                    "pattern": "[^.\\/]+(?:\\/[^.\\/]+)?",
+                    "required": false
+                },
+                "status": {
+                    "description": "The plugin activation status.",
+                    "type": "string",
+                    "enum": [
+                        "inactive",
+                        "active",
+                        "network-active"
+                    ],
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "DELETE"
+            ],
+            "args": {
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                },
+                "plugin": {
+                    "type": "string",
+                    "pattern": "[^.\\/]+(?:\\/[^.\\/]+)?",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "route": "/wp/v2/plugins/(?P<plugin>[^.\\/]+(?:\\/[^.\\/]+)?)"
+}

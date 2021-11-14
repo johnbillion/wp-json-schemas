@@ -1,0 +1,31 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "namespace": {
+                    "default": "wp/v2",
+                    "required": false
+                },
+                "context": {
+                    "default": "view",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "_links": {
+        "self": [
+            {
+                "href": "http://example.org/wp-json/wp/v2"
+            }
+        ]
+    },
+    "route": "/wp/v2"
+}

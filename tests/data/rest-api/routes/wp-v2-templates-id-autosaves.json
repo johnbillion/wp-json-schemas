@@ -1,0 +1,83 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET",
+        "POST"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "parent": {
+                    "description": "The ID for the parent of the autosave.",
+                    "type": "integer",
+                    "required": false
+                },
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "POST"
+            ],
+            "args": {
+                "parent": {
+                    "description": "The ID for the parent of the autosave.",
+                    "type": "integer",
+                    "required": false
+                },
+                "slug": {
+                    "description": "Unique slug identifying the template.",
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "[a-zA-Z_\\-]+",
+                    "required": false
+                },
+                "theme": {
+                    "description": "Theme identifier for the template.",
+                    "type": "string",
+                    "required": false
+                },
+                "content": {
+                    "description": "Content of template.",
+                    "type": [
+                        "object",
+                        "string"
+                    ],
+                    "required": false
+                },
+                "title": {
+                    "description": "Title of template.",
+                    "type": [
+                        "object",
+                        "string"
+                    ],
+                    "required": false
+                },
+                "description": {
+                    "description": "Description of template.",
+                    "type": "string",
+                    "required": false
+                },
+                "status": {
+                    "description": "Status of template.",
+                    "type": "string",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "route": "/wp/v2/templates/(?P<id>[\\d]+)/autosaves"
+}

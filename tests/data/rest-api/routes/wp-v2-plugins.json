@@ -1,0 +1,77 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET",
+        "POST"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                },
+                "search": {
+                    "description": "Limit results to those matching a string.",
+                    "type": "string",
+                    "required": false
+                },
+                "status": {
+                    "description": "Limits results to plugins with the given status.",
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "inactive",
+                            "active",
+                            "network-active"
+                        ]
+                    },
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "POST"
+            ],
+            "args": {
+                "slug": {
+                    "type": "string",
+                    "description": "WordPress.org plugin directory slug.",
+                    "pattern": "[\\w\\-]+",
+                    "required": true
+                },
+                "status": {
+                    "description": "The plugin activation status.",
+                    "type": "string",
+                    "enum": [
+                        "inactive",
+                        "active",
+                        "network-active"
+                    ],
+                    "default": "inactive",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "_links": {
+        "self": [
+            {
+                "href": "http://example.org/wp-json/wp/v2/plugins"
+            }
+        ]
+    },
+    "route": "/wp/v2/plugins"
+}

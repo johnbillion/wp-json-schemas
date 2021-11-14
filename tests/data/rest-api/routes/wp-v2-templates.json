@@ -1,0 +1,88 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET",
+        "POST"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "required": false
+                },
+                "wp_id": {
+                    "description": "Limit to the specified post id.",
+                    "type": "integer",
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "POST"
+            ],
+            "args": {
+                "slug": {
+                    "description": "Unique slug identifying the template.",
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "[a-zA-Z_\\-]+",
+                    "required": true
+                },
+                "theme": {
+                    "description": "Theme identifier for the template.",
+                    "type": "string",
+                    "required": false
+                },
+                "content": {
+                    "default": "",
+                    "description": "Content of template.",
+                    "type": [
+                        "object",
+                        "string"
+                    ],
+                    "required": false
+                },
+                "title": {
+                    "default": "",
+                    "description": "Title of template.",
+                    "type": [
+                        "object",
+                        "string"
+                    ],
+                    "required": false
+                },
+                "description": {
+                    "default": "",
+                    "description": "Description of template.",
+                    "type": "string",
+                    "required": false
+                },
+                "status": {
+                    "default": "publish",
+                    "description": "Status of template.",
+                    "type": "string",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "_links": {
+        "self": [
+            {
+                "href": "http://example.org/wp-json/wp/v2/templates"
+            }
+        ]
+    },
+    "route": "/wp/v2/templates"
+}

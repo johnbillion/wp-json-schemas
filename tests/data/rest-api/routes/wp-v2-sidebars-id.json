@@ -1,0 +1,55 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "id": {
+                    "description": "The id of a registered sidebar",
+                    "type": "string",
+                    "required": false
+                },
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "POST",
+                "PUT",
+                "PATCH"
+            ],
+            "args": {
+                "widgets": {
+                    "description": "Nested widgets.",
+                    "type": "array",
+                    "items": {
+                        "type": [
+                            "object",
+                            "string"
+                        ]
+                    },
+                    "required": false
+                }
+            }
+        }
+    ],
+    "route": "/wp/v2/sidebars/(?P<id>[\\w-]+)"
+}
