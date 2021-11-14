@@ -267,7 +267,9 @@ export interface WP_Block_Type {
 	/**
 	 * Structured data for the block preview.
 	 */
-	example: unknown[] | null;
+	example: {
+		[k: string]: unknown;
+	} | null;
 	/**
 	 * Block type render callback.
 	 */
