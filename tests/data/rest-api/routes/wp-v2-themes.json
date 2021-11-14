@@ -1,0 +1,35 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "status": {
+                    "description": "Limit result set to themes assigned one or more statuses.",
+                    "type": "array",
+                    "items": {
+                        "enum": [
+                            "active",
+                            "inactive"
+                        ],
+                        "type": "string"
+                    },
+                    "required": false
+                }
+            }
+        }
+    ],
+    "_links": {
+        "self": [
+            {
+                "href": "http://example.org/wp-json/wp/v2/themes"
+            }
+        ]
+    },
+    "route": "/wp/v2/themes"
+}

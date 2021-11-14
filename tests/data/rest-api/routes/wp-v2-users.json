@@ -1,0 +1,210 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET",
+        "POST"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                },
+                "page": {
+                    "description": "Current page of the collection.",
+                    "type": "integer",
+                    "default": 1,
+                    "minimum": 1,
+                    "required": false
+                },
+                "per_page": {
+                    "description": "Maximum number of items to be returned in result set.",
+                    "type": "integer",
+                    "default": 10,
+                    "minimum": 1,
+                    "maximum": 100,
+                    "required": false
+                },
+                "search": {
+                    "description": "Limit results to those matching a string.",
+                    "type": "string",
+                    "required": false
+                },
+                "exclude": {
+                    "description": "Ensure result set excludes specific IDs.",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "default": [],
+                    "required": false
+                },
+                "include": {
+                    "description": "Limit result set to specific IDs.",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "default": [],
+                    "required": false
+                },
+                "offset": {
+                    "description": "Offset the result set by a specific number of items.",
+                    "type": "integer",
+                    "required": false
+                },
+                "order": {
+                    "default": "asc",
+                    "description": "Order sort attribute ascending or descending.",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ],
+                    "type": "string",
+                    "required": false
+                },
+                "orderby": {
+                    "default": "name",
+                    "description": "Sort collection by user attribute.",
+                    "enum": [
+                        "id",
+                        "include",
+                        "name",
+                        "registered_date",
+                        "slug",
+                        "include_slugs",
+                        "email",
+                        "url"
+                    ],
+                    "type": "string",
+                    "required": false
+                },
+                "slug": {
+                    "description": "Limit result set to users with one or more specific slugs.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "required": false
+                },
+                "roles": {
+                    "description": "Limit result set to users matching at least one specific role provided. Accepts csv list or single role.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "required": false
+                },
+                "who": {
+                    "description": "Limit result set to users who are considered authors.",
+                    "type": "string",
+                    "enum": [
+                        "authors"
+                    ],
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "POST"
+            ],
+            "args": {
+                "username": {
+                    "description": "Login name for the user.",
+                    "type": "string",
+                    "required": true
+                },
+                "name": {
+                    "description": "Display name for the user.",
+                    "type": "string",
+                    "required": false
+                },
+                "first_name": {
+                    "description": "First name for the user.",
+                    "type": "string",
+                    "required": false
+                },
+                "last_name": {
+                    "description": "Last name for the user.",
+                    "type": "string",
+                    "required": false
+                },
+                "email": {
+                    "description": "The email address for the user.",
+                    "type": "string",
+                    "format": "email",
+                    "required": true
+                },
+                "url": {
+                    "description": "URL of the user.",
+                    "type": "string",
+                    "format": "uri",
+                    "required": false
+                },
+                "description": {
+                    "description": "Description of the user.",
+                    "type": "string",
+                    "required": false
+                },
+                "locale": {
+                    "description": "Locale for the user.",
+                    "type": "string",
+                    "enum": [
+                        "",
+                        "en_US"
+                    ],
+                    "required": false
+                },
+                "nickname": {
+                    "description": "The nickname for the user.",
+                    "type": "string",
+                    "required": false
+                },
+                "slug": {
+                    "description": "An alphanumeric identifier for the user.",
+                    "type": "string",
+                    "required": false
+                },
+                "roles": {
+                    "description": "Roles assigned to the user.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "required": false
+                },
+                "password": {
+                    "description": "Password for the user (never included).",
+                    "type": "string",
+                    "required": true
+                },
+                "meta": {
+                    "description": "Meta fields.",
+                    "type": "object",
+                    "properties": [],
+                    "required": false
+                }
+            }
+        }
+    ],
+    "_links": {
+        "self": [
+            {
+                "href": "http://example.org/wp-json/wp/v2/users"
+            }
+        ]
+    },
+    "route": "/wp/v2/users"
+}

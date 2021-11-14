@@ -1,0 +1,363 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET",
+        "POST"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                },
+                "page": {
+                    "description": "Current page of the collection.",
+                    "type": "integer",
+                    "default": 1,
+                    "minimum": 1,
+                    "required": false
+                },
+                "per_page": {
+                    "description": "Maximum number of items to be returned in result set.",
+                    "type": "integer",
+                    "default": 10,
+                    "minimum": 1,
+                    "maximum": 100,
+                    "required": false
+                },
+                "search": {
+                    "description": "Limit results to those matching a string.",
+                    "type": "string",
+                    "required": false
+                },
+                "after": {
+                    "description": "Limit response to posts published after a given ISO8601 compliant date.",
+                    "type": "string",
+                    "format": "date-time",
+                    "required": false
+                },
+                "modified_after": {
+                    "description": "Limit response to posts modified after a given ISO8601 compliant date.",
+                    "type": "string",
+                    "format": "date-time",
+                    "required": false
+                },
+                "author": {
+                    "description": "Limit result set to posts assigned to specific authors.",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "default": [],
+                    "required": false
+                },
+                "author_exclude": {
+                    "description": "Ensure result set excludes posts assigned to specific authors.",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "default": [],
+                    "required": false
+                },
+                "before": {
+                    "description": "Limit response to posts published before a given ISO8601 compliant date.",
+                    "type": "string",
+                    "format": "date-time",
+                    "required": false
+                },
+                "modified_before": {
+                    "description": "Limit response to posts modified before a given ISO8601 compliant date.",
+                    "type": "string",
+                    "format": "date-time",
+                    "required": false
+                },
+                "exclude": {
+                    "description": "Ensure result set excludes specific IDs.",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "default": [],
+                    "required": false
+                },
+                "include": {
+                    "description": "Limit result set to specific IDs.",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "default": [],
+                    "required": false
+                },
+                "offset": {
+                    "description": "Offset the result set by a specific number of items.",
+                    "type": "integer",
+                    "required": false
+                },
+                "order": {
+                    "description": "Order sort attribute ascending or descending.",
+                    "type": "string",
+                    "default": "desc",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ],
+                    "required": false
+                },
+                "orderby": {
+                    "description": "Sort collection by post attribute.",
+                    "type": "string",
+                    "default": "date",
+                    "enum": [
+                        "author",
+                        "date",
+                        "id",
+                        "include",
+                        "modified",
+                        "parent",
+                        "relevance",
+                        "slug",
+                        "include_slugs",
+                        "title"
+                    ],
+                    "required": false
+                },
+                "parent": {
+                    "description": "Limit result set to items with particular parent IDs.",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "default": [],
+                    "required": false
+                },
+                "parent_exclude": {
+                    "description": "Limit result set to all items except those of a particular parent ID.",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "default": [],
+                    "required": false
+                },
+                "slug": {
+                    "description": "Limit result set to posts with one or more specific slugs.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "required": false
+                },
+                "status": {
+                    "default": "inherit",
+                    "description": "Limit result set to posts assigned one or more statuses.",
+                    "type": "array",
+                    "items": {
+                        "enum": [
+                            "inherit",
+                            "private",
+                            "trash"
+                        ],
+                        "type": "string"
+                    },
+                    "required": false
+                },
+                "media_type": {
+                    "default": null,
+                    "description": "Limit result set to attachments of a particular media type.",
+                    "type": "string",
+                    "enum": [
+                        "image",
+                        "video",
+                        "audio",
+                        "application"
+                    ],
+                    "required": false
+                },
+                "mime_type": {
+                    "default": null,
+                    "description": "Limit result set to attachments of a particular MIME type.",
+                    "type": "string",
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "POST"
+            ],
+            "args": {
+                "date": {
+                    "description": "The date the post was published, in the site's timezone.",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "date-time",
+                    "required": false
+                },
+                "date_gmt": {
+                    "description": "The date the post was published, as GMT.",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "date-time",
+                    "required": false
+                },
+                "slug": {
+                    "description": "An alphanumeric identifier for the post unique to its type.",
+                    "type": "string",
+                    "required": false
+                },
+                "status": {
+                    "description": "A named status for the post.",
+                    "type": "string",
+                    "enum": [
+                        "publish",
+                        "future",
+                        "draft",
+                        "pending",
+                        "private"
+                    ],
+                    "required": false
+                },
+                "title": {
+                    "description": "The title for the post.",
+                    "type": "object",
+                    "properties": {
+                        "raw": {
+                            "description": "Title for the post, as it exists in the database.",
+                            "type": "string",
+                            "context": [
+                                "edit"
+                            ]
+                        },
+                        "rendered": {
+                            "description": "HTML title for the post, transformed for display.",
+                            "type": "string",
+                            "context": [
+                                "view",
+                                "edit",
+                                "embed"
+                            ],
+                            "readonly": true
+                        }
+                    },
+                    "required": false
+                },
+                "author": {
+                    "description": "The ID for the author of the post.",
+                    "type": "integer",
+                    "required": false
+                },
+                "comment_status": {
+                    "description": "Whether or not comments are open on the post.",
+                    "type": "string",
+                    "enum": [
+                        "open",
+                        "closed"
+                    ],
+                    "required": false
+                },
+                "ping_status": {
+                    "description": "Whether or not the post can be pinged.",
+                    "type": "string",
+                    "enum": [
+                        "open",
+                        "closed"
+                    ],
+                    "required": false
+                },
+                "meta": {
+                    "description": "Meta fields.",
+                    "type": "object",
+                    "properties": [],
+                    "required": false
+                },
+                "template": {
+                    "description": "The theme file to use to display the post.",
+                    "type": "string",
+                    "required": false
+                },
+                "alt_text": {
+                    "description": "Alternative text to display when attachment is not displayed.",
+                    "type": "string",
+                    "required": false
+                },
+                "caption": {
+                    "description": "The attachment caption.",
+                    "type": "object",
+                    "properties": {
+                        "raw": {
+                            "description": "Caption for the attachment, as it exists in the database.",
+                            "type": "string",
+                            "context": [
+                                "edit"
+                            ]
+                        },
+                        "rendered": {
+                            "description": "HTML caption for the attachment, transformed for display.",
+                            "type": "string",
+                            "context": [
+                                "view",
+                                "edit",
+                                "embed"
+                            ],
+                            "readonly": true
+                        }
+                    },
+                    "required": false
+                },
+                "description": {
+                    "description": "The attachment description.",
+                    "type": "object",
+                    "properties": {
+                        "raw": {
+                            "description": "Description for the attachment, as it exists in the database.",
+                            "type": "string",
+                            "context": [
+                                "edit"
+                            ]
+                        },
+                        "rendered": {
+                            "description": "HTML description for the attachment, transformed for display.",
+                            "type": "string",
+                            "context": [
+                                "view",
+                                "edit"
+                            ],
+                            "readonly": true
+                        }
+                    },
+                    "required": false
+                },
+                "post": {
+                    "description": "The ID for the associated post of the attachment.",
+                    "type": "integer",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "_links": {
+        "self": [
+            {
+                "href": "http://example.org/wp-json/wp/v2/media"
+            }
+        ]
+    },
+    "route": "/wp/v2/media"
+}

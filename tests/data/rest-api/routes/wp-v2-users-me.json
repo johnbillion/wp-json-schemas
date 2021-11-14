@@ -1,0 +1,140 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "POST",
+                "PUT",
+                "PATCH"
+            ],
+            "args": {
+                "username": {
+                    "description": "Login name for the user.",
+                    "type": "string",
+                    "required": false
+                },
+                "name": {
+                    "description": "Display name for the user.",
+                    "type": "string",
+                    "required": false
+                },
+                "first_name": {
+                    "description": "First name for the user.",
+                    "type": "string",
+                    "required": false
+                },
+                "last_name": {
+                    "description": "Last name for the user.",
+                    "type": "string",
+                    "required": false
+                },
+                "email": {
+                    "description": "The email address for the user.",
+                    "type": "string",
+                    "format": "email",
+                    "required": false
+                },
+                "url": {
+                    "description": "URL of the user.",
+                    "type": "string",
+                    "format": "uri",
+                    "required": false
+                },
+                "description": {
+                    "description": "Description of the user.",
+                    "type": "string",
+                    "required": false
+                },
+                "locale": {
+                    "description": "Locale for the user.",
+                    "type": "string",
+                    "enum": [
+                        "",
+                        "en_US"
+                    ],
+                    "required": false
+                },
+                "nickname": {
+                    "description": "The nickname for the user.",
+                    "type": "string",
+                    "required": false
+                },
+                "slug": {
+                    "description": "An alphanumeric identifier for the user.",
+                    "type": "string",
+                    "required": false
+                },
+                "roles": {
+                    "description": "Roles assigned to the user.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "required": false
+                },
+                "password": {
+                    "description": "Password for the user (never included).",
+                    "type": "string",
+                    "required": false
+                },
+                "meta": {
+                    "description": "Meta fields.",
+                    "type": "object",
+                    "properties": [],
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "DELETE"
+            ],
+            "args": {
+                "force": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Required to be true, as users do not support trashing.",
+                    "required": false
+                },
+                "reassign": {
+                    "type": "integer",
+                    "description": "Reassign the deleted user's posts and links to this user ID.",
+                    "required": true
+                }
+            }
+        }
+    ],
+    "_links": {
+        "self": [
+            {
+                "href": "http://example.org/wp-json/wp/v2/users/me"
+            }
+        ]
+    },
+    "route": "/wp/v2/users/me"
+}

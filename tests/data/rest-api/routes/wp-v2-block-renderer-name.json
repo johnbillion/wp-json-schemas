@@ -1,0 +1,43 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET",
+        "POST"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET",
+                "POST"
+            ],
+            "args": {
+                "name": {
+                    "description": "Unique registered name for the block.",
+                    "type": "string",
+                    "required": false
+                },
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                },
+                "attributes": {
+                    "description": "Attributes for the block.",
+                    "type": "object",
+                    "default": [],
+                    "required": false
+                },
+                "post_id": {
+                    "description": "ID of the post context.",
+                    "type": "integer",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "route": "/wp/v2/block-renderer/(?P<name>[a-z0-9-]+/[a-z0-9-]+)"
+}

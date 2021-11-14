@@ -1,0 +1,51 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed"
+                    ],
+                    "default": "view",
+                    "required": false
+                },
+                "search": {
+                    "description": "Limit results to those matching a string.",
+                    "type": "string",
+                    "minLength": 1,
+                    "required": false
+                },
+                "category": {
+                    "description": "Limit results to those matching a category ID.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "required": false
+                },
+                "keyword": {
+                    "description": "Limit results to those matching a keyword ID.",
+                    "type": "integer",
+                    "minimum": 1,
+                    "required": false
+                }
+            }
+        }
+    ],
+    "_links": {
+        "self": [
+            {
+                "href": "http://example.org/wp-json/wp/v2/pattern-directory/patterns"
+            }
+        ]
+    },
+    "route": "/wp/v2/pattern-directory/patterns"
+}
