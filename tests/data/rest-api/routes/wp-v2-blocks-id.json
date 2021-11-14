@@ -12,6 +12,9 @@
             "methods": [
                 "GET"
             ],
+            "allow_batch": {
+                "v1": true
+            },
             "args": {
                 "id": {
                     "description": "Unique identifier for the post.",
@@ -42,6 +45,9 @@
                 "PUT",
                 "PATCH"
             ],
+            "allow_batch": {
+                "v1": true
+            },
             "args": {
                 "id": {
                     "description": "Unique identifier for the post.",
@@ -147,6 +153,9 @@
             "methods": [
                 "DELETE"
             ],
+            "allow_batch": {
+                "v1": true
+            },
             "args": {
                 "id": {
                     "description": "Unique identifier for the post.",

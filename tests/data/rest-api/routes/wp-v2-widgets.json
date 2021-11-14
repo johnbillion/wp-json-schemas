@@ -9,6 +9,9 @@
             "methods": [
                 "GET"
             ],
+            "allow_batch": {
+                "v1": true
+            },
             "args": {
                 "context": {
                     "description": "Scope under which the request is made; determines fields present in response.",
@@ -32,6 +35,9 @@
             "methods": [
                 "POST"
             ],
+            "allow_batch": {
+                "v1": true
+            },
             "args": {
                 "id": {
                     "description": "Unique identifier for the widget.",
