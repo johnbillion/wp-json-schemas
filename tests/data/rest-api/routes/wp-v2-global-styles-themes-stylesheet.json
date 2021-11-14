@@ -1,0 +1,21 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "stylesheet": {
+                    "description": "The theme identifier",
+                    "type": "string",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "route": "/wp/v2/global-styles/themes/(?P<stylesheet>[^.\\/]+(?:\\/[^.\\/]+)?)"
+}

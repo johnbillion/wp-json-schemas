@@ -1,0 +1,90 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "id": {
+                    "description": "The id of a template",
+                    "type": "string",
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "POST",
+                "PUT",
+                "PATCH"
+            ],
+            "args": {
+                "slug": {
+                    "description": "Unique slug identifying the template.",
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "[a-zA-Z_\\-]+",
+                    "required": false
+                },
+                "theme": {
+                    "description": "Theme identifier for the template.",
+                    "type": "string",
+                    "required": false
+                },
+                "content": {
+                    "description": "Content of template.",
+                    "type": [
+                        "object",
+                        "string"
+                    ],
+                    "required": false
+                },
+                "title": {
+                    "description": "Title of template.",
+                    "type": [
+                        "object",
+                        "string"
+                    ],
+                    "required": false
+                },
+                "description": {
+                    "description": "Description of template.",
+                    "type": "string",
+                    "required": false
+                },
+                "status": {
+                    "description": "Status of template.",
+                    "type": "string",
+                    "required": false
+                },
+                "area": {
+                    "description": "Where the template part is intended for use (header, footer, etc.)",
+                    "type": "string",
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "DELETE"
+            ],
+            "args": {
+                "force": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Whether to bypass Trash and force deletion.",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "route": "/wp/v2/template-parts/(?P<id>[\\/\\w-]+)"
+}

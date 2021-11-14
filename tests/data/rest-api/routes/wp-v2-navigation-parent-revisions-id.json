@@ -1,0 +1,61 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET",
+        "DELETE"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "parent": {
+                    "description": "The ID for the parent of the revision.",
+                    "type": "integer",
+                    "required": false
+                },
+                "id": {
+                    "description": "Unique identifier for the revision.",
+                    "type": "integer",
+                    "required": false
+                },
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "DELETE"
+            ],
+            "args": {
+                "parent": {
+                    "description": "The ID for the parent of the revision.",
+                    "type": "integer",
+                    "required": false
+                },
+                "id": {
+                    "description": "Unique identifier for the revision.",
+                    "type": "integer",
+                    "required": false
+                },
+                "force": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Required to be true, as revisions do not support trashing.",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "route": "/wp/v2/navigation/(?P<parent>[\\d]+)/revisions/(?P<id>[\\d]+)"
+}

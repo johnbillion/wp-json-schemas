@@ -1,0 +1,34 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "_links": {
+        "self": [
+            {
+                "href": "http://example.org/wp-json/wp/v2/block-navigation-areas"
+            }
+        ]
+    },
+    "route": "/wp/v2/block-navigation-areas"
+}

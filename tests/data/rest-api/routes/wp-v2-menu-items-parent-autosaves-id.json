@@ -1,0 +1,37 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": {
+                "parent": {
+                    "description": "The ID for the parent of the autosave.",
+                    "type": "integer",
+                    "required": false
+                },
+                "id": {
+                    "description": "The ID for the autosave.",
+                    "type": "integer",
+                    "required": false
+                },
+                "context": {
+                    "description": "Scope under which the request is made; determines fields present in response.",
+                    "type": "string",
+                    "enum": [
+                        "view",
+                        "embed",
+                        "edit"
+                    ],
+                    "default": "view",
+                    "required": false
+                }
+            }
+        }
+    ],
+    "route": "/wp/v2/menu-items/(?P<parent>[\\d]+)/autosaves/(?P<id>[\\d]+)"
+}
