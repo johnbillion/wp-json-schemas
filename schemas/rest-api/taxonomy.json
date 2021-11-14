@@ -15,6 +15,10 @@
 		"_links"
 	],
 	"properties": {
+		"$schema": {
+			"description": "JSON schema definition.",
+			"type": "string"
+		},
 		"capabilities": {
 			"description": "All capabilities used by the taxonomy. Only present when using the 'edit' context.",
 			"allOf": [

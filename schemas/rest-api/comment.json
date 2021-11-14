@@ -21,6 +21,10 @@
 		"_links"
 	],
 	"properties": {
+		"$schema": {
+			"description": "JSON schema definition.",
+			"type": "string"
+		},
 		"id": {
 			"readOnly": true,
 			"description": "Unique identifier for the object.",

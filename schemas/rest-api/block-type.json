@@ -28,6 +28,10 @@
 		"example"
 	],
 	"properties": {
+		"$schema": {
+			"description": "JSON schema definition.",
+			"type": "string"
+		},
 		"api_version": {
 			"description": "Version of block API.",
 			"type": "integer"

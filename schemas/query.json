@@ -51,6 +51,10 @@
 		"thumbnails_cached"
 	],
 	"properties": {
+		"$schema": {
+			"description": "JSON schema definition.",
+			"type": "string"
+		},
 		"query": {
 			"description": "Query vars set by the user.",
 			"type": [

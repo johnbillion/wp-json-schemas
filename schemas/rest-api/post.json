@@ -25,6 +25,10 @@
 		"_links"
 	],
 	"properties": {
+		"$schema": {
+			"description": "JSON schema definition.",
+			"type": "string"
+		},
 		"date": {
 			"description": "The date the post was published, in the site's timezone.",
 			"anyOf": [

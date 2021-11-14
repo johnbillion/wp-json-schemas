@@ -31,6 +31,10 @@
 		"filter"
 	],
 	"properties": {
+		"$schema": {
+			"description": "JSON schema definition.",
+			"type": "string"
+		},
 		"ID": {
 			"readOnly": true,
 			"description": "Post ID.",

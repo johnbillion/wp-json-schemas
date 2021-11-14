@@ -11,6 +11,10 @@
 		"site_name"
 	],
 	"properties": {
+		"$schema": {
+			"description": "JSON schema definition.",
+			"type": "string"
+		},
 		"domain": {
 			"description": "Domain of the network.",
 			"type": "string",

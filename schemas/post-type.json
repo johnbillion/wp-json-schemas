@@ -40,6 +40,10 @@
 		"rest_controller"
 	],
 	"properties": {
+		"$schema": {
+			"description": "JSON schema definition.",
+			"type": "string"
+		},
 		"name": {
 			"description": "Post type key.",
 			"anyOf": [

@@ -20,6 +20,10 @@
 		"_links"
 	],
 	"properties": {
+		"$schema": {
+			"description": "JSON schema definition.",
+			"type": "string"
+		},
 		"author": {
 			"description": "The ID for the author of the revision.",
 			"allOf": [

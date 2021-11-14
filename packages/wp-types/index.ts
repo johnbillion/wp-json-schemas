@@ -148,6 +148,10 @@ export interface WP {
  */
 export interface WP_Block {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * Original parsed array representation of block.
 	 */
 	parsed_block: WP_Block_Parsed;
@@ -206,6 +210,10 @@ export interface WP_Block_Parsed {
  * Core class representing a block type.
  */
 export interface WP_Block_Type {
+	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
 	/**
 	 * Block API version.
 	 */
@@ -306,6 +314,10 @@ export interface WP_Block_Type {
  */
 export interface WP_Comment {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * Comment ID.
 	 *
 	 * A numeric string, for compatibility reasons.
@@ -383,6 +395,10 @@ export interface WP_Comment {
  */
 export interface WP_Error {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * Stores the list of errors.
 	 */
 	errors: [] | WP_Error_Messages;
@@ -414,6 +430,10 @@ export interface WP_Error_Data {
  */
 export interface WP_Error_With_Error {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * Stores the list of errors.
 	 */
 	errors: WP_Error_Messages;
@@ -429,6 +449,10 @@ export interface WP_Error_With_Error {
  */
 export interface WP_Error_Without_Error {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * Stores the list of errors.
 	 */
 	errors: [];
@@ -441,6 +465,10 @@ export interface WP_Error_Without_Error {
  * Core class used to store translated data for a locale.
  */
 export interface WP_Locale {
+	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
 	/**
 	 * Stores the translated strings for the full weekday names.
 	 */
@@ -501,6 +529,10 @@ export interface WP_Locale {
  */
 export interface WP_Network {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * Domain of the network.
 	 */
 	domain: string;
@@ -523,6 +555,10 @@ export interface WP_Network {
  * Core class used to implement the WP_Post object.
  */
 export interface WP_Post {
+	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
 	/**
 	 * Post ID.
 	 */
@@ -628,6 +664,10 @@ export interface WP_Post {
  * Core class used for interacting with post types.
  */
 export interface WP_Post_Type {
+	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
 	/**
 	 * Post type key.
 	 */
@@ -855,6 +895,10 @@ export interface WP_Post_Type_Rewrite {
  */
 export interface WP_Query {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * Query vars set by the user.
 	 */
 	query: {
@@ -1076,6 +1120,10 @@ export interface WP_Query {
  */
 export interface WP_Term {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * Term ID.
 	 */
 	term_id: number;
@@ -1144,6 +1192,10 @@ export interface WP_Term {
  * Core class used to implement the WP_User object.
  */
 export interface WP_User {
+	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
 	/**
 	 * The user's ID.
 	 */
@@ -1243,6 +1295,10 @@ export interface WP_User_Data {
  */
 export interface WP_Role {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * Role name.
 	 */
 	name: WP_User_Role_Name | string;
@@ -1255,6 +1311,10 @@ export interface WP_Role {
  * Core class used for interacting with a multisite site.
  */
 export interface WP_Site {
+	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
 	/**
 	 * Site ID.
 	 *
@@ -1326,6 +1386,10 @@ export interface WP_Site {
  * Core class used for interacting with taxonomies.
  */
 export interface WP_Taxonomy {
+	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
 	/**
 	 * Taxonomy key.
 	 */
@@ -1522,6 +1586,10 @@ export interface WP_Taxonomy_Rewrite {
  */
 export interface WP_REST_API_Comment {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * Unique identifier for the object.
 	 */
 	id: number;
@@ -1650,6 +1718,10 @@ export interface WP_REST_API_Object_Links {
  * A post object in a REST API context.
  */
 export interface WP_REST_API_Post {
+	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
 	/**
 	 * The date the post was published, in the site's timezone.
 	 */
@@ -1844,6 +1916,10 @@ export interface WP_REST_API_Post {
  */
 export interface WP_REST_API_Attachment {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * The date the attachment was published, in the site's timezone.
 	 */
 	date: WP_REST_API_Date_Time;
@@ -2011,6 +2087,10 @@ export interface WP_REST_API_Attachment {
  */
 export interface WP_REST_API_Block {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * The date the block was published, in the site's timezone.
 	 */
 	date: WP_REST_API_Date_Time;
@@ -2101,6 +2181,10 @@ export interface WP_REST_API_Block {
  */
 export interface WP_REST_API_Block_Directory_Item {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * The block name, in namespace/block-name format.
 	 */
 	name: string;
@@ -2159,6 +2243,10 @@ export interface WP_REST_API_Block_Directory_Item {
  * A block type object in a REST API context.
  */
 export interface WP_REST_API_Block_Type {
+	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
 	/**
 	 * Version of block API.
 	 */
@@ -2303,6 +2391,10 @@ export interface WP_REST_API_Block_Type {
  */
 export interface WP_REST_API_Revision {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * The ID for the author of the revision.
 	 */
 	author: number;
@@ -2402,6 +2494,10 @@ export interface WP_REST_API_Revision {
  */
 export interface WP_REST_API_Rendered_Block {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * The rendered block.
 	 */
 	rendered: string;
@@ -2411,6 +2507,10 @@ export interface WP_REST_API_Rendered_Block {
  * A post status object in a REST API context.
  */
 export interface WP_REST_API_Status {
+	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
 	/**
 	 * The title for the status.
 	 */
@@ -2456,6 +2556,10 @@ export interface WP_REST_API_Statuses {
  * A taxonomy term object in a REST API context.
  */
 export interface WP_REST_API_Term {
+	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
 	/**
 	 * Unique identifier for the term.
 	 */
@@ -2503,6 +2607,10 @@ export interface WP_REST_API_Term {
  * A user object in a REST API context.
  */
 export interface WP_REST_API_User {
+	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
 	/**
 	 * Unique identifier for the user.
 	 */
@@ -2604,6 +2712,10 @@ export interface WP_REST_API_User {
  */
 export interface WP_REST_API_Search_Result {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * Unique identifier for the object.
 	 */
 	id: number | string;
@@ -2630,6 +2742,10 @@ export interface WP_REST_API_Search_Result {
  * Site settings in a REST API context.
  */
 export interface WP_REST_API_Settings {
+	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
 	/**
 	 * Site title.
 	 */
@@ -2699,6 +2815,10 @@ export interface WP_REST_API_Settings {
  * A taxonomy in a REST API context.
  */
 export interface WP_REST_API_Taxonomy {
+	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
 	/**
 	 * All capabilities used by the taxonomy. Only present when using the 'edit' context.
 	 */
@@ -2778,6 +2898,10 @@ export interface WP_REST_API_Taxonomies {
  */
 export interface WP_REST_API_Type {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * All capabilities used by the post type. Only present when using the 'edit' context.
 	 */
 	capabilities?: WP_Post_Type_Caps;
@@ -2833,6 +2957,10 @@ export interface WP_REST_API_Types {
  */
 export interface WP_REST_API_Application_Password {
 	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
+	/**
 	 * The unique identifier for the application password.
 	 */
 	uuid: string;
@@ -2866,6 +2994,10 @@ export interface WP_REST_API_Application_Password {
  * A REST API error response.
  */
 export interface WP_REST_API_Error {
+	/**
+	 * JSON schema definition.
+	 */
+	$schema?: string;
 	/**
 	 * The error message code.
 	 */

@@ -10,6 +10,10 @@
 		"errors"
 	],
 	"properties": {
+		"$schema": {
+			"description": "JSON schema definition.",
+			"type": "string"
+		},
 		"errors": {
 			"description": "Stores the list of errors.",
 			"anyOf": [
