@@ -28,6 +28,7 @@
 		"update_count_callback",
 		"show_in_rest",
 		"rest_base",
+		"rest_namespace",
 		"rest_controller_class",
 		"rest_controller",
 		"default_term",
@@ -188,6 +189,13 @@
 		},
 		"rest_base": {
 			"description": "The base path for this taxonomy's REST API endpoints.",
+			"type": [
+				"string",
+				"boolean"
+			]
+		},
+		"rest_namespace": {
+			"description": "The namespace for this taxonomy's REST API endpoints.",
 			"type": [
 				"string",
 				"boolean"

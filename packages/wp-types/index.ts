@@ -795,6 +795,10 @@ export interface WP_Post_Type {
 	 */
 	rest_base: string | boolean;
 	/**
+	 * The namespace for this post type's REST API endpoints.
+	 */
+	rest_namespace: string | boolean;
+	/**
 	 * The controller for this post type's REST API endpoints.
 	 */
 	rest_controller_class: string | false;
@@ -1480,6 +1484,10 @@ export interface WP_Taxonomy {
 	 * The base path for this taxonomy's REST API endpoints.
 	 */
 	rest_base: string | boolean;
+	/**
+	 * The namespace for this taxonomy's REST API endpoints.
+	 */
+	rest_namespace: string | boolean;
 	/**
 	 * The controller for this taxonomy's REST API endpoints.
 	 *
