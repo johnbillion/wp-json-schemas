@@ -13,7 +13,7 @@
 		"php": "^7 || ^8"
 	},
 	"require-dev": {
-		"roots/wordpress": "~5.8.0",
+		"roots/wordpress": "dev-nightly",
 		"vlucas/phpdotenv": "^5",
 		"wp-cli/core-command": "^2",
 		"wp-cli/db-command": "^2",
