@@ -30,3 +30,11 @@ foreach ( $routes as $item ) {
 
 	file_put_contents( $dir . '/' . $i . '.json', $json );
 }
+
+$all_routes = array_column( $routes, 'route' );
+
+sort( $routes );
+
+$json = json_encode( $all_routes, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
+
+file_put_contents( $dir . '/routes.json', $json );
