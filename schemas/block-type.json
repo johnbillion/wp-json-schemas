@@ -108,7 +108,7 @@
 		"example": {
 			"description": "Structured data for the block preview.",
 			"type": [
-				"array",
+				"object",
 				"null"
 			]
 		},
