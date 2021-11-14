@@ -17,5 +17,5 @@
             }
         }
     ],
-    "route": "/wp/v2/themes/(?P<stylesheet>[\\w-]+)"
+    "route": "/wp/v2/themes/(?P<stylesheet>[^.\\/]+(?:\\/[^.\\/]+)?)"
 }
