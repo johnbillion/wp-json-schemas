@@ -2,6 +2,30 @@
 
 namespace WPJsonSchemas;
 
+$roles = $roles = wp_roles()->role_objects;
+
+array_map(
+	function( \WP_Role $role ) {
+		$args = new \Args\wp_insert_user;
+		$args->role = $role->name;
+		$args->user_login = sprintf(
+			'user-%s',
+			$role->name
+		);
+		$args->user_email = sprintf(
+			'user-%s@example.net',
+			$role->name
+		);
+
+		$user = wp_insert_user( $args->toArray() );
+
+		if ( is_wp_error( $user ) ) {
+			\WP_CLI::error( $user );
+		}
+	},
+	$roles
+);
+
 $users = get_users( [
 	'number'  => -1,
 	'orderby' => 'ID',
