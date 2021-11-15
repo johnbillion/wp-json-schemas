@@ -99,7 +99,6 @@ Route                                                   | Schema
 /wp/v2/widget-types                                     | Todo
 /wp/v2/widget-types/{id}                                | Todo
 /wp/v2/widget-types/{id}/encode                         | Todo
-/wp/v2/widget-types/{id}/render                         | Todo
 /wp/v2/widgets                                          | Todo
 /wp/v2/widgets/{id}                                     | Todo
 Any REST API error                                      | `WP_REST_API_Error`
