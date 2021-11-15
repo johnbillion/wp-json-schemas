@@ -40,11 +40,14 @@ Route                                                   | Schema
 /wp/v2/block-directory/search                           | `WP_REST_API_Block_Directory_Items`
 /wp/v2/block-renderer/{name}                            | `WP_REST_API_Rendered_Block`
 /wp/v2/block-types                                      | `WP_REST_API_Block_Types`
-/wp/v2/block-types/{name}                               | `WP_REST_API_Block_Type`
+/wp/v2/block-types/{namespace}                          | `WP_REST_API_Block_Type`
+/wp/v2/block-types/{namespace}/{name}                   | `WP_REST_API_Block_Type`
 /wp/v2/blocks                                           | `WP_REST_API_Blocks`
 /wp/v2/blocks/{id}                                      | `WP_REST_API_Block`
 /wp/v2/blocks/{id}/autosaves                            | Todo
 /wp/v2/blocks/{parent}/autosaves/{id}                   | Todo
+/wp/v2/blocks/{parent}/revisions                        | Todo
+/wp/v2/blocks/{parent}/revisions/{id}                   | Todo
 /wp/v2/categories                                       | `WP_REST_API_Categories`
 /wp/v2/categories/{id}                                  | `WP_REST_API_Category`
 /wp/v2/comments                                         | `WP_REST_API_Comments`
@@ -59,6 +62,7 @@ Route                                                   | Schema
 /wp/v2/pages/{parent}/autosaves/{id}                    | Todo
 /wp/v2/pages/{parent}/revisions                         | `WP_REST_API_Revisions`
 /wp/v2/pages/{parent}/revisions/{id}                    | `WP_REST_API_Revision`
+/wp/v2/pattern-directory/patterns                       | Todo
 /wp/v2/plugins                                          | Todo
 /wp/v2/plugins/{plugin}                                 | Todo
 /wp/v2/posts                                            | `WP_REST_API_Posts`
@@ -69,12 +73,20 @@ Route                                                   | Schema
 /wp/v2/posts/{parent}/revisions/{id}                    | `WP_REST_API_Revision`
 /wp/v2/search                                           | `WP_REST_API_Search_Results`
 /wp/v2/settings                                         | `WP_REST_API_Settings`
+/wp/v2/sidebars                                         | Todo
+/wp/v2/sidebars/{id}                                    | Todo
 /wp/v2/statuses                                         | `WP_REST_API_Statuses`
 /wp/v2/statuses/{status}                                | `WP_REST_API_Status`
 /wp/v2/tags                                             | `WP_REST_API_Tags`
 /wp/v2/tags/{id}                                        | `WP_REST_API_Tag`
 /wp/v2/taxonomies                                       | `WP_REST_API_Taxonomies`
 /wp/v2/taxonomies/{taxonomy}                            | `WP_REST_API_Taxonomy`
+/wp/v2/templates                                        | Todo
+/wp/v2/templates/{id}                                   | Todo
+/wp/v2/templates/{id}/autosaves                         | Todo
+/wp/v2/templates/{parent}/autosaves/{id}                | Todo
+/wp/v2/templates/{parent}/revisions                     | Todo
+/wp/v2/templates/{parent}/revisions/{id}                | Todo
 /wp/v2/themes                                           | Todo
 /wp/v2/themes/{stylesheet}                              | Todo
 /wp/v2/types                                            | `WP_REST_API_Types`
@@ -84,6 +96,12 @@ Route                                                   | Schema
 /wp/v2/users/({id}\|me)/application-passwords           | `WP_REST_API_Application_Passwords`
 /wp/v2/users/({id}\|me)/application-passwords/{uuid}    | `WP_REST_API_Application_Password`
 /wp/v2/users/({id}\|me)/application-passwords/introspect| `WP_REST_API_Application_Password`
+/wp/v2/widget-types                                     | Todo
+/wp/v2/widget-types/{id}                                | Todo
+/wp/v2/widget-types/{id}/encode                         | Todo
+/wp/v2/widget-types/{id}/render                         | Todo
+/wp/v2/widgets                                          | Todo
+/wp/v2/widgets/{id}                                     | Todo
 Any REST API error                                      | `WP_REST_API_Error`
 
 The REST API schemas use JSON Hyper-Schema.
