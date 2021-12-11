@@ -1,8 +1,6 @@
 [
     "/wp/v2",
     "/wp/v2/block-directory/search",
-    "/wp/v2/block-navigation-areas",
-    "/wp/v2/block-navigation-areas/(?P<area>[\\w-]+)",
     "/wp/v2/block-renderer/(?P<name>[a-z0-9-]+/[a-z0-9-]+)",
     "/wp/v2/block-types",
     "/wp/v2/block-types/(?P<namespace>[a-zA-Z0-9_-]+)",
