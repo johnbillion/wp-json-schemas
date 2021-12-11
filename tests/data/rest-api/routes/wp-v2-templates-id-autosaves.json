@@ -50,12 +50,35 @@
                     "type": "string",
                     "required": false
                 },
+                "type": {
+                    "description": "Type of template.",
+                    "type": "string",
+                    "required": false
+                },
                 "content": {
                     "description": "Content of template.",
                     "type": [
                         "object",
                         "string"
                     ],
+                    "properties": {
+                        "raw": {
+                            "description": "Content for the template, as it exists in the database.",
+                            "type": "string",
+                            "context": [
+                                "view",
+                                "edit"
+                            ]
+                        },
+                        "block_version": {
+                            "description": "Version of the content block format used by the template.",
+                            "type": "integer",
+                            "context": [
+                                "edit"
+                            ],
+                            "readonly": true
+                        }
+                    },
                     "required": false
                 },
                 "title": {
@@ -64,6 +87,27 @@
                         "object",
                         "string"
                     ],
+                    "properties": {
+                        "raw": {
+                            "description": "Title for the template, as it exists in the database.",
+                            "type": "string",
+                            "context": [
+                                "view",
+                                "edit",
+                                "embed"
+                            ]
+                        },
+                        "rendered": {
+                            "description": "HTML title for the template, transformed for display.",
+                            "type": "string",
+                            "context": [
+                                "view",
+                                "edit",
+                                "embed"
+                            ],
+                            "readonly": true
+                        }
+                    },
                     "required": false
                 },
                 "description": {
@@ -74,6 +118,18 @@
                 "status": {
                     "description": "Status of template.",
                     "type": "string",
+                    "enum": [
+                        "publish",
+                        "future",
+                        "draft",
+                        "pending",
+                        "private"
+                    ],
+                    "required": false
+                },
+                "author": {
+                    "description": "The ID for the author of the template.",
+                    "type": "integer",
                     "required": false
                 }
             }
