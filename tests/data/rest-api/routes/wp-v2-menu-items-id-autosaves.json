@@ -114,7 +114,7 @@
                     "required": false
                 },
                 "object": {
-                    "description": "The type of object originally represented, such as \"category,\" \"post\", or \"attachment.\"",
+                    "description": "The type of object originally represented, such as \"category\", \"post\", or \"attachment\".",
                     "type": "string",
                     "required": false
                 },
