@@ -2827,7 +2827,11 @@ export interface WP_REST_API_Settings {
 	/**
 	 * Site logo.
 	 */
-	site_logo?: number | null;
+	site_logo: number | null;
+	/**
+	 * Site icon.
+	 */
+	site_icon: number | null;
 }
 /**
  * A taxonomy in a REST API context.

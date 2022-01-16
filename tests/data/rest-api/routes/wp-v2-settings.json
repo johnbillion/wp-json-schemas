@@ -97,6 +97,11 @@
                     "description": "Site logo.",
                     "type": "integer",
                     "required": false
+                },
+                "site_icon": {
+                    "description": "Site icon.",
+                    "type": "integer",
+                    "required": false
                 }
             }
         }
