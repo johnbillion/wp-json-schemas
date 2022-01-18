@@ -21,6 +21,9 @@
 		"wp-cli/language-command": "^2"
 	},
 	"config": {
+		"allow-plugins": {
+			"roots/wordpress-core-installer": true
+		},
 		"preferred-install": "dist",
 		"sort-packages": true
 	},
