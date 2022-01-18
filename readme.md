@@ -141,6 +141,19 @@ Enums are provided for various values:
 npm install wp-json-schemas
 ```
 
+### Versioning
+
+This package is versioned so that you can specify both the schema version and the WordPress branch version in a way that's compatible with semantic versioning. Given version `x.y.z`:
+
+* The major version number (`x`) indicates the schema version number, currently `3`
+* The minor version number (`y`) indicates the WordPress branch version number without its decimal place, currently `58`
+* The patch version number (`z`) indicates the schema patch version number
+
+Examples:
+
+* `~3.58.0` - Schema version 3 for WordPress 5.8
+* `^3.0.0` - Schema version 3 for the latest WordPress version
+
 ## Usage
 
 Usage depends on what you're doing with the schemas. You could use them for validation or just for understanding the shape of an object.
