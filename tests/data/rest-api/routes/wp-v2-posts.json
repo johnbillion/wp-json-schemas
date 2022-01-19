@@ -207,15 +207,6 @@
                                     "description": "Whether to include child terms in the terms limiting the result set.",
                                     "type": "boolean",
                                     "default": false
-                                },
-                                "operator": {
-                                    "description": "Whether items must be assigned all or any of the specified terms.",
-                                    "type": "string",
-                                    "enum": [
-                                        "AND",
-                                        "OR"
-                                    ],
-                                    "default": "OR"
                                 }
                             },
                             "additionalProperties": false
@@ -289,15 +280,6 @@
                                         "type": "integer"
                                     },
                                     "default": []
-                                },
-                                "operator": {
-                                    "description": "Whether items must be assigned all or any of the specified terms.",
-                                    "type": "string",
-                                    "enum": [
-                                        "AND",
-                                        "OR"
-                                    ],
-                                    "default": "OR"
                                 }
                             },
                             "additionalProperties": false

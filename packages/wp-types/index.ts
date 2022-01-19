@@ -841,8 +841,6 @@ export interface WP_Post_Type_Labels {
 	item_reverted_to_draft: string;
 	item_scheduled: string;
 	item_updated: string;
-	item_link: string;
-	item_link_description: string;
 	menu_name: string;
 	name_admin_bar: string;
 }
@@ -1547,8 +1545,6 @@ export interface WP_Taxonomy_Labels {
 	items_list: string;
 	most_used: string;
 	back_to_items: string;
-	item_link: string;
-	item_link_description: string;
 	menu_name: string;
 	name_admin_bar: string;
 }
