@@ -23,6 +23,7 @@
 		"provides_context",
 		"editor_script",
 		"script",
+		"view_script",
 		"editor_style",
 		"style"
 	],
@@ -169,6 +170,13 @@
 		},
 		"script": {
 			"description": "Block type front end script handle.",
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"view_script": {
+			"description": "Public facing script handle.",
 			"type": [
 				"string",
 				"null"

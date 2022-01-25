@@ -10,12 +10,12 @@
             ],
             "args": {
                 "stylesheet": {
-                    "description": "The theme's stylesheet. This uniquely identifies the theme.",
+                    "description": "The theme identifier",
                     "type": "string",
                     "required": false
                 }
             }
         }
     ],
-    "route": "/wp/v2/themes/(?P<stylesheet>[^\\/:<>\\*\\?\"\\|]+(?:\\/[^\\/:<>\\*\\?\"\\|]+)?)"
+    "route": "/wp/v2/global-styles/themes/(?P<stylesheet>[^\\/:<>\\*\\?\"\\|]+(?:\\/[^\\/:<>\\*\\?\"\\|]+)?)"
 }

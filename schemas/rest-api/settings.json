@@ -18,7 +18,9 @@
 		"default_post_format",
 		"posts_per_page",
 		"default_ping_status",
-		"default_comment_status"
+		"default_comment_status",
+		"site_logo",
+		"site_icon"
 	],
 	"properties": {
 		"$schema": {
@@ -101,6 +103,13 @@
 				"null"
 			],
 			"description": "Site logo."
+		},
+		"site_icon": {
+			"type": [
+				"integer",
+				"null"
+			],
+			"description": "Site icon."
 		}
 	}
 }

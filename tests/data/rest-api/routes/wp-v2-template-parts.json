@@ -140,6 +140,11 @@
                     "description": "The ID for the author of the template.",
                     "type": "integer",
                     "required": false
+                },
+                "area": {
+                    "description": "Where the template part is intended for use (header, footer, etc.)",
+                    "type": "string",
+                    "required": false
                 }
             }
         }
@@ -147,9 +152,9 @@
     "_links": {
         "self": [
             {
-                "href": "http://example.org/wp-json/wp/v2/templates"
+                "href": "http://example.org/wp-json/wp/v2/template-parts"
             }
         ]
     },
-    "route": "/wp/v2/templates"
+    "route": "/wp/v2/template-parts"
 }

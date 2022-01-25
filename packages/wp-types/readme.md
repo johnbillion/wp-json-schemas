@@ -48,10 +48,26 @@ Route                                                   | Schema
 /wp/v2/categories/{id}                                  | `WP_REST_API_Category`
 /wp/v2/comments                                         | `WP_REST_API_Comments`
 /wp/v2/comments/{id}                                    | `WP_REST_API_Comment`
+/wp/v2/global-styles                                    | Todo
+/wp/v2/global-styles/themes/{stylesheet}                | Todo
 /wp/v2/media                                            | `WP_REST_API_Attachments`
 /wp/v2/media/{id}                                       | `WP_REST_API_Attachment`
 /wp/v2/media/{id}/edit                                  | Todo
 /wp/v2/media/{id}/post-process                          | Todo
+/wp/v2/menu-items                                       | Todo
+/wp/v2/menu-items/{id}                                  | Todo
+/wp/v2/menu-items/{id}/autosaves                        | Todo
+/wp/v2/menu-items/{parent}/autosaves/{id}               | Todo
+/wp/v2/menu-locations                                   | Todo
+/wp/v2/menu-locations/{location}                        | Todo
+/wp/v2/menus                                            | Todo
+/wp/v2/menus/{id}                                       | Todo
+/wp/v2/navigation                                       | Todo
+/wp/v2/navigation/{id}                                  | Todo
+/wp/v2/navigation/{id}/autosaves                        | Todo
+/wp/v2/navigation/{parent}/autosaves/{id}               | Todo
+/wp/v2/navigation/{parent}/revisions                    | Todo
+/wp/v2/navigation/{parent}/revisions/{id}               | Todo
 /wp/v2/pages                                            | `WP_REST_API_Posts`
 /wp/v2/pages/{id}                                       | `WP_REST_API_Post`
 /wp/v2/pages/{id}/autosaves                             | Todo
@@ -83,6 +99,12 @@ Route                                                   | Schema
 /wp/v2/templates/{parent}/autosaves/{id}                | Todo
 /wp/v2/templates/{parent}/revisions                     | Todo
 /wp/v2/templates/{parent}/revisions/{id}                | Todo
+/wp/v2/template-parts                                   | Todo
+/wp/v2/template-parts/{id}                              | Todo
+/wp/v2/template-parts/{id}/autosaves                    | Todo
+/wp/v2/template-parts/{parent}/autosaves/{id}           | Todo
+/wp/v2/template-parts/{parent}/revisions                | Todo
+/wp/v2/template-parts/{parent}/revisions/{id}           | Todo
 /wp/v2/themes                                           | Todo
 /wp/v2/themes/{stylesheet}                              | Todo
 /wp/v2/types                                            | `WP_REST_API_Types`
@@ -95,6 +117,7 @@ Route                                                   | Schema
 /wp/v2/widget-types                                     | Todo
 /wp/v2/widget-types/{id}                                | Todo
 /wp/v2/widget-types/{id}/encode                         | Todo
+/wp/v2/widget-types/{id}/render                         | Todo
 /wp/v2/widgets                                          | Todo
 /wp/v2/widgets/{id}                                     | Todo
 Any enveloped REST API response                         | `WP_REST_API_Envelope<T>`

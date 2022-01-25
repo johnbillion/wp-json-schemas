@@ -102,9 +102,18 @@
                             "description": "Title for the post, as it exists in the database.",
                             "type": "string",
                             "context": [
-                                "view",
                                 "edit"
                             ]
+                        },
+                        "rendered": {
+                            "description": "HTML title for the post, transformed for display.",
+                            "type": "string",
+                            "context": [
+                                "view",
+                                "edit",
+                                "embed"
+                            ],
+                            "readonly": true
                         }
                     },
                     "required": false
@@ -117,9 +126,17 @@
                             "description": "Content for the post, as it exists in the database.",
                             "type": "string",
                             "context": [
-                                "view",
                                 "edit"
                             ]
+                        },
+                        "rendered": {
+                            "description": "HTML content for the post, transformed for display.",
+                            "type": "string",
+                            "context": [
+                                "view",
+                                "edit"
+                            ],
+                            "readonly": true
                         },
                         "block_version": {
                             "description": "Version of the content block format used by the post.",
@@ -171,5 +188,5 @@
             }
         }
     ],
-    "route": "/wp/v2/blocks/(?P<id>[\\d]+)"
+    "route": "/wp/v2/navigation/(?P<id>[\\d]+)"
 }

@@ -106,12 +106,41 @@
                     },
                     "required": false
                 },
+                "capabilities": {
+                    "description": "Limit result set to users matching at least one specific capability provided. Accepts csv list or single capability.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "required": false
+                },
                 "who": {
                     "description": "Limit result set to users who are considered authors.",
                     "type": "string",
                     "enum": [
                         "authors"
                     ],
+                    "required": false
+                },
+                "has_published_posts": {
+                    "description": "Limit result set to users who have published posts.",
+                    "type": [
+                        "boolean",
+                        "array"
+                    ],
+                    "items": {
+                        "type": "string",
+                        "enum": {
+                            "post": "post",
+                            "page": "page",
+                            "attachment": "attachment",
+                            "nav_menu_item": "nav_menu_item",
+                            "wp_block": "wp_block",
+                            "wp_template": "wp_template",
+                            "wp_template_part": "wp_template_part",
+                            "wp_navigation": "wp_navigation"
+                        }
+                    },
                     "required": false
                 }
             }

@@ -2,7 +2,10 @@
     "namespace": "wp/v2",
     "methods": [
         "GET",
-        "POST"
+        "POST",
+        "PUT",
+        "PATCH",
+        "DELETE"
     ],
     "endpoints": [
         {
@@ -10,6 +13,11 @@
                 "GET"
             ],
             "args": {
+                "id": {
+                    "description": "The id of a template",
+                    "type": "string",
+                    "required": false
+                },
                 "context": {
                     "description": "Scope under which the request is made; determines fields present in response.",
                     "type": "string",
@@ -20,35 +28,27 @@
                     ],
                     "default": "view",
                     "required": false
-                },
-                "wp_id": {
-                    "description": "Limit to the specified post id.",
-                    "type": "integer",
-                    "required": false
-                },
-                "area": {
-                    "description": "Limit to the specified template part area.",
-                    "type": "string",
-                    "required": false
-                },
-                "post_type": {
-                    "description": "Post type to get the templates for.",
-                    "type": "string",
-                    "required": false
                 }
             }
         },
         {
             "methods": [
-                "POST"
+                "POST",
+                "PUT",
+                "PATCH"
             ],
             "args": {
+                "id": {
+                    "description": "The id of a template",
+                    "type": "string",
+                    "required": false
+                },
                 "slug": {
                     "description": "Unique slug identifying the template.",
                     "type": "string",
                     "minLength": 1,
                     "pattern": "[a-zA-Z0-9_\\-]+",
-                    "required": true
+                    "required": false
                 },
                 "theme": {
                     "description": "Theme identifier for the template.",
@@ -61,7 +61,6 @@
                     "required": false
                 },
                 "content": {
-                    "default": "",
                     "description": "Content of template.",
                     "type": [
                         "object",
@@ -88,7 +87,6 @@
                     "required": false
                 },
                 "title": {
-                    "default": "",
                     "description": "Title of template.",
                     "type": [
                         "object",
@@ -118,13 +116,11 @@
                     "required": false
                 },
                 "description": {
-                    "default": "",
                     "description": "Description of template.",
                     "type": "string",
                     "required": false
                 },
                 "status": {
-                    "default": "publish",
                     "description": "Status of template.",
                     "type": "string",
                     "enum": [
@@ -140,16 +136,32 @@
                     "description": "The ID for the author of the template.",
                     "type": "integer",
                     "required": false
+                },
+                "area": {
+                    "description": "Where the template part is intended for use (header, footer, etc.)",
+                    "type": "string",
+                    "required": false
+                }
+            }
+        },
+        {
+            "methods": [
+                "DELETE"
+            ],
+            "args": {
+                "id": {
+                    "description": "The id of a template",
+                    "type": "string",
+                    "required": false
+                },
+                "force": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Whether to bypass Trash and force deletion.",
+                    "required": false
                 }
             }
         }
     ],
-    "_links": {
-        "self": [
-            {
-                "href": "http://example.org/wp-json/wp/v2/templates"
-            }
-        ]
-    },
-    "route": "/wp/v2/templates"
+    "route": "/wp/v2/template-parts/(?P<id>([^\\/:<>\\*\\?\"\\|]+(?:\\/[^\\/:<>\\*\\?\"\\|]+)?)[\\/\\w-]+)"
 }

@@ -62,6 +62,11 @@
                     "default": [],
                     "required": false
                 },
+                "offset": {
+                    "description": "Offset the result set by a specific number of items.",
+                    "type": "integer",
+                    "required": false
+                },
                 "order": {
                     "description": "Order sort attribute ascending or descending.",
                     "type": "string",
@@ -92,11 +97,6 @@
                     "description": "Whether to hide terms not assigned to any posts.",
                     "type": "boolean",
                     "default": false,
-                    "required": false
-                },
-                "parent": {
-                    "description": "Limit result set to terms assigned to a specific parent.",
-                    "type": "integer",
                     "required": false
                 },
                 "post": {
@@ -138,15 +138,23 @@
                     "type": "string",
                     "required": false
                 },
-                "parent": {
-                    "description": "The parent term ID.",
-                    "type": "integer",
-                    "required": false
-                },
                 "meta": {
                     "description": "Meta fields.",
                     "type": "object",
                     "properties": [],
+                    "required": false
+                },
+                "locations": {
+                    "description": "The locations assigned to the menu.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "required": false
+                },
+                "auto_add": {
+                    "description": "Whether to automatically add top level pages to this menu.",
+                    "type": "boolean",
                     "required": false
                 }
             }
@@ -155,9 +163,9 @@
     "_links": {
         "self": [
             {
-                "href": "http://example.org/wp-json/wp/v2/categories"
+                "href": "http://example.org/wp-json/wp/v2/menus"
             }
         ]
     },
-    "route": "/wp/v2/categories"
+    "route": "/wp/v2/menus"
 }

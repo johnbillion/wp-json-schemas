@@ -302,6 +302,10 @@ export interface WP_Block_Type {
 	 */
 	script: string | null;
 	/**
+	 * Public facing script handle.
+	 */
+	view_script: string | null;
+	/**
 	 * Block type editor style handle.
 	 */
 	editor_style: string | null | false;
@@ -796,6 +800,10 @@ export interface WP_Post_Type {
 	 * The base path for this post type's REST API endpoints.
 	 */
 	rest_base: string | boolean;
+	/**
+	 * The namespace for this post type's REST API endpoints.
+	 */
+	rest_namespace: string | boolean;
 	/**
 	 * The controller for this post type's REST API endpoints.
 	 */
@@ -1483,6 +1491,10 @@ export interface WP_Taxonomy {
 	 */
 	rest_base: string | boolean;
 	/**
+	 * The namespace for this taxonomy's REST API endpoints.
+	 */
+	rest_namespace: string | boolean;
+	/**
 	 * The controller for this taxonomy's REST API endpoints.
 	 *
 	 * Custom controllers must extend WP_REST_Controller.
@@ -1525,6 +1537,7 @@ export interface WP_Taxonomy {
  */
 export interface WP_Taxonomy_Labels {
 	name: string;
+	name_field_description: string | null;
 	singular_name: string;
 	search_items: string;
 	popular_items: string | null;
@@ -1532,6 +1545,9 @@ export interface WP_Taxonomy_Labels {
 	archives?: string;
 	parent_item: string | null;
 	parent_item_colon: string | null;
+	parent_field_description: string | null;
+	slug_field_description: string | null;
+	desc_field_description: string | null;
 	edit_item: string;
 	view_item: string;
 	update_item: string;
@@ -2811,7 +2827,11 @@ export interface WP_REST_API_Settings {
 	/**
 	 * Site logo.
 	 */
-	site_logo?: number | null;
+	site_logo: number | null;
+	/**
+	 * Site icon.
+	 */
+	site_icon: number | null;
 }
 /**
  * A taxonomy in a REST API context.

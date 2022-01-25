@@ -9,6 +9,9 @@
             "methods": [
                 "GET"
             ],
+            "allow_batch": {
+                "v1": true
+            },
             "args": {
                 "context": {
                     "description": "Scope under which the request is made; determines fields present in response.",
@@ -32,6 +35,9 @@
             "methods": [
                 "POST"
             ],
+            "allow_batch": {
+                "v1": true
+            },
             "args": {
                 "id": {
                     "description": "Unique identifier for the widget.",
@@ -57,27 +63,21 @@
                             "description": "Base64 encoded representation of the instance settings.",
                             "type": "string",
                             "context": [
-                                "view",
-                                "edit",
-                                "embed"
+                                "edit"
                             ]
                         },
                         "hash": {
                             "description": "Cryptographic hash of the instance settings.",
                             "type": "string",
                             "context": [
-                                "view",
-                                "edit",
-                                "embed"
+                                "edit"
                             ]
                         },
                         "raw": {
                             "description": "Unencoded instance settings, if supported.",
                             "type": "object",
                             "context": [
-                                "view",
-                                "edit",
-                                "embed"
+                                "edit"
                             ]
                         }
                     },

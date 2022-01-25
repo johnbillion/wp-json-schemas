@@ -2,22 +2,16 @@
     "namespace": "wp/v2",
     "methods": [
         "GET",
-        "POST",
-        "PUT",
-        "PATCH",
-        "DELETE"
+        "POST"
     ],
     "endpoints": [
         {
             "methods": [
                 "GET"
             ],
-            "allow_batch": {
-                "v1": true
-            },
             "args": {
-                "id": {
-                    "description": "Unique identifier for the post.",
+                "parent": {
+                    "description": "The ID for the parent of the autosave.",
                     "type": "integer",
                     "required": false
                 },
@@ -31,26 +25,16 @@
                     ],
                     "default": "view",
                     "required": false
-                },
-                "password": {
-                    "description": "The password for the post if it is password protected.",
-                    "type": "string",
-                    "required": false
                 }
             }
         },
         {
             "methods": [
-                "POST",
-                "PUT",
-                "PATCH"
+                "POST"
             ],
-            "allow_batch": {
-                "v1": true
-            },
             "args": {
-                "id": {
-                    "description": "Unique identifier for the post.",
+                "parent": {
+                    "description": "The ID for the parent of the autosave.",
                     "type": "integer",
                     "required": false
                 },
@@ -102,9 +86,18 @@
                             "description": "Title for the post, as it exists in the database.",
                             "type": "string",
                             "context": [
-                                "view",
                                 "edit"
                             ]
+                        },
+                        "rendered": {
+                            "description": "HTML title for the post, transformed for display.",
+                            "type": "string",
+                            "context": [
+                                "view",
+                                "edit",
+                                "embed"
+                            ],
+                            "readonly": true
                         }
                     },
                     "required": false
@@ -117,9 +110,17 @@
                             "description": "Content for the post, as it exists in the database.",
                             "type": "string",
                             "context": [
-                                "view",
                                 "edit"
                             ]
+                        },
+                        "rendered": {
+                            "description": "HTML content for the post, transformed for display.",
+                            "type": "string",
+                            "context": [
+                                "view",
+                                "edit"
+                            ],
+                            "readonly": true
                         },
                         "block_version": {
                             "description": "Version of the content block format used by the post.",
@@ -148,28 +149,7 @@
                     "required": false
                 }
             }
-        },
-        {
-            "methods": [
-                "DELETE"
-            ],
-            "allow_batch": {
-                "v1": true
-            },
-            "args": {
-                "id": {
-                    "description": "Unique identifier for the post.",
-                    "type": "integer",
-                    "required": false
-                },
-                "force": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Whether to bypass Trash and force deletion.",
-                    "required": false
-                }
-            }
         }
     ],
-    "route": "/wp/v2/blocks/(?P<id>[\\d]+)"
+    "route": "/wp/v2/navigation/(?P<id>[\\d]+)/autosaves"
 }

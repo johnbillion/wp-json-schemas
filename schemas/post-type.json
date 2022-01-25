@@ -36,6 +36,7 @@
 		"rewrite",
 		"show_in_rest",
 		"rest_base",
+		"rest_namespace",
 		"rest_controller_class",
 		"rest_controller"
 	],
@@ -237,6 +238,13 @@
 		},
 		"rest_base": {
 			"description": "The base path for this post type's REST API endpoints.",
+			"type": [
+				"string",
+				"boolean"
+			]
+		},
+		"rest_namespace": {
+			"description": "The namespace for this post type's REST API endpoints.",
 			"type": [
 				"string",
 				"boolean"
