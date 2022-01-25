@@ -1,6 +1,6 @@
 {
 	"name": "wp-json-schemas",
-	"version": "3.58.0",
+	"version": "3.59.0",
 	"description": "JSON schemas for WordPress PHP objects and REST API responses",
 	"main": "schema.json",
 	"files": [
