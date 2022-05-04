@@ -3,8 +3,6 @@
 namespace WPJsonSchemas;
 
 use WP_CLI;
-use WP_Error;
-use WP_Query;
 use WP_REST_Request;
 use WP_REST_Response;
 
