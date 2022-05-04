@@ -14,10 +14,10 @@ if ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) {
 	return;
 }
 
-set_error_handler( function( int $errno, string $errstr, string $errfile = '', int $errline = 0 ) {
+set_error_handler( function( int $errno, string $errstr, string $errfile = '', int $errline = 0 ) : bool {
 	// This is an @-suppressed error:
-	if ( 0 === error_reporting() ) {
-		return;
+	if ( ! ( error_reporting() & $errno ) ) {
+		return false;
 	}
 
 	// Throw all other errors as an exception:
