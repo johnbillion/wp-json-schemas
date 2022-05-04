@@ -10,6 +10,7 @@
 		"title",
 		"category",
 		"parent",
+		"ancestor",
 		"icon",
 		"description",
 		"keywords",
@@ -53,6 +54,16 @@
 		},
 		"parent": {
 			"description": "Setting parent lets a block require that it is only available when nested within the specified blocks.",
+			"type": [
+				"array",
+				"null"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
+		"ancestor": {
+			"description": "Setting ancestor makes a block available only inside the specified block types at any position of the ancestor's block subtree.",
 			"type": [
 				"array",
 				"null"
