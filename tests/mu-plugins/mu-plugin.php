@@ -14,6 +14,16 @@ if ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) {
 	return;
 }
 
+set_error_handler( function( int $errno, string $errstr, string $errfile = '', int $errline = 0 ) {
+	// This is an @-suppressed error:
+	if ( 0 === error_reporting() ) {
+		return;
+	}
+
+	// Throw all other errors as an exception:
+	throw new \Exception( $errstr );
+} );
+
 add_action( 'init', function() : void {
 	// Ensure we're authenticated as an admin during test data generation.
 	grant_super_admin( 1 );
