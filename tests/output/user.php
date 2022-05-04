@@ -16,6 +16,7 @@ array_map(
 			'user-%s@example.net',
 			$role->name
 		);
+		$args->user_pass = '123';
 
 		$user = wp_insert_user( $args->toArray() );
 
