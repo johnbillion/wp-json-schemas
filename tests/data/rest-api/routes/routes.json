@@ -1,6 +1,8 @@
 [
     "/wp/v2",
     "/wp/v2/block-directory/search",
+    "/wp/v2/block-patterns/categories",
+    "/wp/v2/block-patterns/patterns",
     "/wp/v2/block-renderer/(?P<name>[a-z0-9-]+/[a-z0-9-]+)",
     "/wp/v2/block-types",
     "/wp/v2/block-types/(?P<namespace>[a-zA-Z0-9_-]+)",
@@ -16,6 +18,7 @@
     "/wp/v2/comments",
     "/wp/v2/comments/(?P<id>[\\d]+)",
     "/wp/v2/global-styles/(?P<id>[\\/\\w-]+)",
+    "/wp/v2/global-styles/themes/(?P<stylesheet>[\\/\\s%\\w\\.\\(\\)\\[\\]\\@_\\-]+)/variations",
     "/wp/v2/global-styles/themes/(?P<stylesheet>[^\\/:<>\\*\\?\"\\|]+(?:\\/[^\\/:<>\\*\\?\"\\|]+)?)",
     "/wp/v2/media",
     "/wp/v2/media/(?P<id>[\\d]+)",

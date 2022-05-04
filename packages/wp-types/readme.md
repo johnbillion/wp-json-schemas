@@ -34,6 +34,8 @@ The definitions were last updated for WordPress 6.0.
 Route                                                   | Schema
 ------------------------------------------------------- | ------
 /wp/v2/block-directory/search                           | `WP_REST_API_Block_Directory_Items`
+/wp/v2/block-patterns/categories                        | Todo
+/wp/v2/block-patterns/patterns                          | Todo
 /wp/v2/block-renderer/{name}                            | `WP_REST_API_Rendered_Block`
 /wp/v2/block-types                                      | `WP_REST_API_Block_Types`
 /wp/v2/block-types/{namespace}                          | `WP_REST_API_Block_Type`
@@ -49,6 +51,7 @@ Route                                                   | Schema
 /wp/v2/comments                                         | `WP_REST_API_Comments`
 /wp/v2/comments/{id}                                    | `WP_REST_API_Comment`
 /wp/v2/global-styles                                    | Todo
+/wp/v2/global-styles/themes/{stylesheet}/variations     | Todo
 /wp/v2/global-styles/themes/{stylesheet}                | Todo
 /wp/v2/media                                            | `WP_REST_API_Attachments`
 /wp/v2/media/{id}                                       | `WP_REST_API_Attachment`
