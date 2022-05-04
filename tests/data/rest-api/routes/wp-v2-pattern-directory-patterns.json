@@ -14,7 +14,8 @@
                     "type": "string",
                     "enum": [
                         "view",
-                        "embed"
+                        "embed",
+                        "edit"
                     ],
                     "default": "view",
                     "required": false
@@ -35,6 +36,11 @@
                     "description": "Limit results to those matching a keyword ID.",
                     "type": "integer",
                     "minimum": 1,
+                    "required": false
+                },
+                "slug": {
+                    "description": "Limit results to those matching a pattern (slug).",
+                    "type": "array",
                     "required": false
                 }
             }
