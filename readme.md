@@ -1,6 +1,6 @@
 [![](https://img.shields.io/badge/npm-wp--json--schemas-9966ff.svg?style=flat-square)](https://www.npmjs.com/package/wp-json-schemas)
 [![](https://img.shields.io/badge/npm-wp--types-9966ff.svg?style=flat-square)](https://www.npmjs.com/package/wp-types)
-[![](https://img.shields.io/github/workflow/status/johnbillion/wp-json-schemas/Test/master?style=flat-square)](https://github.com/johnbillion/wp-json-schemas/actions)
+[![](https://img.shields.io/github/workflow/status/johnbillion/wp-json-schemas/Test/trunk?style=flat-square)](https://github.com/johnbillion/wp-json-schemas/actions)
 
 # WordPress JSON Schemas
 
@@ -189,7 +189,7 @@ If you're using TypeScript, check out [the TypeScript definitions provided by th
 
 ### When do these schemas apply?
 
-The PHP object schemas apply whenever a supported PHP object is represented as JSON. For example:
+The PHP object schemas apply whenever a supported PHP object is encoded to JSON. For example:
 
 ```php
 printf(
@@ -221,10 +221,6 @@ No. I started down that path (using [wp-parser-lib](https://github.com/johnbilli
 ### How do I know the schemas are accurate?
 
 They're all tested against actual output from WordPress core.
-
-### Why aren't the descriptions very good?
-
-The descriptions are mostly copied from WordPress core. I'll update the descriptions in this schema as they're improved in core.
 
 ## Tests
 

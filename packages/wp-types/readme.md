@@ -228,7 +228,7 @@ api.catch( ( error: WP_REST_API_Error ) => {
 
 ### When do these definitions apply?
 
-The PHP object definitions apply whenever a supported PHP object is represented as JSON. How you do that depends on your application, but here is an example:
+The PHP object schemas apply whenever a supported PHP object is encoded to JSON. For example:
 
 ```php
 printf(
@@ -237,7 +237,13 @@ printf(
 );
 ```
 
-The REST API object definitions apply to the response to a REST API request, for example when using `apiFetch()`.
+The REST API object schemas apply to the response to a REST API request. For example:
+
+```js
+const api = wp.apiFetch( {
+	path: '/wp/v2/categories/'
+} );
+```
 
 The definitions also apply outside of the browser, for example if you're saving data as JSON and reading it in a Node application.
 
