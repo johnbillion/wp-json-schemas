@@ -3,8 +3,6 @@
 namespace WPJsonSchemas;
 
 use WP_CLI;
-use WP_Error;
-use WP_Query;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -15,6 +13,16 @@ if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
 if ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) {
 	return;
 }
+
+set_error_handler( function( int $errno, string $errstr, string $errfile = '', int $errline = 0 ) : bool {
+	// This is an @-suppressed error:
+	if ( ! ( error_reporting() & $errno ) ) {
+		return false;
+	}
+
+	// Throw all other errors as an exception:
+	throw new \Exception( $errstr );
+} );
 
 add_action( 'init', function() : void {
 	// Ensure we're authenticated as an admin during test data generation.

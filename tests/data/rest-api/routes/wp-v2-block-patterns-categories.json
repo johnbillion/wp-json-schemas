@@ -1,0 +1,22 @@
+{
+    "namespace": "wp/v2",
+    "methods": [
+        "GET"
+    ],
+    "endpoints": [
+        {
+            "methods": [
+                "GET"
+            ],
+            "args": []
+        }
+    ],
+    "_links": {
+        "self": [
+            {
+                "href": "http://example.org/wp-json/wp/v2/block-patterns/categories"
+            }
+        ]
+    },
+    "route": "/wp/v2/block-patterns/categories"
+}

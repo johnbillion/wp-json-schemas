@@ -8,6 +8,7 @@
 		"weekday",
 		"weekday_initial",
 		"weekday_abbrev",
+		"list_item_separator",
 		"month",
 		"month_genitive",
 		"month_abbrev",
@@ -40,6 +41,10 @@
 			"additionalProperties": {
 				"type": "string"
 			}
+		},
+		"list_item_separator": {
+			"description": "The separator string used for localizing list item separator.",
+			"type": "string"
 		},
 		"month": {
 			"description": "Stores the translated strings for the full month names.",

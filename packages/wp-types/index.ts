@@ -235,6 +235,10 @@ export interface WP_Block_Type {
 	 */
 	parent: string[] | null;
 	/**
+	 * Setting ancestor makes a block available only inside the specified block types at any position of the ancestor's block subtree.
+	 */
+	ancestor: string[] | null;
+	/**
 	 * Block type icon.
 	 */
 	icon: string | null;
@@ -491,6 +495,10 @@ export interface WP_Locale {
 	weekday_abbrev: {
 		[k: string]: string;
 	};
+	/**
+	 * The separator string used for localizing list item separator.
+	 */
+	list_item_separator: string;
 	/**
 	 * Stores the translated strings for the full month names.
 	 */
