@@ -22,11 +22,11 @@
 		"attributes",
 		"uses_context",
 		"provides_context",
-		"editor_script",
-		"script",
-		"view_script",
-		"editor_style",
-		"style"
+		"editor_script_handles",
+		"script_handles",
+		"view_script_handles",
+		"editor_style_handles",
+		"style_handles"
 	],
 	"properties": {
 		"$schema": {
@@ -179,6 +179,13 @@
 				"null"
 			]
 		},
+		"editor_script_handles": {
+			"description": "Block type editor only script handles.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
 		"script": {
 			"description": "Block type front end script handle.",
 			"type": [
@@ -186,12 +193,26 @@
 				"null"
 			]
 		},
+		"script_handles": {
+			"description": "Block type front end and editor script handles.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
 		"view_script": {
 			"description": "Public facing script handle.",
 			"type": [
 				"string",
 				"null"
 			]
+		},
+		"view_script_handles": {
+			"description": "Block type front end only script handles.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
 		},
 		"editor_style": {
 			"description": "Block type editor style handle.",
@@ -209,6 +230,13 @@
 				}
 			]
 		},
+		"editor_style_handles": {
+			"description": "Block type editor only style handles.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
 		"style": {
 			"description": "Block type front end style handle.",
 			"oneOf": [
@@ -224,6 +252,13 @@
 					]
 				}
 			]
+		},
+		"style_handles": {
+			"description": "Block type front end and editor style handles.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
 		},
 		"skip_inner_blocks": {
 			"type": "boolean"

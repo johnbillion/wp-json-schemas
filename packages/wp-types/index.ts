@@ -300,23 +300,43 @@ export interface WP_Block_Type {
 	/**
 	 * Block type editor script handle.
 	 */
-	editor_script: string | null;
+	editor_script?: string | null;
+	/**
+	 * Block type editor only script handles.
+	 */
+	editor_script_handles: string[];
 	/**
 	 * Block type front end script handle.
 	 */
-	script: string | null;
+	script?: string | null;
+	/**
+	 * Block type front end and editor script handles.
+	 */
+	script_handles: string[];
 	/**
 	 * Public facing script handle.
 	 */
-	view_script: string | null;
+	view_script?: string | null;
+	/**
+	 * Block type front end only script handles.
+	 */
+	view_script_handles: string[];
 	/**
 	 * Block type editor style handle.
 	 */
-	editor_style: string | null | false;
+	editor_style?: string | null | false;
+	/**
+	 * Block type editor only style handles.
+	 */
+	editor_style_handles: string[];
 	/**
 	 * Block type front end style handle.
 	 */
-	style: string | null | false;
+	style?: string | null | false;
+	/**
+	 * Block type front end and editor style handles.
+	 */
+	style_handles: string[];
 	skip_inner_blocks?: boolean;
 }
 /**
