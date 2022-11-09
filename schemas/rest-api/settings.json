@@ -110,6 +110,26 @@
 				"null"
 			],
 			"description": "Site icon."
+		},
+		"show_on_front": {
+			"type": "string",
+			"enum": [
+				"posts",
+				"page"
+			],
+			"description": "What to show on the front page."
+		},
+		"page_on_front": {
+			"type": [
+				"integer"
+			],
+			"description": "The ID of the page that should be displayed on the front page."
+		},
+		"page_for_posts": {
+			"type": [
+				"integer"
+			],
+			"description": "The ID of the page that should display the latest posts."
 		}
 	}
 }

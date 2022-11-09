@@ -2840,6 +2840,18 @@ export interface WP_REST_API_Settings {
 	 * Site icon.
 	 */
 	site_icon: number | null;
+	/**
+	 * What to show on the front page.
+	 */
+	show_on_front?: "posts" | "page";
+	/**
+	 * The ID of the page that should be displayed on the front page.
+	 */
+	page_on_front?: number;
+	/**
+	 * The ID of the page that should display the latest posts.
+	 */
+	page_for_posts?: number;
 }
 /**
  * A taxonomy in a REST API context.
