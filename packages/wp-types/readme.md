@@ -108,6 +108,7 @@ Route                                                   | Schema
 /wp/v2/template-parts/{parent}/autosaves/{id}           | Todo
 /wp/v2/template-parts/{parent}/revisions                | Todo
 /wp/v2/template-parts/{parent}/revisions/{id}           | Todo
+/wp/v2/template-parts/lookup                            | Todo
 /wp/v2/themes                                           | Todo
 /wp/v2/themes/{stylesheet}                              | Todo
 /wp/v2/types                                            | `WP_REST_API_Types`
