@@ -106,6 +106,7 @@ Route                                                   | Schema
 /wp/v2/templates/{parent}/autosaves/{id}                | Todo
 /wp/v2/templates/{parent}/revisions                     | Todo
 /wp/v2/templates/{parent}/revisions/{id}                | Todo
+/wp/v2/templates/lookup                                 | Todo
 /wp/v2/template-parts                                   | Todo
 /wp/v2/template-parts/{id}                              | Todo
 /wp/v2/template-parts/{id}/autosaves                    | Todo
