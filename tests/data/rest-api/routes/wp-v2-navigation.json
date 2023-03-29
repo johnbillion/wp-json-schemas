@@ -119,6 +119,20 @@
                     ],
                     "required": false
                 },
+                "search_columns": {
+                    "default": [],
+                    "description": "Array of column names to be searched.",
+                    "type": "array",
+                    "items": {
+                        "enum": [
+                            "post_title",
+                            "post_content",
+                            "post_excerpt"
+                        ],
+                        "type": "string"
+                    },
+                    "required": false
+                },
                 "slug": {
                     "description": "Limit result set to posts with one or more specific slugs.",
                     "type": "array",
