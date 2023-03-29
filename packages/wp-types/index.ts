@@ -560,6 +560,10 @@ export interface WP_Locale {
 		thousands_sep: string;
 		decimal_point: string;
 	};
+	/**
+	 * The word count type of the locale language.
+	 */
+	word_count_type: "words" | "characters_excluding_spaces" | "characters_including_spaces";
 }
 /**
  * Core class used for interacting with a multisite network.
