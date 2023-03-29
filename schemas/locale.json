@@ -14,7 +14,8 @@
 		"month_abbrev",
 		"meridiem",
 		"text_direction",
-		"number_format"
+		"number_format",
+		"word_count_type"
 	],
 	"properties": {
 		"$schema": {
@@ -116,6 +117,15 @@
 				}
 			},
 			"additionalProperties": false
+		},
+		"word_count_type": {
+			"description": "The word count type of the locale language.",
+			"type": "string",
+			"enum": [
+				"words",
+				"characters_excluding_spaces",
+				"characters_including_spaces"
+			]
 		}
 	},
 	"additionalProperties": false
