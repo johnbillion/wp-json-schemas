@@ -118,9 +118,19 @@
 		},
 		"example": {
 			"description": "Structured data for the block preview.",
-			"type": [
-				"object",
-				"null"
+			"anyOf": [
+				{
+					"type": "array",
+					"tsType": "[]",
+					"items": {},
+					"additionalItems": false
+				},
+				{
+					"type": "object"
+				},
+				{
+					"type": "null"
+				}
 			]
 		},
 		"render_callback": {

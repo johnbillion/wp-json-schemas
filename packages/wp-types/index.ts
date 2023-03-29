@@ -271,9 +271,12 @@ export interface WP_Block_Type {
 	/**
 	 * Structured data for the block preview.
 	 */
-	example: {
-		[k: string]: unknown;
-	} | null;
+	example:
+		| []
+		| {
+				[k: string]: unknown;
+		  }
+		| null;
 	/**
 	 * Block type render callback.
 	 */
@@ -2401,35 +2404,38 @@ export interface WP_REST_API_Block_Type {
 	/**
 	 * Block example.
 	 */
-	example: {
-		/**
-		 * The attributes used in the example.
-		 */
-		attributes?: {
-			[k: string]: unknown;
-		};
-		/**
-		 * The list of inner blocks used in the example.
-		 */
-		innerBlocks?: {
-			/**
-			 * The name of the inner block.
-			 */
-			name?: string;
-			/**
-			 * The attributes of the inner block.
-			 */
-			attributes?: {
+	example:
+		| []
+		| {
+				/**
+				 * The attributes used in the example.
+				 */
+				attributes?: {
+					[k: string]: unknown;
+				};
+				/**
+				 * The list of inner blocks used in the example.
+				 */
+				innerBlocks?: {
+					/**
+					 * The name of the inner block.
+					 */
+					name?: string;
+					/**
+					 * The attributes of the inner block.
+					 */
+					attributes?: {
+						[k: string]: unknown;
+					};
+					/**
+					 * A list of the inner block's own inner blocks. This is a recursive definition following the parent innerBlocks schema.
+					 */
+					innerBlocks?: unknown[];
+					[k: string]: unknown;
+				}[];
 				[k: string]: unknown;
-			};
-			/**
-			 * A list of the inner block's own inner blocks. This is a recursive definition following the parent innerBlocks schema.
-			 */
-			innerBlocks?: unknown[];
-			[k: string]: unknown;
-		}[];
-		[k: string]: unknown;
-	} | null;
+		  }
+		| null;
 	[k: string]: unknown;
 }
 /**

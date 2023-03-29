@@ -196,37 +196,47 @@
 		},
 		"example": {
 			"description": "Block example.",
-			"type": [
-				"object",
-				"null"
-			],
-			"properties": {
-				"attributes": {
-					"description": "The attributes used in the example.",
-					"type": "object"
-				},
-				"innerBlocks": {
-					"description": "The list of inner blocks used in the example.",
+			"anyOf": [
+				{
 					"type": "array",
-					"items": {
-						"type": "object",
-						"properties": {
-							"name": {
-								"description": "The name of the inner block.",
-								"type": "string"
-							},
-							"attributes": {
-								"description": "The attributes of the inner block.",
-								"type": "object"
-							},
-							"innerBlocks": {
-								"description": "A list of the inner block's own inner blocks. This is a recursive definition following the parent innerBlocks schema.",
-								"type": "array"
+					"tsType": "[]",
+					"items": {},
+					"additionalItems": false
+				},
+				{
+					"type": "object",
+					"properties": {
+						"attributes": {
+							"description": "The attributes used in the example.",
+							"type": "object"
+						},
+						"innerBlocks": {
+							"description": "The list of inner blocks used in the example.",
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"name": {
+										"description": "The name of the inner block.",
+										"type": "string"
+									},
+									"attributes": {
+										"description": "The attributes of the inner block.",
+										"type": "object"
+									},
+									"innerBlocks": {
+										"description": "A list of the inner block's own inner blocks. This is a recursive definition following the parent innerBlocks schema.",
+										"type": "array"
+									}
+								}
 							}
 						}
 					}
+				},
+				{
+					"type": "null"
 				}
-			}
+			]
 		}
 	},
 	"links": [
