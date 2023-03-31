@@ -28,7 +28,6 @@
 		"media_details",
 		"post",
 		"source_url",
-		"missing_image_sizes",
 		"meta",
 		"_links"
 	],
@@ -170,8 +169,15 @@
 			"additionalProperties": false
 		},
 		"media_type": {
+			"description": "Attachment type.",
+			"type": "string",
+			"enum": [
+				"image",
+				"file"
+			]
+		},
+		"mime_type": {
 			"description": "The attachment MIME type.",
-			"pattern": "\\w+/[-+.\\w]+",
 			"type": "string"
 		},
 		"media_details": {
@@ -180,9 +186,16 @@
 		},
 		"post": {
 			"description": "The ID for the associated post of the attachment.",
-			"allOf": [
+			"oneOf": [
 				{
-					"$ref": "post.json#/properties/id"
+					"allOf": [
+						{
+							"$ref": "post.json#/properties/id"
+						}
+					]
+				},
+				{
+					"type": "null"
 				}
 			]
 		},

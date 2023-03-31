@@ -2052,9 +2052,13 @@ export interface WP_REST_API_Attachment {
 		rendered: string;
 	};
 	/**
+	 * Attachment type.
+	 */
+	media_type: "image" | "file";
+	/**
 	 * The attachment MIME type.
 	 */
-	media_type: string;
+	mime_type: string;
 	/**
 	 * Details about the media file, specific to its type.
 	 */
@@ -2064,7 +2068,7 @@ export interface WP_REST_API_Attachment {
 	/**
 	 * The ID for the associated post of the attachment.
 	 */
-	post: number;
+	post: number | null;
 	/**
 	 * URL to the original attachment file.
 	 */
@@ -2072,7 +2076,7 @@ export interface WP_REST_API_Attachment {
 	/**
 	 * List of the missing image sizes of the attachment.  Only present when using the 'edit' context.
 	 */
-	missing_image_sizes: string[];
+	missing_image_sizes?: string[];
 	/**
 	 * Permalink template for the attachment. Only present when using the 'edit' context and the post type is public.
 	 */
