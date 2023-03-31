@@ -14,11 +14,12 @@ function test_missing_properties() {
 }
 
 function validate_schema() {
-	local file="$1"
-	local base=${file#schemas/}
-	local base=${base%.json}
+	local schema="$1"
+	local file="${2:-$schema}"
+	local base=${file//schemas\//}
+	local base=${base/.json/}
 	ls tests/data/${base}/*.json >/dev/null
-	./node_modules/.bin/ajv validate -m tests/hyper-schema/hyper-schema.json -r "schemas/**/*.json" -s "$file" -d "tests/data/${base}/*.json"
+	./node_modules/.bin/ajv validate -m tests/hyper-schema/hyper-schema.json -r "schemas/**/*.json" -s "$schema" -d "tests/data/$base/*.json"
 }
 
 for schema in schemas/*.json schemas/rest-api/*.json
@@ -26,3 +27,6 @@ do
 	test_missing_properties "$schema"
 	validate_schema "$schema"
 done
+
+# Validate the wp/v2/pages response against the posts schema
+validate_schema "schemas/rest-api/posts.json" "rest-api/pages"

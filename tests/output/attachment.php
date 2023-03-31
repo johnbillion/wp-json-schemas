@@ -35,16 +35,16 @@ $attachments = get_posts( [
 
 save_object_array( $attachments, 'attachment' );
 
-$view_data = get_rest_response( 'GET', "/wp/v2/media", [
+$view_data = get_rest_response( 'GET', '/wp/v2/media', [
 	'context' => 'view',
 	'per_page' => 100,
 ] );
-$edit_data = get_rest_response( 'GET', "/wp/v2/media", [
+$edit_data = get_rest_response( 'GET', '/wp/v2/media', [
 	'context' => 'edit',
 	'per_page' => 100,
 ] );
 
-$empty_response = get_rest_response( 'GET', "/wp/v2/media", [
+$empty_response = get_rest_response( 'GET', '/wp/v2/media', [
 	'search' => '1234567890',
 ] );
 

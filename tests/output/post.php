@@ -9,6 +9,12 @@ wp_insert_post( [
 ] );
 
 wp_insert_post( [
+	'post_type'   => 'page',
+	'post_title'  => 'Title',
+	'post_status' => 'draft',
+] );
+
+wp_insert_post( [
 	'post_type'    => 'wp_block',
 	'post_title'   => 'Title',
 	'post_content' => '<!-- wp:paragraph --><p>Hello</p><!-- /wp:paragraph -->',
@@ -18,13 +24,14 @@ wp_insert_post( [
 $posts = get_posts( [
 	'posts_per_page' => -1,
 	'post_status'    => 'any',
+	'post_type'      => \get_post_types(),
 	'orderby'        => 'ID',
 	'order'          => 'ASC',
 ] );
 
 save_object_array( $posts, 'post' );
 
-foreach ( [ 'posts', 'pages', 'media', 'blocks' ] as $type ) {
+foreach ( [ 'posts', 'pages', 'blocks' ] as $type ) {
 	$view_data = get_rest_response( 'GET', "/wp/v2/{$type}", [
 		'context' => 'view',
 		'per_page' => 100,
