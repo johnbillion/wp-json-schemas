@@ -14,6 +14,7 @@ function validate_schema() {
 	local file="${2:-$schema}"
 	local base=${file//schemas\//}
 	local base=${base/.json/}
+	ls tests/data/$base/*.json > /dev/null
 	./node_modules/.bin/ajv validate -m tests/hyper-schema/hyper-schema.json -r "schemas/**/*.json" -s "$schema" -d "tests/data/$base/*.json"
 }
 
