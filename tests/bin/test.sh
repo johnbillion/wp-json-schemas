@@ -5,25 +5,22 @@
 set -eo pipefail
 
 function test_missing_properties() {
-	./node_modules/node-jq/bin/jq -e '(.required // []) as $req | (.properties // []) as $props | ($req - ($req | map(select(. as $r | $props | has($r)))) | length) == 0' "$1" > /dev/null \
-		|| ( echo "Properties in the 'required' element of $1 are missing from the 'properties' element" && exit 1 )
+	local file="$1"
+	if [ "[]" != "$(./node_modules/node-jq/bin/jq -r '(.required // []) as $req | (.properties // []) as $props | $req - ($req | map(select(. as $r | $props | has($r))))' "$file")" ]
+	then
+		echo "Properties in the 'required' element of ${file} are missing from the 'properties' element" 2>&1
+		exit 1
+	fi
 }
 
 function validate_schema() {
 	local file="$1"
-	local base=${file//schemas\//}
-	local base=${base/.json/}
-	./node_modules/.bin/ajv validate -m tests/hyper-schema/hyper-schema.json -r "schemas/**/*.json" -s "$file" -d "tests/data/$base/*.json"
+	local base="$(basename "$file" .json)"
+	./node_modules/.bin/ajv validate -m tests/hyper-schema/hyper-schema.json -r "schemas/**/*.json" -s "$file" -d "tests/data/${base}/*.json"
 }
 
-for file in schemas/*.json
+for schema in schemas/*.json schemas/rest-api/*.json
 do
-	test_missing_properties "$file"
-	validate_schema "$file"
-done
-
-for file in schemas/rest-api/*.json
-do
-	test_missing_properties "$file"
-	validate_schema "$file"
+	test_missing_properties "$schema"
+	validate_schema "$schema"
 done
