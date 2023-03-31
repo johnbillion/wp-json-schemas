@@ -69,7 +69,7 @@
 					"$ref": "schemas/rest-api/attachment.json"
 				},
 				"Attachments": {
-					"$ref": "schemas/rest-api/attachments.json"
+					"$ref": "schemas/rest-api/media.json"
 				},
 				"Block": {
 					"$ref": "schemas/rest-api/block.json"

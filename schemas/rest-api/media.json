@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
-	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/attachments.json",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/media.json",
 	"title": "WP_REST_API_Attachments",
 	"description": "A collection of media attachment objects in a REST API context.",
 	"type": "array",

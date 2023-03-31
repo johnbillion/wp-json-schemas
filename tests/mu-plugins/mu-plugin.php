@@ -110,19 +110,9 @@ function get_rest_response( string $method, string $path, array $params = [] ) {
 
 // Register the WP-CLI command for outputting test data:
 WP_CLI::add_command( 'json-dump', function( array $args, array $assoc_args ) : void {
-	$filename = $args[0];
-	$file = dirname( __DIR__ ) . "/output/{$filename}.php";
-
-	if ( ! file_exists( $file ) ) {
-		WP_CLI::error( "File tests/output/{$filename}.php does not exist." );
+	foreach ( glob( dirname( __DIR__ ) . '/output/*.php' ) as $file ) {
+		require_once $file;
 	}
 
-	require_once $file;
-
-	WP_CLI::success(
-		sprintf(
-			'Dumped %s',
-			$filename
-		)
-	);
+	WP_CLI::success( 'Dumped test data');
 } );
