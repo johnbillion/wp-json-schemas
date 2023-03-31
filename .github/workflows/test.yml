@@ -35,7 +35,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: npm
 
       - name: Install PHP
         uses: shivammathur/setup-php@2.7.0
