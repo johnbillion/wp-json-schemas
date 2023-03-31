@@ -13,7 +13,11 @@
 		"customize_changeset",
 		"oembed_cache",
 		"user_request",
-		"wp_block"
+		"wp_block",
+		"wp_global_styles",
+		"wp_navigation",
+		"wp_template",
+		"wp_template_part"
 	],
 	"enum": [
 		"post",
@@ -25,6 +29,10 @@
 		"customize_changeset",
 		"oembed_cache",
 		"user_request",
-		"wp_block"
+		"wp_block",
+		"wp_global_styles",
+		"wp_navigation",
+		"wp_template",
+		"wp_template_part"
 	]
 }

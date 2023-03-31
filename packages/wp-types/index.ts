@@ -3150,6 +3150,10 @@ export const enum WP_Post_Type_Name {
 	oembed_cache = "oembed_cache",
 	user_request = "user_request",
 	wp_block = "wp_block",
+	wp_global_styles = "wp_global_styles",
+	wp_navigation = "wp_navigation",
+	wp_template = "wp_template",
+	wp_template_part = "wp_template_part",
 }
 export const enum WP_Object_Filter_Context {
 	attribute = "attribute",
@@ -3165,6 +3169,8 @@ export const enum WP_Taxonomy_Name {
 	post_tag = "post_tag",
 	nav_menu = "nav_menu",
 	post_format = "post_format",
+	wp_template_part_area = "wp_template_part_area",
+	wp_theme = "wp_theme",
 }
 export const enum WP_User_Role_Name {
 	administrator = "administrator",
