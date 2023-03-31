@@ -1,0 +1,19 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/pages.json",
+	"title": "WP_REST_API_Pages",
+	"description": "A collection of page objects in a REST API context.",
+	"type": "array",
+	"items": {
+		"$ref": "page.json"
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/pages",
+			"targetSchema": {
+				"$ref": "#"
+			}
+		}
+	]
+}

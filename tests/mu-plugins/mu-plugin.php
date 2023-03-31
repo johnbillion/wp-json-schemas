@@ -21,7 +21,12 @@ set_error_handler( function( int $errno, string $errstr, string $errfile = '', i
 	}
 
 	// Throw all other errors as an exception:
-	throw new \Exception( $errstr );
+	throw new \Exception( sprintf(
+		'%s in %s:%d',
+		$errstr,
+		$errfile,
+		$errline
+	) );
 } );
 
 add_action( 'init', function() : void {
