@@ -15,7 +15,9 @@ function test_missing_properties() {
 
 function validate_schema() {
 	local file="$1"
-	local base="$(basename "$file" .json)"
+	local base=${file#schemas/}
+	local base=${base%.json}
+	ls tests/data/${base}/*.json >/dev/null
 	./node_modules/.bin/ajv validate -m tests/hyper-schema/hyper-schema.json -r "schemas/**/*.json" -s "$file" -d "tests/data/${base}/*.json"
 }
 
