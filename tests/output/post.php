@@ -24,7 +24,7 @@ $posts = get_posts( [
 
 save_object_array( $posts, 'post' );
 
-foreach ( [ 'posts', 'pages', 'media', 'blocks' ] as $type ) {
+foreach ( [ 'posts', 'pages', 'blocks' ] as $type ) {
 	$view_data = get_rest_response( 'GET', "/wp/v2/{$type}", [
 		'context' => 'view',
 		'per_page' => 100,
