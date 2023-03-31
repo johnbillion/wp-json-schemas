@@ -118,8 +118,8 @@ export interface WP {
 		Comments: WP_REST_API_Comments;
 		Post: WP_REST_API_Post;
 		Posts: WP_REST_API_Posts;
-		Page?: WP_REST_API_Page;
-		Pages?: WP_REST_API_Pages;
+		Page: WP_REST_API_Page;
+		Pages: WP_REST_API_Pages;
 		Attachment: WP_REST_API_Attachment;
 		Attachments: WP_REST_API_Attachments;
 		Block: WP_REST_API_Block;
