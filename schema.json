@@ -65,6 +65,12 @@
 				"Posts": {
 					"$ref": "schemas/rest-api/posts.json"
 				},
+				"Page": {
+					"$ref": "schemas/rest-api/page.json"
+				},
+				"Pages": {
+					"$ref": "schemas/rest-api/pages.json"
+				},
 				"Attachment": {
 					"$ref": "schemas/rest-api/attachment.json"
 				},

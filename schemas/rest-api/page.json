@@ -1,0 +1,85 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/page.json",
+	"title": "WP_REST_API_Page",
+	"description": "A page object in a REST API context.",
+	"allOf": [
+		{
+			"$ref": "post.json"
+		}
+	],
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/pages/{id}",
+			"hrefSchema": {
+				"properties": {
+					"id": {
+						"$ref": "post.json#/properties/id"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/pages",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		},
+		{
+			"rel": "author",
+			"href": "/wp/v2/users/{author}",
+			"hrefSchema": {
+				"properties": {
+					"author": {
+						"$ref": "post.json#/properties/author"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "user.json"
+			}
+		},
+		{
+			"rel": "replies",
+			"href": "/wp/v2/comments?post={id}",
+			"hrefSchema": {
+				"properties": {
+					"id": {
+						"$ref": "post.json#/properties/id"
+					}
+				}
+			},
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "comment.json"
+				}
+			}
+		},
+		{
+			"rel": "version-history",
+			"href": "/wp/v2/pages/{id}/revisions",
+			"hrefSchema": {
+				"properties": {
+					"id": {
+						"$ref": "post.json#/properties/id"
+					}
+				}
+			},
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}
