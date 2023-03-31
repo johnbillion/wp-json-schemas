@@ -8,7 +8,7 @@ function test_missing_properties() {
 	local file="$1"
 	if [ "[]" != "$(./node_modules/node-jq/bin/jq -r '(.required // []) as $req | (.properties // []) as $props | $req - ($req | map(select(. as $r | $props | has($r))))' "$file")" ]
 	then
-		echo "Properties in the 'required' element of ${file} are missing from the 'properties' element" 2>&1
+		echo "Properties in the 'required' element of ${file} are missing from the 'properties' element" 1>&2
 		exit 1
 	fi
 }
