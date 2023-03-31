@@ -36,12 +36,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
-          node-version: 12
+          node-version-file: '.nvmrc'
           registry-url: https://registry.npmjs.org/
+          cache: npm
 
       - run: npm install
 
@@ -101,12 +102,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
-          node-version: 12
+          node-version-file: '.nvmrc'
           registry-url: https://registry.npmjs.org/
+          cache: npm
 
       - name: Deploy to npm
         run: |
