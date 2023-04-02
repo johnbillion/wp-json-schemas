@@ -20,9 +20,13 @@
 		},
 		"id": {
 			"description": "Unique identifier for the object.",
-			"type": [
-				"integer",
-				"string"
+			"oneOf": [
+				{
+					"type": "integer"
+				},
+				{
+					"type": "string"
+				}
 			]
 		},
 		"title": {
