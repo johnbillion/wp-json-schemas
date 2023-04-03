@@ -2926,6 +2926,7 @@ export interface WP_REST_API_Settings {
 	 * The ID of the page that should display the latest posts.
 	 */
 	page_for_posts?: number;
+	[k: string]: unknown;
 }
 /**
  * A taxonomy in a REST API context.
@@ -3105,6 +3106,7 @@ export interface WP_REST_API_Application_Password {
 	 */
 	last_ip: string | null;
 	_links?: WP_REST_API_Object_Links;
+	[k: string]: unknown;
 }
 /**
  * A REST API error response.

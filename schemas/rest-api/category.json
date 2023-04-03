@@ -3,6 +3,7 @@
 	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/category.json",
 	"title": "WP_REST_API_Category",
 	"description": "A post category object in a REST API context.",
+	"type": "object",
 	"allOf": [
 		{
 			"$ref": "term.json"

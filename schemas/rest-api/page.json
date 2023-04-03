@@ -3,6 +3,7 @@
 	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/page.json",
 	"title": "WP_REST_API_Page",
 	"description": "A page object in a REST API context.",
+	"type": "object",
 	"allOf": [
 		{
 			"$ref": "post.json"
