@@ -22,7 +22,7 @@ do
 	validate_schema "$file"
 done
 
-for file in schemas/rest-api/*.json
+for file in schemas/rest-api/collections/*.json
 do
 	validate_schema "$file"
 done

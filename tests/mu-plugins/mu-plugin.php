@@ -77,7 +77,7 @@ function save_object_array( array $data, string $dir ) : void {
  * @param string             $dir  The directory to save the files.
  */
 function save_rest_array( array $data, string $dir ) : void {
-	$dir = dirname( ABSPATH ) . '/data/rest-api/' . $dir;
+	$dir = dirname( ABSPATH ) . '/data/rest-api/collections/' . $dir;
 
 	if ( ! file_exists( $dir ) ) {
 		mkdir( $dir, 0777, true );
