@@ -59,10 +59,7 @@
 			"description": "Block attributes.",
 			"oneOf": [
 				{
-					"type": "array",
-					"tsType": "[]",
-					"items": {},
-					"additionalItems": false
+					"$ref": "../../schema.json#/definitions/EmptyArray"
 				},
 				{
 					"type": "object"
@@ -79,10 +76,7 @@
 			"description": "Context provided by blocks of this type.",
 			"oneOf": [
 				{
-					"type": "array",
-					"tsType": "[]",
-					"items": {},
-					"additionalItems": false
+					"$ref": "../../schema.json#/definitions/EmptyArray"
 				},
 				{
 					"type": "object",
@@ -198,10 +192,7 @@
 			"description": "Block example.",
 			"anyOf": [
 				{
-					"type": "array",
-					"tsType": "[]",
-					"items": {},
-					"additionalItems": false
+					"$ref": "../../schema.json#/definitions/EmptyArray"
 				},
 				{
 					"type": "object",

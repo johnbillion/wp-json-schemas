@@ -4,6 +4,14 @@
 	"title": "WP",
 	"description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
 	"type": "object",
+	"definitions": {
+		"EmptyArray": {
+			"type": "array",
+			"tsType": "[]",
+			"items": {},
+			"additionalItems": false
+		}
+	},
 	"properties": {
 		"Block": {
 			"$ref": "schemas/block.json"

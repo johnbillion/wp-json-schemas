@@ -5,6 +5,7 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+export type EmptyArray = [];
 /**
  * Any valid `callable` in PHP.
  */
@@ -282,7 +283,7 @@ export interface WP_Block_Type {
 	 * Structured data for the block preview.
 	 */
 	example:
-		| []
+		| EmptyArray
 		| {
 				[k: string]: unknown;
 		  }
@@ -295,7 +296,7 @@ export interface WP_Block_Type {
 	 * Block type attributes property schemas.
 	 */
 	attributes:
-		| []
+		| EmptyArray
 		| {
 				[k: string]: unknown;
 		  }
@@ -444,11 +445,11 @@ export interface WP_Error {
 	/**
 	 * Stores the list of errors.
 	 */
-	errors: [] | WP_Error_Messages;
+	errors: EmptyArray | WP_Error_Messages;
 	/**
 	 * Stores the list of data for error codes.
 	 */
-	error_data: [] | WP_Error_Data;
+	error_data: EmptyArray | WP_Error_Data;
 }
 /**
  * The messages for the errors contained within the error object.
@@ -498,11 +499,11 @@ export interface WP_Error_Without_Error {
 	/**
 	 * Stores the list of errors.
 	 */
-	errors: [];
+	errors: EmptyArray;
 	/**
 	 * Stores the list of data for error codes.
 	 */
-	error_data: [];
+	error_data: EmptyArray;
 }
 /**
  * Core class used to store translated data for a locale.
@@ -966,7 +967,7 @@ export interface WP_Query {
 		| {
 				[k: string]: unknown;
 		  }
-		| [];
+		| EmptyArray;
 	/**
 	 * Taxonomy query, as passed to get_tax_sql().
 	 */
@@ -1004,7 +1005,7 @@ export interface WP_Query {
 	/**
 	 * Array of post objects or post IDs.
 	 */
-	posts: WP_Post[] | number[] | [] | null;
+	posts: WP_Post[] | number[] | EmptyArray | null;
 	/**
 	 * The number of posts for the current query.
 	 */
@@ -1024,7 +1025,7 @@ export interface WP_Query {
 	/**
 	 * The list of comments for current post.
 	 */
-	comments?: WP_Comment[] | [] | null;
+	comments?: WP_Comment[] | EmptyArray | null;
 	/**
 	 * The number of comments for the posts.
 	 */
@@ -1746,7 +1747,7 @@ export interface WP_REST_API_Comment {
 	 * Meta fields.
 	 */
 	meta:
-		| []
+		| EmptyArray
 		| {
 				[k: string]: unknown;
 		  };
@@ -1925,7 +1926,7 @@ export interface WP_REST_API_Post {
 	 * Meta fields.
 	 */
 	meta:
-		| []
+		| EmptyArray
 		| {
 				[k: string]: unknown;
 		  };
@@ -2124,7 +2125,7 @@ export interface WP_REST_API_Attachment {
 	 * Meta fields.
 	 */
 	meta:
-		| []
+		| EmptyArray
 		| {
 				[k: string]: unknown;
 		  };
@@ -2338,7 +2339,7 @@ export interface WP_REST_API_Block_Type {
 	 * Block attributes.
 	 */
 	attributes:
-		| []
+		| EmptyArray
 		| {
 				[k: string]: unknown;
 		  }
@@ -2347,7 +2348,7 @@ export interface WP_REST_API_Block_Type {
 	 * Context provided by blocks of this type.
 	 */
 	provides_context:
-		| []
+		| EmptyArray
 		| {
 				[k: string]: string;
 		  };
@@ -2423,7 +2424,7 @@ export interface WP_REST_API_Block_Type {
 	 * Block example.
 	 */
 	example:
-		| []
+		| EmptyArray
 		| {
 				/**
 				 * The attributes used in the example.
@@ -2666,7 +2667,7 @@ export interface WP_REST_API_Term {
 	 * Meta fields.
 	 */
 	meta:
-		| []
+		| EmptyArray
 		| {
 				[k: string]: unknown;
 		  };
@@ -2770,7 +2771,7 @@ export interface WP_REST_API_User {
 	 * Meta fields.
 	 */
 	meta:
-		| []
+		| EmptyArray
 		| {
 				[k: string]: unknown;
 		  };
