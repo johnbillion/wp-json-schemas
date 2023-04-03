@@ -22,7 +22,21 @@ do
 	validate_schema "$file"
 done
 
+for file in schemas/rest-api/*.json
+do
+	./node_modules/node-jq/bin/jq --tab '. + { "additionalProperties": false }' "$file" > tmp && mv tmp "$file"
+done
+
 for file in schemas/rest-api/collections/*.json
 do
 	validate_schema "$file"
+done
+
+for file in schemas/rest-api/*.json
+do
+	if [[ "$file" == "schemas/rest-api/error.json" ]]
+	then
+		continue
+	fi
+	./node_modules/node-jq/bin/jq --tab 'del(.additionalProperties)' "$file" > tmp && mv tmp "$file"
 done
