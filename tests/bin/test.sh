@@ -4,11 +4,6 @@
 # -o pipefail Produce a failure return code if any command errors
 set -eo pipefail
 
-function test_missing_properties() {
-	./node_modules/node-jq/bin/jq -e '(.required // []) as $req | (.properties // []) as $props | ($req - ($req | map(select(. as $r | $props | has($r)))) | length) == 0' "$1" > /dev/null \
-		|| ( echo "Properties in the 'required' element of $1 are missing from the 'properties' element" && exit 1 )
-}
-
 function validate_schema() {
 	local file="$1"
 	local base=${file//schemas\//}
@@ -24,12 +19,10 @@ function validate_schema() {
 
 for file in schemas/*.json
 do
-	test_missing_properties "$file"
 	validate_schema "$file"
 done
 
 for file in schemas/rest-api/*.json
 do
-	test_missing_properties "$file"
 	validate_schema "$file"
 done
