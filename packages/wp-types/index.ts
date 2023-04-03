@@ -194,6 +194,12 @@ export interface WP_Block {
 	 * List of string fragments and null markers where inner blocks were found.
 	 */
 	inner_content: (string | null)[];
+	/**
+	 * Attributes validated against the current block schema, populating defaulted and missing values. Lazily loaded, so not always present.
+	 */
+	attributes?: {
+		[k: string]: any;
+	};
 }
 /**
  * Original parsed array representation of block.

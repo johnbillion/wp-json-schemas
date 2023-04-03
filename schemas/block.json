@@ -85,6 +85,13 @@
 					}
 				]
 			}
+		},
+		"attributes": {
+			"description": "Attributes validated against the current block schema, populating defaulted and missing values. Lazily loaded, so not always present.",
+			"type": "object",
+			"additionalProperties": {
+				"tsType": "any"
+			}
 		}
 	},
 	"additionalProperties": false
