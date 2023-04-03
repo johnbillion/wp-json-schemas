@@ -1,5 +1,5 @@
-[![](https://img.shields.io/badge/npm-wp--json--schemas-9966ff.svg?style=flat-square)](https://www.npmjs.com/package/wp-json-schemas)
-[![](https://img.shields.io/badge/npm-wp--types-9966ff.svg?style=flat-square)](https://www.npmjs.com/package/wp-types)
+[![](https://img.shields.io/badge/npm-wp--json--schemas-7700ee.svg?style=flat-square)](https://www.npmjs.com/package/wp-json-schemas)
+[![](https://img.shields.io/badge/npm-wp--types-7700ee.svg?style=flat-square)](https://www.npmjs.com/package/wp-types)
 [![](https://img.shields.io/github/actions/workflow/status/johnbillion/wp-json-schemas/test.yml?branch=trunk&style=flat-square)](https://github.com/johnbillion/wp-json-schemas/actions)
 
 # WordPress JSON Schemas
