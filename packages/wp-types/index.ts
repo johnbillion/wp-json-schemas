@@ -2341,9 +2341,15 @@ export interface WP_REST_API_Block_Type {
 	attributes:
 		| EmptyArray
 		| {
-				[k: string]: unknown;
+				[k: string]: {
+					[k: string]: unknown;
+				};
 		  }
 		| null;
+	/**
+	 * Ancestor blocks.
+	 */
+	ancestor?: string[] | null;
 	/**
 	 * Context provided by blocks of this type.
 	 */

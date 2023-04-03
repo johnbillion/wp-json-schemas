@@ -62,14 +62,24 @@
 					"$ref": "../../schema.json#/definitions/EmptyArray"
 				},
 				{
-					"type": "object"
+					"type": "object",
+					"additionalProperties": {
+						"type": "object"
+					}
 				},
 				{
 					"type": "null"
 				}
+			]
+		},
+		"ancestor": {
+			"description": "Ancestor blocks.",
+			"type": [
+				"array",
+				"null"
 			],
-			"additionalProperties": {
-				"type": "object"
+			"items": {
+				"$ref": "#/properties/name"
 			}
 		},
 		"provides_context": {
