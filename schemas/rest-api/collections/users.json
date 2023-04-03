@@ -1,11 +1,11 @@
 {
 	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
-	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/users.json",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/users.json",
 	"title": "WP_REST_API_Users",
 	"description": "A collection of user objects in a REST API context.",
 	"type": "array",
 	"items": {
-		"$ref": "user.json"
+		"$ref": "../user.json"
 	},
 	"links": [
 		{

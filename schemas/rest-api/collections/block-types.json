@@ -1,11 +1,11 @@
 {
 	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
-	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/block-types.json",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/block-types.json",
 	"title": "WP_REST_API_Block_Types",
 	"description": "A collection of block type objects in a REST API context.",
 	"type": "array",
 	"items": {
-		"$ref": "block-type.json"
+		"$ref": "../block-type.json"
 	},
 	"links": [
 		{

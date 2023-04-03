@@ -65,43 +65,43 @@
 					"$ref": "schemas/rest-api/comment.json"
 				},
 				"Comments": {
-					"$ref": "schemas/rest-api/comments.json"
+					"$ref": "schemas/rest-api/collections/comments.json"
 				},
 				"Post": {
 					"$ref": "schemas/rest-api/post.json"
 				},
 				"Posts": {
-					"$ref": "schemas/rest-api/posts.json"
+					"$ref": "schemas/rest-api/collections/posts.json"
 				},
 				"Page": {
 					"$ref": "schemas/rest-api/page.json"
 				},
 				"Pages": {
-					"$ref": "schemas/rest-api/pages.json"
+					"$ref": "schemas/rest-api/collections/pages.json"
 				},
 				"Attachment": {
 					"$ref": "schemas/rest-api/attachment.json"
 				},
 				"Attachments": {
-					"$ref": "schemas/rest-api/media.json"
+					"$ref": "schemas/rest-api/collections/media.json"
 				},
 				"Block": {
 					"$ref": "schemas/rest-api/block.json"
 				},
 				"Blocks": {
-					"$ref": "schemas/rest-api/blocks.json"
+					"$ref": "schemas/rest-api/collections/blocks.json"
 				},
 				"Block_Directory_Item": {
 					"$ref": "schemas/rest-api/block-directory-item.json"
 				},
 				"Block_Directory_Items": {
-					"$ref": "schemas/rest-api/block-directory-items.json"
+					"$ref": "schemas/rest-api/collections/block-directory-items.json"
 				},
 				"Block_Type": {
 					"$ref": "schemas/rest-api/block-type.json"
 				},
 				"Block_Types": {
-					"$ref": "schemas/rest-api/block-types.json"
+					"$ref": "schemas/rest-api/collections/block-types.json"
 				},
 				"Revision": {
 					"$ref": "schemas/rest-api/revision.json"
@@ -110,43 +110,43 @@
 					"$ref": "schemas/rest-api/rendered-block.json"
 				},
 				"Revisions": {
-					"$ref": "schemas/rest-api/revisions.json"
+					"$ref": "schemas/rest-api/collections/revisions.json"
 				},
 				"Status": {
 					"$ref": "schemas/rest-api/status.json"
 				},
 				"Statuses": {
-					"$ref": "schemas/rest-api/statuses.json"
+					"$ref": "schemas/rest-api/collections/statuses.json"
 				},
 				"Term": {
 					"$ref": "schemas/rest-api/term.json"
 				},
 				"Terms": {
-					"$ref": "schemas/rest-api/terms.json"
+					"$ref": "schemas/rest-api/collections/terms.json"
 				},
 				"Tag": {
 					"$ref": "schemas/rest-api/tag.json"
 				},
 				"Tags": {
-					"$ref": "schemas/rest-api/tags.json"
+					"$ref": "schemas/rest-api/collections/tags.json"
 				},
 				"Category": {
 					"$ref": "schemas/rest-api/category.json"
 				},
 				"Categories": {
-					"$ref": "schemas/rest-api/categories.json"
+					"$ref": "schemas/rest-api/collections/categories.json"
 				},
 				"User": {
 					"$ref": "schemas/rest-api/user.json"
 				},
 				"Users": {
-					"$ref": "schemas/rest-api/users.json"
+					"$ref": "schemas/rest-api/collections/users.json"
 				},
 				"Search_Result": {
 					"$ref": "schemas/rest-api/search-result.json"
 				},
 				"Search_Results": {
-					"$ref": "schemas/rest-api/search-results.json"
+					"$ref": "schemas/rest-api/collections/search-results.json"
 				},
 				"Settings": {
 					"$ref": "schemas/rest-api/settings.json"
@@ -155,19 +155,19 @@
 					"$ref": "schemas/rest-api/taxonomy.json"
 				},
 				"Taxonomies": {
-					"$ref": "schemas/rest-api/taxonomies.json"
+					"$ref": "schemas/rest-api/collections/taxonomies.json"
 				},
 				"Type": {
 					"$ref": "schemas/rest-api/type.json"
 				},
 				"Types": {
-					"$ref": "schemas/rest-api/types.json"
+					"$ref": "schemas/rest-api/collections/types.json"
 				},
 				"Application_Password": {
 					"$ref": "schemas/rest-api/application-password.json"
 				},
 				"Application_Passwords": {
-					"$ref": "schemas/rest-api/application-passwords.json"
+					"$ref": "schemas/rest-api/collections/application-passwords.json"
 				},
 				"Error": {
 					"$ref": "schemas/rest-api/error.json"
