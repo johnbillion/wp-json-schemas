@@ -177,13 +177,15 @@ export interface WP_Block {
 	/**
 	 * Block context values.
 	 */
-	context: {
-		[k: string]: unknown;
-	};
+	context:
+		| {
+				[k: string]: unknown;
+		  }
+		| EmptyArray;
 	/**
-	 * List of inner blocks (of this same class).
+	 * List of inner blocks (of this same class). Note that this is always empty as it represents a WP_Block_List instance which has no public properties.
 	 */
-	inner_blocks: unknown[];
+	inner_blocks: EmptyArray | EmptyObject;
 	/**
 	 * Resultant HTML from inside block comment delimiters after removing inner blocks.
 	 */
@@ -201,9 +203,11 @@ export interface WP_Block_Parsed {
 	 * Name of block.
 	 */
 	blockName: string;
-	attrs: {
-		[k: string]: any;
-	};
+	attrs:
+		| {
+				[k: string]: any;
+		  }
+		| EmptyArray;
 	/**
 	 * List of inner blocks (of this same class).
 	 */
@@ -353,6 +357,7 @@ export interface WP_Block_Type {
 	style_handles: string[];
 	skip_inner_blocks?: boolean;
 }
+export interface EmptyObject {}
 /**
  * Core class used to organize comments as instantiated objects with defined members.
  */

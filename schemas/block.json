@@ -46,11 +46,25 @@
 		},
 		"context": {
 			"description": "Block context values.",
-			"type": "object"
+			"oneOf": [
+				{
+					"type": "object"
+				},
+				{
+					"$ref": "../schema.json#/definitions/EmptyArray"
+				}
+			]
 		},
 		"inner_blocks": {
-			"description": "List of inner blocks (of this same class).",
-			"type": "array"
+			"description": "List of inner blocks (of this same class). Note that this is always empty as it represents a WP_Block_List instance which has no public properties.",
+			"oneOf": [
+				{
+					"$ref": "../schema.json#/definitions/EmptyArray"
+				},
+				{
+					"$ref": "../schema.json#/definitions/EmptyObject"
+				}
+			]
 		},
 		"inner_html": {
 			"description": "Resultant HTML from inside block comment delimiters after removing inner blocks.",
