@@ -19,7 +19,8 @@
 	"author": "John Blackbourn",
 	"license": "MIT",
 	"devDependencies": {
-		"ajv-cli": "^3.1.0",
+		"ajv-cli": "^5.0",
+		"ajv-formats": "^2.0",
 		"json-schema-to-typescript": "^12.0",
 		"node-jq": "^2.3.5",
 		"typescript": ">=3"
@@ -29,6 +30,6 @@
 		"build-wp-types": "json2ts -i schema.json -o packages/wp-types/index.ts --style.trailingComma=all --style.useTabs && cat packages/wp-types/append.ts >> packages/wp-types/index.ts",
 		"build-hyper-schema-types": "json2ts -i tests/hyper-schema/hyper-schema.json -o tests/hyper-schema/index.ts --style.trailingComma=all --style.useTabs",
 		"test-wp-types": "tsc packages/wp-types/tests/test.ts --noEmit --strict",
-		"validate": "ajv compile -m tests/hyper-schema/hyper-schema.json -s schema.json -r \"schemas/**/*.json\""
+		"validate": "ajv compile --strict --strict-schema=false -c ajv-formats -m tests/hyper-schema/hyper-schema.json -s schema.json -r \"schemas/**/*.json\""
 	}
 }

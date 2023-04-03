@@ -12,8 +12,14 @@ function test_missing_properties() {
 function validate_schema() {
 	local file="$1"
 	local base=${file//schemas\//}
-	local base=${base/.json/}
-	./node_modules/.bin/ajv validate -m tests/hyper-schema/hyper-schema.json -r "schemas/**/*.json" -s "$file" -d "tests/data/$base/*.json"
+
+	# https://github.com/ajv-validator/ajv-cli/issues/172
+	local schemas=$(find schemas -type f -name "*.json" | grep -v "$file")
+	local rflag="${schemas//$'\n'/ -r }"
+
+	local filename=${base/.json/}
+
+	./node_modules/.bin/ajv validate --strict --strict-schema=false -c ajv-formats -m tests/hyper-schema/hyper-schema.json -r schema.json -r $rflag -s "$file" -d "tests/data/$filename/*.json"
 }
 
 for file in schemas/*.json
