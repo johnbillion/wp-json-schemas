@@ -52,7 +52,15 @@ $multi_code_2 = new WP_Error(
 $multi_code_1->merge_from( $multi_code_2 );
 $errors[] = $multi_code_1;
 
-save_object_array( $errors, 'error' );
+$errors_without_error = [];
+
+$errors_without_error[] = new WP_Error();
+
+$all_errors = array_merge( $errors, $errors_without_error );
+
+save_object_array( $all_errors, 'error' );
+save_object_array( $errors, 'error-with-error' );
+save_object_array( $errors_without_error, 'error-without-error' );
 
 $post_id = get_posts( [
 	'posts_per_page' => 1,

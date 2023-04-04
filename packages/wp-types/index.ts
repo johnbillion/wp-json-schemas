@@ -15,6 +15,16 @@ export type Callable = any;
  */
 export type WP_Date_Time = string;
 /**
+ * The data for the errors contained within the error object.
+ *
+ * Each error is represented by a property keyed by the error code, and containing error data for that code. Any given error code can contain only one piece of error data, but the data can be of any type.
+ */
+export type WP_Error_Data =
+	| {
+			[k: string]: any;
+	  }
+	| EmptyArray;
+/**
  * The name of an individual primitive capability or meta capability.
  */
 export type WP_User_Cap_Name = string;
@@ -469,14 +479,6 @@ export interface WP_Error {
  */
 export interface WP_Error_Messages {
 	[k: string]: string[];
-}
-/**
- * The data for the errors contained within the error object.
- *
- * Each error is represented by a property keyed by the error code, and containing error data for that code. Any given error code can contain only one piece of error data, but the data can be of any type.
- */
-export interface WP_Error_Data {
-	[k: string]: any;
 }
 /**
  * WordPress Error class.
