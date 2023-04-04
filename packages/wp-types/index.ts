@@ -55,7 +55,7 @@ export type WP_REST_API_Block_Directory_Items = WP_REST_API_Block_Directory_Item
  */
 export type WP_REST_API_Block_Types = WP_REST_API_Block_Type[];
 /**
- * A collection of revision objects in a REST API context.
+ * A collection of post revision objects in a REST API context.
  */
 export type WP_REST_API_Revisions = WP_REST_API_Revision[];
 /**
@@ -2486,7 +2486,7 @@ export interface WP_REST_API_Block_Type {
 	[k: string]: unknown;
 }
 /**
- * A revision object in a REST API context.
+ * A post revision object in a REST API context.
  */
 export interface WP_REST_API_Revision {
 	/**

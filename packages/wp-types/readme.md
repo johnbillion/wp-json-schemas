@@ -1,4 +1,4 @@
-[![NPM](https://img.shields.io/badge/npm-wp--types-9966ff.svg?style=flat-square)](https://www.npmjs.com/package/wp-types)
+[![NPM](https://img.shields.io/badge/npm-wp--types-7700ee.svg?style=flat-square)](https://www.npmjs.com/package/wp-types)
 
 # WordPress TypeScript Definitions
 

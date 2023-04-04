@@ -2,7 +2,7 @@
 	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
 	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/revision.json",
 	"title": "WP_REST_API_Revision",
-	"description": "A revision object in a REST API context.",
+	"description": "A post revision object in a REST API context.",
 	"type": "object",
 	"required": [
 		"author",
