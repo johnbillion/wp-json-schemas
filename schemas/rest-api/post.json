@@ -144,6 +144,10 @@
 				}
 			]
 		},
+		"menu_order": {
+			"description": "A field used for ordering posts.",
+			"type": "integer"
+		},
 		"title": {
 			"description": "The title for the post.",
 			"type": "object",

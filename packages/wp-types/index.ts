@@ -1863,6 +1863,10 @@ export interface WP_REST_API_Post {
 	 */
 	parent?: number;
 	/**
+	 * A field used for ordering posts.
+	 */
+	menu_order?: number;
+	/**
 	 * The title for the post.
 	 */
 	title: {
@@ -2388,19 +2392,43 @@ export interface WP_REST_API_Block_Type {
 	 */
 	is_dynamic: boolean;
 	/**
-	 * Editor script handle.
+	 * Editor script handles.
+	 */
+	editor_script_handles?: string[] | null;
+	/**
+	 * Public facing and editor script handles.
+	 */
+	script_handles?: string[] | null;
+	/**
+	 * Public facing script handles.
+	 */
+	view_script_handles?: string[] | null;
+	/**
+	 * Editor style handles.
+	 */
+	editor_style_handles?: string[] | null;
+	/**
+	 * Public facing and editor style handles.
+	 */
+	style_handles?: string[] | null;
+	/**
+	 * Editor script handle. DEPRECATED: Use `editor_script_handles` instead.
 	 */
 	editor_script: string | null;
 	/**
-	 * Public facing script handle.
+	 * Public facing and editor script handle. DEPRECATED: Use `script_handles` instead.
 	 */
 	script: string | null;
 	/**
-	 * Editor style handle.
+	 * Public facing script handle. DEPRECATED: Use `view_script_handles` instead.
+	 */
+	view_script: string | null;
+	/**
+	 * Editor style handle. DEPRECATED: Use `editor_style_handles` instead.
 	 */
 	editor_style: string | null;
 	/**
-	 * Public facing style handle.
+	 * Public facing and editor style handle. DEPRECATED: Use `style_handles` instead.
 	 */
 	style: string | null;
 	/**
@@ -2423,6 +2451,12 @@ export interface WP_REST_API_Block_Type {
 		 * Contains the handle that defines the block style.
 		 */
 		style_handle?: string;
+		[k: string]: unknown;
+	}[];
+	/**
+	 * Block variations.
+	 */
+	variations: {
 		[k: string]: unknown;
 	}[];
 	/**
@@ -2472,6 +2506,7 @@ export interface WP_REST_API_Block_Type {
 				[k: string]: unknown;
 		  }
 		| null;
+	_links?: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }
 /**
@@ -2969,9 +3004,13 @@ export interface WP_REST_API_Taxonomy {
 	 */
 	types: (WP_Post_Type_Name | string)[];
 	/**
-	 * REST base route for the taxonomy. Only present when using the 'edit' context.
+	 * REST base route for the taxonomy.
 	 */
 	rest_base: string;
+	/**
+	 * REST namespace route for the taxonomy.
+	 */
+	rest_namespace: string;
 	/**
 	 * The visibility settings for the taxonomy. Only present when using the 'edit' context.
 	 */
@@ -3031,6 +3070,10 @@ export interface WP_REST_API_Type {
 	 */
 	hierarchical: boolean;
 	/**
+	 * If the value is a string, the value will be used as the archive slug. If the value is false the post type has no archive.
+	 */
+	has_archive: boolean | string;
+	/**
 	 * Whether or not the post type can be viewed. Only present when using the 'edit' context.
 	 */
 	viewable?: boolean;
@@ -3057,9 +3100,23 @@ export interface WP_REST_API_Type {
 	 */
 	taxonomies: (WP_Taxonomy_Name | string)[];
 	/**
-	 * REST base route for the post type. Only present when using the 'edit' context.
+	 * REST base route for the post type.
 	 */
 	rest_base: string;
+	/**
+	 * REST route's namespace for the post type.
+	 */
+	rest_namespace: string;
+	/**
+	 * The visibility settings for the post type. Only present when using the 'edit' context.
+	 */
+	visibility?: {
+		[k: string]: unknown;
+	};
+	/**
+	 * The icon for the post type.
+	 */
+	icon: string | null;
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }

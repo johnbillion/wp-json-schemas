@@ -19,9 +19,11 @@
 		"is_dynamic",
 		"editor_script",
 		"script",
+		"view_script",
 		"editor_style",
 		"style",
 		"styles",
+		"variations",
 		"textdomain",
 		"parent",
 		"keywords",
@@ -118,29 +120,86 @@
 			"description": "Is the block dynamically rendered.",
 			"type": "boolean"
 		},
+		"editor_script_handles": {
+			"description": "Editor script handles.",
+			"type": [
+				"array",
+				"null"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
+		"script_handles": {
+			"description": "Public facing and editor script handles.",
+			"type": [
+				"array",
+				"null"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
+		"view_script_handles": {
+			"description": "Public facing script handles.",
+			"type": [
+				"array",
+				"null"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
+		"editor_style_handles": {
+			"description": "Editor style handles.",
+			"type": [
+				"array",
+				"null"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
+		"style_handles": {
+			"description": "Public facing and editor style handles.",
+			"type": [
+				"array",
+				"null"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
 		"editor_script": {
-			"description": "Editor script handle.",
+			"description": "Editor script handle. DEPRECATED: Use `editor_script_handles` instead.",
 			"type": [
 				"string",
 				"null"
 			]
 		},
 		"script": {
-			"description": "Public facing script handle.",
+			"description": "Public facing and editor script handle. DEPRECATED: Use `script_handles` instead.",
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"view_script": {
+			"description": "Public facing script handle. DEPRECATED: Use `view_script_handles` instead.",
 			"type": [
 				"string",
 				"null"
 			]
 		},
 		"editor_style": {
-			"description": "Editor style handle.",
+			"description": "Editor style handle. DEPRECATED: Use `editor_style_handles` instead.",
 			"type": [
 				"string",
 				"null"
 			]
 		},
 		"style": {
-			"description": "Public facing style handle.",
+			"description": "Public facing and editor style handle. DEPRECATED: Use `style_handles` instead.",
 			"type": [
 				"string",
 				"null"
@@ -172,6 +231,13 @@
 						"type": "string"
 					}
 				}
+			}
+		},
+		"variations": {
+			"description": "Block variations.",
+			"type": "array",
+			"items": {
+				"type": "object"
 			}
 		},
 		"textdomain": {
@@ -238,6 +304,9 @@
 					"type": "null"
 				}
 			]
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
 		}
 	},
 	"links": [
