@@ -25,10 +25,6 @@
 		"_links"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"date": {
 			"description": "The date the post was published, in the site's timezone.",
 			"anyOf": [
@@ -143,6 +139,10 @@
 					"$ref": "#/properties/id"
 				}
 			]
+		},
+		"menu_order": {
+			"description": "A field used for ordering posts.",
+			"type": "integer"
 		},
 		"title": {
 			"description": "The title for the post.",
@@ -266,10 +266,7 @@
 			"description": "Meta fields.",
 			"anyOf": [
 				{
-					"type": "array",
-					"tsType": "[]",
-					"items": {},
-					"additionalItems": false
+					"$ref": "../../schema.json#/definitions/EmptyArray"
 				},
 				{
 					"type": "object"

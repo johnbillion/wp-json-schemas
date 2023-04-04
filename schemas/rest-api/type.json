@@ -8,17 +8,16 @@
 	"required": [
 		"description",
 		"hierarchical",
+		"has_archive",
 		"name",
 		"slug",
 		"taxonomies",
 		"rest_base",
+		"rest_namespace",
+		"icon",
 		"_links"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"capabilities": {
 			"description": "All capabilities used by the post type. Only present when using the 'edit' context.",
 			"allOf": [
@@ -34,6 +33,17 @@
 		"hierarchical": {
 			"description": "Whether or not the post type should have children.",
 			"type": "boolean"
+		},
+		"has_archive": {
+			"description": "If the value is a string, the value will be used as the archive slug. If the value is false the post type has no archive.",
+			"oneOf": [
+				{
+					"type": "boolean"
+				},
+				{
+					"type": "string"
+				}
+			]
 		},
 		"viewable": {
 			"description": "Whether or not the post type can be viewed. Only present when using the 'edit' context.",
@@ -81,8 +91,23 @@
 			}
 		},
 		"rest_base": {
-			"description": "REST base route for the post type. Only present when using the 'edit' context.",
+			"description": "REST base route for the post type.",
 			"type": "string"
+		},
+		"rest_namespace": {
+			"description": "REST route's namespace for the post type.",
+			"type": "string"
+		},
+		"visibility": {
+			"description": "The visibility settings for the post type. Only present when using the 'edit' context.",
+			"type": "object"
+		},
+		"icon": {
+			"description": "The icon for the post type.",
+			"type": [
+				"string",
+				"null"
+			]
 		},
 		"_links": {
 			"$ref": "properties/object-links.json"

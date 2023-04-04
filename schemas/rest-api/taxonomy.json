@@ -12,13 +12,10 @@
 		"slug",
 		"types",
 		"rest_base",
+		"rest_namespace",
 		"_links"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"capabilities": {
 			"description": "All capabilities used by the taxonomy. Only present when using the 'edit' context.",
 			"allOf": [
@@ -77,7 +74,11 @@
 			}
 		},
 		"rest_base": {
-			"description": "REST base route for the taxonomy. Only present when using the 'edit' context.",
+			"description": "REST base route for the taxonomy.",
+			"type": "string"
+		},
+		"rest_namespace": {
+			"description": "REST namespace route for the taxonomy.",
 			"type": "string"
 		},
 		"visibility": {

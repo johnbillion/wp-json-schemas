@@ -1,11 +1,11 @@
 {
 	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
-	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/tags.json",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/tags.json",
 	"title": "WP_REST_API_Tags",
 	"description": "A collection of post tag objects in a REST API context.",
 	"type": "array",
 	"items": {
-		"$ref": "tag.json"
+		"$ref": "../tag.json"
 	},
 	"links": [
 		{

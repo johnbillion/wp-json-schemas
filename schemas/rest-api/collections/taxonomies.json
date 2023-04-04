@@ -1,11 +1,11 @@
 {
 	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
-	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/taxonomies.json",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/taxonomies.json",
 	"title": "WP_REST_API_Taxonomies",
 	"description": "A collection of taxonomy objects in a REST API context.",
 	"type": "object",
 	"additionalProperties": {
-		"$ref": "taxonomy.json"
+		"$ref": "../taxonomy.json"
 	},
 	"links": [
 		{

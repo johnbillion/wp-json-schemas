@@ -7,12 +7,16 @@
 		"category",
 		"post_tag",
 		"nav_menu",
-		"post_format"
+		"post_format",
+		"wp_template_part_area",
+		"wp_theme"
 	],
 	"enum": [
 		"category",
 		"post_tag",
 		"nav_menu",
-		"post_format"
+		"post_format",
+		"wp_template_part_area",
+		"wp_theme"
 	]
 }

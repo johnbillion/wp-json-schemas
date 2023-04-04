@@ -1,11 +1,11 @@
 {
 	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
-	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/statuses.json",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/statuses.json",
 	"title": "WP_REST_API_Statuses",
 	"description": "A collection of post status objects in a REST API context.",
 	"type": "object",
 	"additionalProperties": {
-		"$ref": "status.json"
+		"$ref": "../status.json"
 	},
 	"links": [
 		{

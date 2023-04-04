@@ -18,10 +18,7 @@
 			"description": "Stores the list of errors.",
 			"anyOf": [
 				{
-					"type": "array",
-					"tsType": "[]",
-					"items": {},
-					"additionalItems": false
+					"$ref": "../schema.json#/definitions/EmptyArray"
 				},
 				{
 					"$ref": "properties/error-messages.json"
@@ -32,10 +29,7 @@
 			"description": "Stores the list of data for error codes.",
 			"anyOf": [
 				{
-					"type": "array",
-					"tsType": "[]",
-					"items": {},
-					"additionalItems": false
+					"$ref": "../schema.json#/definitions/EmptyArray"
 				},
 				{
 					"$ref": "properties/error-data.json"

@@ -69,10 +69,7 @@
 					"type": "object"
 				},
 				{
-					"type": "array",
-					"tsType": "[]",
-					"items": {},
-					"additionalItems": false
+					"$ref": "../schema.json#/definitions/EmptyArray"
 				}
 			]
 		},
@@ -161,10 +158,7 @@
 					}
 				},
 				{
-					"type": "array",
-					"tsType": "[]",
-					"items": {},
-					"additionalItems": false
+					"$ref": "../schema.json#/definitions/EmptyArray"
 				},
 				{
 					"type": "null"
@@ -204,10 +198,7 @@
 					}
 				},
 				{
-					"type": "array",
-					"tsType": "[]",
-					"items": {},
-					"additionalItems": false
+					"$ref": "../schema.json#/definitions/EmptyArray"
 				},
 				{
 					"type": "null"

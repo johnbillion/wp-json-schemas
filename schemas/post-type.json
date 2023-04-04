@@ -94,9 +94,13 @@
 		},
 		"show_in_menu": {
 			"description": "Where to show the post type in the admin menu.",
-			"type": [
-				"boolean",
-				"string"
+			"oneOf": [
+				{
+					"type": "boolean"
+				},
+				{
+					"type": "string"
+				}
 			]
 		},
 		"show_in_nav_menus": {
@@ -167,16 +171,24 @@
 		},
 		"has_archive": {
 			"description": "Whether there should be post type archives, or if a string, the archive slug to use.",
-			"type": [
-				"boolean",
-				"string"
+			"oneOf": [
+				{
+					"type": "boolean"
+				},
+				{
+					"type": "string"
+				}
 			]
 		},
 		"query_var": {
 			"description": "Sets the query_var key for this post type.",
-			"type": [
-				"string",
-				"boolean"
+			"oneOf": [
+				{
+					"type": "string"
+				},
+				{
+					"type": "boolean"
+				}
 			]
 		},
 		"can_export": {
@@ -238,16 +250,24 @@
 		},
 		"rest_base": {
 			"description": "The base path for this post type's REST API endpoints.",
-			"type": [
-				"string",
-				"boolean"
+			"oneOf": [
+				{
+					"type": "string"
+				},
+				{
+					"type": "boolean"
+				}
 			]
 		},
 		"rest_namespace": {
 			"description": "The namespace for this post type's REST API endpoints.",
-			"type": [
-				"string",
-				"boolean"
+			"oneOf": [
+				{
+					"type": "string"
+				},
+				{
+					"type": "boolean"
+				}
 			]
 		},
 		"rest_controller_class": {

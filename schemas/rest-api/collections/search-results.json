@@ -1,11 +1,11 @@
 {
 	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
-	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/search-results.json",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/search-results.json",
 	"title": "WP_REST_API_Search_Results",
 	"description": "A collection of search result objects in a REST API context.",
 	"type": "array",
 	"items": {
-		"$ref": "search-result.json"
+		"$ref": "../search-result.json"
 	},
 	"links": [
 		{

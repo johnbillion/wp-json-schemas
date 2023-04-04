@@ -10,10 +10,6 @@
 		"data"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"code": {
 			"description": "The error message code.",
 			"type": "string"

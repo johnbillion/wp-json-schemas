@@ -13,8 +13,7 @@
 			],
 			"properties": {
 				"href": {
-					"type": "string",
-					"format": "uri"
+					"type": "string"
 				},
 				"embeddable": {
 					"type": "boolean"

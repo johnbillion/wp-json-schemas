@@ -22,12 +22,8 @@
 		"_links"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"name": {
-			"description": "The block name, in namespace\/block-name format.",
+			"description": "The block name, in namespace/block-name format.",
 			"type": "string"
 		},
 		"title": {

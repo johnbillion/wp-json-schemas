@@ -4,7 +4,6 @@
 	"title": "WP_REST_API_Settings",
 	"description": "Site settings in a REST API context.",
 	"type": "object",
-	"additionalProperties": false,
 	"required": [
 		"title",
 		"description",
@@ -23,10 +22,6 @@
 		"site_icon"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"title": {
 			"type": "string",
 			"description": "Site title."

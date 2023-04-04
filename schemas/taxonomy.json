@@ -165,9 +165,13 @@
 		},
 		"query_var": {
 			"description": "Query var string for this taxonomy.",
-			"type": [
-				"string",
-				"boolean"
+			"oneOf": [
+				{
+					"type": "string"
+				},
+				{
+					"type": "boolean"
+				}
 			]
 		},
 		"update_count_callback": {
@@ -189,16 +193,24 @@
 		},
 		"rest_base": {
 			"description": "The base path for this taxonomy's REST API endpoints.",
-			"type": [
-				"string",
-				"boolean"
+			"oneOf": [
+				{
+					"type": "string"
+				},
+				{
+					"type": "boolean"
+				}
 			]
 		},
 		"rest_namespace": {
 			"description": "The namespace for this taxonomy's REST API endpoints.",
-			"type": [
-				"string",
-				"boolean"
+			"oneOf": [
+				{
+					"type": "string"
+				},
+				{
+					"type": "boolean"
+				}
 			]
 		},
 		"rest_controller_class": {

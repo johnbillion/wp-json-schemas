@@ -120,10 +120,7 @@
 			"description": "Structured data for the block preview.",
 			"anyOf": [
 				{
-					"type": "array",
-					"tsType": "[]",
-					"items": {},
-					"additionalItems": false
+					"$ref": "../schema.json#/definitions/EmptyArray"
 				},
 				{
 					"type": "object"
@@ -148,10 +145,7 @@
 			"description": "Block type attributes property schemas.",
 			"anyOf": [
 				{
-					"type": "array",
-					"tsType": "[]",
-					"items": {},
-					"additionalItems": false
+					"$ref": "../schema.json#/definitions/EmptyArray"
 				},
 				{
 					"type": "object"

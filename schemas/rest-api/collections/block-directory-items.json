@@ -1,11 +1,11 @@
 {
 	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
-	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/block-directory-items.json",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/block-directory-items.json",
 	"title": "WP_REST_API_Block_Directory_Items",
 	"description": "A collection of block directory search results in a REST API context.",
 	"type": "array",
 	"items": {
-		"$ref": "block-directory-item.json"
+		"$ref": "../block-directory-item.json"
 	},
 	"links": [
 		{

@@ -1,11 +1,11 @@
 {
 	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
-	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/posts.json",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/posts.json",
 	"title": "WP_REST_API_Posts",
 	"description": "A collection of post objects in a REST API context.",
 	"type": "array",
 	"items": {
-		"$ref": "post.json"
+		"$ref": "../post.json"
 	},
 	"links": [
 		{
