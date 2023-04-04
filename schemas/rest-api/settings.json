@@ -22,10 +22,6 @@
 		"site_icon"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"title": {
 			"type": "string",
 			"description": "Site title."

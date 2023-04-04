@@ -14,10 +14,6 @@
 		"_links"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"name": {
 			"description": "The title for the status.",
 			"type": "string",

@@ -1661,10 +1661,6 @@ export interface WP_Taxonomy_Rewrite {
  */
 export interface WP_REST_API_Comment {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * Unique identifier for the object.
 	 */
 	id: number;
@@ -1793,10 +1789,6 @@ export interface WP_REST_API_Object_Links {
  * A post object in a REST API context.
  */
 export interface WP_REST_API_Post {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * The date the post was published, in the site's timezone.
 	 */
@@ -1995,10 +1987,6 @@ export interface WP_REST_API_Post {
  */
 export interface WP_REST_API_Attachment {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * The date the attachment was published, in the site's timezone.
 	 */
 	date: WP_REST_API_Date_Time;
@@ -2170,10 +2158,6 @@ export interface WP_REST_API_Attachment {
  */
 export interface WP_REST_API_Block {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * The date the block was published, in the site's timezone.
 	 */
 	date: WP_REST_API_Date_Time;
@@ -2264,10 +2248,6 @@ export interface WP_REST_API_Block {
  */
 export interface WP_REST_API_Block_Directory_Item {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * The block name, in namespace/block-name format.
 	 */
 	name: string;
@@ -2326,10 +2306,6 @@ export interface WP_REST_API_Block_Directory_Item {
  * A block type object in a REST API context.
  */
 export interface WP_REST_API_Block_Type {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * Version of block API.
 	 */
@@ -2514,10 +2490,6 @@ export interface WP_REST_API_Block_Type {
  */
 export interface WP_REST_API_Revision {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * The ID for the author of the revision.
 	 */
 	author: number;
@@ -2617,10 +2589,6 @@ export interface WP_REST_API_Revision {
  */
 export interface WP_REST_API_Rendered_Block {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * The rendered block.
 	 */
 	rendered: string;
@@ -2630,10 +2598,6 @@ export interface WP_REST_API_Rendered_Block {
  * A post status object in a REST API context.
  */
 export interface WP_REST_API_Status {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * The title for the status.
 	 */
@@ -2730,10 +2694,6 @@ export interface WP_REST_API_Term {
  * A user object in a REST API context.
  */
 export interface WP_REST_API_User {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * Unique identifier for the user.
 	 */
@@ -2835,10 +2795,6 @@ export interface WP_REST_API_User {
  */
 export interface WP_REST_API_Search_Result {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * Unique identifier for the object.
 	 */
 	id: number | string;
@@ -2877,10 +2833,6 @@ export interface WP_REST_API_Search_Result {
  * Site settings in a REST API context.
  */
 export interface WP_REST_API_Settings {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * Site title.
 	 */
@@ -2968,10 +2920,6 @@ export interface WP_REST_API_Settings {
  */
 export interface WP_REST_API_Taxonomy {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * All capabilities used by the taxonomy. Only present when using the 'edit' context.
 	 */
 	capabilities?: WP_Taxonomy_Caps;
@@ -3054,10 +3002,6 @@ export interface WP_REST_API_Taxonomies {
  */
 export interface WP_REST_API_Type {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * All capabilities used by the post type. Only present when using the 'edit' context.
 	 */
 	capabilities?: WP_Post_Type_Caps;
@@ -3131,10 +3075,6 @@ export interface WP_REST_API_Types {
  */
 export interface WP_REST_API_Application_Password {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * The unique identifier for the application password.
 	 */
 	uuid: string;
@@ -3169,10 +3109,6 @@ export interface WP_REST_API_Application_Password {
  * A REST API error response.
  */
 export interface WP_REST_API_Error {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * The error message code.
 	 */
