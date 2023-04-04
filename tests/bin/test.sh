@@ -9,7 +9,7 @@ function validate_schema() {
 	local base=${file//schemas\//}
 
 	# https://github.com/ajv-validator/ajv-cli/issues/172
-	local rflags="$(find schemas/ -type f -name "*.json" -not -path "$file" -printf ' -r %P')"
+	local rflags="$(find schemas/ -type f -name "*.json" -not -path "$file" -printf ' -r %p')"
 
 	local filename=${base/.json/}
 
