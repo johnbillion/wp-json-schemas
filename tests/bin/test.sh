@@ -14,6 +14,7 @@ function validate_schema() {
 
 	local filename=${base/.json/}
 
+	ls tests/data/$filename/*.json > /dev/null
 	./node_modules/.bin/ajv validate --strict --strict-schema=false -c ajv-formats -m tests/hyper-schema/hyper-schema.json -r schema.json -r $rflag -s "$file" -d "tests/data/$filename/*.json"
 }
 
