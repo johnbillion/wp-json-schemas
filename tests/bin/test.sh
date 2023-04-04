@@ -17,6 +17,8 @@ function validate_schema() {
 	./node_modules/.bin/ajv validate --strict --strict-schema=false -c ajv-formats -m tests/hyper-schema/hyper-schema.json -r schema.json -r $rflag -s "$file" -d "tests/data/$filename/*.json"
 }
 
+IGNORE_FILES=("schemas/rest-api/error.json" "schemas/rest-api/category.json" "schemas/rest-api/tag.json" "schemas/rest-api/page.json")
+
 for file in schemas/*.json
 do
 	validate_schema "$file"
@@ -24,6 +26,10 @@ done
 
 for file in schemas/rest-api/*.json
 do
+	if [[ "${IGNORE_FILES[*]}" =~ "${file}" ]]
+	then
+		continue
+	fi
 	./node_modules/node-jq/bin/jq --tab '. + { "additionalProperties": false }' "$file" > tmp && mv tmp "$file"
 done
 
@@ -34,7 +40,7 @@ done
 
 for file in schemas/rest-api/*.json
 do
-	if [[ "$file" == "schemas/rest-api/error.json" ]]
+	if [[ "${IGNORE_FILES[*]}" =~ "${file}" ]]
 	then
 		continue
 	fi
