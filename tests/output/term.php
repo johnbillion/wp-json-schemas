@@ -35,9 +35,16 @@ $tag_edit_data = get_rest_response( 'GET', '/wp/v2/tags', [
 save_rest_array( [
 	$category_view_data,
 	$category_edit_data,
+], 'categories' );
+
+save_rest_array( [
+	$tag_view_data,
+	$tag_edit_data,
 ], 'tags' );
 
 save_rest_array( [
 	$category_view_data,
 	$category_edit_data,
-], 'categories' );
+	$tag_view_data,
+	$tag_edit_data,
+], 'terms' );
