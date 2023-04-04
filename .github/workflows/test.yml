@@ -11,6 +11,9 @@ on:
     branches:
       - '**'
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest
