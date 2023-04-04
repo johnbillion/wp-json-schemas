@@ -9,13 +9,18 @@ function validate_schema() {
 	local base=${file//schemas\//}
 
 	# https://github.com/ajv-validator/ajv-cli/issues/172
-	local schemas=$(find schemas -type f -name "*.json" | grep -v "$file")
-	local rflag="${schemas//$'\n'/ -r }"
+	local rflags="$(find schemas/ -type f -name "*.json" -not -path "$file" -printf ' -r %P')"
 
 	local filename=${base/.json/}
 
 	ls tests/data/$filename/*.json > /dev/null
-	./node_modules/.bin/ajv validate --strict --strict-schema=false -c ajv-formats -m tests/hyper-schema/hyper-schema.json -r schema.json -r $rflag -s "$file" -d "tests/data/$filename/*.json"
+	./node_modules/.bin/ajv validate --strict --strict-schema=false \
+		-c ajv-formats \
+		-m tests/hyper-schema/hyper-schema.json \
+		-r schema.json \
+		$rflags \
+		-s "$file" \
+		-d "tests/data/$filename/*.json"
 }
 
 IGNORE_FILES=("schemas/rest-api/error.json" "schemas/rest-api/category.json" "schemas/rest-api/tag.json" "schemas/rest-api/page.json")
