@@ -54,7 +54,7 @@ Route                                                   | Schema
 /wp/v2/categories/{id}                                  | `WP_REST_API_Category`
 /wp/v2/comments                                         | `WP_REST_API_Comments`
 /wp/v2/comments/{id}                                    | `WP_REST_API_Comment`
-/wp/v2/global-styles                                    | Todo
+/wp/v2/global-styles/{id}                               | Todo
 /wp/v2/global-styles/themes/{stylesheet}/variations     | Todo
 /wp/v2/global-styles/themes/{stylesheet}                | Todo
 /wp/v2/media                                            | `WP_REST_API_Attachments`
