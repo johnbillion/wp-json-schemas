@@ -14,10 +14,6 @@
 		"roles"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"ID": {
 			"readOnly": true,
 			"description": "The user's ID.",

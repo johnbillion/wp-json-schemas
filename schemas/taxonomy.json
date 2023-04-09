@@ -37,10 +37,6 @@
 		"_builtin"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"name": {
 			"description": "Taxonomy key.",
 			"anyOf": [

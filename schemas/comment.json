@@ -22,10 +22,6 @@
 		"user_id"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"comment_ID": {
 			"readOnly": true,
 			"description": "Comment ID.\n\nA numeric string, for compatibility reasons.",

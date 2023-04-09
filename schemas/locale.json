@@ -18,10 +18,6 @@
 		"word_count_type"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"weekday": {
 			"description": "Stores the translated strings for the full weekday names.",
 			"type": "array",

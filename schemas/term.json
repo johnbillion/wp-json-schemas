@@ -17,10 +17,6 @@
 		"filter"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"term_id": {
 			"readOnly": true,
 			"description": "Term ID.",
