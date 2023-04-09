@@ -16,7 +16,6 @@
 		"slug",
 		"title",
 		"content",
-		"excerpt",
 		"_links"
 	],
 	"properties": {

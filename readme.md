@@ -48,8 +48,8 @@ Route                                                   | Schema
 /wp/v2/blocks/{id}                                      | `WP_REST_API_Block`
 /wp/v2/blocks/{id}/autosaves                            | Todo
 /wp/v2/blocks/{parent}/autosaves/{id}                   | Todo
-/wp/v2/blocks/{parent}/revisions                        | Todo
-/wp/v2/blocks/{parent}/revisions/{id}                   | Todo
+/wp/v2/blocks/{parent}/revisions                        | `WP_REST_API_Revisions`
+/wp/v2/blocks/{parent}/revisions/{id}                   | `WP_REST_API_Revision`
 /wp/v2/categories                                       | `WP_REST_API_Categories`
 /wp/v2/categories/{id}                                  | `WP_REST_API_Category`
 /wp/v2/comments                                         | `WP_REST_API_Comments`

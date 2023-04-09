@@ -2588,7 +2588,7 @@ export interface WP_REST_API_Revision {
 	/**
 	 * The excerpt for the post.
 	 */
-	excerpt: {
+	excerpt?: {
 		/**
 		 * Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.
 		 */
