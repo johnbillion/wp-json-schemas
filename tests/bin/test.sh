@@ -47,3 +47,6 @@ do
 	fi
 	./node_modules/node-jq/bin/jq --tab 'del(.additionalProperties)' "$file" > tmp && mv tmp "$file"
 done
+
+validate_schema schemas/properties/post-type-labels.json
+validate_schema schemas/properties/taxonomy-labels.json
