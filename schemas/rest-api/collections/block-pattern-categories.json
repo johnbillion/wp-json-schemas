@@ -1,0 +1,19 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/block-pattern-categories.json",
+	"title": "WP_REST_API_Block_Pattern_Categories",
+	"description": "A collection of block pattern categories in a REST API context.",
+	"type": "array",
+	"items": {
+		"$ref": "../block-pattern-category.json"
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/block-patterns/categories",
+			"targetSchema": {
+				"$ref": "#"
+			}
+		}
+	]
+}

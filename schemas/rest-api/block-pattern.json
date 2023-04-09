@@ -1,0 +1,87 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/block-pattern.json",
+	"title": "WP_REST_API_Block_Pattern",
+	"description": "A block pattern in a REST API context.",
+	"type": "object",
+	"readOnly": true,
+	"required": [
+		"name",
+		"title",
+		"content"
+	],
+	"properties": {
+		"name": {
+			"description": "The pattern name, in namespace/pattern-name format.",
+			"type": "string"
+		},
+		"title": {
+			"description": "The pattern title, in human readable format.",
+			"type": "string"
+		},
+		"content": {
+			"description": "The pattern content.",
+			"contentMediaType": "text/html",
+			"type": "string"
+		},
+		"description": {
+			"description": "The pattern detailed description.",
+			"type": "string"
+		},
+		"viewport_width": {
+			"description": "The pattern viewport width for inserter preview.",
+			"type": "number"
+		},
+		"inserter": {
+			"description": "Determines whether the pattern is visible in inserter.",
+			"type": "boolean"
+		},
+		"categories": {
+			"description": "The pattern category slugs.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"keywords": {
+			"description": "The pattern keywords.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"block_types": {
+			"description": "Block types that the pattern is intended to be used with.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"post_types": {
+			"description": "An array of post types that the pattern is restricted to be used with.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"template_types": {
+			"description": "An array of template types where the pattern fits.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		}
+	},
+	"links": [
+		{
+			"rel": "collection",
+			"href": "/wp/v2/block-patterns/patterns",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}

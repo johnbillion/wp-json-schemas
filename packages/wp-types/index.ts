@@ -61,6 +61,14 @@ export type WP_REST_API_Blocks = WP_REST_API_Block[];
  */
 export type WP_REST_API_Block_Directory_Items = WP_REST_API_Block_Directory_Item[];
 /**
+ * A collection of block pattern categories in a REST API context.
+ */
+export type WP_REST_API_Block_Pattern_Categories = WP_REST_API_Block_Pattern_Category[];
+/**
+ * A collection of block patterns in a REST API context.
+ */
+export type WP_REST_API_Block_Patterns = WP_REST_API_Block_Pattern[];
+/**
  * A collection of block type objects in a REST API context.
  */
 export type WP_REST_API_Block_Types = WP_REST_API_Block_Type[];
@@ -137,6 +145,10 @@ export interface WP {
 		Blocks: WP_REST_API_Blocks;
 		Block_Directory_Item: WP_REST_API_Block_Directory_Item;
 		Block_Directory_Items: WP_REST_API_Block_Directory_Items;
+		Block_Pattern_Category: WP_REST_API_Block_Pattern_Category;
+		Block_Pattern_Categories: WP_REST_API_Block_Pattern_Categories;
+		Block_Pattern: WP_REST_API_Block_Pattern;
+		Block_Patterns: WP_REST_API_Block_Patterns;
 		Block_Type: WP_REST_API_Block_Type;
 		Block_Types: WP_REST_API_Block_Types;
 		Revision: WP_REST_API_Revision;
@@ -2238,6 +2250,74 @@ export interface WP_REST_API_Block_Directory_Item {
 	 */
 	humanized_updated: string;
 	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A block pattern category in a REST API context.
+ */
+export interface WP_REST_API_Block_Pattern_Category {
+	/**
+	 * The category name.
+	 */
+	name: string;
+	/**
+	 * The category label, in human readable format.
+	 */
+	label: string;
+	/**
+	 * The category description, in human readable format.
+	 */
+	description?: string;
+	[k: string]: unknown;
+}
+/**
+ * A block pattern in a REST API context.
+ */
+export interface WP_REST_API_Block_Pattern {
+	/**
+	 * The pattern name, in namespace/pattern-name format.
+	 */
+	name: string;
+	/**
+	 * The pattern title, in human readable format.
+	 */
+	title: string;
+	/**
+	 * The pattern content.
+	 */
+	content: string;
+	/**
+	 * The pattern detailed description.
+	 */
+	description?: string;
+	/**
+	 * The pattern viewport width for inserter preview.
+	 */
+	viewport_width?: number;
+	/**
+	 * Determines whether the pattern is visible in inserter.
+	 */
+	inserter?: boolean;
+	/**
+	 * The pattern category slugs.
+	 */
+	categories?: string[];
+	/**
+	 * The pattern keywords.
+	 */
+	keywords?: string[];
+	/**
+	 * Block types that the pattern is intended to be used with.
+	 */
+	block_types?: string[];
+	/**
+	 * An array of post types that the pattern is restricted to be used with.
+	 */
+	post_types?: string[];
+	/**
+	 * An array of template types where the pattern fits.
+	 */
+	template_types?: string[];
 	[k: string]: unknown;
 }
 /**

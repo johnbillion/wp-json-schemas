@@ -101,6 +101,18 @@
 				"Block_Directory_Items": {
 					"$ref": "schemas/rest-api/collections/block-directory-items.json"
 				},
+				"Block_Pattern_Category": {
+					"$ref": "schemas/rest-api/block-pattern-category.json"
+				},
+				"Block_Pattern_Categories": {
+					"$ref": "schemas/rest-api/collections/block-pattern-categories.json"
+				},
+				"Block_Pattern": {
+					"$ref": "schemas/rest-api/block-pattern.json"
+				},
+				"Block_Patterns": {
+					"$ref": "schemas/rest-api/collections/block-patterns.json"
+				},
 				"Block_Type": {
 					"$ref": "schemas/rest-api/block-type.json"
 				},
@@ -188,6 +200,10 @@
 				"Attachments",
 				"Block_Directory_Item",
 				"Block_Directory_Items",
+				"Block_Pattern_Category",
+				"Block_Pattern_Categories",
+				"Block_Pattern",
+				"Block_Patterns",
 				"Block_Type",
 				"Block_Types",
 				"Block",
