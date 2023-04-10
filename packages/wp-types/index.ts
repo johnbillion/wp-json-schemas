@@ -3091,7 +3091,14 @@ export interface WP_REST_API_Type {
 	 * The visibility settings for the post type. Only present when using the 'edit' context.
 	 */
 	visibility?: {
-		[k: string]: unknown;
+		/**
+		 * Whether to generate a default UI for managing this post type.
+		 */
+		show_ui?: boolean;
+		/**
+		 * Whether to make the post type available for selection in navigation menus.
+		 */
+		show_in_nav_menus?: boolean;
 	};
 	/**
 	 * The icon for the post type.

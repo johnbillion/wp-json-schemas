@@ -100,7 +100,18 @@
 		},
 		"visibility": {
 			"description": "The visibility settings for the post type. Only present when using the 'edit' context.",
-			"type": "object"
+			"type": "object",
+			"properties": {
+				"show_ui": {
+					"description": "Whether to generate a default UI for managing this post type.",
+					"type": "boolean"
+				},
+				"show_in_nav_menus": {
+					"description": "Whether to make the post type available for selection in navigation menus.",
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
 		},
 		"icon": {
 			"description": "The icon for the post type.",
