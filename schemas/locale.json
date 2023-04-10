@@ -46,16 +46,116 @@
 		"month": {
 			"description": "Stores the translated strings for the full month names.",
 			"type": "object",
-			"additionalProperties": {
-				"type": "string"
-			}
+			"required": [
+				"01",
+				"02",
+				"03",
+				"04",
+				"05",
+				"06",
+				"07",
+				"08",
+				"09",
+				"10",
+				"11",
+				"12"
+			],
+			"properties": {
+				"01": {
+					"type": "string"
+				},
+				"02": {
+					"type": "string"
+				},
+				"03": {
+					"type": "string"
+				},
+				"04": {
+					"type": "string"
+				},
+				"05": {
+					"type": "string"
+				},
+				"06": {
+					"type": "string"
+				},
+				"07": {
+					"type": "string"
+				},
+				"08": {
+					"type": "string"
+				},
+				"09": {
+					"type": "string"
+				},
+				"10": {
+					"type": "string"
+				},
+				"11": {
+					"type": "string"
+				},
+				"12": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
 		},
 		"month_genitive": {
 			"description": "Stores the translated strings for the month names in genitive case, if the locale specifies.",
 			"type": "object",
-			"additionalProperties": {
-				"type": "string"
-			}
+			"required": [
+				"01",
+				"02",
+				"03",
+				"04",
+				"05",
+				"06",
+				"07",
+				"08",
+				"09",
+				"10",
+				"11",
+				"12"
+			],
+			"properties": {
+				"01": {
+					"type": "string"
+				},
+				"02": {
+					"type": "string"
+				},
+				"03": {
+					"type": "string"
+				},
+				"04": {
+					"type": "string"
+				},
+				"05": {
+					"type": "string"
+				},
+				"06": {
+					"type": "string"
+				},
+				"07": {
+					"type": "string"
+				},
+				"08": {
+					"type": "string"
+				},
+				"09": {
+					"type": "string"
+				},
+				"10": {
+					"type": "string"
+				},
+				"11": {
+					"type": "string"
+				},
+				"12": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
 		},
 		"month_abbrev": {
 			"description": "Stores the translated strings for the abbreviated month names.",
