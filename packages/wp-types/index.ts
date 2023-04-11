@@ -128,6 +128,7 @@ export interface WP {
 	Post_Type: WP_Post_Type;
 	Query: WP_Query;
 	Role: WP_Role;
+	Screen: WP_Screen;
 	Site: WP_Site;
 	Taxonomy: WP_Taxonomy;
 	Term: WP_Term;
@@ -1353,6 +1354,51 @@ export interface WP_Role {
 	 * List of capabilities the role contains.
 	 */
 	capabilities: WP_User_Caps;
+}
+/**
+ * Core class used to implement an admin screen API.
+ */
+export interface WP_Screen {
+	/**
+	 * Any action associated with the screen.
+	 */
+	action: string;
+	/**
+	 * The base type of the screen.
+	 */
+	base: string;
+	/**
+	 * The unique ID of the screen.
+	 */
+	id: string;
+	/**
+	 * Whether the screen is in the network admin.
+	 */
+	is_network: boolean;
+	/**
+	 * Whether the screen is in the user admin.
+	 */
+	is_user: boolean;
+	/**
+	 * The base menu parent.
+	 */
+	parent_base: string | null;
+	/**
+	 * The parent_file for the screen per the admin menu system.
+	 */
+	parent_file: string | null;
+	/**
+	 * The post type associated with the screen, if any.
+	 */
+	post_type: string;
+	/**
+	 * The taxonomy associated with the screen, if any.
+	 */
+	taxonomy: string;
+	/**
+	 * The help tab data associated with the screen, if any.
+	 */
+	is_block_editor: boolean;
 }
 /**
  * Core class used for interacting with a multisite site.

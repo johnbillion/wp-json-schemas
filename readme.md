@@ -32,6 +32,7 @@ The schemas were last updated for WordPress 6.2.
 * `WP_Post_Type`
 * `WP_Role`
 * `WP_Network`
+* `WP_Screen`
 
 ### REST API Response Schemas
 

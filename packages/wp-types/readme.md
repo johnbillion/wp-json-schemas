@@ -28,6 +28,7 @@ The definitions were last updated for WordPress 6.2.
 * `WP_Post_Type`
 * `WP_Role`
 * `WP_Network`
+* `WP_Screen`
 
 ### Interfaces for REST API response objects
 

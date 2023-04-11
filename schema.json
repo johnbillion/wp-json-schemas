@@ -50,6 +50,9 @@
 		"Role": {
 			"$ref": "schemas/role.json"
 		},
+		"Screen": {
+			"$ref": "schemas/screen.json"
+		},
 		"Site": {
 			"$ref": "schemas/site.json"
 		},
@@ -247,6 +250,7 @@
 		"Post_Type",
 		"Query",
 		"Role",
+		"Screen",
 		"Site",
 		"Taxonomy",
 		"Term",
