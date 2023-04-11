@@ -3319,7 +3319,7 @@ export const enum WP_Http_Status_Code {
 type ValueOf<T> = T[keyof T]
 
 /**
- * An enveloped REST API response.
+ * An enveloped REST API response (with `?_envelope`).
  *
  * @template T A REST API response type.
  */
@@ -3335,5 +3335,8 @@ export interface WP_REST_API_Envelope<T extends ValueOf<WP["REST_API"]>> {
 	/**
 	 * The HTTP headers
 	 */
-	headers: object;
+	headers: {
+		[k: string]: string|number;
+	};
+	[k: string]: unknown;
 }
