@@ -118,6 +118,7 @@ export type WP_REST_API_Application_Passwords = WP_REST_API_Application_Password
  */
 export interface WP {
 	Block: WP_Block;
+	Block_Type: WP_Block_Type;
 	Comment: WP_Comment;
 	Error: WP_Error;
 	Error_With_Error: WP_Error_With_Error;

@@ -20,6 +20,9 @@
 		"Block": {
 			"$ref": "schemas/block.json"
 		},
+		"Block_Type": {
+			"$ref": "schemas/block-type.json"
+		},
 		"Comment": {
 			"$ref": "schemas/comment.json"
 		},
@@ -240,6 +243,7 @@
 	},
 	"required": [
 		"Block",
+		"Block_Type",
 		"Comment",
 		"Error",
 		"Error_With_Error",
