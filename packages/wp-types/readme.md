@@ -22,6 +22,7 @@ The definitions were last updated for WordPress 6.2.
 * `WP_Query`
 * `WP_Block`
 * `WP_Block_Type`
+* `WP_Block_Template`
 * `WP_Site`
 * `WP_Locale`
 * `WP_Taxonomy`

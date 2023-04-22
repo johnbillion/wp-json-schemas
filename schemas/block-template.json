@@ -1,0 +1,94 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/block-template.json",
+	"title": "WP_Block_Template",
+	"description": "Core class representing a block template.",
+	"type": "object",
+	"required": [
+		"type",
+		"theme",
+		"slug",
+		"id",
+		"title",
+		"content",
+		"description",
+		"source",
+		"origin",
+		"wp_id",
+		"status",
+		"has_theme_file",
+		"is_custom",
+		"author",
+		"post_types",
+		"area"
+	],
+	"properties": {
+		"type": {
+			"type": "string"
+		},
+		"theme": {
+			"type": "string"
+		},
+		"slug": {
+			"type": "string"
+		},
+		"id": {
+			"type": "string"
+		},
+		"title": {
+			"type": "string"
+		},
+		"content": {
+			"type": "string"
+		},
+		"description": {
+			"type": "string"
+		},
+		"source": {
+			"type": "string"
+		},
+		"origin": {
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"wp_id": {
+			"type": [
+				"integer",
+				"null"
+			]
+		},
+		"status": {
+			"type": "string"
+		},
+		"has_theme_file": {
+			"type": "boolean"
+		},
+		"is_custom": {
+			"type": "boolean"
+		},
+		"author": {
+			"type": [
+				"integer",
+				"null"
+			]
+		},
+		"post_types": {
+			"type": [
+				"array",
+				"null"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
+		"area": {
+			"type": [
+				"string",
+				"null"
+			]
+		}
+	},
+	"additionalProperties": false
+}

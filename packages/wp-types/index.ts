@@ -119,6 +119,7 @@ export type WP_REST_API_Application_Passwords = WP_REST_API_Application_Password
 export interface WP {
 	Block: WP_Block;
 	Block_Type: WP_Block_Type;
+	Block_Template: WP_Block_Template;
 	Comment: WP_Comment;
 	Error: WP_Error;
 	Error_With_Error: WP_Error_With_Error;
@@ -380,6 +381,27 @@ export interface WP_Block_Type {
 	skip_inner_blocks?: boolean;
 }
 export interface EmptyObject {}
+/**
+ * Core class representing a block template.
+ */
+export interface WP_Block_Template {
+	type: string;
+	theme: string;
+	slug: string;
+	id: string;
+	title: string;
+	content: string;
+	description: string;
+	source: string;
+	origin: string | null;
+	wp_id: number | null;
+	status: string;
+	has_theme_file: boolean;
+	is_custom: boolean;
+	author: number | null;
+	post_types: string[] | null;
+	area: string | null;
+}
 /**
  * Core class used to organize comments as instantiated objects with defined members.
  */
