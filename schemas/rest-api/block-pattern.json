@@ -30,7 +30,7 @@
 		},
 		"viewport_width": {
 			"description": "The pattern viewport width for inserter preview.",
-			"type": "number"
+			"type": "integer"
 		},
 		"inserter": {
 			"description": "Determines whether the pattern is visible in inserter.",
