@@ -10,16 +10,16 @@
 		}
 	],
 	"require": {
-		"php": "^7 || ^8"
+		"php": "^7.0 || ^8.0"
 	},
 	"require-dev": {
-		"johnbillion/args": "1.7.0",
-		"roots/wordpress-core-installer": "^1.0.0",
+		"johnbillion/args": "~1.7.0",
+		"roots/wordpress-core-installer": "^1.0",
 		"roots/wordpress-full": "~6.2.0",
-		"vlucas/phpdotenv": "^5",
-		"wp-cli/core-command": "^2",
-		"wp-cli/db-command": "^2",
-		"wp-cli/language-command": "^2"
+		"vlucas/phpdotenv": "^5.0",
+		"wp-cli/core-command": "^2.0",
+		"wp-cli/db-command": "^2.0",
+		"wp-cli/language-command": "^2.0"
 	},
 	"config": {
 		"allow-plugins": {
