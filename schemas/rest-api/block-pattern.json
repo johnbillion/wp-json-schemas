@@ -57,6 +57,17 @@
 				"type": "string"
 			}
 		},
+		"source": {
+			"description": "Where the pattern comes from e.g. core.",
+			"enum": [
+				"core",
+				"plugin",
+				"theme",
+				"pattern-directory/core",
+				"pattern-directory/theme",
+				"pattern-directory/featured"
+			]
+		},
 		"post_types": {
 			"description": "An array of post types that the pattern is restricted to be used with.",
 			"type": "array",

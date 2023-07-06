@@ -101,6 +101,17 @@
 			"description": "Block variations.",
 			"type": "array"
 		},
+		"selectors": {
+			"description": "Custom CSS selectors for theme.json style generation.",
+			"anyOf": [
+				{
+					"$ref": "../schema.json#/definitions/EmptyArray"
+				},
+				{
+					"type": "object"
+				}
+			]
+		},
 		"supports": {
 			"description": "Supported features.",
 			"anyOf": [

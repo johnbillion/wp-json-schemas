@@ -20,6 +20,7 @@
 		"is_custom",
 		"author",
 		"post_types",
+		"modified",
 		"area"
 	],
 	"properties": {
@@ -84,6 +85,12 @@
 			}
 		},
 		"area": {
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"modified": {
 			"type": [
 				"string",
 				"null"

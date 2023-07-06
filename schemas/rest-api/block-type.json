@@ -101,6 +101,17 @@
 				"type": "string"
 			}
 		},
+		"selectors": {
+			"description": "Custom CSS selectors for theme.json style generation.",
+			"anyOf": [
+				{
+					"$ref": "../../schema.json#/definitions/EmptyArray"
+				},
+				{
+					"type": "object"
+				}
+			]
+		},
 		"supports": {
 			"description": "Block supports.",
 			"type": "object"
