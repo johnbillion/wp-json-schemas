@@ -33,6 +33,7 @@
 		"item_published",
 		"item_published_privately",
 		"item_reverted_to_draft",
+		"item_trashed",
 		"item_scheduled",
 		"item_updated",
 		"item_link",
@@ -126,6 +127,9 @@
 			"type": "string"
 		},
 		"item_reverted_to_draft": {
+			"type": "string"
+		},
+		"item_trashed": {
 			"type": "string"
 		},
 		"item_scheduled": {
