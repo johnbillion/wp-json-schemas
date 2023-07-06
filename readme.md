@@ -236,6 +236,7 @@ They're all tested against actual output from WordPress core.
 
 To run the tests:
 
+* `nvm use`
 * `npm install`
 * `composer install`
 * `composer test`

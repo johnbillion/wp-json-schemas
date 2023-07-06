@@ -74,6 +74,18 @@ The schema for a PHP object is created using the docblocks from its class proper
 * Run `npm run build-wp-types` and check the output of `packages/wp-types/index.ts`.
 * Add documentation for the schema in both `readme.md` and `packages/wp-types/readme.md`.
 
+## Updating schemas for a new WordPress release
+
+*     composer require --dev roots/wordpress-full=dev-main
+*     composer update
+*     composer test
+
+Address any test failures by updating the corresponding schema files.
+
+Address any newly added REST API routes by adding them to both readme files and adding a schema if necessary or documenting them as "Todo".
+
+For release, update the WordPress version number in composer.json and the readme files.
+
 ## Releasing a new version
 
 *     npm install
