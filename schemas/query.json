@@ -14,6 +14,7 @@
 		"posts",
 		"post_count",
 		"current_post",
+		"before_loop",
 		"in_the_loop",
 		"current_comment",
 		"found_posts",
@@ -168,6 +169,10 @@
 		"current_post": {
 			"description": "Index of the current item in the loop.",
 			"type": "integer"
+		},
+		"before_loop": {
+			"description": "Whether the caller is before the loop.",
+			"type": "boolean"
 		},
 		"in_the_loop": {
 			"description": "Whether the loop has started and the caller is in the loop.",
