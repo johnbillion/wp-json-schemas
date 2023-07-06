@@ -241,7 +241,13 @@
                 "meta": {
                     "description": "Meta fields.",
                     "type": "object",
-                    "properties": [],
+                    "properties": {
+                        "footnotes": {
+                            "type": "string",
+                            "description": "",
+                            "default": ""
+                        }
+                    },
                     "required": false
                 },
                 "sticky": {
