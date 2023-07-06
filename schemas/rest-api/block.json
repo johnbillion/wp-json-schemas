@@ -156,6 +156,10 @@
 			"description": "The theme file to use to display the block.",
 			"type": "string"
 		},
+		"meta": {
+			"description": "Meta fields.",
+			"type": "object"
+		},
 		"_links": {
 			"$ref": "properties/object-links.json"
 		}

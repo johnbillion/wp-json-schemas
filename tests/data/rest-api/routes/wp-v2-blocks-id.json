@@ -142,6 +142,22 @@
                     },
                     "required": false
                 },
+                "meta": {
+                    "description": "Meta fields.",
+                    "type": "object",
+                    "properties": {
+                        "sync_status": {
+                            "type": "string",
+                            "description": "",
+                            "default": "",
+                            "enum": [
+                                "partial",
+                                "unsynced"
+                            ]
+                        }
+                    },
+                    "required": false
+                },
                 "template": {
                     "description": "The theme file to use to display the post.",
                     "type": "string",
