@@ -12,7 +12,7 @@ This package provides well-documented JSON schemas that describe the shape of:
 
 The schemas in this library are used to generate [the WordPress TypeScript definitions provided by the `wp-types` package](https://www.npmjs.com/package/wp-types).
 
-The schemas were last updated for WordPress 6.2.
+The schemas were last updated for WordPress 6.3.
 
 ## What's included?
 
@@ -57,6 +57,7 @@ Route                                                   | Schema
 /wp/v2/comments                                         | `WP_REST_API_Comments`
 /wp/v2/comments/{id}                                    | `WP_REST_API_Comment`
 /wp/v2/global-styles/{id}                               | Todo
+/wp/v2/global-styles/{id}/revisions                     | Todo
 /wp/v2/global-styles/themes/{stylesheet}/variations     | Todo
 /wp/v2/global-styles/themes/{stylesheet}                | Todo
 /wp/v2/media                                            | `WP_REST_API_Attachments`

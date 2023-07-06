@@ -8,7 +8,7 @@ This package provides well-documented TypeScript definitions that describe the s
 * WordPress REST API responses such as from `/wp/v2/posts` and `/wp/v2/users`
 * Various property types and allowed values of both
 
-The definitions were last updated for WordPress 6.2.
+The definitions were last updated for WordPress 6.3.
 
 ## What's included?
 
@@ -53,6 +53,7 @@ Route                                                   | Schema
 /wp/v2/comments                                         | `WP_REST_API_Comments`
 /wp/v2/comments/{id}                                    | `WP_REST_API_Comment`
 /wp/v2/global-styles/{id}                               | Todo
+/wp/v2/global-styles/{id}/revisions                     | Todo
 /wp/v2/global-styles/themes/{stylesheet}/variations     | Todo
 /wp/v2/global-styles/themes/{stylesheet}                | Todo
 /wp/v2/media                                            | `WP_REST_API_Attachments`
