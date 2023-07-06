@@ -301,6 +301,14 @@ export interface WP_Block_Type {
 	 */
 	variations?: unknown[];
 	/**
+	 * Custom CSS selectors for theme.json style generation.
+	 */
+	selectors?:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
+	/**
 	 * Supported features.
 	 */
 	supports: {
@@ -401,6 +409,7 @@ export interface WP_Block_Template {
 	author: number | null;
 	post_types: string[] | null;
 	area: string | null;
+	modified: string | null;
 }
 /**
  * Core class used to organize comments as instantiated objects with defined members.
@@ -924,6 +933,7 @@ export interface WP_Post_Type_Labels {
 	item_published: string;
 	item_published_privately: string;
 	item_reverted_to_draft: string;
+	item_trashed: string;
 	item_scheduled: string;
 	item_updated: string;
 	item_link: string;
@@ -1041,6 +1051,10 @@ export interface WP_Query {
 	 * Index of the current item in the loop.
 	 */
 	current_post: number;
+	/**
+	 * Whether the caller is before the loop.
+	 */
+	before_loop: boolean;
 	/**
 	 * Whether the loop has started and the caller is in the loop.
 	 */
@@ -2281,6 +2295,12 @@ export interface WP_REST_API_Block {
 	 * The theme file to use to display the block.
 	 */
 	template?: string;
+	/**
+	 * Meta fields.
+	 */
+	meta?: {
+		[k: string]: unknown;
+	};
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }
@@ -2402,6 +2422,16 @@ export interface WP_REST_API_Block_Pattern {
 	 */
 	block_types?: string[];
 	/**
+	 * Where the pattern comes from e.g. core.
+	 */
+	source?:
+		| "core"
+		| "plugin"
+		| "theme"
+		| "pattern-directory/core"
+		| "pattern-directory/theme"
+		| "pattern-directory/featured";
+	/**
 	 * An array of post types that the pattern is restricted to be used with.
 	 */
 	post_types?: string[];
@@ -2462,6 +2492,14 @@ export interface WP_REST_API_Block_Type {
 	 * Context values inherited by blocks of this type.
 	 */
 	uses_context: string[];
+	/**
+	 * Custom CSS selectors for theme.json style generation.
+	 */
+	selectors?:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
 	/**
 	 * Block supports.
 	 */
