@@ -15,7 +15,7 @@
 	"require-dev": {
 		"johnbillion/args": "1.7.0",
 		"roots/wordpress-core-installer": "^1.0.0",
-		"roots/wordpress-full": "dev-main",
+		"roots/wordpress-full": "~6.3.0",
 		"vlucas/phpdotenv": "^5",
 		"wp-cli/core-command": "^2",
 		"wp-cli/db-command": "^2",
@@ -23,6 +23,7 @@
 	},
 	"config": {
 		"allow-plugins": {
+			"composer/installers": true,
 			"roots/wordpress-core-installer": true
 		},
 		"preferred-install": "dist",
