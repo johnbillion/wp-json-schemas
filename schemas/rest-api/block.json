@@ -17,6 +17,7 @@
 		"type",
 		"title",
 		"content",
+		"wp_pattern_sync_status",
 		"_links"
 	],
 	"properties": {
@@ -152,13 +153,28 @@
 			},
 			"additionalProperties": false
 		},
+		"wp_pattern_sync_status": {
+			"type": "string",
+			"enum": [
+				"",
+				"partial",
+				"unsynced"
+			]
+		},
 		"template": {
 			"description": "The theme file to use to display the block.",
 			"type": "string"
 		},
 		"meta": {
 			"description": "Meta fields.",
-			"type": "object"
+			"anyOf": [
+				{
+					"$ref": "../../schema.json#/definitions/EmptyArray"
+				},
+				{
+					"type": "object"
+				}
+			]
 		},
 		"_links": {
 			"$ref": "properties/object-links.json"

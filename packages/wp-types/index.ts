@@ -2291,6 +2291,7 @@ export interface WP_REST_API_Block {
 		 */
 		protected: boolean;
 	};
+	wp_pattern_sync_status: "" | "partial" | "unsynced";
 	/**
 	 * The theme file to use to display the block.
 	 */
@@ -2298,9 +2299,11 @@ export interface WP_REST_API_Block {
 	/**
 	 * Meta fields.
 	 */
-	meta?: {
-		[k: string]: unknown;
-	};
+	meta?:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }

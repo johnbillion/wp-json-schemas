@@ -130,7 +130,7 @@
                     "description": "Meta fields.",
                     "type": "object",
                     "properties": {
-                        "sync_status": {
+                        "wp_pattern_sync_status": {
                             "type": "string",
                             "description": "",
                             "default": "",
