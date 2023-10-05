@@ -9,17 +9,29 @@
 			"homepage": "https://johnblackbourn.com/"
 		}
 	],
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org",
+			"only": [
+				"wpackagist-plugin/*",
+				"wpackagist-theme/*"
+			]
+		}
+	],
 	"require": {
 		"php": "^7 || ^8"
 	},
 	"require-dev": {
+		"ext-sqlite3": "*",
+		"ext-pdo_sqlite": "*",
 		"johnbillion/args": "1.7.0",
 		"roots/wordpress-core-installer": "^1.0.0",
 		"roots/wordpress-full": "~6.3.0",
-		"vlucas/phpdotenv": "^5",
 		"wp-cli/core-command": "^2",
 		"wp-cli/db-command": "^2",
-		"wp-cli/language-command": "^2"
+		"wp-cli/language-command": "^2",
+		"wpackagist-plugin/sqlite-database-integration": "^2.1"
 	},
 	"config": {
 		"allow-plugins": {
@@ -30,18 +42,23 @@
 		"sort-packages": true
 	},
 	"extra": {
+		"installer-paths": {
+			"tests/wordpress/wp-content/plugins/{$name}/": [
+				"wpackagist-plugin/sqlite-database-integration"
+			]
+		},
 		"wordpress-install-dir": "tests/wordpress"
 	},
 	"scripts": {
 		"post-update-cmd": [
-			"@php -r \"! file_exists( 'tests/.env' ) && copy( 'tests/.env.dist', 'tests/.env' );\""
+			"@php -r \"file_exists( 'tests/wordpress/wp-content/db.php' ) || copy( 'tests/wordpress/wp-content/plugins/sqlite-database-integration/db.copy', 'tests/wordpress/wp-content/db.php' );\""
 		],
 		"test": [
 			"npm run validate",
 			"npm run build-wp-types",
 			"npm run test-wp-types",
 
-			"wp db reset --yes",
+			"rm -f tests/wordpress/wp-content/database/.ht.sqlite",
 			"wp core multisite-install --url=example.org --title=Example --admin_user=admin --admin_email=admin@example.org --skip-email",
 			"wp language core install de_DE it_IT ar he_IL",
 
