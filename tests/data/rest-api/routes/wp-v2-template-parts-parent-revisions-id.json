@@ -11,8 +11,8 @@
             ],
             "args": {
                 "parent": {
-                    "description": "The ID for the parent of the revision.",
-                    "type": "integer",
+                    "description": "The id of a template",
+                    "type": "string",
                     "required": false
                 },
                 "id": {
@@ -39,8 +39,8 @@
             ],
             "args": {
                 "parent": {
-                    "description": "The ID for the parent of the revision.",
-                    "type": "integer",
+                    "description": "The id of a template",
+                    "type": "string",
                     "required": false
                 },
                 "id": {

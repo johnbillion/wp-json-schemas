@@ -10,9 +10,9 @@
                 "GET"
             ],
             "args": {
-                "parent": {
-                    "description": "The ID for the parent of the autosave.",
-                    "type": "integer",
+                "id": {
+                    "description": "The id of a template",
+                    "type": "string",
                     "required": false
                 },
                 "context": {
@@ -33,9 +33,9 @@
                 "POST"
             ],
             "args": {
-                "parent": {
-                    "description": "The ID for the parent of the autosave.",
-                    "type": "integer",
+                "id": {
+                    "description": "The id of a template",
+                    "type": "string",
                     "required": false
                 },
                 "slug": {
