@@ -16,6 +16,7 @@
 		"slug",
 		"title",
 		"content",
+		"meta",
 		"_links"
 	],
 	"properties": {
@@ -156,6 +157,17 @@
 					"type": "string"
 				}
 			}
+		},
+		"meta": {
+			"description": "Meta fields.",
+			"oneOf": [
+				{
+					"$ref": "../../schema.json#/definitions/EmptyArray"
+				},
+				{
+					"type": "object"
+				}
+			]
 		},
 		"_links": {
 			"$ref": "properties/object-links.json"

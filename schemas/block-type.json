@@ -21,6 +21,7 @@
 		"render_callback",
 		"attributes",
 		"uses_context",
+		"block_hooks",
 		"provides_context",
 		"editor_script_handles",
 		"script_handles",
@@ -100,6 +101,20 @@
 		"variations": {
 			"description": "Block variations.",
 			"type": "array"
+		},
+		"block_hooks": {
+			"description": "Block hooks for this block type.",
+			"oneOf": [
+				{
+					"$ref": "../schema.json#/definitions/EmptyArray"
+				},
+				{
+					"type": "object",
+					"additionalProperties": {
+						"type": "string"
+					}
+				}
+			]
 		},
 		"selectors": {
 			"description": "Custom CSS selectors for theme.json style generation.",

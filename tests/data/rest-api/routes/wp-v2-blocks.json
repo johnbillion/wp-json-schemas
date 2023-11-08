@@ -164,6 +164,92 @@
                         "type": "string"
                     },
                     "required": false
+                },
+                "tax_relation": {
+                    "description": "Limit result set based on relationship between multiple taxonomies.",
+                    "type": "string",
+                    "enum": [
+                        "AND",
+                        "OR"
+                    ],
+                    "required": false
+                },
+                "wp_pattern_category": {
+                    "description": "Limit result set to items with specific terms assigned in the wp_pattern_category taxonomy.",
+                    "type": [
+                        "object",
+                        "array"
+                    ],
+                    "oneOf": [
+                        {
+                            "title": "Term ID List",
+                            "description": "Match terms with the listed IDs.",
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        },
+                        {
+                            "title": "Term ID Taxonomy Query",
+                            "description": "Perform an advanced term query.",
+                            "type": "object",
+                            "properties": {
+                                "terms": {
+                                    "description": "Term IDs.",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    },
+                                    "default": []
+                                },
+                                "operator": {
+                                    "description": "Whether items must be assigned all or any of the specified terms.",
+                                    "type": "string",
+                                    "enum": [
+                                        "AND",
+                                        "OR"
+                                    ],
+                                    "default": "OR"
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    ],
+                    "required": false
+                },
+                "wp_pattern_category_exclude": {
+                    "description": "Limit result set to items except those with specific terms assigned in the wp_pattern_category taxonomy.",
+                    "type": [
+                        "object",
+                        "array"
+                    ],
+                    "oneOf": [
+                        {
+                            "title": "Term ID List",
+                            "description": "Match terms with the listed IDs.",
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        },
+                        {
+                            "title": "Term ID Taxonomy Query",
+                            "description": "Perform an advanced term query.",
+                            "type": "object",
+                            "properties": {
+                                "terms": {
+                                    "description": "Term IDs.",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    },
+                                    "default": []
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    ],
+                    "required": false
                 }
             }
         },
@@ -282,6 +368,14 @@
                 "template": {
                     "description": "The theme file to use to display the post.",
                     "type": "string",
+                    "required": false
+                },
+                "wp_pattern_category": {
+                    "description": "The terms assigned to the post in the wp_pattern_category taxonomy.",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
                     "required": false
                 }
             }

@@ -146,6 +146,14 @@
                     "description": "The theme file to use to display the post.",
                     "type": "string",
                     "required": false
+                },
+                "wp_pattern_category": {
+                    "description": "The terms assigned to the post in the wp_pattern_category taxonomy.",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "required": false
                 }
             }
         }

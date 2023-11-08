@@ -161,6 +161,9 @@
 				"unsynced"
 			]
 		},
+		"wp_pattern_category": {
+			"description": "Pattern categories."
+		},
 		"template": {
 			"description": "The theme file to use to display the block.",
 			"type": "string"

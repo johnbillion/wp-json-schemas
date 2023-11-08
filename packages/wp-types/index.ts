@@ -301,6 +301,14 @@ export interface WP_Block_Type {
 	 */
 	variations?: unknown[];
 	/**
+	 * Block hooks for this block type.
+	 */
+	block_hooks:
+		| EmptyArray
+		| {
+				[k: string]: string;
+		  };
+	/**
 	 * Custom CSS selectors for theme.json style generation.
 	 */
 	selectors?:
@@ -2317,6 +2325,12 @@ export interface WP_REST_API_Block {
 	};
 	wp_pattern_sync_status: "" | "partial" | "unsynced";
 	/**
+	 * Pattern categories.
+	 */
+	wp_pattern_category?: {
+		[k: string]: unknown;
+	};
+	/**
 	 * The theme file to use to display the block.
 	 */
 	template?: string;
@@ -2610,6 +2624,14 @@ export interface WP_REST_API_Block_Type {
 		[k: string]: unknown;
 	}[];
 	/**
+	 * Block hooks for this block type.
+	 */
+	block_hooks:
+		| EmptyArray
+		| {
+				[k: string]: string;
+		  };
+	/**
 	 * Public text domain.
 	 */
 	textdomain: string | null;
@@ -2755,6 +2777,14 @@ export interface WP_REST_API_Revision {
 		rendered: string;
 		[k: string]: unknown;
 	};
+	/**
+	 * Meta fields.
+	 */
+	meta:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }

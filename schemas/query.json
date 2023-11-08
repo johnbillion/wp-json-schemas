@@ -141,7 +141,7 @@
 		},
 		"posts": {
 			"description": "Array of post objects or post IDs.",
-			"oneOf": [
+			"anyOf": [
 				{
 					"type": "array",
 					"items": {

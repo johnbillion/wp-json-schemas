@@ -24,6 +24,7 @@
 		"style",
 		"styles",
 		"variations",
+		"block_hooks",
 		"textdomain",
 		"parent",
 		"keywords",
@@ -246,6 +247,20 @@
 			"items": {
 				"type": "object"
 			}
+		},
+		"block_hooks": {
+			"description": "Block hooks for this block type.",
+			"oneOf": [
+				{
+					"$ref": "../../schema.json#/definitions/EmptyArray"
+				},
+				{
+					"type": "object",
+					"additionalProperties": {
+						"type": "string"
+					}
+				}
+			]
 		},
 		"textdomain": {
 			"description": "Public text domain.",
