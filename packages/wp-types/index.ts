@@ -895,11 +895,35 @@ export interface WP_Post_Type {
 	 */
 	rest_controller_class: string | false;
 	/**
+	 * The controller for this post type's revisions REST API endpoints.
+	 */
+	revisions_rest_controller_class: string | false;
+	/**
+	 * The controller for this post type's autosave REST API endpoints.
+	 */
+	autosave_rest_controller_class: string | false;
+	/**
 	 * The controller instance for this post type's REST API endpoints.
 	 */
 	rest_controller: {
 		[k: string]: unknown;
 	};
+	/**
+	 * The controller instance for this post type's revisions REST API endpoints.
+	 */
+	revisions_rest_controller: {
+		[k: string]: unknown;
+	};
+	/**
+	 * The controller instance for this post type's autosave REST API endpoints.
+	 */
+	autosave_rest_controller: {
+		[k: string]: unknown;
+	};
+	/**
+	 * A flag to register the post type REST API controller after its associated autosave / revisions controllers, instead of before. Registration order affects route matching priority.
+	 */
+	late_route_registration: boolean;
 }
 /**
  * Post type labels.
