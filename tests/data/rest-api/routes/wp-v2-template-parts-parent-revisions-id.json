@@ -57,5 +57,5 @@
             }
         }
     ],
-    "route": "/wp/v2/template-parts/(?P<parent>[\\d]+)/revisions/(?P<id>[\\d]+)"
+    "route": "/wp/v2/template-parts/(?P<parent>([^\\/:<>\\*\\?\"\\|]+(?:\\/[^\\/:<>\\*\\?\"\\|]+)?)[\\/\\w%-]+)/revisions/(?P<id>[\\d]+)"
 }

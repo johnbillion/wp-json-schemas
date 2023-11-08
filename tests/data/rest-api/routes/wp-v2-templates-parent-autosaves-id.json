@@ -33,5 +33,5 @@
             }
         }
     ],
-    "route": "/wp/v2/templates/(?P<parent>[\\d]+)/autosaves/(?P<id>[\\d]+)"
+    "route": "/wp/v2/templates/(?P<parent>([^\\/:<>\\*\\?\"\\|]+(?:\\/[^\\/:<>\\*\\?\"\\|]+)?)[\\/\\w%-]+)/autosaves/(?P<id>[\\d]+)"
 }

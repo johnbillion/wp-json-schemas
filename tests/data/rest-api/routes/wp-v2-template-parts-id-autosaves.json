@@ -140,5 +140,5 @@
             }
         }
     ],
-    "route": "/wp/v2/template-parts/(?P<id>[\\d]+)/autosaves"
+    "route": "/wp/v2/template-parts/(?P<id>([^\\/:<>\\*\\?\"\\|]+(?:\\/[^\\/:<>\\*\\?\"\\|]+)?)[\\/\\w%-]+)/autosaves"
 }

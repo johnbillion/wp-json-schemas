@@ -95,5 +95,5 @@
             }
         }
     ],
-    "route": "/wp/v2/templates/(?P<parent>[\\d]+)/revisions"
+    "route": "/wp/v2/templates/(?P<parent>([^\\/:<>\\*\\?\"\\|]+(?:\\/[^\\/:<>\\*\\?\"\\|]+)?)[\\/\\w%-]+)/revisions"
 }
