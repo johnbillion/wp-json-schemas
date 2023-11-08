@@ -142,7 +142,7 @@
 		},
 		"register_meta_box_cb": {
 			"description": "Provide a callback function that sets up the meta boxes for the edit form.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/callable.json"
 				},

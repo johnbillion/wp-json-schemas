@@ -61,7 +61,7 @@
 		},
 		"user_registered": {
 			"description": "The user's registration date.",
-			"anyOf": [
+			"allOf": [
 				{
 					"$ref": "date-time.json"
 				}

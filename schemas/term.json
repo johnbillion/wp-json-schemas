@@ -116,7 +116,7 @@
 		},
 		"filter": {
 			"description": "Stores the term object's sanitization level.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/object-filter-context.json"
 				},

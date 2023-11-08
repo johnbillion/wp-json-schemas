@@ -141,7 +141,7 @@
 		},
 		"posts": {
 			"description": "Array of post objects or post IDs.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"type": "array",
 					"items": {
@@ -191,7 +191,7 @@
 		},
 		"comments": {
 			"description": "The list of comments for current post.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"type": "array",
 					"items": {

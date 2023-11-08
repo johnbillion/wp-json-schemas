@@ -110,7 +110,7 @@
 		},
 		"date": {
 			"description": "The date the comment was published, in the site's timezone.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -118,7 +118,7 @@
 		},
 		"date_gmt": {
 			"description": "The date the comment was published, as GMT.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -203,7 +203,7 @@
 		},
 		"meta": {
 			"description": "Meta fields.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../../schema.json#/definitions/EmptyArray"
 				},

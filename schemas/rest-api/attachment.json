@@ -34,7 +34,7 @@
 	"properties": {
 		"date": {
 			"description": "The date the attachment was published, in the site's timezone.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -42,7 +42,7 @@
 		},
 		"date_gmt": {
 			"description": "The date the attachment was published, as GMT.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -83,7 +83,7 @@
 		"modified": {
 			"readOnly": true,
 			"description": "The date the attachment was last modified, in the site's timezone.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -92,7 +92,7 @@
 		"modified_gmt": {
 			"readOnly": true,
 			"description": "The date the attachment was last modified, as GMT.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -247,7 +247,7 @@
 		},
 		"comment_status": {
 			"description": "Whether or not comments are open on the attachment.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../properties/post-comment-status-name.json"
 				}
@@ -255,7 +255,7 @@
 		},
 		"ping_status": {
 			"description": "Whether or not the attachment can be pinged.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../properties/post-comment-status-name.json"
 				}
@@ -263,7 +263,7 @@
 		},
 		"meta": {
 			"description": "Meta fields.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../../schema.json#/definitions/EmptyArray"
 				},

@@ -49,7 +49,7 @@
 		},
 		"filter": {
 			"description": "The filter context applied to user data fields.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/object-filter-context.json"
 				},

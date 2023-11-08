@@ -78,7 +78,7 @@
 		},
 		"default_ping_status": {
 			"description": "Allow link notifications from other blogs (pingbacks and trackbacks) on new articles.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../properties/post-comment-status-name.json"
 				}
@@ -86,7 +86,7 @@
 		},
 		"default_comment_status": {
 			"description": "Allow people to submit comments on new posts.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../properties/post-comment-status-name.json"
 				}

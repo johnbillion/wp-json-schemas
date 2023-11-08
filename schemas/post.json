@@ -42,7 +42,7 @@
 		},
 		"post_date": {
 			"description": "The post's local publication time.",
-			"anyOf": [
+			"allOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -50,7 +50,7 @@
 		},
 		"post_date_gmt": {
 			"description": "The post's GMT publication time.",
-			"anyOf": [
+			"allOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -83,7 +83,7 @@
 		},
 		"comment_status": {
 			"description": "Whether comments are allowed.",
-			"anyOf": [
+			"allOf": [
 				{
 					"$ref": "properties/post-comment-status-name.json"
 				}
@@ -91,7 +91,7 @@
 		},
 		"ping_status": {
 			"description": "Whether pings are allowed.",
-			"anyOf": [
+			"allOf": [
 				{
 					"$ref": "properties/post-comment-status-name.json"
 				}
@@ -144,7 +144,7 @@
 		},
 		"post_modified": {
 			"description": "The post's local modified time.",
-			"anyOf": [
+			"allOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -152,7 +152,7 @@
 		},
 		"post_modified_gmt": {
 			"description": "The post's GMT modified time.",
-			"anyOf": [
+			"allOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -210,7 +210,7 @@
 		},
 		"filter": {
 			"description": "Stores the post object's sanitization level.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/object-filter-context.json"
 				},

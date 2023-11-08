@@ -23,7 +23,7 @@
 	"properties": {
 		"date": {
 			"description": "The date the block was published, in the site's timezone.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -31,7 +31,7 @@
 		},
 		"date_gmt": {
 			"description": "The date the block was published, as GMT.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -72,7 +72,7 @@
 		"modified": {
 			"readOnly": true,
 			"description": "The date the block was last modified, in the site's timezone.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -81,7 +81,7 @@
 		"modified_gmt": {
 			"readOnly": true,
 			"description": "The date the block was last modified, as GMT.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -167,7 +167,7 @@
 		},
 		"meta": {
 			"description": "Meta fields.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../../schema.json#/definitions/EmptyArray"
 				},

@@ -67,7 +67,7 @@
 		},
 		"meta": {
 			"description": "Meta fields.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../../schema.json#/definitions/EmptyArray"
 				},

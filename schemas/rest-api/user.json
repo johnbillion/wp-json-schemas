@@ -92,7 +92,7 @@
 		"registered_date": {
 			"readOnly": true,
 			"description": "Registration date for the user in UTC. Only present when using the 'edit' context.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time-utc.json"
 				}
@@ -164,7 +164,7 @@
 		},
 		"meta": {
 			"description": "Meta fields.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../../schema.json#/definitions/EmptyArray"
 				},

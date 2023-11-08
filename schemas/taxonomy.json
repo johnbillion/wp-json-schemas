@@ -102,7 +102,7 @@
 		},
 		"meta_box_cb": {
 			"description": "The callback function for the meta box display.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/callable.json"
 				},

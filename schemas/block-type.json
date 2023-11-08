@@ -103,7 +103,7 @@
 		},
 		"selectors": {
 			"description": "Custom CSS selectors for theme.json style generation.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../schema.json#/definitions/EmptyArray"
 				},
@@ -114,7 +114,7 @@
 		},
 		"supports": {
 			"description": "Supported features.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"type": "object"
 				},
@@ -125,7 +125,7 @@
 		},
 		"example": {
 			"description": "Structured data for the block preview.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../schema.json#/definitions/EmptyArray"
 				},
@@ -139,7 +139,7 @@
 		},
 		"render_callback": {
 			"description": "Block type render callback.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/callable.json"
 				},
@@ -150,7 +150,7 @@
 		},
 		"attributes": {
 			"description": "Block type attributes property schemas.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../schema.json#/definitions/EmptyArray"
 				},

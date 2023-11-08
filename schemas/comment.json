@@ -86,7 +86,7 @@
 		},
 		"comment_date": {
 			"description": "Comment date in YYYY-MM-DD HH:MM:SS format.",
-			"anyOf": [
+			"allOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -94,7 +94,7 @@
 		},
 		"comment_date_gmt": {
 			"description": "Comment GMT date in YYYY-MM-DD HH::MM:SS format.",
-			"anyOf": [
+			"allOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}

@@ -499,7 +499,7 @@ export interface WP_Error {
 	/**
 	 * Stores the list of data for error codes.
 	 */
-	error_data: EmptyArray | WP_Error_Data;
+	error_data: WP_Error_Data;
 }
 /**
  * The messages for the errors contained within the error object.

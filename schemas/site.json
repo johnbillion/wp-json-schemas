@@ -40,7 +40,7 @@
 		},
 		"registered": {
 			"description": "The date on which the site was created or registered.",
-			"anyOf": [
+			"allOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -48,7 +48,7 @@
 		},
 		"last_updated": {
 			"description": "The date and time on which site settings were last updated.",
-			"anyOf": [
+			"allOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}

@@ -12,7 +12,7 @@
 	"properties": {
 		"errors": {
 			"description": "Stores the list of errors.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../schema.json#/definitions/EmptyArray"
 				},
@@ -23,10 +23,7 @@
 		},
 		"error_data": {
 			"description": "Stores the list of data for error codes.",
-			"anyOf": [
-				{
-					"$ref": "../schema.json#/definitions/EmptyArray"
-				},
+			"allOf": [
 				{
 					"$ref": "properties/error-data.json"
 				}

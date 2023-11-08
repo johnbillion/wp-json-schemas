@@ -103,7 +103,7 @@
 		},
 		"selectors": {
 			"description": "Custom CSS selectors for theme.json style generation.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../../schema.json#/definitions/EmptyArray"
 				},
@@ -273,7 +273,7 @@
 		},
 		"example": {
 			"description": "Block example.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../../schema.json#/definitions/EmptyArray"
 				},
