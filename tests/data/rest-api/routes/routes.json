@@ -93,5 +93,7 @@
     "/wp/v2/widget-types/(?P<id>[a-zA-Z0-9_-]+)/encode",
     "/wp/v2/widget-types/(?P<id>[a-zA-Z0-9_-]+)/render",
     "/wp/v2/widgets",
-    "/wp/v2/widgets/(?P<id>[\\w\\-]+)"
+    "/wp/v2/widgets/(?P<id>[\\w\\-]+)",
+    "/wp/v2/wp_pattern_category",
+    "/wp/v2/wp_pattern_category/(?P<id>[\\d]+)"
 ]

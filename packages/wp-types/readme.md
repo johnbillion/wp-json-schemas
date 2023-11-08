@@ -128,6 +128,8 @@ Route                                                   | Schema
 /wp/v2/widget-types/{id}/render                         | Todo
 /wp/v2/widgets                                          | Todo
 /wp/v2/widgets/{id}                                     | Todo
+/wp/v2/wp_pattern_category                              | Todo
+/wp/v2/wp_pattern_category/{id}                         | Todo
 Any enveloped REST API response                         | `WP_REST_API_Envelope<T>`
 Any REST API error                                      | `WP_REST_API_Error`
 
