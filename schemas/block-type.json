@@ -139,7 +139,7 @@
 		},
 		"render_callback": {
 			"description": "Block type render callback.",
-			"oneOf": [
+			"anyOf": [
 				{
 					"$ref": "properties/callable.json"
 				},
