@@ -56,8 +56,15 @@ Route                                                   | Schema
 /wp/v2/categories/{id}                                  | `WP_REST_API_Category`
 /wp/v2/comments                                         | `WP_REST_API_Comments`
 /wp/v2/comments/{id}                                    | `WP_REST_API_Comment`
+/wp/v2/wp/v2/font-collections                           | Todo
+/wp/v2/wp/v2/font-collections/{slug}                    | Todo
+/wp/v2/wp/v2/font-families                              | Todo
+/wp/v2/wp/v2/font-families/{id}/                        | Todo
+/wp/v2/wp/v2/font-families/{id}/font-faces              | Todo
+/wp/v2/wp/v2/font-families/{id}/font-faces/{id}         | Todo
 /wp/v2/global-styles/{id}                               | Todo
-/wp/v2/global-styles/{id}/revisions                     | Todo
+/wp/v2/global-styles/{parent}/revisions                 | Todo
+/wp/v2/global-styles/{parent}/revisions/{id}            | Todo
 /wp/v2/global-styles/themes/{stylesheet}/variations     | Todo
 /wp/v2/global-styles/themes/{stylesheet}                | Todo
 /wp/v2/media                                            | `WP_REST_API_Attachments`
