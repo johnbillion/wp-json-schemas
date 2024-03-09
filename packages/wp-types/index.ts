@@ -309,6 +309,22 @@ export interface WP_Block_Type {
 				[k: string]: string;
 		  };
 	/**
+	 * Allowed child block types.
+	 */
+	allowed_blocks: string[] | null;
+	/**
+	 * Block variations callback.
+	 */
+	variation_callback: Callable | null;
+	/**
+	 * Block type front end only script module IDs.
+	 */
+	view_script_module_ids: string[];
+	/**
+	 * Block type front end only style handles.
+	 */
+	view_style_handles: string[];
+	/**
 	 * Custom CSS selectors for theme.json style generation.
 	 */
 	selectors?:
@@ -2099,6 +2115,10 @@ export interface WP_REST_API_Attachment {
 	 */
 	id: number;
 	/**
+	 * The ID of the featured media for the post.
+	 */
+	featured_media: number;
+	/**
 	 * URL to the attachment.
 	 */
 	link: string;
@@ -2631,6 +2651,18 @@ export interface WP_REST_API_Block_Type {
 		| {
 				[k: string]: string;
 		  };
+	/**
+	 * Allowed child block types.
+	 */
+	allowed_blocks: string[] | null;
+	/**
+	 * Block type front end only script module IDs.
+	 */
+	view_script_module_ids: string[];
+	/**
+	 * Block type front end only style handles.
+	 */
+	view_style_handles: string[];
 	/**
 	 * Public text domain.
 	 */

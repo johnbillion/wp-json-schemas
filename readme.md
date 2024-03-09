@@ -12,7 +12,7 @@ This package provides well-documented JSON schemas that describe the shape of:
 
 The schemas in this library are used to generate [the WordPress TypeScript definitions provided by the `wp-types` package](https://www.npmjs.com/package/wp-types).
 
-The schemas were last updated for WordPress 6.4.
+The schemas were last updated for WordPress 6.5.
 
 ## What's included?
 
@@ -56,8 +56,15 @@ Route                                                   | Schema
 /wp/v2/categories/{id}                                  | `WP_REST_API_Category`
 /wp/v2/comments                                         | `WP_REST_API_Comments`
 /wp/v2/comments/{id}                                    | `WP_REST_API_Comment`
+/wp/v2/wp/v2/font-collections                           | Todo
+/wp/v2/wp/v2/font-collections/{slug}                    | Todo
+/wp/v2/wp/v2/font-families                              | Todo
+/wp/v2/wp/v2/font-families/{id}/                        | Todo
+/wp/v2/wp/v2/font-families/{id}/font-faces              | Todo
+/wp/v2/wp/v2/font-families/{id}/font-faces/{id}         | Todo
 /wp/v2/global-styles/{id}                               | Todo
-/wp/v2/global-styles/{id}/revisions                     | Todo
+/wp/v2/global-styles/{parent}/revisions                 | Todo
+/wp/v2/global-styles/{parent}/revisions/{id}            | Todo
 /wp/v2/global-styles/themes/{stylesheet}/variations     | Todo
 /wp/v2/global-styles/themes/{stylesheet}                | Todo
 /wp/v2/media                                            | `WP_REST_API_Attachments`
@@ -179,12 +186,12 @@ npm install wp-json-schemas
 This package is versioned so that you can specify both the schema version and the WordPress branch version in a way that's compatible with semantic versioning. Given version `x.y.z`:
 
 * The major version number (`x`) indicates the schema version number, currently `3`
-* The minor version number (`y`) indicates the WordPress branch version number without its decimal place, eg. `64` for WordPress 6.4
+* The minor version number (`y`) indicates the WordPress branch version number without its decimal place, eg. `65` for WordPress 6.5
 * The patch version number (`z`) indicates the schema patch version number
 
 Examples:
 
-* `~3.64.0` - Schema version 3 for WordPress 6.4
+* `~3.65.0` - Schema version 3 for WordPress 6.5
 * `~3.60.0` - Schema version 3 for WordPress 6.0
 * `~3.57.0` - Schema version 3 for WordPress 5.7
 * `^3.0.0` - Schema version 3 for the latest WordPress version

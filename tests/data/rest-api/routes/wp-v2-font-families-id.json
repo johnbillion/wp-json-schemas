@@ -1,0 +1,3 @@
+{
+    "route": "/wp/v2/font-families/(?P<id>[\\d]+)"
+}

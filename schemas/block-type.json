@@ -22,6 +22,10 @@
 		"attributes",
 		"uses_context",
 		"block_hooks",
+		"allowed_blocks",
+		"variation_callback",
+		"view_script_module_ids",
+		"view_style_handles",
 		"provides_context",
 		"editor_script_handles",
 		"script_handles",
@@ -115,6 +119,41 @@
 					}
 				}
 			]
+		},
+		"allowed_blocks": {
+			"description": "Allowed child block types.",
+			"type": [
+				"array",
+				"null"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
+		"variation_callback": {
+			"description": "Block variations callback.",
+			"anyOf": [
+				{
+					"$ref": "properties/callable.json"
+				},
+				{
+					"type": "null"
+				}
+			]
+		},
+		"view_script_module_ids": {
+			"description": "Block type front end only script module IDs.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"view_style_handles": {
+			"description": "Block type front end only style handles.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
 		},
 		"selectors": {
 			"description": "Custom CSS selectors for theme.json style generation.",
