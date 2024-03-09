@@ -25,6 +25,9 @@
 		"styles",
 		"variations",
 		"block_hooks",
+		"allowed_blocks",
+		"view_script_module_ids",
+		"view_style_handles",
 		"textdomain",
 		"parent",
 		"keywords",
@@ -261,6 +264,30 @@
 					}
 				}
 			]
+		},
+		"allowed_blocks": {
+			"description": "Allowed child block types.",
+			"type": [
+				"array",
+				"null"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
+		"view_script_module_ids": {
+			"description": "Block type front end only script module IDs.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"view_style_handles": {
+			"description": "Block type front end only style handles.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
 		},
 		"textdomain": {
 			"description": "Public text domain.",

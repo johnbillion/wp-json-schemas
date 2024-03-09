@@ -9,6 +9,7 @@
 		"date_gmt",
 		"guid",
 		"id",
+		"featured_media",
 		"link",
 		"modified",
 		"modified_gmt",
@@ -72,6 +73,10 @@
 		"id": {
 			"readOnly": true,
 			"description": "Unique identifier for the attachment.",
+			"type": "integer"
+		},
+		"featured_media": {
+			"description": "The ID of the featured media for the post.",
 			"type": "integer"
 		},
 		"link": {
