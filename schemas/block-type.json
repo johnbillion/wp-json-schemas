@@ -20,7 +20,6 @@
 		"example",
 		"render_callback",
 		"attributes",
-		"uses_context",
 		"block_hooks",
 		"allowed_blocks",
 		"variation_callback",
@@ -215,13 +214,6 @@
 					"type": "null"
 				}
 			]
-		},
-		"uses_context": {
-			"description": "Context values inherited by blocks of this type.",
-			"type": "array",
-			"items": {
-				"type": "string"
-			}
 		},
 		"provides_context": {
 			"description": "Context provided by blocks of this type.",

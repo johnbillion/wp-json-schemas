@@ -361,10 +361,6 @@ export interface WP_Block_Type {
 		  }
 		| null;
 	/**
-	 * Context values inherited by blocks of this type.
-	 */
-	uses_context: string[];
-	/**
 	 * Context provided by blocks of this type.
 	 */
 	provides_context: {
