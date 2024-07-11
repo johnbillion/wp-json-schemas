@@ -286,6 +286,22 @@ import { WP_Post_Type_Name } from 'wp-types';
 console.log( WP_Post_Type_Name.auto_draft );
 ```
 
+### How are these definitions different to `@wordpress/core-data`?
+
+[The `@wordpress/core-data` package](https://www.npmjs.com/package/@wordpress/core-data) includes TypeScript definitions for some WordPress data types. These packages don't "compete", they can be complimentary, and there are advantages and disadvantages to using one over the other depending on your use case.
+
+#### Advantages of `wp-types`
+
+* `wp-types` contains definitions for *all* WordPress REST API endpoints and data types, whereas `@wordpress/core-data` includes only the data types used by the core data store
+* `wp-types` is automatically tested against each new version of WordPress, whereas `@wordpress/core-data` is not and the can get out of date
+* `@wordpress/core-data` is a full data store implementation library, not just the type definitions
+
+#### Advantages of `@wordpress/core-data`
+
+* `@wordpress/core-data` includes separate type definitions for the `view`, `edit`, and `embed` contexts, whereas `wp-types` includes only the combined `view` and `edit` contexts (although this will hopefully change in the future)
+* `@wordpress/core-data` includes separate type definitions for the different data structure that needs to be sent to some endpoints for POST and PUT requests, whereas `wp-types` does not (although this will also hopefully change in the future)
+* If you're already using the `@wordpress/core-data` API in a TypeScript project and you don't need type definitions for anything beyond the core data store, then there is no need to use `wp-types`
+
 ## License
 
 MIT
