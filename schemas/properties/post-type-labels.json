@@ -149,6 +149,9 @@
 		},
 		"name_admin_bar": {
 			"type": "string"
+		},
+		"template_name": {
+			"type": "string"
 		}
 	},
 	"additionalProperties": false

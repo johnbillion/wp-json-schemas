@@ -984,6 +984,7 @@ export interface WP_Post_Type_Labels {
 	item_link_description: string;
 	menu_name: string;
 	name_admin_bar: string;
+	template_name?: string;
 }
 /**
  * Post type capabilities.
@@ -1723,6 +1724,7 @@ export interface WP_Taxonomy_Labels {
 	item_link_description: string;
 	menu_name: string;
 	name_admin_bar: string;
+	template_name: string;
 }
 /**
  * Taxonomy capabilities.
@@ -1957,6 +1959,10 @@ export interface WP_REST_API_Post {
 	 * A field used for ordering posts.
 	 */
 	menu_order?: number;
+	/**
+	 * An array of the class names for the post container element.
+	 */
+	class_list: string[];
 	/**
 	 * The title for the post.
 	 */
@@ -2203,6 +2209,10 @@ export interface WP_REST_API_Attachment {
 	 */
 	generated_slug?: string;
 	/**
+	 * An array of the class names for the post container element.
+	 */
+	class_list: string[];
+	/**
 	 * The title for the attachment.
 	 */
 	title: {
@@ -2334,6 +2344,23 @@ export interface WP_REST_API_Block {
 		 * Version of the content block format used by the block. Only present when using the 'edit' context.
 		 */
 		block_version?: number;
+		/**
+		 * Whether the content is protected with a password.
+		 */
+		protected: boolean;
+	};
+	/**
+	 * The excerpt for the block.
+	 */
+	excerpt?: {
+		/**
+		 * Excerpt for the block, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML content for the post excerpt, transformed for display.
+		 */
+		rendered: string;
 		/**
 		 * Whether the content is protected with a password.
 		 */
@@ -3279,6 +3306,22 @@ export interface WP_REST_API_Type {
 	 * REST route's namespace for the post type.
 	 */
 	rest_namespace: string;
+	/**
+	 * The block template associated with the post type.
+	 */
+	template?: (
+		| [string]
+		| [
+				string,
+				{
+					[k: string]: unknown;
+				},
+		  ]
+	)[];
+	/**
+	 * The template lock associated with the post type, or false if none.
+	 */
+	template_lock?: "all" | "insert" | false;
 	/**
 	 * The visibility settings for the post type. Only present when using the 'edit' context.
 	 */

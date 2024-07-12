@@ -33,6 +33,23 @@ add_action( 'init', function() : void {
 	// Ensure we're authenticated as an admin during test data generation.
 	grant_super_admin( 1 );
 	wp_set_current_user( 1 );
+
+	register_post_type( 'book', [
+		'public' => true,
+		'label' => 'Books',
+		'show_in_rest' => true,
+		'template' => [
+			[
+				'core/paragraph',
+				[
+					'placeholder' => 'Add a description of the book',
+				],
+			],
+			[
+				'core/paragraph',
+			],
+		],
+	] );
 } );
 
 /**

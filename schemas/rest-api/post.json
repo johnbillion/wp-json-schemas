@@ -15,6 +15,7 @@
 		"slug",
 		"status",
 		"type",
+		"class_list",
 		"title",
 		"content",
 		"author",
@@ -143,6 +144,14 @@
 		"menu_order": {
 			"description": "A field used for ordering posts.",
 			"type": "integer"
+		},
+		"class_list": {
+			"readOnly": true,
+			"description": "An array of the class names for the post container element.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
 		},
 		"title": {
 			"description": "The title for the post.",

@@ -16,6 +16,7 @@
 		"slug",
 		"status",
 		"type",
+		"class_list",
 		"title",
 		"author",
 		"template",
@@ -221,6 +222,14 @@
 			"readOnly": true,
 			"description": "Slug automatically generated from the attachment title. Only present when using the 'edit' context and the post type is public.",
 			"type": "string"
+		},
+		"class_list": {
+			"readOnly": true,
+			"description": "An array of the class names for the post container element.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
 		},
 		"title": {
 			"description": "The title for the attachment.",
