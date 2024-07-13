@@ -104,6 +104,21 @@ function save_rest_array( array $data, string $dir ) : void {
 	}
 }
 
+function save_external_schema( string $url, string $name ) : void {
+	$target = dirname( ABSPATH ) . "/external-schemas/{$name}.json";
+	$schema = download_url( $url );
+
+	if ( is_wp_error( $schema ) ) {
+		throw new \Exception( "Failed to download external {$name} schema." );
+	}
+
+	$renamed = rename( $schema, $target );
+
+	if ( ! $renamed ) {
+		throw new \Exception( "Failed to rename external {$name} schema." );
+	}
+}
+
 /**
  * Helper function for performing an internal REST API request and returning its response data.
  *
