@@ -1,0 +1,221 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/font-collection.json",
+	"title": "WP_REST_API_Font_Collection",
+	"description": "A font collection object in a REST API context.",
+	"$comment": "See also https://schemas.wp.org/trunk/font-collection.json",
+	"type": "object",
+	"readOnly": true,
+	"required": [
+		"slug",
+		"name",
+		"description",
+		"font_families",
+		"categories",
+		"_links"
+	],
+	"properties": {
+		"slug": {
+			"description": "Unique identifier for the font collection.",
+			"type": "string"
+		},
+		"name": {
+			"description": "The name for the font collection.",
+			"type": "string"
+		},
+		"description": {
+			"description": "The description for the font collection.",
+			"type": "string"
+		},
+		"font_families": {
+			"description": "The font families for the font collection.",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": [
+					"font_family_settings"
+				],
+				"properties": {
+					"font_family_settings": {
+						"type": "object",
+						"required": [
+							"name",
+							"fontFamily",
+							"slug"
+						],
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"fontFamily": {
+								"type": "string"
+							},
+							"slug": {
+								"type": "string"
+							},
+							"fontFace": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"required": [
+										"src",
+										"fontFamily"
+									],
+									"properties": {
+										"preview": {
+											"description": "URL to a preview image of the font.",
+											"type": "string",
+											"format": "uri"
+										},
+										"fontFamily": {
+											"description": "CSS font-family value.",
+											"type": "string"
+										},
+										"fontStyle": {
+											"description": "CSS font-style value.",
+											"type": "string"
+										},
+										"fontWeight": {
+											"description": "List of available font weights, separated by a space.",
+											"oneOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "integer"
+												}
+											]
+										},
+										"fontDisplay": {
+											"description": "CSS font-display value.",
+											"type": "string",
+											"enum": [
+												"auto",
+												"block",
+												"fallback",
+												"swap",
+												"optional"
+											]
+										},
+										"src": {
+											"description": "Paths or URLs to the font files.",
+											"oneOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "array",
+													"items": {
+														"type": "string"
+													}
+												}
+											]
+										},
+										"fontStretch": {
+											"description": "CSS font-stretch value.",
+											"type": "string"
+										},
+										"ascentOverride": {
+											"description": "CSS ascent-override value.",
+											"type": "string"
+										},
+										"descentOverride": {
+											"description": "CSS descent-override value.",
+											"type": "string"
+										},
+										"fontVariant": {
+											"description": "CSS font-variant value.",
+											"type": "string"
+										},
+										"fontFeatureSettings": {
+											"description": "CSS font-feature-settings value.",
+											"type": "string"
+										},
+										"fontVariationSettings": {
+											"description": "CSS font-variation-settings value.",
+											"type": "string"
+										},
+										"lineGapOverride": {
+											"description": "CSS line-gap-override value.",
+											"type": "string"
+										},
+										"sizeAdjust": {
+											"description": "CSS size-adjust value.",
+											"type": "string"
+										},
+										"unicodeRange": {
+											"description": "CSS unicode-range value.",
+											"type": "string"
+										}
+									},
+									"additionalProperties": false
+								}
+							},
+							"preview": {
+								"type": "string",
+								"format": "uri"
+							}
+						},
+						"additionalProperties": false
+					},
+					"categories": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					}
+				},
+				"additionalProperties": false
+			}
+		},
+		"categories": {
+			"description": "The categories for the font collection.",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": [
+					"name",
+					"slug"
+				],
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"slug": {
+						"type": "string"
+					}
+				},
+				"additionalProperties": false
+			}
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/font-collections/{slug}",
+			"hrefSchema": {
+				"properties": {
+					"slug": {
+						"$ref": "#/properties/slug"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/font-collections",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}

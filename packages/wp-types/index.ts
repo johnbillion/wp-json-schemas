@@ -37,6 +37,10 @@ export type WP_REST_API_Date_Time = string;
  */
 export type WP_REST_API_Comments = WP_REST_API_Comment[];
 /**
+ * A collection of font collection objects in a REST API context.
+ */
+export type WP_REST_API_Font_Collections = WP_REST_API_Font_Collection[];
+/**
  * A collection of post objects in a REST API context.
  */
 export type WP_REST_API_Posts = WP_REST_API_Post[];
@@ -138,6 +142,8 @@ export interface WP {
 	REST_API: {
 		Comment: WP_REST_API_Comment;
 		Comments: WP_REST_API_Comments;
+		Font_Collection: WP_REST_API_Font_Collection;
+		Font_Collections: WP_REST_API_Font_Collections;
 		Post: WP_REST_API_Post;
 		Posts: WP_REST_API_Posts;
 		Page: WP_REST_API_Page;
@@ -1885,6 +1891,106 @@ export interface WP_REST_API_Object_Links {
 		embeddable?: boolean;
 		[k: string]: unknown;
 	}[];
+}
+/**
+ * A font collection object in a REST API context.
+ */
+export interface WP_REST_API_Font_Collection {
+	/**
+	 * Unique identifier for the font collection.
+	 */
+	slug: string;
+	/**
+	 * The name for the font collection.
+	 */
+	name: string;
+	/**
+	 * The description for the font collection.
+	 */
+	description: string;
+	/**
+	 * The font families for the font collection.
+	 */
+	font_families: {
+		font_family_settings: {
+			name: string;
+			fontFamily: string;
+			slug: string;
+			fontFace?: {
+				/**
+				 * URL to a preview image of the font.
+				 */
+				preview?: string;
+				/**
+				 * CSS font-family value.
+				 */
+				fontFamily: string;
+				/**
+				 * CSS font-style value.
+				 */
+				fontStyle?: string;
+				/**
+				 * List of available font weights, separated by a space.
+				 */
+				fontWeight?: string | number;
+				/**
+				 * CSS font-display value.
+				 */
+				fontDisplay?: "auto" | "block" | "fallback" | "swap" | "optional";
+				/**
+				 * Paths or URLs to the font files.
+				 */
+				src: string | string[];
+				/**
+				 * CSS font-stretch value.
+				 */
+				fontStretch?: string;
+				/**
+				 * CSS ascent-override value.
+				 */
+				ascentOverride?: string;
+				/**
+				 * CSS descent-override value.
+				 */
+				descentOverride?: string;
+				/**
+				 * CSS font-variant value.
+				 */
+				fontVariant?: string;
+				/**
+				 * CSS font-feature-settings value.
+				 */
+				fontFeatureSettings?: string;
+				/**
+				 * CSS font-variation-settings value.
+				 */
+				fontVariationSettings?: string;
+				/**
+				 * CSS line-gap-override value.
+				 */
+				lineGapOverride?: string;
+				/**
+				 * CSS size-adjust value.
+				 */
+				sizeAdjust?: string;
+				/**
+				 * CSS unicode-range value.
+				 */
+				unicodeRange?: string;
+			}[];
+			preview?: string;
+		};
+		categories?: string[];
+	}[];
+	/**
+	 * The categories for the font collection.
+	 */
+	categories: {
+		name: string;
+		slug: string;
+	}[];
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
 }
 /**
  * A post object in a REST API context.

@@ -52,8 +52,8 @@ Route                                                   | Schema
 /wp/v2/categories/{id}                                  | `WP_REST_API_Category`
 /wp/v2/comments                                         | `WP_REST_API_Comments`
 /wp/v2/comments/{id}                                    | `WP_REST_API_Comment`
-/wp/v2/wp/v2/font-collections                           | Todo
-/wp/v2/wp/v2/font-collections/{slug}                    | Todo
+/wp/v2/wp/v2/font-collections                           | `WP_REST_API_Font_Collections`
+/wp/v2/wp/v2/font-collections/{slug}                    | `WP_REST_API_Font_Collection`
 /wp/v2/wp/v2/font-families                              | Todo
 /wp/v2/wp/v2/font-families/{id}/                        | Todo
 /wp/v2/wp/v2/font-families/{id}/font-faces              | Todo

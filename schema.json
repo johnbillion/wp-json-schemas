@@ -80,6 +80,12 @@
 				"Comments": {
 					"$ref": "schemas/rest-api/collections/comments.json"
 				},
+				"Font_Collection": {
+					"$ref": "schemas/rest-api/font-collection.json"
+				},
+				"Font_Collections": {
+					"$ref": "schemas/rest-api/collections/font-collections.json"
+				},
 				"Post": {
 					"$ref": "schemas/rest-api/post.json"
 				},
@@ -201,6 +207,8 @@
 			"required": [
 				"Comment",
 				"Comments",
+				"Font_Collection",
+				"Font_Collections",
 				"Post",
 				"Posts",
 				"Page",
