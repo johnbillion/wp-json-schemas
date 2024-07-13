@@ -45,7 +45,7 @@ The WordPress REST API response doesn't fully adhere to the JSON schema spec, so
   - Start by copying an existing file such as `post.php` which is for `/wp/v2/posts`
   - The command should perform one or more REST API requests to the endpoint and pass the responses to the `save_rest_array()` function which saves them as JSON during the tests
 * Run `composer run test` to validate and test the schemas.
-* Run `npm run build-wp-types` and check the output of `packages/wp-types/index.ts`.
+* Check the output of `packages/wp-types/index.ts`.
 * Add documentation for the schema in both `readme.md` and `packages/wp-types/readme.md`.
 
 ## Creating a PHP object schema
@@ -69,7 +69,7 @@ The schema for a PHP object is created using the docblocks from its class proper
   - Start by copying an existing file such as `error.php`
   - The file should pass an array of one or more objects of this type to the `save_object_array()` function which saves it as JSON during the tests
 * Run `composer run test` to validate and test the schemas.
-* Run `npm run build-wp-types` and check the output of `packages/wp-types/index.ts`.
+* Check the output of `packages/wp-types/index.ts`.
 * Add documentation for the schema in both `readme.md` and `packages/wp-types/readme.md`.
 
 ## Updating schemas for a new WordPress release
