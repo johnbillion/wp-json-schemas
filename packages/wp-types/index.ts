@@ -1924,78 +1924,8 @@ export interface WP_REST_API_Font_Collection {
 	 * The font families for the font collection.
 	 */
 	font_families: {
-		font_family_settings: {
-			name: string;
-			fontFamily: string;
-			slug: string;
-			fontFace?: {
-				/**
-				 * URL to a preview image of the font.
-				 */
-				preview?: string;
-				/**
-				 * CSS font-family value.
-				 */
-				fontFamily: string;
-				/**
-				 * CSS font-style value.
-				 */
-				fontStyle?: string;
-				/**
-				 * List of available font weights, separated by a space.
-				 */
-				fontWeight?: string | number;
-				/**
-				 * CSS font-display value.
-				 */
-				fontDisplay?: "auto" | "block" | "fallback" | "swap" | "optional";
-				/**
-				 * Paths or URLs to the font files.
-				 */
-				src: string | string[];
-				/**
-				 * CSS font-stretch value.
-				 */
-				fontStretch?: string;
-				/**
-				 * CSS ascent-override value.
-				 */
-				ascentOverride?: string;
-				/**
-				 * CSS descent-override value.
-				 */
-				descentOverride?: string;
-				/**
-				 * CSS font-variant value.
-				 */
-				fontVariant?: string;
-				/**
-				 * CSS font-feature-settings value.
-				 */
-				fontFeatureSettings?: string;
-				/**
-				 * CSS font-variation-settings value.
-				 */
-				fontVariationSettings?: string;
-				/**
-				 * CSS line-gap-override value.
-				 */
-				lineGapOverride?: string;
-				/**
-				 * CSS size-adjust value.
-				 */
-				sizeAdjust?: string;
-				/**
-				 * CSS unicode-range value.
-				 */
-				unicodeRange?: string;
-				[k: string]: unknown;
-			}[];
-			preview?: string;
-			[k: string]: unknown;
-		};
+		font_family_settings: WP_Font_Family_Settings;
 		categories?: string[];
-		[k: string]: unknown;
 	}[];
 	/**
 	 * The categories for the font collection.
@@ -2003,10 +1933,84 @@ export interface WP_REST_API_Font_Collection {
 	categories: {
 		name: string;
 		slug: string;
-		[k: string]: unknown;
 	}[];
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
+}
+/**
+ * Font family settings.
+ */
+export interface WP_Font_Family_Settings {
+	name: string;
+	fontFamily: string;
+	slug: string;
+	fontFace?: WP_Font_Face[];
+	preview?: string;
+}
+/**
+ * A font face.
+ */
+export interface WP_Font_Face {
+	/**
+	 * URL to a preview image of the font.
+	 */
+	preview?: string;
+	/**
+	 * CSS font-family value.
+	 */
+	fontFamily: string;
+	/**
+	 * CSS font-style value.
+	 */
+	fontStyle?: string;
+	/**
+	 * List of available font weights, separated by a space.
+	 */
+	fontWeight?: string | number;
+	/**
+	 * CSS font-display value.
+	 */
+	fontDisplay?: "auto" | "block" | "fallback" | "swap" | "optional";
+	/**
+	 * Paths or URLs to the font files.
+	 */
+	src: string | string[];
+	/**
+	 * CSS font-stretch value.
+	 */
+	fontStretch?: string;
+	/**
+	 * CSS ascent-override value.
+	 */
+	ascentOverride?: string;
+	/**
+	 * CSS descent-override value.
+	 */
+	descentOverride?: string;
+	/**
+	 * CSS font-variant value.
+	 */
+	fontVariant?: string;
+	/**
+	 * CSS font-feature-settings value.
+	 */
+	fontFeatureSettings?: string;
+	/**
+	 * CSS font-variation-settings value.
+	 */
+	fontVariationSettings?: string;
+	/**
+	 * CSS line-gap-override value.
+	 */
+	lineGapOverride?: string;
+	/**
+	 * CSS size-adjust value.
+	 */
+	sizeAdjust?: string;
+	/**
+	 * CSS unicode-range value.
+	 */
+	unicodeRange?: string;
 }
 /**
  * A font family object in a REST API context.
@@ -2024,13 +2028,7 @@ export interface WP_REST_API_Font_Family {
 	 * The IDs of the child font faces in the font family.
 	 */
 	font_faces: number[];
-	font_family_settings: {
-		name?: string;
-		slug?: string;
-		fontFamily?: string;
-		preview?: string;
-		[k: string]: unknown;
-	};
+	font_family_settings: WP_Font_Family_Settings;
 	_links: WP_REST_API_Object_Links;
 	/**
 	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
@@ -2076,13 +2074,7 @@ export interface WP_REST_API_Font_Face {
 		 * The IDs of the child font faces in the font family.
 		 */
 		font_faces?: number[];
-		font_family_settings?: {
-			name?: string;
-			slug?: string;
-			fontFamily?: string;
-			preview?: string;
-			[k: string]: unknown;
-		};
+		font_family_settings?: WP_Font_Family_Settings;
 		_links?: WP_REST_API_Object_Links;
 		/**
 		 * The embedded representation of relations. Only present when the '_embed' query parameter is set.

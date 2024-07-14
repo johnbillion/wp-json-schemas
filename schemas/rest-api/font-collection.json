@@ -37,126 +37,11 @@
 				],
 				"properties": {
 					"font_family_settings": {
-						"type": "object",
-						"required": [
-							"name",
-							"fontFamily",
-							"slug"
-						],
-						"properties": {
-							"name": {
-								"type": "string"
-							},
-							"fontFamily": {
-								"type": "string"
-							},
-							"slug": {
-								"type": "string"
-							},
-							"fontFace": {
-								"type": "array",
-								"items": {
-									"type": "object",
-									"required": [
-										"src",
-										"fontFamily"
-									],
-									"properties": {
-										"preview": {
-											"description": "URL to a preview image of the font.",
-											"type": "string",
-											"format": "uri"
-										},
-										"fontFamily": {
-											"description": "CSS font-family value.",
-											"type": "string"
-										},
-										"fontStyle": {
-											"description": "CSS font-style value.",
-											"type": "string"
-										},
-										"fontWeight": {
-											"description": "List of available font weights, separated by a space.",
-											"oneOf": [
-												{
-													"type": "string"
-												},
-												{
-													"type": "integer"
-												}
-											]
-										},
-										"fontDisplay": {
-											"description": "CSS font-display value.",
-											"type": "string",
-											"enum": [
-												"auto",
-												"block",
-												"fallback",
-												"swap",
-												"optional"
-											]
-										},
-										"src": {
-											"description": "Paths or URLs to the font files.",
-											"oneOf": [
-												{
-													"type": "string"
-												},
-												{
-													"type": "array",
-													"items": {
-														"type": "string"
-													}
-												}
-											]
-										},
-										"fontStretch": {
-											"description": "CSS font-stretch value.",
-											"type": "string"
-										},
-										"ascentOverride": {
-											"description": "CSS ascent-override value.",
-											"type": "string"
-										},
-										"descentOverride": {
-											"description": "CSS descent-override value.",
-											"type": "string"
-										},
-										"fontVariant": {
-											"description": "CSS font-variant value.",
-											"type": "string"
-										},
-										"fontFeatureSettings": {
-											"description": "CSS font-feature-settings value.",
-											"type": "string"
-										},
-										"fontVariationSettings": {
-											"description": "CSS font-variation-settings value.",
-											"type": "string"
-										},
-										"lineGapOverride": {
-											"description": "CSS line-gap-override value.",
-											"type": "string"
-										},
-										"sizeAdjust": {
-											"description": "CSS size-adjust value.",
-											"type": "string"
-										},
-										"unicodeRange": {
-											"description": "CSS unicode-range value.",
-											"type": "string"
-										}
-									},
-									"additionalProperties": true
-								}
-							},
-							"preview": {
-								"type": "string",
-								"format": "uri"
+						"oneOf": [
+							{
+								"$ref": "properties/font-family-settings.json"
 							}
-						},
-						"additionalProperties": true
+						]
 					},
 					"categories": {
 						"type": "array",
@@ -165,7 +50,7 @@
 						}
 					}
 				},
-				"additionalProperties": true
+				"additionalProperties": false
 			}
 		},
 		"categories": {
@@ -185,7 +70,7 @@
 						"type": "string"
 					}
 				},
-				"additionalProperties": true
+				"additionalProperties": false
 			}
 		},
 		"_links": {

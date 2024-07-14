@@ -47,22 +47,11 @@
 					}
 				},
 				"font_family_settings": {
-					"type": "object",
-					"properties": {
-						"name": {
-							"type": "string"
-						},
-						"slug": {
-							"type": "string"
-						},
-						"fontFamily": {
-							"type": "string"
-						},
-						"preview": {
-							"type": "string",
-							"format": "uri"
+					"oneOf": [
+						{
+							"$ref": "properties/font-family-settings.json"
 						}
-					}
+					]
 				},
 				"_links": {
 					"$ref": "properties/object-links.json"
