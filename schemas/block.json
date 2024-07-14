@@ -15,10 +15,6 @@
 		"inner_content"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"parsed_block": {
 			"description": "Original parsed array representation of block.",
 			"allOf": [

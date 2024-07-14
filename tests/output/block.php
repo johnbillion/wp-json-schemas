@@ -2,7 +2,7 @@
 
 namespace WPJsonSchemas;
 
-$content = file_get_contents( __DIR__ . '/blocks.html' );
+$content = file_get_contents( __DIR__ . '/includes/blocks.html' );
 $parsed = array_filter( parse_blocks( $content ), function( $block ) {
 	return ! empty( $block['blockName'] );
 } );

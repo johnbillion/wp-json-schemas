@@ -8,7 +8,7 @@ This package provides well-documented TypeScript definitions that describe the s
 * WordPress REST API responses such as from `/wp/v2/posts` and `/wp/v2/users`
 * Various property types and allowed values of both
 
-The definitions were last updated for WordPress 6.2.
+The definitions were last updated for WordPress 6.6.
 
 ## What's included?
 
@@ -22,20 +22,22 @@ The definitions were last updated for WordPress 6.2.
 * `WP_Query`
 * `WP_Block`
 * `WP_Block_Type`
+* `WP_Block_Template`
 * `WP_Site`
 * `WP_Locale`
 * `WP_Taxonomy`
 * `WP_Post_Type`
 * `WP_Role`
 * `WP_Network`
+* `WP_Screen`
 
 ### Interfaces for REST API response objects
 
 Route                                                   | Schema
 ------------------------------------------------------- | ------
 /wp/v2/block-directory/search                           | `WP_REST_API_Block_Directory_Items`
-/wp/v2/block-patterns/categories                        | Todo
-/wp/v2/block-patterns/patterns                          | Todo
+/wp/v2/block-patterns/categories                        | `WP_REST_API_Block_Pattern_Categories`
+/wp/v2/block-patterns/patterns                          | `WP_REST_API_Block_Patterns`
 /wp/v2/block-renderer/{name}                            | `WP_REST_API_Rendered_Block`
 /wp/v2/block-types                                      | `WP_REST_API_Block_Types`
 /wp/v2/block-types/{namespace}                          | `WP_REST_API_Block_Type`
@@ -44,13 +46,21 @@ Route                                                   | Schema
 /wp/v2/blocks/{id}                                      | `WP_REST_API_Block`
 /wp/v2/blocks/{id}/autosaves                            | Todo
 /wp/v2/blocks/{parent}/autosaves/{id}                   | Todo
-/wp/v2/blocks/{parent}/revisions                        | Todo
-/wp/v2/blocks/{parent}/revisions/{id}                   | Todo
+/wp/v2/blocks/{parent}/revisions                        | `WP_REST_API_Revisions`
+/wp/v2/blocks/{parent}/revisions/{id}                   | `WP_REST_API_Revision`
 /wp/v2/categories                                       | `WP_REST_API_Categories`
 /wp/v2/categories/{id}                                  | `WP_REST_API_Category`
 /wp/v2/comments                                         | `WP_REST_API_Comments`
 /wp/v2/comments/{id}                                    | `WP_REST_API_Comment`
-/wp/v2/global-styles                                    | Todo
+/wp/v2/font-collections                                 | `WP_REST_API_Font_Collections`
+/wp/v2/font-collections/{slug}                          | `WP_REST_API_Font_Collection`
+/wp/v2/font-families                                    | `WP_REST_API_Font_Families`
+/wp/v2/font-families/{id}/                              | `WP_REST_API_Font_Family`
+/wp/v2/font-families/{parent}/font-faces                | `WP_REST_API_Font_Faces`
+/wp/v2/font-families/{parent}/font-faces/{id}           | `WP_REST_API_Font_Face`
+/wp/v2/global-styles/{id}                               | Todo
+/wp/v2/global-styles/{parent}/revisions                 | Todo
+/wp/v2/global-styles/{parent}/revisions/{id}            | Todo
 /wp/v2/global-styles/themes/{stylesheet}/variations     | Todo
 /wp/v2/global-styles/themes/{stylesheet}                | Todo
 /wp/v2/media                                            | `WP_REST_API_Attachments`
@@ -125,6 +135,8 @@ Route                                                   | Schema
 /wp/v2/widget-types/{id}/render                         | Todo
 /wp/v2/widgets                                          | Todo
 /wp/v2/widgets/{id}                                     | Todo
+/wp/v2/wp_pattern_category                              | Todo
+/wp/v2/wp_pattern_category/{id}                         | Todo
 Any enveloped REST API response                         | `WP_REST_API_Envelope<T>`
 Any REST API error                                      | `WP_REST_API_Error`
 
@@ -169,16 +181,13 @@ npm install wp-types --save-dev
 This package is versioned so that you can specify both the schema version and the WordPress branch version in a way that's compatible with semantic versioning. Given version `x.y.z`:
 
 * The major version number (`x`) indicates the schema version number, currently `3`
-* The minor version number (`y`) indicates the WordPress branch version number without its decimal place, eg. `62` for WordPress 6.2
+* The minor version number (`y`) indicates the WordPress branch version number without its decimal place, eg. `66` for WordPress 6.6
 * The patch version number (`z`) indicates the schema patch version number
 
 Examples:
 
-* `~3.62.0` - Schema version 3 for WordPress 6.2
-* `~3.61.0` - Schema version 3 for WordPress 6.1
+* `~3.66.0` - Schema version 3 for WordPress 6.6
 * `~3.60.0` - Schema version 3 for WordPress 6.0
-* `~3.59.0` - Schema version 3 for WordPress 5.9
-* `~3.58.0` - Schema version 3 for WordPress 5.8
 * `~3.57.0` - Schema version 3 for WordPress 5.7
 * `^3.0.0` - Schema version 3 for the latest WordPress version
 
@@ -276,6 +285,22 @@ import { WP_Post_Type_Name } from 'wp-types';
 
 console.log( WP_Post_Type_Name.auto_draft );
 ```
+
+### How are these definitions different to `@wordpress/core-data`?
+
+[The `@wordpress/core-data` package](https://www.npmjs.com/package/@wordpress/core-data) includes TypeScript definitions for some WordPress data types. These packages don't "compete", they can be complimentary, and there are advantages and disadvantages to using one over the other depending on your use case.
+
+#### Advantages of `wp-types`
+
+* `wp-types` contains definitions for *all* WordPress REST API endpoints and data types, whereas `@wordpress/core-data` includes only the data types used by the core data store
+* `wp-types` is automatically tested against each new version of WordPress, whereas `@wordpress/core-data` is not and the can get out of date
+* `@wordpress/core-data` is a full data store implementation library, not just the type definitions
+
+#### Advantages of `@wordpress/core-data`
+
+* `@wordpress/core-data` includes separate type definitions for the `view`, `edit`, and `embed` contexts, whereas `wp-types` includes only the combined `view` and `edit` contexts (although this will hopefully change in the future)
+* `@wordpress/core-data` includes separate type definitions for the different data structure that needs to be sent to some endpoints for POST and PUT requests, whereas `wp-types` does not (although this will also hopefully change in the future)
+* If you're already using the `@wordpress/core-data` API in a TypeScript project and you don't need type definitions for anything beyond the core data store, then there is no need to use `wp-types`
 
 ## License
 

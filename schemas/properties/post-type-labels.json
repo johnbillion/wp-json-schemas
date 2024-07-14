@@ -33,6 +33,7 @@
 		"item_published",
 		"item_published_privately",
 		"item_reverted_to_draft",
+		"item_trashed",
 		"item_scheduled",
 		"item_updated",
 		"item_link",
@@ -128,6 +129,9 @@
 		"item_reverted_to_draft": {
 			"type": "string"
 		},
+		"item_trashed": {
+			"type": "string"
+		},
 		"item_scheduled": {
 			"type": "string"
 		},
@@ -144,6 +148,9 @@
 			"type": "string"
 		},
 		"name_admin_bar": {
+			"type": "string"
+		},
+		"template_name": {
 			"type": "string"
 		}
 	},

@@ -1,0 +1,59 @@
+<?php
+
+namespace WPJsonSchemas;
+
+// Create a font family:
+$family_payload = [
+	'name' => 'Chakra Petch',
+	'fontFamily' => '"Chakra Petch", sans-serif',
+	'slug' => 'chakra-petch',
+	'preview' => 'https://s.w.org/images/fonts/17.7/previews/chakra-petch/chakra-petch.svg',
+];
+$family_response = get_rest_response(
+	'POST',
+	'/wp/v2/font-families',
+	[
+		'font_family_settings' => json_encode( $family_payload ),
+	]
+);
+$family_id = $family_response->data['id'];
+
+// Add a font face to the font family:
+$face_payload = [
+	'src' => content_url( 'uploads/fonts/example.woff2' ),
+	'fontWeight' => '600',
+	'fontStyle' => 'normal',
+	'fontFamily' => 'Chakra Petch',
+	'preview' => 'https://s.w.org/images/fonts/17.7/previews/chakra-petch/chakra-petch-600-normal.svg',
+];
+$face_response = get_rest_response(
+	'POST',
+	"/wp/v2/font-families/{$family_id}/font-faces",
+	[
+		'font_face_settings' => json_encode( $face_payload ),
+	]
+);
+$face_id = $face_response->data['id'];
+
+// Get the font families:
+$data = get_rest_response( 'GET', '/wp/v2/font-families' );
+
+save_rest_array( [
+	$data,
+], 'font-families' );
+
+// Get the faces for the font family:
+$data = get_rest_response( 'GET', "/wp/v2/font-families/{$family_id}/font-faces" );
+
+save_rest_array( [
+	$data,
+], 'font-faces' );
+
+save_external_schema(
+	'https://schemas.wp.org/trunk/theme.json',
+	'font-face',
+	[
+		'definitions',
+		'fontFace',
+	]
+);

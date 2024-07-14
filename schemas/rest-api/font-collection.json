@@ -1,0 +1,106 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/font-collection.json",
+	"title": "WP_REST_API_Font_Collection",
+	"description": "A font collection object in a REST API context.",
+	"$comment": "See also https://schemas.wp.org/trunk/font-collection.json",
+	"type": "object",
+	"readOnly": true,
+	"required": [
+		"slug",
+		"name",
+		"description",
+		"font_families",
+		"categories",
+		"_links"
+	],
+	"properties": {
+		"slug": {
+			"description": "Unique identifier for the font collection.",
+			"type": "string"
+		},
+		"name": {
+			"description": "The name for the font collection.",
+			"type": "string"
+		},
+		"description": {
+			"description": "The description for the font collection.",
+			"type": "string"
+		},
+		"font_families": {
+			"description": "The font families for the font collection.",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": [
+					"font_family_settings"
+				],
+				"properties": {
+					"font_family_settings": {
+						"oneOf": [
+							{
+								"$ref": "properties/font-family-settings.json"
+							}
+						]
+					},
+					"categories": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					}
+				},
+				"additionalProperties": false
+			}
+		},
+		"categories": {
+			"description": "The categories for the font collection.",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": [
+					"name",
+					"slug"
+				],
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"slug": {
+						"type": "string"
+					}
+				},
+				"additionalProperties": false
+			}
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/font-collections/{slug}",
+			"hrefSchema": {
+				"properties": {
+					"slug": {
+						"$ref": "#/properties/slug"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/font-collections",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}

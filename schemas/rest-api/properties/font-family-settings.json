@@ -1,0 +1,38 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/properties/font-family-settings.json",
+	"title": "WP_Font_Family_Settings",
+	"description": "Font family settings.",
+	"type": "object",
+	"required": [
+		"name",
+		"fontFamily",
+		"slug"
+	],
+	"properties": {
+		"name": {
+			"type": "string"
+		},
+		"fontFamily": {
+			"type": "string"
+		},
+		"slug": {
+			"type": "string"
+		},
+		"fontFace": {
+			"type": "array",
+			"items": {
+				"oneOf": [
+					{
+						"$ref": "./font-face.json"
+					}
+				]
+			}
+		},
+		"preview": {
+			"type": "string",
+			"format": "uri"
+		}
+	},
+	"additionalProperties": false
+}

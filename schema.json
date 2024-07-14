@@ -20,6 +20,12 @@
 		"Block": {
 			"$ref": "schemas/block.json"
 		},
+		"Block_Type": {
+			"$ref": "schemas/block-type.json"
+		},
+		"Block_Template": {
+			"$ref": "schemas/block-template.json"
+		},
 		"Comment": {
 			"$ref": "schemas/comment.json"
 		},
@@ -50,6 +56,9 @@
 		"Role": {
 			"$ref": "schemas/role.json"
 		},
+		"Screen": {
+			"$ref": "schemas/screen.json"
+		},
 		"Site": {
 			"$ref": "schemas/site.json"
 		},
@@ -70,6 +79,24 @@
 				},
 				"Comments": {
 					"$ref": "schemas/rest-api/collections/comments.json"
+				},
+				"Font_Collection": {
+					"$ref": "schemas/rest-api/font-collection.json"
+				},
+				"Font_Collections": {
+					"$ref": "schemas/rest-api/collections/font-collections.json"
+				},
+				"Font_Family": {
+					"$ref": "schemas/rest-api/font-family.json"
+				},
+				"Font_Families": {
+					"$ref": "schemas/rest-api/collections/font-families.json"
+				},
+				"Font_Face": {
+					"$ref": "schemas/rest-api/font-face.json"
+				},
+				"Font_Faces": {
+					"$ref": "schemas/rest-api/collections/font-faces.json"
 				},
 				"Post": {
 					"$ref": "schemas/rest-api/post.json"
@@ -100,6 +127,18 @@
 				},
 				"Block_Directory_Items": {
 					"$ref": "schemas/rest-api/collections/block-directory-items.json"
+				},
+				"Block_Pattern_Category": {
+					"$ref": "schemas/rest-api/block-pattern-category.json"
+				},
+				"Block_Pattern_Categories": {
+					"$ref": "schemas/rest-api/collections/block-pattern-categories.json"
+				},
+				"Block_Pattern": {
+					"$ref": "schemas/rest-api/block-pattern.json"
+				},
+				"Block_Patterns": {
+					"$ref": "schemas/rest-api/collections/block-patterns.json"
 				},
 				"Block_Type": {
 					"$ref": "schemas/rest-api/block-type.json"
@@ -180,6 +219,12 @@
 			"required": [
 				"Comment",
 				"Comments",
+				"Font_Collection",
+				"Font_Collections",
+				"Font_Family",
+				"Font_Families",
+				"Font_Face",
+				"Font_Faces",
 				"Post",
 				"Posts",
 				"Page",
@@ -188,6 +233,10 @@
 				"Attachments",
 				"Block_Directory_Item",
 				"Block_Directory_Items",
+				"Block_Pattern_Category",
+				"Block_Pattern_Categories",
+				"Block_Pattern",
+				"Block_Patterns",
 				"Block_Type",
 				"Block_Types",
 				"Block",
@@ -221,6 +270,8 @@
 	},
 	"required": [
 		"Block",
+		"Block_Type",
+		"Block_Template",
 		"Comment",
 		"Error",
 		"Error_With_Error",
@@ -231,6 +282,7 @@
 		"Post_Type",
 		"Query",
 		"Role",
+		"Screen",
 		"Site",
 		"Taxonomy",
 		"Term",

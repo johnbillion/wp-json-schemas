@@ -1,0 +1,79 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/font-family.json",
+	"title": "WP_REST_API_Font_Family",
+	"description": "A font family object in a REST API context.",
+	"$comment": "See also https://schemas.wp.org/trunk/font-family.json",
+	"type": "object",
+	"required": [
+		"id",
+		"theme_json_version",
+		"font_faces",
+		"font_family_settings",
+		"_links"
+	],
+	"properties": {
+		"id": {
+			"readOnly": true,
+			"description": "Unique identifier for the font family.",
+			"type": "integer"
+		},
+		"theme_json_version": {
+			"description": "Version of the theme.json schema used for the typography settings.",
+			"type": "integer"
+		},
+		"font_faces": {
+			"description": "The IDs of the child font faces in the font family.",
+			"type": "array",
+			"items": {
+				"type": "integer"
+			}
+		},
+		"font_family_settings": {
+			"oneOf": [
+				{
+					"$ref": "properties/font-family-settings.json"
+				}
+			]
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		},
+		"_embedded": {
+			"description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
+			"type": "object",
+			"properties": {
+				"font_faces": {
+					"description": "The associated font faces.",
+					"type": "array"
+				}
+			}
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/font-families/{id}",
+			"hrefSchema": {
+				"properties": {
+					"id": {
+						"$ref": "#/properties/id"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/font-families",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}

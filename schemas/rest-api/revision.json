@@ -16,7 +16,7 @@
 		"slug",
 		"title",
 		"content",
-		"excerpt",
+		"meta",
 		"_links"
 	],
 	"properties": {
@@ -30,7 +30,7 @@
 		},
 		"date": {
 			"description": "The date the revision was published, in the site's timezone.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -38,7 +38,7 @@
 		},
 		"date_gmt": {
 			"description": "The date the revision was published, as GMT.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -70,7 +70,7 @@
 		},
 		"modified": {
 			"description": "The date the revision was last modified, in the site's timezone.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -78,7 +78,7 @@
 		},
 		"modified_gmt": {
 			"description": "The date the revision was last modified, as GMT.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -157,6 +157,17 @@
 					"type": "string"
 				}
 			}
+		},
+		"meta": {
+			"description": "Meta fields.",
+			"oneOf": [
+				{
+					"$ref": "../../schema.json#/definitions/EmptyArray"
+				},
+				{
+					"type": "object"
+				}
+			]
 		},
 		"_links": {
 			"$ref": "properties/object-links.json"

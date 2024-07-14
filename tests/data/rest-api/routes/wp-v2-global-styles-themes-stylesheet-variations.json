@@ -1,0 +1,3 @@
+{
+    "route": "/wp/v2/global-styles/themes/(?P<stylesheet>[\\/\\s%\\w\\.\\(\\)\\[\\]\\@_\\-]+)/variations"
+}

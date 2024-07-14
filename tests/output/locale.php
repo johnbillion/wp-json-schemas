@@ -11,6 +11,7 @@ $translations = array_keys( wp_get_installed_translations( 'core' )['default'] )
 foreach ( $translations as $locale ) {
 	switch_to_locale( $locale );
 	$locales[ $locale ] = $GLOBALS['wp_locale'];
+	restore_previous_locale();
 }
 
 save_object_array( $locales, 'locale' );

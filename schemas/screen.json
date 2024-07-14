@@ -1,0 +1,68 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/screen.json",
+	"title": "WP_Screen",
+	"description": "Core class used to implement an admin screen API.",
+	"type": "object",
+	"required": [
+		"action",
+		"base",
+		"id",
+		"is_network",
+		"is_user",
+		"parent_base",
+		"parent_file",
+		"post_type",
+		"taxonomy",
+		"is_block_editor"
+	],
+	"properties": {
+		"action": {
+			"description": "Any action associated with the screen.",
+			"type": "string"
+		},
+		"base": {
+			"description": "The base type of the screen.",
+			"type": "string"
+		},
+		"id": {
+			"description": "The unique ID of the screen.",
+			"type": "string"
+		},
+		"is_network": {
+			"description": "Whether the screen is in the network admin.",
+			"type": "boolean"
+		},
+		"is_user": {
+			"description": "Whether the screen is in the user admin.",
+			"type": "boolean"
+		},
+		"parent_base": {
+			"description": "The base menu parent.",
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"parent_file": {
+			"description": "The parent_file for the screen per the admin menu system.",
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"post_type": {
+			"description": "The post type associated with the screen, if any.",
+			"type": "string"
+		},
+		"taxonomy": {
+			"description": "The taxonomy associated with the screen, if any.",
+			"type": "string"
+		},
+		"is_block_editor": {
+			"description": "The help tab data associated with the screen, if any.",
+			"type": "boolean"
+		}
+	},
+	"additionalProperties": false
+}

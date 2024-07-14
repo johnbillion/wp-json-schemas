@@ -37,6 +37,18 @@ export type WP_REST_API_Date_Time = string;
  */
 export type WP_REST_API_Comments = WP_REST_API_Comment[];
 /**
+ * A collection of font collection objects in a REST API context.
+ */
+export type WP_REST_API_Font_Collections = WP_REST_API_Font_Collection[];
+/**
+ * A collection of font family objects in a REST API context.
+ */
+export type WP_REST_API_Font_Families = WP_REST_API_Font_Family[];
+/**
+ * A collection of font face objects in a REST API context.
+ */
+export type WP_REST_API_Font_Faces = WP_REST_API_Font_Face[];
+/**
  * A collection of post objects in a REST API context.
  */
 export type WP_REST_API_Posts = WP_REST_API_Post[];
@@ -60,6 +72,14 @@ export type WP_REST_API_Blocks = WP_REST_API_Block[];
  * A collection of block directory search results in a REST API context.
  */
 export type WP_REST_API_Block_Directory_Items = WP_REST_API_Block_Directory_Item[];
+/**
+ * A collection of block pattern categories in a REST API context.
+ */
+export type WP_REST_API_Block_Pattern_Categories = WP_REST_API_Block_Pattern_Category[];
+/**
+ * A collection of block patterns in a REST API context.
+ */
+export type WP_REST_API_Block_Patterns = WP_REST_API_Block_Pattern[];
 /**
  * A collection of block type objects in a REST API context.
  */
@@ -110,6 +130,8 @@ export type WP_REST_API_Application_Passwords = WP_REST_API_Application_Password
  */
 export interface WP {
 	Block: WP_Block;
+	Block_Type: WP_Block_Type;
+	Block_Template: WP_Block_Template;
 	Comment: WP_Comment;
 	Error: WP_Error;
 	Error_With_Error: WP_Error_With_Error;
@@ -120,6 +142,7 @@ export interface WP {
 	Post_Type: WP_Post_Type;
 	Query: WP_Query;
 	Role: WP_Role;
+	Screen: WP_Screen;
 	Site: WP_Site;
 	Taxonomy: WP_Taxonomy;
 	Term: WP_Term;
@@ -127,6 +150,12 @@ export interface WP {
 	REST_API: {
 		Comment: WP_REST_API_Comment;
 		Comments: WP_REST_API_Comments;
+		Font_Collection: WP_REST_API_Font_Collection;
+		Font_Collections: WP_REST_API_Font_Collections;
+		Font_Family: WP_REST_API_Font_Family;
+		Font_Families: WP_REST_API_Font_Families;
+		Font_Face: WP_REST_API_Font_Face;
+		Font_Faces: WP_REST_API_Font_Faces;
 		Post: WP_REST_API_Post;
 		Posts: WP_REST_API_Posts;
 		Page: WP_REST_API_Page;
@@ -137,6 +166,10 @@ export interface WP {
 		Blocks: WP_REST_API_Blocks;
 		Block_Directory_Item: WP_REST_API_Block_Directory_Item;
 		Block_Directory_Items: WP_REST_API_Block_Directory_Items;
+		Block_Pattern_Category: WP_REST_API_Block_Pattern_Category;
+		Block_Pattern_Categories: WP_REST_API_Block_Pattern_Categories;
+		Block_Pattern: WP_REST_API_Block_Pattern;
+		Block_Patterns: WP_REST_API_Block_Patterns;
 		Block_Type: WP_REST_API_Block_Type;
 		Block_Types: WP_REST_API_Block_Types;
 		Revision: WP_REST_API_Revision;
@@ -168,10 +201,6 @@ export interface WP {
  * Class representing a parsed instance of a block.
  */
 export interface WP_Block {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * Original parsed array representation of block.
 	 */
@@ -242,10 +271,6 @@ export interface WP_Block_Parsed {
  */
 export interface WP_Block_Type {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * Block API version.
 	 */
 	api_version: number;
@@ -294,6 +319,38 @@ export interface WP_Block_Type {
 	 */
 	variations?: unknown[];
 	/**
+	 * Block hooks for this block type.
+	 */
+	block_hooks:
+		| EmptyArray
+		| {
+				[k: string]: string;
+		  };
+	/**
+	 * Allowed child block types.
+	 */
+	allowed_blocks: string[] | null;
+	/**
+	 * Block variations callback.
+	 */
+	variation_callback: Callable | null;
+	/**
+	 * Block type front end only script module IDs.
+	 */
+	view_script_module_ids: string[];
+	/**
+	 * Block type front end only style handles.
+	 */
+	view_style_handles: string[];
+	/**
+	 * Custom CSS selectors for theme.json style generation.
+	 */
+	selectors?:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
+	/**
 	 * Supported features.
 	 */
 	supports: {
@@ -321,10 +378,6 @@ export interface WP_Block_Type {
 				[k: string]: unknown;
 		  }
 		| null;
-	/**
-	 * Context values inherited by blocks of this type.
-	 */
-	uses_context: string[];
 	/**
 	 * Context provided by blocks of this type.
 	 */
@@ -375,13 +428,31 @@ export interface WP_Block_Type {
 }
 export interface EmptyObject {}
 /**
+ * Core class representing a block template.
+ */
+export interface WP_Block_Template {
+	type: string;
+	theme: string;
+	slug: string;
+	id: string;
+	title: string;
+	content: string;
+	description: string;
+	source: string;
+	origin: string | null;
+	wp_id: number | null;
+	status: string;
+	has_theme_file: boolean;
+	is_custom: boolean;
+	author: number | null;
+	post_types: string[] | null;
+	area: string | null;
+	modified: string | null;
+}
+/**
  * Core class used to organize comments as instantiated objects with defined members.
  */
 export interface WP_Comment {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * Comment ID.
 	 *
@@ -460,17 +531,13 @@ export interface WP_Comment {
  */
 export interface WP_Error {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * Stores the list of errors.
 	 */
 	errors: EmptyArray | WP_Error_Messages;
 	/**
 	 * Stores the list of data for error codes.
 	 */
-	error_data: EmptyArray | WP_Error_Data;
+	error_data: WP_Error_Data;
 }
 /**
  * The messages for the errors contained within the error object.
@@ -487,10 +554,6 @@ export interface WP_Error_Messages {
  */
 export interface WP_Error_With_Error {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * Stores the list of errors.
 	 */
 	errors: WP_Error_Messages;
@@ -506,10 +569,6 @@ export interface WP_Error_With_Error {
  */
 export interface WP_Error_Without_Error {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * Stores the list of errors.
 	 */
 	errors: EmptyArray;
@@ -522,10 +581,6 @@ export interface WP_Error_Without_Error {
  * Core class used to store translated data for a locale.
  */
 export interface WP_Locale {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * Stores the translated strings for the full weekday names.
 	 */
@@ -550,13 +605,35 @@ export interface WP_Locale {
 	 * Stores the translated strings for the full month names.
 	 */
 	month: {
-		[k: string]: string;
+		"10": string;
+		"11": string;
+		"12": string;
+		"01": string;
+		"02": string;
+		"03": string;
+		"04": string;
+		"05": string;
+		"06": string;
+		"07": string;
+		"08": string;
+		"09": string;
 	};
 	/**
 	 * Stores the translated strings for the month names in genitive case, if the locale specifies.
 	 */
 	month_genitive: {
-		[k: string]: string;
+		"10": string;
+		"11": string;
+		"12": string;
+		"01": string;
+		"02": string;
+		"03": string;
+		"04": string;
+		"05": string;
+		"06": string;
+		"07": string;
+		"08": string;
+		"09": string;
 	};
 	/**
 	 * Stores the translated strings for the abbreviated month names.
@@ -594,10 +671,6 @@ export interface WP_Locale {
  */
 export interface WP_Network {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * Domain of the network.
 	 */
 	domain: string;
@@ -620,10 +693,6 @@ export interface WP_Network {
  * Core class used to implement the WP_Post object.
  */
 export interface WP_Post {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * Post ID.
 	 */
@@ -729,10 +798,6 @@ export interface WP_Post {
  * Core class used for interacting with post types.
  */
 export interface WP_Post_Type {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * Post type key.
 	 */
@@ -868,11 +933,35 @@ export interface WP_Post_Type {
 	 */
 	rest_controller_class: string | false;
 	/**
+	 * The controller for this post type's revisions REST API endpoints.
+	 */
+	revisions_rest_controller_class: string | false;
+	/**
+	 * The controller for this post type's autosave REST API endpoints.
+	 */
+	autosave_rest_controller_class: string | false;
+	/**
 	 * The controller instance for this post type's REST API endpoints.
 	 */
 	rest_controller: {
 		[k: string]: unknown;
 	};
+	/**
+	 * The controller instance for this post type's revisions REST API endpoints.
+	 */
+	revisions_rest_controller: {
+		[k: string]: unknown;
+	};
+	/**
+	 * The controller instance for this post type's autosave REST API endpoints.
+	 */
+	autosave_rest_controller: {
+		[k: string]: unknown;
+	};
+	/**
+	 * A flag to register the post type REST API controller after its associated autosave / revisions controllers, instead of before. Registration order affects route matching priority.
+	 */
+	late_route_registration: boolean;
 }
 /**
  * Post type labels.
@@ -906,12 +995,14 @@ export interface WP_Post_Type_Labels {
 	item_published: string;
 	item_published_privately: string;
 	item_reverted_to_draft: string;
+	item_trashed: string;
 	item_scheduled: string;
 	item_updated: string;
 	item_link: string;
 	item_link_description: string;
 	menu_name: string;
 	name_admin_bar: string;
+	template_name?: string;
 }
 /**
  * Post type capabilities.
@@ -963,10 +1054,6 @@ export interface WP_Post_Type_Rewrite {
  * The WordPress Query class.
  */
 export interface WP_Query {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * Query vars set by the user.
 	 */
@@ -1027,6 +1114,10 @@ export interface WP_Query {
 	 * Index of the current item in the loop.
 	 */
 	current_post: number;
+	/**
+	 * Whether the caller is before the loop.
+	 */
+	before_loop: boolean;
 	/**
 	 * Whether the loop has started and the caller is in the loop.
 	 */
@@ -1189,10 +1280,6 @@ export interface WP_Query {
  */
 export interface WP_Term {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * Term ID.
 	 */
 	term_id: number;
@@ -1261,10 +1348,6 @@ export interface WP_Term {
  * Core class used to implement the WP_User object.
  */
 export interface WP_User {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * The user's ID.
 	 */
@@ -1364,10 +1447,6 @@ export interface WP_User_Data {
  */
 export interface WP_Role {
 	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
-	/**
 	 * Role name.
 	 */
 	name: WP_User_Role_Name | string;
@@ -1377,13 +1456,54 @@ export interface WP_Role {
 	capabilities: WP_User_Caps;
 }
 /**
+ * Core class used to implement an admin screen API.
+ */
+export interface WP_Screen {
+	/**
+	 * Any action associated with the screen.
+	 */
+	action: string;
+	/**
+	 * The base type of the screen.
+	 */
+	base: string;
+	/**
+	 * The unique ID of the screen.
+	 */
+	id: string;
+	/**
+	 * Whether the screen is in the network admin.
+	 */
+	is_network: boolean;
+	/**
+	 * Whether the screen is in the user admin.
+	 */
+	is_user: boolean;
+	/**
+	 * The base menu parent.
+	 */
+	parent_base: string | null;
+	/**
+	 * The parent_file for the screen per the admin menu system.
+	 */
+	parent_file: string | null;
+	/**
+	 * The post type associated with the screen, if any.
+	 */
+	post_type: string;
+	/**
+	 * The taxonomy associated with the screen, if any.
+	 */
+	taxonomy: string;
+	/**
+	 * The help tab data associated with the screen, if any.
+	 */
+	is_block_editor: boolean;
+}
+/**
  * Core class used for interacting with a multisite site.
  */
 export interface WP_Site {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * Site ID.
 	 *
@@ -1455,10 +1575,6 @@ export interface WP_Site {
  * Core class used for interacting with taxonomies.
  */
 export interface WP_Taxonomy {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * Taxonomy key.
 	 */
@@ -1626,6 +1742,7 @@ export interface WP_Taxonomy_Labels {
 	item_link_description: string;
 	menu_name: string;
 	name_admin_bar: string;
+	template_name: string;
 }
 /**
  * Taxonomy capabilities.
@@ -1788,6 +1905,193 @@ export interface WP_REST_API_Object_Links {
 	}[];
 }
 /**
+ * A font collection object in a REST API context.
+ */
+export interface WP_REST_API_Font_Collection {
+	/**
+	 * Unique identifier for the font collection.
+	 */
+	slug: string;
+	/**
+	 * The name for the font collection.
+	 */
+	name: string;
+	/**
+	 * The description for the font collection.
+	 */
+	description: string;
+	/**
+	 * The font families for the font collection.
+	 */
+	font_families: {
+		font_family_settings: WP_Font_Family_Settings;
+		categories?: string[];
+	}[];
+	/**
+	 * The categories for the font collection.
+	 */
+	categories: {
+		name: string;
+		slug: string;
+	}[];
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * Font family settings.
+ */
+export interface WP_Font_Family_Settings {
+	name: string;
+	fontFamily: string;
+	slug: string;
+	fontFace?: WP_Font_Face[];
+	preview?: string;
+}
+/**
+ * A font face.
+ */
+export interface WP_Font_Face {
+	/**
+	 * URL to a preview image of the font.
+	 */
+	preview?: string;
+	/**
+	 * CSS font-family value.
+	 */
+	fontFamily: string;
+	/**
+	 * CSS font-style value.
+	 */
+	fontStyle?: string;
+	/**
+	 * List of available font weights, separated by a space.
+	 */
+	fontWeight?: string | number;
+	/**
+	 * CSS font-display value.
+	 */
+	fontDisplay?: "auto" | "block" | "fallback" | "swap" | "optional";
+	/**
+	 * Paths or URLs to the font files.
+	 */
+	src: string | string[];
+	/**
+	 * CSS font-stretch value.
+	 */
+	fontStretch?: string;
+	/**
+	 * CSS ascent-override value.
+	 */
+	ascentOverride?: string;
+	/**
+	 * CSS descent-override value.
+	 */
+	descentOverride?: string;
+	/**
+	 * CSS font-variant value.
+	 */
+	fontVariant?: string;
+	/**
+	 * CSS font-feature-settings value.
+	 */
+	fontFeatureSettings?: string;
+	/**
+	 * CSS font-variation-settings value.
+	 */
+	fontVariationSettings?: string;
+	/**
+	 * CSS line-gap-override value.
+	 */
+	lineGapOverride?: string;
+	/**
+	 * CSS size-adjust value.
+	 */
+	sizeAdjust?: string;
+	/**
+	 * CSS unicode-range value.
+	 */
+	unicodeRange?: string;
+}
+/**
+ * A font family object in a REST API context.
+ */
+export interface WP_REST_API_Font_Family {
+	/**
+	 * Unique identifier for the font family.
+	 */
+	id: number;
+	/**
+	 * Version of the theme.json schema used for the typography settings.
+	 */
+	theme_json_version: number;
+	/**
+	 * The IDs of the child font faces in the font family.
+	 */
+	font_faces: number[];
+	font_family_settings: WP_Font_Family_Settings;
+	_links: WP_REST_API_Object_Links;
+	/**
+	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+	 */
+	_embedded?: {
+		/**
+		 * The associated font faces.
+		 */
+		font_faces?: unknown[];
+		[k: string]: unknown;
+	};
+	[k: string]: unknown;
+}
+/**
+ * A font face object in a REST API context.
+ */
+export interface WP_REST_API_Font_Face {
+	/**
+	 * Unique identifier for the font face.
+	 */
+	id: number;
+	/**
+	 * Version of the theme.json schema used for the typography settings.
+	 */
+	theme_json_version: number;
+	/**
+	 * The ID for the parent font family of the font face.
+	 */
+	parent: number;
+	/**
+	 * font-face declaration in theme.json format.
+	 */
+	font_face_settings: {
+		/**
+		 * Unique identifier for the font family.
+		 */
+		id?: number;
+		/**
+		 * Version of the theme.json schema used for the typography settings.
+		 */
+		theme_json_version?: number;
+		/**
+		 * The IDs of the child font faces in the font family.
+		 */
+		font_faces?: number[];
+		font_family_settings?: WP_Font_Family_Settings;
+		_links?: WP_REST_API_Object_Links;
+		/**
+		 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+		 */
+		_embedded?: {
+			/**
+			 * The associated font faces.
+			 */
+			font_faces?: unknown[];
+			[k: string]: unknown;
+		};
+		[k: string]: unknown;
+	};
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
  * A post object in a REST API context.
  */
 export interface WP_REST_API_Post {
@@ -1860,6 +2164,10 @@ export interface WP_REST_API_Post {
 	 * A field used for ordering posts.
 	 */
 	menu_order?: number;
+	/**
+	 * An array of the class names for the post container element.
+	 */
+	class_list: string[];
 	/**
 	 * The title for the post.
 	 */
@@ -2014,6 +2322,10 @@ export interface WP_REST_API_Attachment {
 	 */
 	id: number;
 	/**
+	 * The ID of the featured media for the post.
+	 */
+	featured_media: number;
+	/**
 	 * URL to the attachment.
 	 */
 	link: string;
@@ -2101,6 +2413,10 @@ export interface WP_REST_API_Attachment {
 	 * Slug automatically generated from the attachment title. Only present when using the 'edit' context and the post type is public.
 	 */
 	generated_slug?: string;
+	/**
+	 * An array of the class names for the post container element.
+	 */
+	class_list: string[];
 	/**
 	 * The title for the attachment.
 	 */
@@ -2239,9 +2555,41 @@ export interface WP_REST_API_Block {
 		protected: boolean;
 	};
 	/**
+	 * The excerpt for the block.
+	 */
+	excerpt?: {
+		/**
+		 * Excerpt for the block, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML content for the post excerpt, transformed for display.
+		 */
+		rendered: string;
+		/**
+		 * Whether the content is protected with a password.
+		 */
+		protected: boolean;
+	};
+	wp_pattern_sync_status: "" | "partial" | "unsynced";
+	/**
+	 * Pattern categories.
+	 */
+	wp_pattern_category?: {
+		[k: string]: unknown;
+	};
+	/**
 	 * The theme file to use to display the block.
 	 */
 	template?: string;
+	/**
+	 * Meta fields.
+	 */
+	meta?:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }
@@ -2305,6 +2653,84 @@ export interface WP_REST_API_Block_Directory_Item {
 	[k: string]: unknown;
 }
 /**
+ * A block pattern category in a REST API context.
+ */
+export interface WP_REST_API_Block_Pattern_Category {
+	/**
+	 * The category name.
+	 */
+	name: string;
+	/**
+	 * The category label, in human readable format.
+	 */
+	label: string;
+	/**
+	 * The category description, in human readable format.
+	 */
+	description?: string;
+	[k: string]: unknown;
+}
+/**
+ * A block pattern in a REST API context.
+ */
+export interface WP_REST_API_Block_Pattern {
+	/**
+	 * The pattern name, in namespace/pattern-name format.
+	 */
+	name: string;
+	/**
+	 * The pattern title, in human readable format.
+	 */
+	title: string;
+	/**
+	 * The pattern content.
+	 */
+	content: string;
+	/**
+	 * The pattern detailed description.
+	 */
+	description?: string;
+	/**
+	 * The pattern viewport width for inserter preview.
+	 */
+	viewport_width?: number;
+	/**
+	 * Determines whether the pattern is visible in inserter.
+	 */
+	inserter?: boolean;
+	/**
+	 * The pattern category slugs.
+	 */
+	categories?: string[];
+	/**
+	 * The pattern keywords.
+	 */
+	keywords?: string[];
+	/**
+	 * Block types that the pattern is intended to be used with.
+	 */
+	block_types?: string[];
+	/**
+	 * Where the pattern comes from e.g. core.
+	 */
+	source?:
+		| "core"
+		| "plugin"
+		| "theme"
+		| "pattern-directory/core"
+		| "pattern-directory/theme"
+		| "pattern-directory/featured";
+	/**
+	 * An array of post types that the pattern is restricted to be used with.
+	 */
+	post_types?: string[];
+	/**
+	 * An array of template types where the pattern fits.
+	 */
+	template_types?: string[];
+	[k: string]: unknown;
+}
+/**
  * A block type object in a REST API context.
  */
 export interface WP_REST_API_Block_Type {
@@ -2355,6 +2781,14 @@ export interface WP_REST_API_Block_Type {
 	 * Context values inherited by blocks of this type.
 	 */
 	uses_context: string[];
+	/**
+	 * Custom CSS selectors for theme.json style generation.
+	 */
+	selectors?:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
 	/**
 	 * Block supports.
 	 */
@@ -2437,6 +2871,26 @@ export interface WP_REST_API_Block_Type {
 	variations: {
 		[k: string]: unknown;
 	}[];
+	/**
+	 * Block hooks for this block type.
+	 */
+	block_hooks:
+		| EmptyArray
+		| {
+				[k: string]: string;
+		  };
+	/**
+	 * Allowed child block types.
+	 */
+	allowed_blocks: string[] | null;
+	/**
+	 * Block type front end only script module IDs.
+	 */
+	view_script_module_ids: string[];
+	/**
+	 * Block type front end only style handles.
+	 */
+	view_style_handles: string[];
 	/**
 	 * Public text domain.
 	 */
@@ -2572,7 +3026,7 @@ export interface WP_REST_API_Revision {
 	/**
 	 * The excerpt for the post.
 	 */
-	excerpt: {
+	excerpt?: {
 		/**
 		 * Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.
 		 */
@@ -2583,6 +3037,14 @@ export interface WP_REST_API_Revision {
 		rendered: string;
 		[k: string]: unknown;
 	};
+	/**
+	 * Meta fields.
+	 */
+	meta:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }
@@ -2645,10 +3107,6 @@ export interface WP_REST_API_Statuses {
  * A taxonomy term object in a REST API context.
  */
 export interface WP_REST_API_Term {
-	/**
-	 * JSON schema definition.
-	 */
-	$schema?: string;
 	/**
 	 * Unique identifier for the term.
 	 */
@@ -3054,10 +3512,33 @@ export interface WP_REST_API_Type {
 	 */
 	rest_namespace: string;
 	/**
+	 * The block template associated with the post type.
+	 */
+	template?: (
+		| [string]
+		| [
+				string,
+				{
+					[k: string]: unknown;
+				},
+		  ]
+	)[];
+	/**
+	 * The template lock associated with the post type, or false if none.
+	 */
+	template_lock?: "all" | "insert" | false;
+	/**
 	 * The visibility settings for the post type. Only present when using the 'edit' context.
 	 */
 	visibility?: {
-		[k: string]: unknown;
+		/**
+		 * Whether to generate a default UI for managing this post type.
+		 */
+		show_ui?: boolean;
+		/**
+		 * Whether to make the post type available for selection in navigation menus.
+		 */
+		show_in_nav_menus?: boolean;
 	};
 	/**
 	 * The icon for the post type.
@@ -3278,7 +3759,7 @@ export const enum WP_Http_Status_Code {
 type ValueOf<T> = T[keyof T]
 
 /**
- * An enveloped REST API response.
+ * An enveloped REST API response (with `?_envelope`).
  *
  * @template T A REST API response type.
  */
@@ -3294,5 +3775,8 @@ export interface WP_REST_API_Envelope<T extends ValueOf<WP["REST_API"]>> {
 	/**
 	 * The HTTP headers
 	 */
-	headers: object;
+	headers: {
+		[k: string]: string|number;
+	};
+	[k: string]: unknown;
 }

@@ -17,12 +17,13 @@
 		"type",
 		"title",
 		"content",
+		"wp_pattern_sync_status",
 		"_links"
 	],
 	"properties": {
 		"date": {
 			"description": "The date the block was published, in the site's timezone.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -30,7 +31,7 @@
 		},
 		"date_gmt": {
 			"description": "The date the block was published, as GMT.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -71,7 +72,7 @@
 		"modified": {
 			"readOnly": true,
 			"description": "The date the block was last modified, in the site's timezone.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -80,7 +81,7 @@
 		"modified_gmt": {
 			"readOnly": true,
 			"description": "The date the block was last modified, as GMT.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/date-time.json"
 				}
@@ -152,9 +153,58 @@
 			},
 			"additionalProperties": false
 		},
+		"excerpt": {
+			"description": "The excerpt for the block.",
+			"type": "object",
+			"required": [
+				"rendered",
+				"protected"
+			],
+			"properties": {
+				"raw": {
+					"description": "Excerpt for the block, as it exists in the database. Only present when using the 'edit' context.",
+					"contentMediaType": "text/html",
+					"type": "string"
+				},
+				"rendered": {
+					"readOnly": true,
+					"description": "HTML content for the post excerpt, transformed for display.",
+					"contentMediaType": "text/html",
+					"type": "string"
+				},
+				"protected": {
+					"readOnly": true,
+					"description": "Whether the content is protected with a password.",
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		},
+		"wp_pattern_sync_status": {
+			"type": "string",
+			"enum": [
+				"",
+				"partial",
+				"unsynced"
+			]
+		},
+		"wp_pattern_category": {
+			"description": "Pattern categories."
+		},
 		"template": {
 			"description": "The theme file to use to display the block.",
 			"type": "string"
+		},
+		"meta": {
+			"description": "Meta fields.",
+			"oneOf": [
+				{
+					"$ref": "../../schema.json#/definitions/EmptyArray"
+				},
+				{
+					"type": "object"
+				}
+			]
 		},
 		"_links": {
 			"$ref": "properties/object-links.json"

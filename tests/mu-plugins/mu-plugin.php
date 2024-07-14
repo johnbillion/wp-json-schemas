@@ -2,6 +2,8 @@
 
 namespace WPJsonSchemas;
 
+use Ergebnis\Json\Printer;
+
 use WP_CLI;
 use WP_REST_Request;
 use WP_REST_Response;
@@ -13,6 +15,8 @@ if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
 if ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) {
 	return;
 }
+
+require_once dirname( __DIR__, 2 ) . '/vendor/autoload.php';
 
 set_error_handler( function( int $errno, string $errstr, string $errfile = '', int $errline = 0 ) : bool {
 	// This is an @-suppressed error:
@@ -33,6 +37,23 @@ add_action( 'init', function() : void {
 	// Ensure we're authenticated as an admin during test data generation.
 	grant_super_admin( 1 );
 	wp_set_current_user( 1 );
+
+	register_post_type( 'book', [
+		'public' => true,
+		'label' => 'Books',
+		'show_in_rest' => true,
+		'template' => [
+			[
+				'core/paragraph',
+				[
+					'placeholder' => 'Add a description of the book',
+				],
+			],
+			[
+				'core/paragraph',
+			],
+		],
+	] );
 } );
 
 /**
@@ -42,10 +63,6 @@ add_action( 'init', function() : void {
  * @param string  $dir  The directory to save the files.
  */
 function save_object_array( array $data, string $dir ) : void {
-	$schema = sprintf(
-		'../../../schemas/%s.json',
-		$dir
-	);
 	$dir = dirname( ABSPATH ) . '/data/' . $dir;
 
 	if ( ! file_exists( $dir ) ) {
@@ -56,13 +73,6 @@ function save_object_array( array $data, string $dir ) : void {
 		if ( is_object( $item ) ) {
 			$item = get_object_vars( $item );
 		}
-
-		$item = array_merge(
-			[
-				'$schema' => $schema,
-			],
-			$item
-		);
 
 		$json = json_encode( $item, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
 
@@ -95,6 +105,50 @@ function save_rest_array( array $data, string $dir ) : void {
 		$json = json_encode( $save, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
 
 		file_put_contents( $dir . '/' . $i . '-embedded.json', $json );
+	}
+}
+
+function save_external_schema( string $url, string $name, array $path = [] ) : void {
+	$target = dirname( ABSPATH ) . "/external-schemas/{$name}.json";
+	$schema = download_url( $url );
+
+	if ( is_wp_error( $schema ) ) {
+		throw new \Exception( "Failed to download external {$name} schema." );
+	}
+
+	$file = file_get_contents( $schema );
+
+	if ( ! $file ) {
+		throw new \Exception( "Failed to open {$name} schema file." );
+	}
+
+	$data = json_decode( $file, true );
+
+	if ( ! $data ) {
+		throw new \Exception( "Failed to parse external {$name} schema." );
+	}
+
+	foreach ( $path as $key ) {
+		if ( isset( $data[ $key ] ) ) {
+			$data = $data[ $key ];
+		} else {
+			throw new \Exception( "Failed to find path {$key} in external {$name} schema." );
+		}
+	}
+
+	$json = json_encode( $data, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
+
+	$printer = new Printer\Printer();
+
+	$json = $printer->print(
+		$json,
+		"\t",
+	);
+
+	$result = file_put_contents( $target, $json );
+
+	if ( ! $result ) {
+		throw new \Exception( "Failed to save external {$name} schema." );
 	}
 }
 

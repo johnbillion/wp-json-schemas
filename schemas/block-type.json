@@ -20,7 +20,11 @@
 		"example",
 		"render_callback",
 		"attributes",
-		"uses_context",
+		"block_hooks",
+		"allowed_blocks",
+		"variation_callback",
+		"view_script_module_ids",
+		"view_style_handles",
 		"provides_context",
 		"editor_script_handles",
 		"script_handles",
@@ -29,10 +33,6 @@
 		"style_handles"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"api_version": {
 			"description": "Block API version.",
 			"type": "integer"
@@ -105,9 +105,69 @@
 			"description": "Block variations.",
 			"type": "array"
 		},
+		"block_hooks": {
+			"description": "Block hooks for this block type.",
+			"oneOf": [
+				{
+					"$ref": "../schema.json#/definitions/EmptyArray"
+				},
+				{
+					"type": "object",
+					"additionalProperties": {
+						"type": "string"
+					}
+				}
+			]
+		},
+		"allowed_blocks": {
+			"description": "Allowed child block types.",
+			"type": [
+				"array",
+				"null"
+			],
+			"items": {
+				"type": "string"
+			}
+		},
+		"variation_callback": {
+			"description": "Block variations callback.",
+			"anyOf": [
+				{
+					"$ref": "properties/callable.json"
+				},
+				{
+					"type": "null"
+				}
+			]
+		},
+		"view_script_module_ids": {
+			"description": "Block type front end only script module IDs.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"view_style_handles": {
+			"description": "Block type front end only style handles.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"selectors": {
+			"description": "Custom CSS selectors for theme.json style generation.",
+			"oneOf": [
+				{
+					"$ref": "../schema.json#/definitions/EmptyArray"
+				},
+				{
+					"type": "object"
+				}
+			]
+		},
 		"supports": {
 			"description": "Supported features.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"type": "object"
 				},
@@ -118,7 +178,7 @@
 		},
 		"example": {
 			"description": "Structured data for the block preview.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../schema.json#/definitions/EmptyArray"
 				},
@@ -143,7 +203,7 @@
 		},
 		"attributes": {
 			"description": "Block type attributes property schemas.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "../schema.json#/definitions/EmptyArray"
 				},
@@ -154,13 +214,6 @@
 					"type": "null"
 				}
 			]
-		},
-		"uses_context": {
-			"description": "Context values inherited by blocks of this type.",
-			"type": "array",
-			"items": {
-				"type": "string"
-			}
 		},
 		"provides_context": {
 			"description": "Context provided by blocks of this type.",

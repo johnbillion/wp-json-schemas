@@ -1,0 +1,3 @@
+{
+    "route": "/wp/v2/book/(?P<parent>[\\d]+)/autosaves/(?P<id>[\\d]+)"
+}

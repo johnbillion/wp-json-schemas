@@ -1,0 +1,38 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/block-pattern-category.json",
+	"title": "WP_REST_API_Block_Pattern_Category",
+	"description": "A block pattern category in a REST API context.",
+	"type": "object",
+	"readOnly": true,
+	"required": [
+		"name",
+		"label"
+	],
+	"properties": {
+		"name": {
+			"description": "The category name.",
+			"type": "string"
+		},
+		"label": {
+			"description": "The category label, in human readable format.",
+			"type": "string"
+		},
+		"description": {
+			"description": "The category description, in human readable format.",
+			"type": "string"
+		}
+	},
+	"links": [
+		{
+			"rel": "collection",
+			"href": "/wp/v2/block-patterns/categories",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}

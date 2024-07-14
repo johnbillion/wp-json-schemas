@@ -25,8 +25,6 @@ There is no fully automatic process to create these schemas. A schema for a PHP 
 
        npm install
 
-3. If you want to run the tests locally, check the MySQL database credentials in the `tests/.env` file and amend them as necessary.
-
 ## Creating a REST API response schema
 
 The WordPress REST API response doesn't fully adhere to the JSON schema spec, so we need to tweak its output in order to generate a valid schema and to increase its specificity.
@@ -47,7 +45,7 @@ The WordPress REST API response doesn't fully adhere to the JSON schema spec, so
   - Start by copying an existing file such as `post.php` which is for `/wp/v2/posts`
   - The command should perform one or more REST API requests to the endpoint and pass the responses to the `save_rest_array()` function which saves them as JSON during the tests
 * Run `composer run test` to validate and test the schemas.
-* Run `npm run build-wp-types` and check the output of `packages/wp-types/index.ts`.
+* Check the output of `packages/wp-types/index.ts`.
 * Add documentation for the schema in both `readme.md` and `packages/wp-types/readme.md`.
 
 ## Creating a PHP object schema
@@ -71,8 +69,20 @@ The schema for a PHP object is created using the docblocks from its class proper
   - Start by copying an existing file such as `error.php`
   - The file should pass an array of one or more objects of this type to the `save_object_array()` function which saves it as JSON during the tests
 * Run `composer run test` to validate and test the schemas.
-* Run `npm run build-wp-types` and check the output of `packages/wp-types/index.ts`.
+* Check the output of `packages/wp-types/index.ts`.
 * Add documentation for the schema in both `readme.md` and `packages/wp-types/readme.md`.
+
+## Updating schemas for a new WordPress release
+
+*     composer require --dev roots/wordpress-full=dev-main
+*     composer update
+*     composer test
+
+Address any test failures by updating the corresponding schema files.
+
+Address any newly added REST API routes by adding them to both readme files and adding a schema if necessary or documenting them as "Todo".
+
+For release, update the WordPress version number in composer.json and the readme files.
 
 ## Releasing a new version
 

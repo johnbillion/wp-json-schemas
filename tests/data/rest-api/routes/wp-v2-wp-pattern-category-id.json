@@ -1,0 +1,3 @@
+{
+    "route": "/wp/v2/wp_pattern_category/(?P<id>[\\d]+)"
+}

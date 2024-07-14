@@ -10,13 +10,9 @@
 		"errors"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"errors": {
 			"description": "Stores the list of errors.",
-			"anyOf": [
+			"allOf": [
 				{
 					"$ref": "../schema.json#/definitions/EmptyArray"
 				}
@@ -24,7 +20,7 @@
 		},
 		"error_data": {
 			"description": "Stores the list of data for error codes.",
-			"anyOf": [
+			"allOf": [
 				{
 					"$ref": "../schema.json#/definitions/EmptyArray"
 				}

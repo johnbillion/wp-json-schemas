@@ -1,0 +1,3 @@
+{
+    "route": "/wp/v2/global-styles/(?P<parent>[\\d]+)/revisions/(?P<id>[\\d]+)"
+}

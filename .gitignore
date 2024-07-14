@@ -8,5 +8,3 @@
 
 /composer.lock
 /package-lock.json
-/tests/.env
-/tests/hyper-schema/index.js

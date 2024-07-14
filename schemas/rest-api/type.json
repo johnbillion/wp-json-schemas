@@ -98,9 +98,77 @@
 			"description": "REST route's namespace for the post type.",
 			"type": "string"
 		},
+		"template": {
+			"description": "The block template associated with the post type.",
+			"examples": [
+				[
+					[
+						"core/image"
+					]
+				],
+				[
+					[
+						"core/image"
+					],
+					[
+						"core/paragraph",
+						{
+							"placeholder": "Image Details"
+						}
+					]
+				]
+			],
+			"type": "array",
+			"items": {
+				"oneOf": [
+					{
+						"type": "array",
+						"items": [
+							{
+								"type": "string"
+							}
+						],
+						"minItems": 1,
+						"maxItems": 1
+					},
+					{
+						"type": "array",
+						"items": [
+							{
+								"type": "string"
+							},
+							{
+								"type": "object"
+							}
+						],
+						"minItems": 2,
+						"maxItems": 2
+					}
+				]
+			}
+		},
+		"template_lock": {
+			"description": "The template lock associated with the post type, or false if none.",
+			"enum": [
+				"all",
+				"insert",
+				false
+			]
+		},
 		"visibility": {
 			"description": "The visibility settings for the post type. Only present when using the 'edit' context.",
-			"type": "object"
+			"type": "object",
+			"properties": {
+				"show_ui": {
+					"description": "Whether to generate a default UI for managing this post type.",
+					"type": "boolean"
+				},
+				"show_in_nav_menus": {
+					"description": "Whether to make the post type available for selection in navigation menus.",
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
 		},
 		"icon": {
 			"description": "The icon for the post type.",

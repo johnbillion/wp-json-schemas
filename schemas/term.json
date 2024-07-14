@@ -17,10 +17,6 @@
 		"filter"
 	],
 	"properties": {
-		"$schema": {
-			"description": "JSON schema definition.",
-			"type": "string"
-		},
 		"term_id": {
 			"readOnly": true,
 			"description": "Term ID.",
@@ -120,7 +116,7 @@
 		},
 		"filter": {
 			"description": "Stores the term object's sanitization level.",
-			"anyOf": [
+			"oneOf": [
 				{
 					"$ref": "properties/object-filter-context.json"
 				},

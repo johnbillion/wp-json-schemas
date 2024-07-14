@@ -1,0 +1,19 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/font-collections.json",
+	"title": "WP_REST_API_Font_Collections",
+	"description": "A collection of font collection objects in a REST API context.",
+	"type": "array",
+	"items": {
+		"$ref": "../font-collection.json"
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/font-collections",
+			"targetSchema": {
+				"$ref": "#"
+			}
+		}
+	]
+}

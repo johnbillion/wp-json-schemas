@@ -20,13 +20,17 @@ if ( ! file_exists( $dir ) ) {
 
 foreach ( $routes as $item ) {
 	$i = preg_replace( '#[^a-z0-9]+#', '-', $item['route'] );
-	$i = preg_replace( '#\b[dw]\b#', '', $i );
+	$i = preg_replace( '#\b[dsw]\b#', '', $i );
 	$i = str_replace( 'a-z', '', $i );
 	$i = str_replace( '0-9', '', $i );
 	$i = preg_replace( '#\-+#', '-', $i );
 	$i = trim( $i, '-' );
 
-	$json = json_encode( $item, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
+	$save = [
+		'route' => $item['route'],
+	];
+
+	$json = json_encode( $save, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
 
 	file_put_contents( $dir . '/' . $i . '.json', $json );
 }
