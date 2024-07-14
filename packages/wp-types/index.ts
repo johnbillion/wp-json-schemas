@@ -41,6 +41,14 @@ export type WP_REST_API_Comments = WP_REST_API_Comment[];
  */
 export type WP_REST_API_Font_Collections = WP_REST_API_Font_Collection[];
 /**
+ * A collection of font family objects in a REST API context.
+ */
+export type WP_REST_API_Font_Families = WP_REST_API_Font_Family[];
+/**
+ * A collection of font face objects in a REST API context.
+ */
+export type WP_REST_API_Font_Faces = WP_REST_API_Font_Face[];
+/**
  * A collection of post objects in a REST API context.
  */
 export type WP_REST_API_Posts = WP_REST_API_Post[];
@@ -144,6 +152,10 @@ export interface WP {
 		Comments: WP_REST_API_Comments;
 		Font_Collection: WP_REST_API_Font_Collection;
 		Font_Collections: WP_REST_API_Font_Collections;
+		Font_Family: WP_REST_API_Font_Family;
+		Font_Families: WP_REST_API_Font_Families;
+		Font_Face: WP_REST_API_Font_Face;
+		Font_Faces: WP_REST_API_Font_Faces;
 		Post: WP_REST_API_Post;
 		Posts: WP_REST_API_Posts;
 		Page: WP_REST_API_Page;
@@ -1977,10 +1989,13 @@ export interface WP_REST_API_Font_Collection {
 				 * CSS unicode-range value.
 				 */
 				unicodeRange?: string;
+				[k: string]: unknown;
 			}[];
 			preview?: string;
+			[k: string]: unknown;
 		};
 		categories?: string[];
+		[k: string]: unknown;
 	}[];
 	/**
 	 * The categories for the font collection.
@@ -1988,7 +2003,99 @@ export interface WP_REST_API_Font_Collection {
 	categories: {
 		name: string;
 		slug: string;
+		[k: string]: unknown;
 	}[];
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A font family object in a REST API context.
+ */
+export interface WP_REST_API_Font_Family {
+	/**
+	 * Unique identifier for the font family.
+	 */
+	id: number;
+	/**
+	 * Version of the theme.json schema used for the typography settings.
+	 */
+	theme_json_version: number;
+	/**
+	 * The IDs of the child font faces in the font family.
+	 */
+	font_faces: number[];
+	font_family_settings: {
+		name?: string;
+		slug?: string;
+		fontFamily?: string;
+		preview?: string;
+		[k: string]: unknown;
+	};
+	_links: WP_REST_API_Object_Links;
+	/**
+	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+	 */
+	_embedded?: {
+		/**
+		 * The associated font faces.
+		 */
+		font_faces?: unknown[];
+		[k: string]: unknown;
+	};
+	[k: string]: unknown;
+}
+/**
+ * A font face object in a REST API context.
+ */
+export interface WP_REST_API_Font_Face {
+	/**
+	 * Unique identifier for the font face.
+	 */
+	id: number;
+	/**
+	 * Version of the theme.json schema used for the typography settings.
+	 */
+	theme_json_version: number;
+	/**
+	 * The ID for the parent font family of the font face.
+	 */
+	parent: number;
+	/**
+	 * font-face declaration in theme.json format.
+	 */
+	font_face_settings: {
+		/**
+		 * Unique identifier for the font family.
+		 */
+		id?: number;
+		/**
+		 * Version of the theme.json schema used for the typography settings.
+		 */
+		theme_json_version?: number;
+		/**
+		 * The IDs of the child font faces in the font family.
+		 */
+		font_faces?: number[];
+		font_family_settings?: {
+			name?: string;
+			slug?: string;
+			fontFamily?: string;
+			preview?: string;
+			[k: string]: unknown;
+		};
+		_links?: WP_REST_API_Object_Links;
+		/**
+		 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+		 */
+		_embedded?: {
+			/**
+			 * The associated font faces.
+			 */
+			font_faces?: unknown[];
+			[k: string]: unknown;
+		};
+		[k: string]: unknown;
+	};
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }

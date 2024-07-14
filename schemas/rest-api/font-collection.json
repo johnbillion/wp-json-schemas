@@ -148,7 +148,7 @@
 											"type": "string"
 										}
 									},
-									"additionalProperties": false
+									"additionalProperties": true
 								}
 							},
 							"preview": {
@@ -156,7 +156,7 @@
 								"format": "uri"
 							}
 						},
-						"additionalProperties": false
+						"additionalProperties": true
 					},
 					"categories": {
 						"type": "array",
@@ -165,7 +165,7 @@
 						}
 					}
 				},
-				"additionalProperties": false
+				"additionalProperties": true
 			}
 		},
 		"categories": {
@@ -185,7 +185,7 @@
 						"type": "string"
 					}
 				},
-				"additionalProperties": false
+				"additionalProperties": true
 			}
 		},
 		"_links": {

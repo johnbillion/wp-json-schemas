@@ -92,6 +92,12 @@
 				"Font_Families": {
 					"$ref": "schemas/rest-api/collections/font-families.json"
 				},
+				"Font_Face": {
+					"$ref": "schemas/rest-api/font-face.json"
+				},
+				"Font_Faces": {
+					"$ref": "schemas/rest-api/collections/font-faces.json"
+				},
 				"Post": {
 					"$ref": "schemas/rest-api/post.json"
 				},
@@ -217,6 +223,8 @@
 				"Font_Collections",
 				"Font_Family",
 				"Font_Families",
+				"Font_Face",
+				"Font_Faces",
 				"Post",
 				"Posts",
 				"Page",

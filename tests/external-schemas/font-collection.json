@@ -37,7 +37,13 @@
 					"description": "CSS font-display value.",
 					"type": "string",
 					"default": "fallback",
-					"enum": [ "auto", "block", "fallback", "swap", "optional" ]
+					"enum": [
+						"auto",
+						"block",
+						"fallback",
+						"swap",
+						"optional"
+					]
 				},
 				"src": {
 					"description": "Paths or URLs to the font files.",
@@ -91,7 +97,10 @@
 					"type": "string"
 				}
 			},
-			"required": [ "fontFamily", "src" ],
+			"required": [
+				"fontFamily",
+				"src"
+			],
 			"additionalProperties": false
 		}
 	},
@@ -138,7 +147,11 @@
 								}
 							}
 						},
-						"required": [ "name", "fontFamily", "slug" ],
+						"required": [
+							"name",
+							"fontFamily",
+							"slug"
+						],
 						"additionalProperties": false
 					},
 					"categories": {
@@ -149,11 +162,15 @@
 						}
 					}
 				},
-				"required": [ "font_family_settings" ],
+				"required": [
+					"font_family_settings"
+				],
 				"additionalProperties": false
 			}
 		}
 	},
 	"additionalProperties": false,
-	"required": [ "font_families" ]
+	"required": [
+		"font_families"
+	]
 }

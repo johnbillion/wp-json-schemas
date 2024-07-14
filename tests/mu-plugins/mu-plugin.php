@@ -2,6 +2,8 @@
 
 namespace WPJsonSchemas;
 
+use Ergebnis\Json\Printer;
+
 use WP_CLI;
 use WP_REST_Request;
 use WP_REST_Response;
@@ -13,6 +15,8 @@ if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
 if ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) {
 	return;
 }
+
+require_once dirname( __DIR__, 2 ) . '/vendor/autoload.php';
 
 set_error_handler( function( int $errno, string $errstr, string $errfile = '', int $errline = 0 ) : bool {
 	// This is an @-suppressed error:
@@ -104,7 +108,7 @@ function save_rest_array( array $data, string $dir ) : void {
 	}
 }
 
-function save_external_schema( string $url, string $name ) : void {
+function save_external_schema( string $url, string $name, array $path = [] ) : void {
 	$target = dirname( ABSPATH ) . "/external-schemas/{$name}.json";
 	$schema = download_url( $url );
 
@@ -112,10 +116,39 @@ function save_external_schema( string $url, string $name ) : void {
 		throw new \Exception( "Failed to download external {$name} schema." );
 	}
 
-	$renamed = rename( $schema, $target );
+	$file = file_get_contents( $schema );
 
-	if ( ! $renamed ) {
-		throw new \Exception( "Failed to rename external {$name} schema." );
+	if ( ! $file ) {
+		throw new \Exception( "Failed to open {$name} schema file." );
+	}
+
+	$data = json_decode( $file, true );
+
+	if ( ! $data ) {
+		throw new \Exception( "Failed to parse external {$name} schema." );
+	}
+
+	foreach ( $path as $key ) {
+		if ( isset( $data[ $key ] ) ) {
+			$data = $data[ $key ];
+		} else {
+			throw new \Exception( "Failed to find path {$key} in external {$name} schema." );
+		}
+	}
+
+	$json = json_encode( $data, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
+
+	$printer = new Printer\Printer();
+
+	$json = $printer->print(
+		$json,
+		"\t",
+	);
+
+	$result = file_put_contents( $target, $json );
+
+	if ( ! $result ) {
+		throw new \Exception( "Failed to save external {$name} schema." );
 	}
 }
 

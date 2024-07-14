@@ -1,0 +1,136 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/font-face.json",
+	"title": "WP_REST_API_Font_Face",
+	"description": "A font face object in a REST API context.",
+	"$comment": "See also https://schemas.wp.org/trunk/font-face.json",
+	"type": "object",
+	"required": [
+		"id",
+		"theme_json_version",
+		"parent",
+		"font_face_settings",
+		"_links"
+	],
+	"properties": {
+		"id": {
+			"readOnly": true,
+			"description": "Unique identifier for the font face.",
+			"type": "integer"
+		},
+		"theme_json_version": {
+			"description": "Version of the theme.json schema used for the typography settings.",
+			"type": "integer"
+		},
+		"parent": {
+			"description": "The ID for the parent font family of the font face.",
+			"type": "integer"
+		},
+		"font_face_settings": {
+			"description": "font-face declaration in theme.json format.",
+			"type": "object",
+			"properties": {
+				"id": {
+					"readOnly": true,
+					"description": "Unique identifier for the font family.",
+					"type": "integer"
+				},
+				"theme_json_version": {
+					"description": "Version of the theme.json schema used for the typography settings.",
+					"type": "integer"
+				},
+				"font_faces": {
+					"description": "The IDs of the child font faces in the font family.",
+					"type": "array",
+					"items": {
+						"type": "integer"
+					}
+				},
+				"font_family_settings": {
+					"type": "object",
+					"properties": {
+						"name": {
+							"type": "string"
+						},
+						"slug": {
+							"type": "string"
+						},
+						"fontFamily": {
+							"type": "string"
+						},
+						"preview": {
+							"type": "string",
+							"format": "uri"
+						}
+					}
+				},
+				"_links": {
+					"$ref": "properties/object-links.json"
+				},
+				"_embedded": {
+					"description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
+					"type": "object",
+					"properties": {
+						"font_faces": {
+							"description": "The associated font faces.",
+							"type": "array"
+						}
+					}
+				}
+			}
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/font-families/{parent}/font-faces/{id}",
+			"hrefSchema": {
+				"properties": {
+					"parent": {
+						"$ref": "#/properties/parent"
+					},
+					"id": {
+						"$ref": "#/properties/id"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/font-families/{parent}/font-faces",
+			"hrefSchema": {
+				"properties": {
+					"parent": {
+						"$ref": "#/properties/parent"
+					}
+				}
+			},
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		},
+		{
+			"rel": "parent",
+			"href": "/wp/v2/font-families/{parent}",
+			"hrefSchema": {
+				"properties": {
+					"parent": {
+						"$ref": "#/properties/parent"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "font-family.json"
+			}
+		}
+	]
+}

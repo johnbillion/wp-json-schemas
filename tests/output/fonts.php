@@ -51,5 +51,9 @@ save_rest_array( [
 
 save_external_schema(
 	'https://schemas.wp.org/trunk/theme.json',
-	'font-family'
+	'font-face',
+	[
+		'definitions',
+		'fontFace',
+	]
 );
