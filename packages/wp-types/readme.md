@@ -67,8 +67,8 @@ Route                                                   | Schema
 /wp/v2/media/{id}                                       | `WP_REST_API_Attachment`
 /wp/v2/media/{id}/edit                                  | Todo
 /wp/v2/media/{id}/post-process                          | Todo
-/wp/v2/menu-items                                       | Todo
-/wp/v2/menu-items/{id}                                  | Todo
+/wp/v2/menu-items                                       | `WP_REST_API_Menu_Items`
+/wp/v2/menu-items/{id}                                  | `WP_REST_API_Menu_Item`
 /wp/v2/menu-items/{id}/autosaves                        | Todo
 /wp/v2/menu-items/{parent}/autosaves/{id}               | Todo
 /wp/v2/menu-locations                                   | Todo
