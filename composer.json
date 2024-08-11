@@ -32,7 +32,9 @@
 		"wp-cli/core-command": "^2",
 		"wp-cli/db-command": "^2",
 		"wp-cli/language-command": "^2",
-		"wpackagist-plugin/sqlite-database-integration": "^2.1"
+		"wpackagist-plugin/sqlite-database-integration": "^2.1",
+		"wpackagist-theme/twentytwentyfour": "^1",
+		"wpackagist-theme/twentytwentyone": "^2"
 	},
 	"config": {
 		"allow-plugins": {
@@ -45,7 +47,10 @@
 	"extra": {
 		"installer-paths": {
 			"tests/wordpress/wp-content/plugins/{$name}/": [
-				"wpackagist-plugin/sqlite-database-integration"
+				"type:wordpress-plugin"
+			],
+			"tests/wordpress/wp-content/themes/{$name}/": [
+				"type:wordpress-theme"
 			]
 		},
 		"wordpress-install-dir": "tests/wordpress"
@@ -62,6 +67,7 @@
 			"wp core multisite-install --url=example.org --title=Example --admin_user=admin --admin_email=admin@example.org --skip-email",
 			"wp language core install de_DE it_IT ar he_IL",
 
+			"wp json-dump --theme=twentytwentyone",
 			"wp json-dump",
 			"./tests/bin/test.sh"
 		]

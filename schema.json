@@ -212,6 +212,12 @@
 				"Application_Passwords": {
 					"$ref": "schemas/rest-api/collections/application-passwords.json"
 				},
+				"Menu_Item": {
+					"$ref": "schemas/rest-api/menu-item.json"
+				},
+				"Menu_Items": {
+					"$ref": "schemas/rest-api/collections/menu-items.json"
+				},
 				"Error": {
 					"$ref": "schemas/rest-api/error.json"
 				}
@@ -263,6 +269,8 @@
 				"Types",
 				"Application_Password",
 				"Application_Passwords",
+				"Menu_Item",
+				"Menu_Items",
 				"Error"
 			],
 			"additionalProperties": false
