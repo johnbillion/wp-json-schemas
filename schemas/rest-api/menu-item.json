@@ -141,10 +141,30 @@
 		},
 		"meta": {
 			"description": "Meta fields.",
-			"type": "object"
+			"oneOf": [
+				{
+					"$ref": "../../schema.json#/definitions/EmptyArray"
+				},
+				{
+					"type": "object"
+				}
+			]
 		},
 		"_links": {
 			"$ref": "properties/object-links.json"
+		},
+		"_embedded": {
+			"description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
+			"type": "object",
+			"required": [
+				"wp:term"
+			],
+			"properties": {
+				"wp:term": {
+					"description": "The taxonomy terms for the nav menu item.",
+					"type": "array"
+				}
+			}
 		}
 	},
 	"links": [
@@ -172,6 +192,5 @@
 				}
 			}
 		}
-	],
-	"additionalProperties": false
+	]
 }
