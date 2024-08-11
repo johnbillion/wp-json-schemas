@@ -241,6 +241,28 @@ api.catch( ( error: WP_REST_API_Error ) => {
 } );
 ```
 
+Usage with entity records:
+
+```ts
+import type {
+	WP_REST_API_Posts,
+	WP_REST_API_Term,
+} from 'wp-types';
+
+const category = getEntityRecord<WP_REST_API_Term>(
+	'taxonomy',
+	'category',
+	id,
+);
+
+const posts = getEntityRecords<WP_REST_API_Posts>(
+	'postType',
+	'post',
+	query
+);
+const taxonomy = getEntityRecord('taxonomy', taxonomy, term);
+```
+
 ## FAQs
 
 ### When do these definitions apply?
@@ -254,12 +276,26 @@ printf(
 );
 ```
 
-The REST API object schemas apply to the response to a REST API request. For example:
+The REST API object schemas apply to the response to a REST API request or entity record request. Examples:
 
 ```js
 const api = wp.apiFetch( {
 	path: '/wp/v2/categories/'
 } );
+```
+
+```js
+const category = getEntityRecord(
+	'taxonomy',
+	'category',
+	id,
+);
+
+const posts = getEntityRecords(
+	'postType',
+	'post',
+	query
+);
 ```
 
 The definitions also apply outside of the browser, for example if you're saving data as JSON and reading it in a Node application.

@@ -215,12 +215,26 @@ printf(
 );
 ```
 
-The REST API object schemas apply to the response to a REST API request. For example:
+The REST API object schemas apply to the response to a REST API request or `getEntityRecord()` call. Examples:
 
 ```js
 const api = wp.apiFetch( {
 	path: '/wp/v2/categories/'
 } );
+```
+
+```js
+const category = getEntityRecord(
+	'taxonomy',
+	'category',
+	id,
+);
+
+const posts = getEntityRecords(
+	'postType',
+	'post',
+	query
+);
 ```
 
 The schemas also apply outside of an HTTP request, for example if you're saving data as a JSON file and reading it in a Node application.
