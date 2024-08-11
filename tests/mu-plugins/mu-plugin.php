@@ -79,6 +79,10 @@ add_action( 'init', function() : void {
  * @param string  $dir  The directory to save the files.
  */
 function save_object_array( array $data, string $dir ) : void {
+	if ( empty( $data ) ) {
+		throw new \Exception( "No object data to save for {$dir}." );
+	}
+
 	$dir = dirname( ABSPATH ) . '/data/' . $dir;
 
 	if ( ! file_exists( $dir ) ) {
@@ -103,6 +107,10 @@ function save_object_array( array $data, string $dir ) : void {
  * @param string             $dir  The directory to save the files.
  */
 function save_rest_array( array $data, string $dir ) : void {
+	if ( empty( $data ) ) {
+		throw new \Exception( "No REST API data to save for {$dir}." );
+	}
+
 	$dir = dirname( ABSPATH ) . '/data/rest-api/collections/' . $dir;
 
 	if ( ! file_exists( $dir ) ) {
