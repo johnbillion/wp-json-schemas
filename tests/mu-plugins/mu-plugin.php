@@ -113,7 +113,7 @@ function save_external_schema( string $url, string $name, array $path = [] ) : v
 	$schema = download_url( $url );
 
 	if ( is_wp_error( $schema ) ) {
-		throw new \Exception( "Failed to download external {$name} schema." );
+		throw new \Exception( "Failed to download external {$url} schema." );
 	}
 
 	$file = file_get_contents( $schema );
@@ -132,7 +132,8 @@ function save_external_schema( string $url, string $name, array $path = [] ) : v
 		if ( isset( $data[ $key ] ) ) {
 			$data = $data[ $key ];
 		} else {
-			throw new \Exception( "Failed to find path {$key} in external {$name} schema." );
+			$full_path = implode( '.', $path );
+			throw new \Exception( "Failed to find path `{$full_path}` in {$url} schema." );
 		}
 	}
 
