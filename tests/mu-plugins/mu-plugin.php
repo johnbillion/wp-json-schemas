@@ -36,6 +36,19 @@ set_error_handler( function( int $errno, string $errstr, string $errfile = '', i
 $composer = json_decode( file_get_contents( dirname( __DIR__, 2 ) . '/composer.json' ), true );
 define( 'WP_VERSION', $composer['require-dev']['roots/wordpress-full'] );
 
+function use_requested_theme( string $theme ) : string {
+	foreach ( $_SERVER['argv'] as $arg ) {
+		if ( str_starts_with( $arg, '--theme=' ) ) {
+			return substr( $arg, 8 );
+		}
+	}
+
+	return $theme;
+}
+
+add_filter( 'option_template', __NAMESPACE__ . '\use_requested_theme', 1 );
+add_filter( 'option_stylesheet', __NAMESPACE__ . '\use_requested_theme', 1 );
+
 add_action( 'init', function() : void {
 	// Ensure we're authenticated as an admin during test data generation.
 	grant_super_admin( 1 );
@@ -173,8 +186,19 @@ function get_rest_response( string $method, string $path, array $params = [] ) {
 
 // Register the WP-CLI command for outputting test data:
 WP_CLI::add_command( 'json-dump', function( array $args, array $assoc_args ) : void {
-	foreach ( glob( dirname( __DIR__ ) . '/output/*.php' ) as $file ) {
-		require_once $file;
+	if ( isset( $assoc_args['theme'] ) ) {
+		$theme = $assoc_args['theme'];
+		$dir = dirname( __DIR__ ) . "/output/with-theme/{$theme}";
+
+		if ( file_exists( $dir ) ) {
+			foreach ( glob( "{$dir}/*.php" ) as $file ) {
+				require_once $file;
+			}
+		}
+	} else {
+		foreach ( glob( dirname( __DIR__ ) . '/output/*.php' ) as $file ) {
+			require_once $file;
+		}
 	}
 
 	WP_CLI::success( 'Dumped test data');
