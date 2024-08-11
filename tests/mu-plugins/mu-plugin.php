@@ -33,6 +33,9 @@ set_error_handler( function( int $errno, string $errstr, string $errfile = '', i
 	) );
 } );
 
+$composer = json_decode( file_get_contents( dirname( __DIR__, 2 ) . '/composer.json' ), true );
+define( 'WP_VERSION', $composer['require-dev']['roots/wordpress-full'] );
+
 add_action( 'init', function() : void {
 	// Ensure we're authenticated as an admin during test data generation.
 	grant_super_admin( 1 );
