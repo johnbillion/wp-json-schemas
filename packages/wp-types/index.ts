@@ -3273,7 +3273,7 @@ export interface WP_REST_API_Search_Result {
 	/**
 	 * Object subtype.
 	 */
-	subtype: WP_Post_Type_Name | WP_Taxonomy_Name | string;
+	subtype: WP_Post_Type_Name | WP_Taxonomy_Name | WP_Post_Format_Name;
 	_links: WP_REST_API_Object_Links;
 	/**
 	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.

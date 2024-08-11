@@ -53,7 +53,7 @@
 					"$ref": "../properties/taxonomy-name.json"
 				},
 				{
-					"type": "string"
+					"$ref": "../properties/post-format-name.json"
 				}
 			]
 		},
