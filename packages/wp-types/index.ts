@@ -3620,7 +3620,6 @@ export interface WP_REST_API_Menu_Item {
 				 * HTML title for the menu item, transformed for display.
 				 */
 				rendered?: string;
-				[k: string]: unknown;
 		  };
 	/**
 	 * Unique identifier for the menu item.
