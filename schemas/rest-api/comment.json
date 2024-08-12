@@ -97,15 +97,16 @@
 			"properties": {
 				"raw": {
 					"description": "Content for the comment, as it exists in the database. Only present when using the 'edit' context.",
+					"contentMediaType": "text/html",
 					"type": "string"
 				},
 				"rendered": {
 					"readOnly": true,
 					"description": "HTML content for the comment, transformed for display.",
+					"contentMediaType": "text/html",
 					"type": "string"
 				}
 			},
-			"contentMediaType": "text/html",
 			"additionalProperties": false
 		},
 		"date": {

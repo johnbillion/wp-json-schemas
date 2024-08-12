@@ -138,16 +138,17 @@
 			],
 			"properties": {
 				"raw": {
+					"contentMediaType": "text/html",
 					"description": "Caption for the attachment, as it exists in the database. Only present when using the 'edit' context.",
 					"type": "string"
 				},
 				"rendered": {
+					"contentMediaType": "text/html",
 					"readOnly": true,
 					"description": "HTML caption for the attachment, transformed for display.",
 					"type": "string"
 				}
 			},
-			"contentMediaType": "text/html",
 			"additionalProperties": false
 		},
 		"description": {
@@ -158,16 +159,17 @@
 			],
 			"properties": {
 				"raw": {
+					"contentMediaType": "text/html",
 					"description": "Description for the attachment, as it exists in the database. Only present when using the 'edit' context.",
 					"type": "string"
 				},
 				"rendered": {
+					"contentMediaType": "text/html",
 					"readOnly": true,
 					"description": "HTML description for the attachment, transformed for display.",
 					"type": "string"
 				}
 			},
-			"contentMediaType": "text/html",
 			"additionalProperties": false
 		},
 		"media_type": {

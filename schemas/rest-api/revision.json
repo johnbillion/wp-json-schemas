@@ -124,6 +124,7 @@
 			"properties": {
 				"raw": {
 					"description": "Content for the post, as it exists in the database. Only present when using the 'edit' context.",
+					"contentMediaType": "text/html",
 					"type": "string"
 				},
 				"rendered": {
@@ -148,6 +149,7 @@
 			"properties": {
 				"raw": {
 					"description": "Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.",
+					"contentMediaType": "text/html",
 					"type": "string"
 				},
 				"rendered": {
