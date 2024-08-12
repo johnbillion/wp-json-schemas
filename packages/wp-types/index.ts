@@ -128,6 +128,10 @@ export type WP_REST_API_Application_Passwords = WP_REST_API_Application_Password
  * A collection of menu items in a REST API context.
  */
 export type WP_REST_API_Menu_Items = WP_REST_API_Menu_Item[];
+/**
+ * A collection of menus in a REST API context.
+ */
+export type WP_REST_API_Menus = WP_REST_API_Menu[];
 
 /**
  * WordPress is open source software you can use to create a beautiful website, blog, or app.
@@ -200,6 +204,10 @@ export interface WP {
 		Application_Passwords: WP_REST_API_Application_Passwords;
 		Menu_Item: WP_REST_API_Menu_Item;
 		Menu_Items: WP_REST_API_Menu_Items;
+		Menu_Location: WP_REST_API_Menu_Location;
+		Menu_Locations: WP_REST_API_Menu_Locations;
+		Menu: WP_REST_API_Menu;
+		Menus: WP_REST_API_Menus;
 		Error: WP_REST_API_Error;
 	};
 }
@@ -3695,6 +3703,80 @@ export interface WP_REST_API_Menu_Item {
 		 * The taxonomy terms for the nav menu item.
 		 */
 		"wp:term": unknown[];
+		[k: string]: unknown;
+	};
+	[k: string]: unknown;
+}
+/**
+ * A menu location in a REST API context.
+ */
+export interface WP_REST_API_Menu_Location {
+	/**
+	 * The name of the menu location.
+	 */
+	name: string;
+	/**
+	 * The description of the menu location.
+	 */
+	description: string;
+	/**
+	 * The ID of the assigned menu.
+	 */
+	menu: number;
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A collection of menu locations in a REST API context.
+ */
+export interface WP_REST_API_Menu_Locations {
+	[k: string]: WP_REST_API_Menu_Location;
+}
+/**
+ * A menu in a REST API context.
+ */
+export interface WP_REST_API_Menu {
+	/**
+	 * Unique identifier for the term.
+	 */
+	id: number;
+	/**
+	 * HTML description of the term.
+	 */
+	description: string;
+	/**
+	 * HTML title for the term.
+	 */
+	name: string;
+	/**
+	 * An alphanumeric identifier for the term unique to its type.
+	 */
+	slug: string;
+	/**
+	 * Meta fields.
+	 */
+	meta:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
+	/**
+	 * The locations assigned to the menu.
+	 */
+	locations: string[];
+	/**
+	 * Whether to automatically add top level pages to this menu.
+	 */
+	auto_add: boolean;
+	_links: WP_REST_API_Object_Links;
+	/**
+	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+	 */
+	_embedded?: {
+		/**
+		 * The menu locations.
+		 */
+		"wp:menu-location": unknown[];
 		[k: string]: unknown;
 	};
 	[k: string]: unknown;
