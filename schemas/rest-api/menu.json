@@ -16,20 +16,20 @@
 	],
 	"properties": {
 		"id": {
-			"description": "Unique identifier for the term.",
+			"description": "Unique identifier for the menu.",
 			"type": "integer",
 			"readOnly": true
 		},
 		"description": {
-			"description": "HTML description of the term.",
+			"description": "HTML description of the menu.",
 			"type": "string"
 		},
 		"name": {
-			"description": "HTML title for the term.",
+			"description": "HTML title for the menu.",
 			"type": "string"
 		},
 		"slug": {
-			"description": "An alphanumeric identifier for the term unique to its type.",
+			"description": "An alphanumeric identifier for the menu unique to its type.",
 			"type": "string"
 		},
 		"meta": {

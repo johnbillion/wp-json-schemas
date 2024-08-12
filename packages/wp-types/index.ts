@@ -3737,19 +3737,19 @@ export interface WP_REST_API_Menu_Locations {
  */
 export interface WP_REST_API_Menu {
 	/**
-	 * Unique identifier for the term.
+	 * Unique identifier for the menu.
 	 */
 	id: number;
 	/**
-	 * HTML description of the term.
+	 * HTML description of the menu.
 	 */
 	description: string;
 	/**
-	 * HTML title for the term.
+	 * HTML title for the menu.
 	 */
 	name: string;
 	/**
-	 * An alphanumeric identifier for the term unique to its type.
+	 * An alphanumeric identifier for the menu unique to its type.
 	 */
 	slug: string;
 	/**
