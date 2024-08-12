@@ -218,6 +218,18 @@
 				"Menu_Items": {
 					"$ref": "schemas/rest-api/collections/menu-items.json"
 				},
+				"Menu_Location": {
+					"$ref": "schemas/rest-api/menu-location.json"
+				},
+				"Menu_Locations": {
+					"$ref": "schemas/rest-api/collections/menu-locations.json"
+				},
+				"Menu": {
+					"$ref": "schemas/rest-api/menu.json"
+				},
+				"Menus": {
+					"$ref": "schemas/rest-api/collections/menus.json"
+				},
 				"Error": {
 					"$ref": "schemas/rest-api/error.json"
 				}
@@ -271,6 +283,10 @@
 				"Application_Passwords",
 				"Menu_Item",
 				"Menu_Items",
+				"Menu_Location",
+				"Menu_Locations",
+				"Menu",
+				"Menus",
 				"Error"
 			],
 			"additionalProperties": false

@@ -71,10 +71,10 @@ Route                                                   | Schema
 /wp/v2/menu-items/{id}                                  | `WP_REST_API_Menu_Item`
 /wp/v2/menu-items/{id}/autosaves                        | Todo
 /wp/v2/menu-items/{parent}/autosaves/{id}               | Todo
-/wp/v2/menu-locations                                   | Todo
-/wp/v2/menu-locations/{location}                        | Todo
-/wp/v2/menus                                            | Todo
-/wp/v2/menus/{id}                                       | Todo
+/wp/v2/menu-locations                                   | `WP_REST_API_Menu_Locations`
+/wp/v2/menu-locations/{location}                        | `WP_REST_API_Menu_Location`
+/wp/v2/menus                                            | `WP_REST_API_Menus`
+/wp/v2/menus/{id}                                       | `WP_REST_API_Menu`
 /wp/v2/navigation                                       | Todo
 /wp/v2/navigation/{id}                                  | Todo
 /wp/v2/navigation/{id}/autosaves                        | Todo

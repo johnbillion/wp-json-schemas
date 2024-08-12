@@ -1,0 +1,10 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/menu-locations.json",
+	"title": "WP_REST_API_Menu_Locations",
+	"description": "A collection of menu locations in a REST API context.",
+	"type": "object",
+	"additionalProperties": {
+		"$ref": "../menu-location.json"
+	}
+}
