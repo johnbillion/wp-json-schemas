@@ -2,14 +2,18 @@
 
 namespace WPJsonSchemas;
 
-$data = get_rest_response( 'GET', '/wp/v2', [] );
+$root = get_rest_response( 'GET', '/' )->get_data();
+$namespaces = $root['namespaces'];
+$routes = [];
 
-$d = $data->get_data();
-
-$routes = array_map( function( array $data, string $route ) : array {
-	$data['route'] = $route;
-	return $data;
-}, $d['routes'], array_keys( $d['routes'] ) );
+foreach ( $namespaces as $namespace ) {
+	$d = get_rest_response( 'GET', '/' . $namespace )->get_data();
+	$namespace_routes = array_map( function( array $data, string $route ) : array {
+		$data['route'] = $route;
+		return $data;
+	}, $d['routes'], array_keys( $d['routes'] ) );
+	$routes = array_merge( $routes, $namespace_routes );
+}
 
 $dir = 'routes';
 $dir = dirname( ABSPATH ) . '/data/rest-api/' . $dir;
