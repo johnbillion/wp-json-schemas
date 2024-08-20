@@ -1,5 +1,5 @@
 {
-	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
 	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/status.json",
 	"title": "WP_REST_API_Status",
 	"description": "A post status object in a REST API context.",

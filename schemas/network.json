@@ -1,5 +1,5 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$schema": "https://json-schema.org/draft/2019-09/schema",
 	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/network.json",
 	"title": "WP_Network",
 	"description": "Core class used for interacting with a multisite network.",

@@ -15,10 +15,10 @@ function validate_schema() {
 	local filename=${base/.json/}
 
 	ls tests/data/$filename/*.json > /dev/null
-	./node_modules/.bin/ajv validate --strict --strict-schema=false -c ajv-formats -m tests/external-schemas/hyper-schema.json -r schema.json -r $rflag -s "$file" -d "tests/data/$filename/*.json"
+	./node_modules/.bin/ajv validate --spec=draft2019 --strict --strict-schema=false -c ajv-formats -m tests/external-schemas/hyper-schema.json -r schema.json -r $rflag -s "$file" -d "tests/data/$filename/*.json"
 }
 
-IGNORE_FILES=("schemas/rest-api/error.json" "schemas/rest-api/category.json" "schemas/rest-api/tag.json" "schemas/rest-api/page.json")
+IGNORE_FILES=("schemas/rest-api/error.json")
 
 for file in schemas/*.json
 do
@@ -31,7 +31,7 @@ do
 	then
 		continue
 	fi
-	./node_modules/node-jq/bin/jq --tab '. + { "additionalProperties": false }' "$file" > tmp && mv tmp "$file"
+	./node_modules/node-jq/bin/jq --tab '. + { "unevaluatedProperties": false }' "$file" > tmp && mv tmp "$file"
 done
 
 for file in schemas/rest-api/collections/*.json
@@ -45,5 +45,5 @@ do
 	then
 		continue
 	fi
-	./node_modules/node-jq/bin/jq --tab 'del(.additionalProperties)' "$file" > tmp && mv tmp "$file"
+	./node_modules/node-jq/bin/jq --tab 'del(.unevaluatedProperties)' "$file" > tmp && mv tmp "$file"
 done
