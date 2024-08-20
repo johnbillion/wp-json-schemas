@@ -21,6 +21,37 @@
 			"$ref": "./partials/post/excerpt.json"
 		}
 	],
+	"properties": {
+		"_embedded": {
+			"description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
+			"type": "object",
+			"required": [
+				"author"
+			],
+			"properties": {
+				"author": {
+					"description": "The author of the page.",
+					"type": "array"
+				},
+				"replies": {
+					"description": "The replies to the page (comments, pingbacks, trackbacks).",
+					"type": "array"
+				},
+				"wp:term": {
+					"description": "The taxonomy terms for the page.",
+					"type": "array"
+				},
+				"wp:featuredmedia": {
+					"description": "The featured image page.",
+					"type": "array"
+				},
+				"up": {
+					"description": "The parent page.",
+					"type": "array"
+				}
+			}
+		}
+	},
 	"links": [
 		{
 			"rel": "self",

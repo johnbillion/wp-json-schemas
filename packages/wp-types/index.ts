@@ -95,7 +95,35 @@ export type WP_REST_API_Page = WP_REST_API_Partial_Post_Common &
 	WP_REST_API_Partial_Post_Author &
 	WP_REST_API_Partial_Post_Public &
 	WP_REST_API_Partial_Post_Comments &
-	WP_REST_API_Partial_Post_Excerpt;
+	WP_REST_API_Partial_Post_Excerpt & {
+		/**
+		 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+		 */
+		_embedded?: {
+			/**
+			 * The author of the page.
+			 */
+			author: unknown[];
+			/**
+			 * The replies to the page (comments, pingbacks, trackbacks).
+			 */
+			replies?: unknown[];
+			/**
+			 * The taxonomy terms for the page.
+			 */
+			"wp:term"?: unknown[];
+			/**
+			 * The featured image page.
+			 */
+			"wp:featuredmedia"?: unknown[];
+			/**
+			 * The parent page.
+			 */
+			up?: unknown[];
+			[k: string]: unknown;
+		};
+		[k: string]: unknown;
+	};
 /**
  * A collection of page objects in a REST API context.
  */
