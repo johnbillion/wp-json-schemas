@@ -49,13 +49,53 @@ export type WP_REST_API_Font_Families = WP_REST_API_Font_Family[];
  */
 export type WP_REST_API_Font_Faces = WP_REST_API_Font_Face[];
 /**
+ * A post object in a REST API context.
+ */
+export type WP_REST_API_Post = WP_REST_API_Partial_Post_Common &
+	WP_REST_API_Partial_Post_Author &
+	WP_REST_API_Partial_Post_Public &
+	WP_REST_API_Partial_Post_Comments &
+	WP_REST_API_Partial_Post_Excerpt & {
+		/**
+		 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+		 */
+		_embedded?: {
+			/**
+			 * The author of the post.
+			 */
+			author: unknown[];
+			/**
+			 * The replies to the post (comments, pingbacks, trackbacks).
+			 */
+			replies?: unknown[];
+			/**
+			 * The taxonomy terms for the post.
+			 */
+			"wp:term"?: unknown[];
+			/**
+			 * The featured image post.
+			 */
+			"wp:featuredmedia"?: unknown[];
+			/**
+			 * The parent post.
+			 */
+			up?: unknown[];
+			[k: string]: unknown;
+		};
+		[k: string]: unknown;
+	};
+/**
  * A collection of post objects in a REST API context.
  */
 export type WP_REST_API_Posts = WP_REST_API_Post[];
 /**
  * A page object in a REST API context.
  */
-export type WP_REST_API_Page = WP_REST_API_Post;
+export type WP_REST_API_Page = WP_REST_API_Partial_Post_Common &
+	WP_REST_API_Partial_Post_Author &
+	WP_REST_API_Partial_Post_Public &
+	WP_REST_API_Partial_Post_Comments &
+	WP_REST_API_Partial_Post_Excerpt;
 /**
  * A collection of page objects in a REST API context.
  */
@@ -2106,9 +2146,9 @@ export interface WP_REST_API_Font_Face {
 	[k: string]: unknown;
 }
 /**
- * A post object in a REST API context.
+ * Common post properties
  */
-export interface WP_REST_API_Post {
+interface WP_REST_API_Partial_Post_Common {
 	/**
 	 * The date the post was published, in the site's timezone.
 	 */
@@ -2163,14 +2203,6 @@ export interface WP_REST_API_Post {
 	 */
 	password?: string;
 	/**
-	 * Permalink template for the post. Only present when using the 'edit' context and the post type is public.
-	 */
-	permalink_template?: string;
-	/**
-	 * Slug automatically generated from the post title. Only present when using the 'edit' context and the post type is public.
-	 */
-	generated_slug?: string;
-	/**
 	 * The ID for the parent of the post. Only present for hierarchical post types.
 	 */
 	parent?: number;
@@ -2178,10 +2210,6 @@ export interface WP_REST_API_Post {
 	 * A field used for ordering posts.
 	 */
 	menu_order?: number;
-	/**
-	 * An array of the class names for the post container element.
-	 */
-	class_list: string[];
 	/**
 	 * The title for the post.
 	 */
@@ -2217,38 +2245,9 @@ export interface WP_REST_API_Post {
 		protected: boolean;
 	};
 	/**
-	 * The ID for the author of the post.
-	 */
-	author: number;
-	/**
-	 * The excerpt for the post.
-	 */
-	excerpt: {
-		/**
-		 * Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.
-		 */
-		raw?: string;
-		/**
-		 * HTML excerpt for the post, transformed for display.
-		 */
-		rendered: string;
-		/**
-		 * Whether the excerpt is protected with a password.
-		 */
-		protected: boolean;
-	};
-	/**
 	 * The ID of the featured media for the post.
 	 */
 	featured_media?: number;
-	/**
-	 * Whether or not comments are open on the post.
-	 */
-	comment_status: WP_Post_Comment_Status_Name;
-	/**
-	 * Whether or not the post can be pinged.
-	 */
-	ping_status: WP_Post_Comment_Status_Name;
 	/**
 	 * The format for the post.
 	 */
@@ -2256,7 +2255,7 @@ export interface WP_REST_API_Post {
 	/**
 	 * Meta fields.
 	 */
-	meta:
+	meta?:
 		| EmptyArray
 		| {
 				[k: string]: unknown;
@@ -2278,31 +2277,70 @@ export interface WP_REST_API_Post {
 	 */
 	tags?: number[];
 	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * Hello.
+ */
+interface WP_REST_API_Partial_Post_Author {
 	/**
-	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+	 * The ID for the author of the post.
 	 */
-	_embedded?: {
+	author: number;
+	[k: string]: unknown;
+}
+/**
+ * Properties for public post types
+ */
+interface WP_REST_API_Partial_Post_Public {
+	/**
+	 * Permalink template for the post. Only present when using the 'edit' context and the post type is public.
+	 */
+	permalink_template?: string;
+	/**
+	 * Slug automatically generated from the post title. Only present when using the 'edit' context and the post type is public.
+	 */
+	generated_slug?: string;
+	/**
+	 * An array of the class names for the post container element.
+	 */
+	class_list: string[];
+	[k: string]: unknown;
+}
+/**
+ * Properties for post types that support comments
+ */
+interface WP_REST_API_Partial_Post_Comments {
+	/**
+	 * Whether or not comments are open on the post.
+	 */
+	comment_status: WP_Post_Comment_Status_Name;
+	/**
+	 * Whether or not the post can be pinged.
+	 */
+	ping_status: WP_Post_Comment_Status_Name;
+	[k: string]: unknown;
+}
+/**
+ * Properties for post types that support an excerpt
+ */
+interface WP_REST_API_Partial_Post_Excerpt {
+	/**
+	 * The excerpt for the post.
+	 */
+	excerpt: {
 		/**
-		 * The author of the post.
+		 * Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.
 		 */
-		author: unknown[];
+		raw?: string;
 		/**
-		 * The replies to the post (comments, pingbacks, trackbacks).
+		 * HTML excerpt for the post, transformed for display.
 		 */
-		replies?: unknown[];
+		rendered: string;
 		/**
-		 * The taxonomy terms for the post.
+		 * Whether the excerpt is protected with a password.
 		 */
-		"wp:term"?: unknown[];
-		/**
-		 * The featured image post.
-		 */
-		"wp:featuredmedia"?: unknown[];
-		/**
-		 * The parent post.
-		 */
-		up?: unknown[];
-		[k: string]: unknown;
+		protected: boolean;
 	};
 	[k: string]: unknown;
 }

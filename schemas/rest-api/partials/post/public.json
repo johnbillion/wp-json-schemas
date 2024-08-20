@@ -1,0 +1,30 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/partials/post/public.json",
+	"title": "WP_REST_API_Partial_Post_Public",
+	"description": "Properties for public post types",
+	"type": "object",
+	"required": [
+		"class_list"
+	],
+	"properties": {
+		"permalink_template": {
+			"readOnly": true,
+			"description": "Permalink template for the post. Only present when using the 'edit' context and the post type is public.",
+			"type": "string"
+		},
+		"generated_slug": {
+			"readOnly": true,
+			"description": "Slug automatically generated from the post title. Only present when using the 'edit' context and the post type is public.",
+			"type": "string"
+		},
+		"class_list": {
+			"readOnly": true,
+			"description": "An array of the class names for the post container element.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		}
+	}
+}

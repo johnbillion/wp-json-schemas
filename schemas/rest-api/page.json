@@ -6,7 +6,19 @@
 	"type": "object",
 	"allOf": [
 		{
-			"$ref": "post.json"
+			"$ref": "partials/post/common.json"
+		},
+		{
+			"$ref": "./partials/post/author.json"
+		},
+		{
+			"$ref": "./partials/post/public.json"
+		},
+		{
+			"$ref": "./partials/post/comments.json"
+		},
+		{
+			"$ref": "./partials/post/excerpt.json"
 		}
 	],
 	"links": [
@@ -16,7 +28,7 @@
 			"hrefSchema": {
 				"properties": {
 					"id": {
-						"$ref": "post.json#/properties/id"
+						"$ref": "partials/post/common.json#/properties/id"
 					}
 				}
 			},
@@ -40,7 +52,7 @@
 			"hrefSchema": {
 				"properties": {
 					"author": {
-						"$ref": "post.json#/properties/author"
+						"$ref": "partials/post/author.json#/properties/author"
 					}
 				}
 			},
@@ -54,7 +66,7 @@
 			"hrefSchema": {
 				"properties": {
 					"id": {
-						"$ref": "post.json#/properties/id"
+						"$ref": "partials/post/common.json#/properties/id"
 					}
 				}
 			},
@@ -71,7 +83,7 @@
 			"hrefSchema": {
 				"properties": {
 					"id": {
-						"$ref": "post.json#/properties/id"
+						"$ref": "partials/post/common.json#/properties/id"
 					}
 				}
 			},

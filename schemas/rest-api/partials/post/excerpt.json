@@ -1,0 +1,39 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/partials/post/excerpt.json",
+	"title": "WP_REST_API_Partial_Post_Excerpt",
+	"description": "Properties for post types that support an excerpt",
+	"type": "object",
+	"required": [
+		"excerpt"
+	],
+	"properties": {
+		"excerpt": {
+			"description": "The excerpt for the post.",
+			"type": "object",
+			"required": [
+				"rendered",
+				"protected"
+			],
+			"properties": {
+				"raw": {
+					"description": "Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.",
+					"contentMediaType": "text/html",
+					"type": "string"
+				},
+				"rendered": {
+					"readOnly": true,
+					"description": "HTML excerpt for the post, transformed for display.",
+					"contentMediaType": "text/html",
+					"type": "string"
+				},
+				"protected": {
+					"readOnly": true,
+					"description": "Whether the excerpt is protected with a password.",
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		}
+	}
+}

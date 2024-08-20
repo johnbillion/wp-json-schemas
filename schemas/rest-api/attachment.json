@@ -194,7 +194,7 @@
 				{
 					"allOf": [
 						{
-							"$ref": "post.json#/properties/id"
+							"$ref": "partials/post/common.json#/properties/id"
 						}
 					]
 				},

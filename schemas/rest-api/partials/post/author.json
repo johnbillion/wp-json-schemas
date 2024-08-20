@@ -1,0 +1,36 @@
+{
+	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/partials/post/author.json",
+	"title": "WP_REST_API_Partial_Post_Author",
+	"description": "Hello.",
+	"type": "object",
+	"required": [
+		"author"
+	],
+	"properties": {
+		"author": {
+			"description": "The ID for the author of the post.",
+			"allOf": [
+				{
+					"$ref": "../../user.json#/properties/id"
+				}
+			]
+		}
+	},
+	"links": [
+		{
+			"rel": "author",
+			"href": "/wp/v2/users/{author}",
+			"hrefSchema": {
+				"properties": {
+					"author": {
+						"$ref": "#/properties/author"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "../../user.json"
+			}
+		}
+	]
+}
