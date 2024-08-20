@@ -2305,7 +2305,6 @@ interface WP_REST_API_Partial_Post_Common {
 	 */
 	tags?: number[];
 	_links: WP_REST_API_Object_Links;
-	[k: string]: unknown;
 }
 /**
  * Hello.
@@ -2315,7 +2314,6 @@ interface WP_REST_API_Partial_Post_Author {
 	 * The ID for the author of the post.
 	 */
 	author: number;
-	[k: string]: unknown;
 }
 /**
  * Properties for public post types
@@ -2333,7 +2331,6 @@ interface WP_REST_API_Partial_Post_Public {
 	 * An array of the class names for the post container element.
 	 */
 	class_list: string[];
-	[k: string]: unknown;
 }
 /**
  * Properties for post types that support comments
@@ -2347,7 +2344,6 @@ interface WP_REST_API_Partial_Post_Comments {
 	 * Whether or not the post can be pinged.
 	 */
 	ping_status: WP_Post_Comment_Status_Name;
-	[k: string]: unknown;
 }
 /**
  * Properties for post types that support an excerpt
@@ -2370,7 +2366,6 @@ interface WP_REST_API_Partial_Post_Excerpt {
 		 */
 		protected: boolean;
 	};
-	[k: string]: unknown;
 }
 /**
  * A media attachment object in a REST API context.
