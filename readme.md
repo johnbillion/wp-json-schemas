@@ -79,8 +79,8 @@ Route                                                   | Schema
 /wp/v2/menu-locations/{location}                        | `WP_REST_API_Menu_Location`
 /wp/v2/menus                                            | `WP_REST_API_Menus`
 /wp/v2/menus/{id}                                       | `WP_REST_API_Menu`
-/wp/v2/navigation                                       | Todo
-/wp/v2/navigation/{id}                                  | Todo
+/wp/v2/navigation                                       | `WP_REST_API_Navigation_Menus`
+/wp/v2/navigation/{id}                                  | `WP_REST_API_Navigation_Menu`
 /wp/v2/navigation/{id}/autosaves                        | Todo
 /wp/v2/navigation/{parent}/autosaves/{id}               | Todo
 /wp/v2/navigation/{parent}/revisions                    | Todo

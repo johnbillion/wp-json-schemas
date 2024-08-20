@@ -21,6 +21,13 @@ wp_insert_post( [
 	'post_status'  => 'publish',
 ] );
 
+wp_insert_post( [
+	'post_type'    => 'wp_navigation',
+	'post_title'   => 'Navigation',
+	'post_content' => '<!-- wp:navigation-link {"label":"Title","type":"page","id":123,"url":"/title/","kind":"post-type"} /-->',
+	'post_status'  => 'publish',
+] );
+
 $posts = get_posts( [
 	'posts_per_page' => -1,
 	'post_status'    => 'any',
@@ -31,7 +38,7 @@ $posts = get_posts( [
 
 save_object_array( $posts, 'post' );
 
-foreach ( [ 'posts', 'pages', 'blocks' ] as $type ) {
+foreach ( [ 'posts', 'pages', 'blocks', 'navigation' ] as $type ) {
 	$view_data = get_rest_response( 'GET', "/wp/v2/{$type}", [
 		'context' => 'view',
 		'per_page' => 100,

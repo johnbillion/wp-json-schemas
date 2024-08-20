@@ -110,6 +110,12 @@
 				"Pages": {
 					"$ref": "schemas/rest-api/collections/pages.json"
 				},
+				"Navigation_Menu": {
+					"$ref": "schemas/rest-api/navigation-menu.json"
+				},
+				"Navigation_Menus": {
+					"$ref": "schemas/rest-api/collections/navigation.json"
+				},
 				"Attachment": {
 					"$ref": "schemas/rest-api/attachment.json"
 				},
@@ -247,6 +253,8 @@
 				"Posts",
 				"Page",
 				"Pages",
+				"Navigation_Menu",
+				"Navigation_Menus",
 				"Attachment",
 				"Attachments",
 				"Block_Directory_Item",

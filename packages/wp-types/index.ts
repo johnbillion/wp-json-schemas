@@ -129,6 +129,14 @@ export type WP_REST_API_Page = WP_REST_API_Partial_Post_Common &
  */
 export type WP_REST_API_Pages = WP_REST_API_Page[];
 /**
+ * A navigation menu object in a REST API context.
+ */
+export type WP_REST_API_Navigation_Menu = WP_REST_API_Partial_Post_Common;
+/**
+ * A collection of navigation menu objects in a REST API context.
+ */
+export type WP_REST_API_Navigation_Menus = WP_REST_API_Navigation_Menu[];
+/**
  * A collection of media attachment objects in a REST API context.
  */
 export type WP_REST_API_Attachments = WP_REST_API_Attachment[];
@@ -236,6 +244,8 @@ export interface WP {
 		Posts: WP_REST_API_Posts;
 		Page: WP_REST_API_Page;
 		Pages: WP_REST_API_Pages;
+		Navigation_Menu: WP_REST_API_Navigation_Menu;
+		Navigation_Menus: WP_REST_API_Navigation_Menus;
 		Attachment: WP_REST_API_Attachment;
 		Attachments: WP_REST_API_Attachments;
 		Block: WP_REST_API_Block;
