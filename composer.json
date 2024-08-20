@@ -60,7 +60,7 @@
 			"@php -r \"file_exists( 'tests/wordpress/wp-content/db.php' ) || copy( 'tests/wordpress/wp-content/plugins/sqlite-database-integration/db.copy', 'tests/wordpress/wp-content/db.php' );\"",
 
 			"npm run validate",
-			"npm run build-wp-types",
+			"./tests/bin/build-wp-types.sh",
 			"npm run test-wp-types",
 
 			"rm -f tests/wordpress/wp-content/database/.ht.sqlite",
