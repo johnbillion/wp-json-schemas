@@ -245,22 +245,28 @@ Usage with entity records:
 
 ```ts
 import type {
+	WP_REST_API_Category,
 	WP_REST_API_Posts,
 	WP_REST_API_Term,
 } from 'wp-types';
 
-const category = getEntityRecord<WP_REST_API_Term>(
+const category = getEntityRecord<WP_REST_API_Category>(
 	'taxonomy',
 	'category',
+	id,
+);
+
+const term = getEntityRecord<WP_REST_API_Term>(
+	'taxonomy',
+	taxonomy,
 	id,
 );
 
 const posts = getEntityRecords<WP_REST_API_Posts>(
 	'postType',
 	'post',
-	query
+	query,
 );
-const taxonomy = getEntityRecord('taxonomy', taxonomy, term);
 ```
 
 ## FAQs

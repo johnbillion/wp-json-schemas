@@ -218,18 +218,19 @@ printf(
 The REST API object schemas apply to the response to a REST API request or `getEntityRecord()` call. Examples:
 
 ```js
+// WP_REST_API_Categories
 const api = wp.apiFetch( {
 	path: '/wp/v2/categories/'
 } );
-```
 
-```js
+// WP_REST_API_Category
 const category = getEntityRecord(
 	'taxonomy',
 	'category',
 	id,
 );
 
+// WP_REST_API_Posts
 const posts = getEntityRecords(
 	'postType',
 	'post',
