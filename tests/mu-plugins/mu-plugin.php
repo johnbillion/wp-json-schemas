@@ -177,7 +177,10 @@ function save_external_schema( string $url, string $name, array $path = [] ) : v
 	}
 }
 
-function set_schema_field( string $filename, string $key, mixed $value ) : void {
+/**
+ * @param array<string, mixed> $values
+ */
+function set_schema_fields( string $filename, array $values ) : void {
 	$target = dirname( ABSPATH, 2 ) . "/" . $filename;
 	$file = file_get_contents( $target );
 
@@ -191,7 +194,9 @@ function set_schema_field( string $filename, string $key, mixed $value ) : void 
 		throw new \Exception( "Failed to parse {$filename} schema." );
 	}
 
-	$data[ $key ] = $value;
+	foreach ( $values as $key => $value ) {
+		$data[ $key ] = $value;
+	}
 
 	$json = json_encode( $data, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
 
