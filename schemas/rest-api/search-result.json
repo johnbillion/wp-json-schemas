@@ -45,17 +45,7 @@
 		},
 		"subtype": {
 			"description": "Object subtype.",
-			"anyOf": [
-				{
-					"$ref": "../properties/post-type-name.json"
-				},
-				{
-					"$ref": "../properties/taxonomy-name.json"
-				},
-				{
-					"$ref": "../properties/post-format-name.json"
-				}
-			]
+			"type": "string"
 		},
 		"_links": {
 			"$ref": "properties/object-links.json"
