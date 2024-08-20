@@ -177,6 +177,38 @@ function save_external_schema( string $url, string $name, array $path = [] ) : v
 	}
 }
 
+function set_schema_field( string $filename, string $key, mixed $value ) : void {
+	$target = dirname( ABSPATH, 2 ) . "/" . $filename;
+	$file = file_get_contents( $target );
+
+	if ( ! $file ) {
+		throw new \Exception( "Failed to open {$filename} schema file." );
+	}
+
+	$data = json_decode( $file, true );
+
+	if ( ! $data ) {
+		throw new \Exception( "Failed to parse {$filename} schema." );
+	}
+
+	$data[ $key ] = $value;
+
+	$json = json_encode( $data, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
+
+	$printer = new Printer\Printer();
+
+	$json = $printer->print(
+		$json,
+		"\t",
+	);
+
+	$result = file_put_contents( $target, $json . "\n" );
+
+	if ( ! $result ) {
+		throw new \Exception( "Failed to save {$filename} schema." );
+	}
+}
+
 /**
  * Helper function for performing an internal REST API request and returning its response data.
  *

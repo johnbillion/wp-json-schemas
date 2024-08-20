@@ -59,16 +59,16 @@
 		"test": [
 			"@php -r \"file_exists( 'tests/wordpress/wp-content/db.php' ) || copy( 'tests/wordpress/wp-content/plugins/sqlite-database-integration/db.copy', 'tests/wordpress/wp-content/db.php' );\"",
 
-			"npm run validate",
-			"./tests/bin/build-wp-types.sh",
-			"npm run test-wp-types",
-
 			"rm -f tests/wordpress/wp-content/database/.ht.sqlite",
 			"wp core multisite-install --url=example.org --title=Example --admin_user=admin --admin_email=admin@example.org --skip-email",
 			"wp language core install de_DE it_IT ar he_IL",
 
 			"wp json-dump --theme=twentytwentyone",
 			"wp json-dump",
+
+			"npm run validate",
+			"./tests/bin/build-wp-types.sh",
+			"npm run test-wp-types",
 			"./tests/bin/test.sh"
 		]
 	},
