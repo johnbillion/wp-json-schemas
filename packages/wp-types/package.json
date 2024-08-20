@@ -16,6 +16,6 @@
 	"author": "John Blackbourn",
 	"license": "MIT",
 	"dependencies": {
-		"typescript": ">=3"
+		"typescript": ">=5"
 	}
 }
