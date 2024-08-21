@@ -197,7 +197,7 @@ Examples:
 
 ## Breaking changes
 
-If a breaking change needs to be made to the schema then the major version number of this library will be increased.
+If a breaking change is made to the schema then the major version number of this package will be incremented.
 
 * Version 4 switched to using JSON Schema `draft/2019-09`. Prior to this, `draft-07` was used.
 
