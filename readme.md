@@ -16,7 +16,7 @@ The schemas were last updated for WordPress 6.6.
 
 ## What's included?
 
-### PHP Object Schemas
+### PHP object schemas
 
 * `WP_Post`
 * `WP_Term`
@@ -35,7 +35,7 @@ The schemas were last updated for WordPress 6.6.
 * `WP_Network`
 * `WP_Screen`
 
-### REST API Response Schemas
+### REST API response schemas
 
 Route                                                   | Schema
 ------------------------------------------------------- | ------
@@ -145,7 +145,7 @@ Any REST API error                                      | `WP_REST_API_Error`
 
 The REST API schemas use JSON Hyper-Schema.
 
-### Property Schemas
+### Property schemas
 
 Schemas are provided for various properties:
 
