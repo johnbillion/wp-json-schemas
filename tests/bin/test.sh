@@ -18,6 +18,13 @@ function validate_schema() {
 	./node_modules/.bin/ajv validate --spec=draft2019 --strict --strict-schema=false -c ajv-formats -m tests/external-schemas/hyper-schema.json -r schema.json -r $rflag -s "$file" -d "tests/data/$filename/*.json"
 }
 
+function modify_schema() {
+	local file="$1"
+	local changes="$2"
+	./node_modules/node-jq/bin/jq --tab "$changes" "$file" > tmp
+	mv tmp "$file"
+}
+
 IGNORE_FILES=("schemas/rest-api/error.json")
 
 for file in schemas/*.json
@@ -31,7 +38,7 @@ do
 	then
 		continue
 	fi
-	./node_modules/node-jq/bin/jq --tab '. + { "unevaluatedProperties": false }' "$file" > tmp && mv tmp "$file"
+	modify_schema "$file" '. + { "unevaluatedProperties": false }'
 done
 
 for file in schemas/rest-api/collections/*.json
@@ -45,5 +52,5 @@ do
 	then
 		continue
 	fi
-	./node_modules/node-jq/bin/jq --tab 'del(.unevaluatedProperties)' "$file" > tmp && mv tmp "$file"
+	modify_schema "$file" 'del(.unevaluatedProperties)'
 done
