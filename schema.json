@@ -116,6 +116,9 @@
 				"Navigation_Menus": {
 					"$ref": "schemas/rest-api/collections/navigation.json"
 				},
+				"Global_Style": {
+					"$ref": "schemas/rest-api/global-style.json"
+				},
 				"Attachment": {
 					"$ref": "schemas/rest-api/attachment.json"
 				},
@@ -255,6 +258,7 @@
 				"Pages",
 				"Navigation_Menu",
 				"Navigation_Menus",
+				"Global_Style",
 				"Attachment",
 				"Attachments",
 				"Block_Directory_Item",

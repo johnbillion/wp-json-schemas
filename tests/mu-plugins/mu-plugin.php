@@ -106,12 +106,16 @@ function save_object_array( array $data, string $dir ) : void {
  * @param WP_REST_Response[] $data Array of responses to a REST API request.
  * @param string             $dir  The directory to save the files.
  */
-function save_rest_array( array $data, string $dir ) : void {
+function save_rest_array( array $data, string $dir, bool $single = false ) : void {
 	if ( empty( $data ) ) {
 		throw new \Exception( "No REST API data to save for {$dir}." );
 	}
 
-	$dir = dirname( ABSPATH ) . '/data/rest-api/collections/' . $dir;
+	if ( $single ) {
+		$dir = dirname( ABSPATH ) . '/data/rest-api/' . $dir;
+	} else {
+		$dir = dirname( ABSPATH ) . '/data/rest-api/collections/' . $dir;
+	}
 
 	if ( ! file_exists( $dir ) ) {
 		mkdir( $dir, 0777, true );

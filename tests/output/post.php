@@ -58,6 +58,13 @@ wp_insert_post( [
 	'post_status'  => 'publish',
 ] );
 
+$global_style = wp_insert_post( [
+	'post_type'    => 'wp_global_styles',
+	'post_title'   => 'Style Title',
+	'post_content' => '{"styles": {"blocks": {"core/image": {"filter": {"duotone": "var(--wp--preset--duotone--duotone-2)"}}},"elements": {"button": {"border": {"radius": "100px"}}}},"settings": {"color": {"gradients": {"theme": [{"slug": "gradient-1","gradient": "linear-gradient(to bottom, #f6decd 0%, #dbab88 100%)","name": "Vertical linen to beige"},{"slug": "gradient-2","gradient": "linear-gradient(to bottom, #A4A4A4 0%, #dbab88 100%)","name": "Vertical taupe to beige"}]}}},"isGlobalStylesUserThemeJSON": true,"version": 3}',
+	'post_status'  => 'publish',
+] );
+
 $posts = get_posts( [
 	'posts_per_page' => -1,
 	'post_status'    => 'any',
@@ -88,3 +95,19 @@ foreach ( [ 'posts', 'pages', 'blocks', 'navigation' ] as $type ) {
 		$empty_response,
 	], $type );
 }
+
+$view_data = get_rest_response( 'GET', "/wp/v2/global-styles/{$global_style}", [
+	'context' => 'view',
+] );
+$edit_data = get_rest_response( 'GET', "/wp/v2/global-styles/{$global_style}", [
+	'context' => 'edit',
+] );
+
+save_rest_array(
+	[
+		$view_data,
+		$edit_data,
+	],
+	'global-style',
+	true,
+);

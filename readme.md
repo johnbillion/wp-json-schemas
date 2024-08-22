@@ -62,7 +62,7 @@ Route                                                   | Schema
 /wp/v2/font-families/{id}/                              | `WP_REST_API_Font_Family`
 /wp/v2/font-families/{parent}/font-faces                | `WP_REST_API_Font_Faces`
 /wp/v2/font-families/{parent}/font-faces/{id}           | `WP_REST_API_Font_Face`
-/wp/v2/global-styles/{id}                               | Todo
+/wp/v2/global-styles/{id}                               | `WP_REST_API_Global_Style`
 /wp/v2/global-styles/{parent}/revisions                 | Todo
 /wp/v2/global-styles/{parent}/revisions/{id}            | Todo
 /wp/v2/global-styles/themes/{stylesheet}/variations     | Todo
