@@ -72,4 +72,5 @@ do
 done
 
 # Validation for REST API entities that don't have a collection:
-validate_schema schemas/rest-api/global-style.json
+validate_schema schemas/rest-api/global-style-variation.json
+validate_schema schemas/rest-api/global-style-config.json

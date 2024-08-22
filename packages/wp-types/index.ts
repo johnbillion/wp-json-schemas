@@ -246,7 +246,8 @@ export interface WP {
 		Pages: WP_REST_API_Pages;
 		Navigation_Menu: WP_REST_API_Navigation_Menu;
 		Navigation_Menus: WP_REST_API_Navigation_Menus;
-		Global_Style: WP_REST_API_Global_Style;
+		Global_Style_Variation: WP_REST_API_Global_Style_Variation;
+		Global_Style_Config: WP_REST_API_Global_Style_Config;
 		Attachment: WP_REST_API_Attachment;
 		Attachments: WP_REST_API_Attachments;
 		Block: WP_REST_API_Block;
@@ -2379,9 +2380,9 @@ interface WP_REST_API_Partial_Post_Excerpt {
 	};
 }
 /**
- * A global style item in a REST API context.
+ * A global style variation item in a REST API context.
  */
-export interface WP_REST_API_Global_Style {
+export interface WP_REST_API_Global_Style_Variation {
 	/**
 	 * ID of global styles config.
 	 */
@@ -2413,6 +2414,25 @@ export interface WP_REST_API_Global_Style {
 				 */
 				rendered?: string;
 		  };
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A theme's global style config in a REST API context.
+ */
+export interface WP_REST_API_Global_Style_Config {
+	/**
+	 * Global styles.
+	 */
+	styles: {
+		[k: string]: unknown;
+	};
+	/**
+	 * Global settings.
+	 */
+	settings: {
+		[k: string]: unknown;
+	};
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }

@@ -2,6 +2,8 @@
 
 namespace WPJsonSchemas;
 
+$theme = wp_get_theme()->get_stylesheet();
+
 $parent_post = wp_insert_post( [
 	'post_type'   => 'post',
 	'post_title'  => 'Post Title',
@@ -60,7 +62,7 @@ wp_insert_post( [
 
 $global_style = wp_insert_post( [
 	'post_type'    => 'wp_global_styles',
-	'post_title'   => 'Style Title',
+	'post_title'   => 'Global Style Variation Title',
 	'post_content' => '{"styles": {"blocks": {"core/image": {"filter": {"duotone": "var(--wp--preset--duotone--duotone-2)"}}},"elements": {"button": {"border": {"radius": "100px"}}}},"settings": {"color": {"gradients": {"theme": [{"slug": "gradient-1","gradient": "linear-gradient(to bottom, #f6decd 0%, #dbab88 100%)","name": "Vertical linen to beige"},{"slug": "gradient-2","gradient": "linear-gradient(to bottom, #A4A4A4 0%, #dbab88 100%)","name": "Vertical taupe to beige"}]}}},"isGlobalStylesUserThemeJSON": true,"version": 3}',
 	'post_status'  => 'publish',
 ] );
@@ -75,6 +77,7 @@ $posts = get_posts( [
 
 save_object_array( $posts, 'post' );
 
+// Generate REST API responses for all post types
 foreach ( [ 'posts', 'pages', 'blocks', 'navigation' ] as $type ) {
 	$view_data = get_rest_response( 'GET', "/wp/v2/{$type}", [
 		'context' => 'view',
@@ -96,6 +99,7 @@ foreach ( [ 'posts', 'pages', 'blocks', 'navigation' ] as $type ) {
 	], $type );
 }
 
+// Generate REST API responses for a single global style variation
 $view_data = get_rest_response( 'GET', "/wp/v2/global-styles/{$global_style}", [
 	'context' => 'view',
 ] );
@@ -108,6 +112,39 @@ save_rest_array(
 		$view_data,
 		$edit_data,
 	],
-	'global-style',
+	'global-style-variation',
+	true,
+);
+
+// Generate REST API responses for the global style variations collection
+$view_data = get_rest_response( 'GET', "/wp/v2/global-styles/themes/{$theme}/variations", [
+	'context' => 'view',
+] );
+$edit_data = get_rest_response( 'GET', "/wp/v2/global-styles/themes/{$theme}/variations", [
+	'context' => 'edit',
+] );
+
+save_rest_array(
+	[
+		$view_data,
+		$edit_data,
+	],
+	'global-style-variations',
+);
+
+// Generate REST API responses for the theme global style config
+$view_data = get_rest_response( 'GET', "/wp/v2/global-styles/themes/{$theme}", [
+	'context' => 'view',
+] );
+$edit_data = get_rest_response( 'GET', "/wp/v2/global-styles/themes/{$theme}", [
+	'context' => 'edit',
+] );
+
+save_rest_array(
+	[
+		$view_data,
+		$edit_data,
+	],
+	'global-style-config',
 	true,
 );
