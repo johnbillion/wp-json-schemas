@@ -3034,7 +3034,6 @@ export interface WP_REST_API_Block_Type {
 		 * Contains the handle that defines the block style.
 		 */
 		style_handle?: string;
-		[k: string]: unknown;
 	}[];
 	/**
 	 * Block variations.
@@ -3140,7 +3139,6 @@ export interface WP_REST_API_Revision {
 		 * GUID for the post, transformed for display.
 		 */
 		rendered: string;
-		[k: string]: unknown;
 	};
 	/**
 	 * Unique identifier for the revision.
@@ -3174,7 +3172,6 @@ export interface WP_REST_API_Revision {
 		 * HTML title for the post, transformed for display.
 		 */
 		rendered: string;
-		[k: string]: unknown;
 	};
 	/**
 	 * The content for the post.
@@ -3192,7 +3189,6 @@ export interface WP_REST_API_Revision {
 		 * Version of the content block format used by the post. Only present when using the 'edit' context.
 		 */
 		block_version?: number;
-		[k: string]: unknown;
 	};
 	/**
 	 * The excerpt for the post.
@@ -3206,7 +3202,6 @@ export interface WP_REST_API_Revision {
 		 * HTML excerpt for the post, transformed for display.
 		 */
 		rendered: string;
-		[k: string]: unknown;
 	};
 	/**
 	 * Meta fields.

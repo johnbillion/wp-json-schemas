@@ -241,7 +241,8 @@
 						"description": "Contains the handle that defines the block style.",
 						"type": "string"
 					}
-				}
+				},
+				"additionalProperties": false
 			}
 		},
 		"variations": {
@@ -344,10 +345,12 @@
 										"description": "A list of the inner block's own inner blocks. This is a recursive definition following the parent innerBlocks schema.",
 										"type": "array"
 									}
-								}
+								},
+								"additionalProperties": true
 							}
 						}
-					}
+					},
+					"additionalProperties": true
 				},
 				{
 					"type": "null"

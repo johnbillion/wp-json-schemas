@@ -62,7 +62,8 @@
 					"type": "string",
 					"readOnly": true
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"id": {
 			"description": "Unique identifier for the revision.",
@@ -113,7 +114,8 @@
 					"description": "HTML title for the post, transformed for display.",
 					"type": "string"
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"content": {
 			"description": "The content for the post.",
@@ -138,7 +140,8 @@
 					"type": "integer",
 					"readOnly": true
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"excerpt": {
 			"description": "The excerpt for the post.",
@@ -158,7 +161,8 @@
 					"contentMediaType": "text/html",
 					"type": "string"
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"meta": {
 			"description": "Meta fields.",
