@@ -137,6 +137,32 @@ export type WP_REST_API_Navigation_Menu = WP_REST_API_Partial_Post_Common;
  */
 export type WP_REST_API_Navigation_Menus = WP_REST_API_Navigation_Menu[];
 /**
+ * A collection of global styles variations in a REST API context.
+ */
+export type WP_REST_API_Global_Style_Variations = {
+	/**
+	 * Version number of the global styles variation.
+	 */
+	version: number;
+	/**
+	 * Global styles.
+	 */
+	styles?: {
+		[k: string]: unknown;
+	};
+	/**
+	 * Global settings.
+	 */
+	settings?: {
+		[k: string]: unknown;
+	};
+	/**
+	 * Title of the global styles variation.
+	 */
+	title: string;
+	[k: string]: unknown;
+}[];
+/**
  * A collection of media attachment objects in a REST API context.
  */
 export type WP_REST_API_Attachments = WP_REST_API_Attachment[];
@@ -247,6 +273,7 @@ export interface WP {
 		Navigation_Menu: WP_REST_API_Navigation_Menu;
 		Navigation_Menus: WP_REST_API_Navigation_Menus;
 		Global_Style_Variation: WP_REST_API_Global_Style_Variation;
+		Global_Style_Variations: WP_REST_API_Global_Style_Variations;
 		Global_Style_Config: WP_REST_API_Global_Style_Config;
 		Attachment: WP_REST_API_Attachment;
 		Attachments: WP_REST_API_Attachments;
@@ -2380,11 +2407,11 @@ interface WP_REST_API_Partial_Post_Excerpt {
 	};
 }
 /**
- * A global style variation item in a REST API context.
+ * A global styles variation item in a REST API context.
  */
 export interface WP_REST_API_Global_Style_Variation {
 	/**
-	 * ID of global styles config.
+	 * ID of global styles variation.
 	 */
 	id: number;
 	/**

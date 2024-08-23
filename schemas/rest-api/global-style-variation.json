@@ -2,7 +2,7 @@
 	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
 	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/global-style-variation.json",
 	"title": "WP_REST_API_Global_Style_Variation",
-	"description": "A global style variation item in a REST API context.",
+	"description": "A global styles variation item in a REST API context.",
 	"type": "object",
 	"required": [
 		"id",
@@ -13,7 +13,7 @@
 	],
 	"properties": {
 		"id": {
-			"description": "ID of global styles config.",
+			"description": "ID of global styles variation.",
 			"type": "integer"
 		},
 		"styles": {
@@ -76,10 +76,7 @@
 				}
 			},
 			"targetSchema": {
-				"type": "array",
-				"items": {
-					"$ref": "#"
-				}
+				"$ref": "collections/global-style-variations.json"
 			}
 		}
 	]

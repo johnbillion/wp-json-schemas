@@ -1,0 +1,49 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/global-style-variations.json",
+	"title": "WP_REST_API_Global_Style_Variations",
+	"description": "A collection of global styles variations in a REST API context.",
+	"type": "array",
+	"items": {
+		"$comment": "These items are not the same shape as a single global styles variation object.",
+		"type": "object",
+		"required": [
+			"version",
+			"title"
+		],
+		"properties": {
+			"version": {
+				"description": "Version number of the global styles variation.",
+				"type": "integer"
+			},
+			"styles": {
+				"description": "Global styles.",
+				"type": "object"
+			},
+			"settings": {
+				"description": "Global settings.",
+				"type": "object"
+			},
+			"title": {
+				"description": "Title of the global styles variation.",
+				"type": "string"
+			}
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/global-styles/themes/{theme}/variations",
+			"hrefSchema": {
+				"properties": {
+					"id": {
+						"type": "string"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		}
+	]
+}

@@ -2,7 +2,9 @@
 
 namespace WPJsonSchemas;
 
-$theme = wp_get_theme()->get_stylesheet();
+$theme = wp_get_theme();
+$theme_name = $theme->get_stylesheet();
+$theme_dir = $theme->get_stylesheet_directory();
 
 $parent_post = wp_insert_post( [
 	'post_type'   => 'post',
@@ -60,12 +62,26 @@ wp_insert_post( [
 	'post_status'  => 'publish',
 ] );
 
-$global_style = wp_insert_post( [
-	'post_type'    => 'wp_global_styles',
-	'post_title'   => 'Global Style Variation Title',
-	'post_content' => '{"styles": {"blocks": {"core/image": {"filter": {"duotone": "var(--wp--preset--duotone--duotone-2)"}}},"elements": {"button": {"border": {"radius": "100px"}}}},"settings": {"color": {"gradients": {"theme": [{"slug": "gradient-1","gradient": "linear-gradient(to bottom, #f6decd 0%, #dbab88 100%)","name": "Vertical linen to beige"},{"slug": "gradient-2","gradient": "linear-gradient(to bottom, #A4A4A4 0%, #dbab88 100%)","name": "Vertical taupe to beige"}]}}},"isGlobalStylesUserThemeJSON": true,"version": 3}',
-	'post_status'  => 'publish',
-] );
+$global_style_ids = [];
+
+foreach ( glob( $theme_dir . '/styles/*.json' ) as $variation ) {
+	$json = file_get_contents( $variation );
+	$data = json_decode( $json, true );
+
+	$data['isGlobalStylesUserThemeJSON'] = true;
+	$data['version'] = \WP_Theme_JSON::LATEST_SCHEMA;
+
+	$global_style_ids[] = wp_insert_post( [
+		'post_type'    => 'wp_global_styles',
+		'post_title'   => ' Style Variation: ' . basename( $variation ),
+		'post_content' => addslashes( json_encode( $data, JSON_UNESCAPED_SLASHES ) ),
+		'post_status'  => 'publish',
+	] );
+}
+
+if ( empty( $global_style_ids ) ) {
+	throw new \Exception( 'No global style variations found' );
+}
 
 $posts = get_posts( [
 	'posts_per_page' => -1,
@@ -99,28 +115,29 @@ foreach ( [ 'posts', 'pages', 'blocks', 'navigation' ] as $type ) {
 	], $type );
 }
 
-// Generate REST API responses for a single global style variation
-$view_data = get_rest_response( 'GET', "/wp/v2/global-styles/{$global_style}", [
-	'context' => 'view',
-] );
-$edit_data = get_rest_response( 'GET', "/wp/v2/global-styles/{$global_style}", [
-	'context' => 'edit',
-] );
+$global_style_data = [];
+
+foreach ( $global_style_ids as $id ) {
+	// Generate REST API responses for each of the single global style variations
+	$global_style_data[] = get_rest_response( 'GET', "/wp/v2/global-styles/{$id}", [
+		'context' => 'view',
+	] );
+	$global_style_data[] = get_rest_response( 'GET', "/wp/v2/global-styles/{$id}", [
+		'context' => 'edit',
+	] );
+}
 
 save_rest_array(
-	[
-		$view_data,
-		$edit_data,
-	],
+	$global_style_data,
 	'global-style-variation',
 	true,
 );
 
 // Generate REST API responses for the global style variations collection
-$view_data = get_rest_response( 'GET', "/wp/v2/global-styles/themes/{$theme}/variations", [
+$view_data = get_rest_response( 'GET', "/wp/v2/global-styles/themes/{$theme_name}/variations", [
 	'context' => 'view',
 ] );
-$edit_data = get_rest_response( 'GET', "/wp/v2/global-styles/themes/{$theme}/variations", [
+$edit_data = get_rest_response( 'GET', "/wp/v2/global-styles/themes/{$theme_name}/variations", [
 	'context' => 'edit',
 ] );
 
@@ -133,10 +150,10 @@ save_rest_array(
 );
 
 // Generate REST API responses for the theme global style config
-$view_data = get_rest_response( 'GET', "/wp/v2/global-styles/themes/{$theme}", [
+$view_data = get_rest_response( 'GET', "/wp/v2/global-styles/themes/{$theme_name}", [
 	'context' => 'view',
 ] );
-$edit_data = get_rest_response( 'GET', "/wp/v2/global-styles/themes/{$theme}", [
+$edit_data = get_rest_response( 'GET', "/wp/v2/global-styles/themes/{$theme_name}", [
 	'context' => 'edit',
 ] );
 

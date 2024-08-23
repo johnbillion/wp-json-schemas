@@ -65,7 +65,7 @@ Route                                                   | Schema
 /wp/v2/global-styles/{id}                               | `WP_REST_API_Global_Style_Variation`
 /wp/v2/global-styles/{parent}/revisions                 | Todo
 /wp/v2/global-styles/{parent}/revisions/{id}            | Todo
-/wp/v2/global-styles/themes/{stylesheet}/variations     | Todo
+/wp/v2/global-styles/themes/{stylesheet}/variations     | `WP_REST_API_Global_Style_Variations`
 /wp/v2/global-styles/themes/{stylesheet}                | `WP_REST_API_Global_Style_Config`
 /wp/v2/media                                            | `WP_REST_API_Attachments`
 /wp/v2/media/{id}                                       | `WP_REST_API_Attachment`
