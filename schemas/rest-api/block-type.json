@@ -229,6 +229,10 @@
 						"description": "Unique name identifying the style.",
 						"type": "string"
 					},
+					"isDefault": {
+						"description": "Indicates whether the current variation is the default one.",
+						"type": "boolean"
+					},
 					"label": {
 						"description": "The human-readable label for the style.",
 						"type": "string"

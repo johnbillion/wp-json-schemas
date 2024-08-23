@@ -3012,6 +3012,10 @@ export interface WP_REST_API_Block_Type {
 		 */
 		name: string;
 		/**
+		 * Indicates whether the current variation is the default one.
+		 */
+		isDefault?: boolean;
+		/**
 		 * The human-readable label for the style.
 		 */
 		label?: string;
