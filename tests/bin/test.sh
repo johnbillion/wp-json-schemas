@@ -4,6 +4,7 @@
 # -o pipefail Produce a failure return code if any command errors
 set -eo pipefail
 
+# Validate a schema file
 function validate_schema() {
 	local file="$1"
 	local base=${file//schemas\//}
@@ -18,6 +19,7 @@ function validate_schema() {
 	./node_modules/.bin/ajv validate --spec=draft2019 --strict --strict-schema=false -c ajv-formats -m tests/external-schemas/hyper-schema.json -r schema.json -r $rflag -s "$file" -d "tests/data/$filename/*.json"
 }
 
+# Modify a schema file using a jq transformation and an optional jq condition
 function modify_schema() {
 	local file="$1"
 	local changes="$2"
@@ -35,6 +37,7 @@ function modify_schema() {
 	mv tmp "$file"
 }
 
+# Cleanup function to remove unevaluatedProperties and additionalProperties
 function cleanup() {
 	for file in schemas/rest-api/*.json
 	do
@@ -47,15 +50,20 @@ function cleanup() {
 	done
 }
 
+# Files to ignore when disallowing additional properties
 IGNORE_FILES=("schemas/rest-api/error.json")
 
+# Always cleanup regardless of how the script exits
 trap cleanup EXIT
 
+# Validate all PHP object schemas
 for file in schemas/*.json
 do
 	validate_schema "$file"
 done
 
+# Disallow additional root properties in all REST API schemas (via unevaluatedProperties)
+# Disallow additional properties in the _embedded field in all REST API schemas
 for file in schemas/rest-api/*.json
 do
 	if [[ "${IGNORE_FILES[*]}" =~ "${file}" ]]
@@ -66,11 +74,12 @@ do
 	modify_schema "$file" '.properties._embedded += { "additionalProperties": false }' '.properties._embedded != null'
 done
 
+# Validation for REST API collections:
 for file in schemas/rest-api/collections/*.json
 do
 	validate_schema "$file"
 done
 
-# Validation for REST API entities that don't have a collection:
+# Validation for REST API entities that don't have a directly corresponding collection:
 validate_schema schemas/rest-api/global-style-variation.json
 validate_schema schemas/rest-api/global-style-config.json

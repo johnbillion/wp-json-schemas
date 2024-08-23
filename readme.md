@@ -253,7 +253,7 @@ Schemas are available via an OPTIONS request to the REST API endpoints, but the 
 
 ### Are these schemas automatically generated from WordPress core?
 
-No. I started down that path (using [wp-parser-lib](https://github.com/johnbillion/wp-parser-lib)) but realised it's quicker to generate them manually and then copy most of the documentation from core, especially as I'm adding extra documentation and schemas for properties when I can.
+No, but they are automatically tested against output from WordPress core to ensure their correctness. Extra documentation and schemas for properties have been added where possible, so generating them directly from WordPress core isn't desirable.
 
 ### How do I know the schemas are accurate?
 
