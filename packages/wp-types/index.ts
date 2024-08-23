@@ -2196,17 +2196,6 @@ export interface WP_REST_API_Font_Face {
 		 */
 		font_faces?: number[];
 		font_family_settings?: WP_Font_Family_Settings;
-		_links?: WP_REST_API_Object_Links;
-		/**
-		 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
-		 */
-		_embedded?: {
-			/**
-			 * The associated font faces.
-			 */
-			font_faces?: unknown[];
-			[k: string]: unknown;
-		};
 		[k: string]: unknown;
 	};
 	_links: WP_REST_API_Object_Links;
