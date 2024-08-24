@@ -1,0 +1,144 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/plugin.json",
+	"title": "WP_REST_API_Plugin",
+	"description": "A plugin in a REST API context.",
+	"type": "object",
+	"required": [
+		"plugin",
+		"status",
+		"name",
+		"plugin_uri",
+		"author",
+		"author_uri",
+		"description",
+		"version",
+		"network_only",
+		"requires_wp",
+		"requires_php",
+		"textdomain",
+		"_links"
+	],
+	"properties": {
+		"plugin": {
+			"description": "The plugin file.",
+			"type": "string",
+			"pattern": "[^.\\/]+(?:\\/[^.\\/]+)?"
+		},
+		"status": {
+			"description": "The plugin activation status.",
+			"type": "string",
+			"enum": [
+				"inactive",
+				"active",
+				"network-active"
+			]
+		},
+		"name": {
+			"description": "The plugin name.",
+			"type": "string"
+		},
+		"plugin_uri": {
+			"description": "The plugin's website address.",
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri"
+				},
+				{
+					"type": "string",
+					"enum": [
+						""
+					]
+				}
+			]
+		},
+		"author": {
+			"description": "The plugin author.",
+			"type": "string"
+		},
+		"author_uri": {
+			"description": "Plugin author's website address.",
+			"oneOf": [
+				{
+					"type": "string",
+					"format": "uri"
+				},
+				{
+					"type": "string",
+					"enum": [
+						""
+					]
+				}
+			]
+		},
+		"description": {
+			"description": "The plugin description.",
+			"type": "object",
+			"required": [
+				"raw",
+				"rendered"
+			],
+			"properties": {
+				"raw": {
+					"description": "The raw plugin description.",
+					"type": "string"
+				},
+				"rendered": {
+					"description": "The plugin description formatted for display.",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"version": {
+			"description": "The plugin version number.",
+			"type": "string"
+		},
+		"network_only": {
+			"description": "Whether the plugin can only be activated network-wide.",
+			"type": "boolean"
+		},
+		"requires_wp": {
+			"description": "Minimum required version of WordPress.",
+			"type": "string"
+		},
+		"requires_php": {
+			"description": "Minimum required version of PHP.",
+			"type": "string"
+		},
+		"textdomain": {
+			"description": "The plugin's text domain.",
+			"type": "string"
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/plugins/{plugin}",
+			"hrefSchema": {
+				"properties": {
+					"plugin": {
+						"$ref": "#/properties/plugin"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/plugins",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}

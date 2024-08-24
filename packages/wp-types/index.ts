@@ -171,6 +171,10 @@ export type WP_REST_API_Pages = WP_REST_API_Page[];
  */
 export type WP_REST_API_Pattern_Directory_Patterns = WP_REST_API_Pattern_Directory_Pattern[];
 /**
+ * A collection of plugins in a REST API context.
+ */
+export type WP_REST_API_Plugins = WP_REST_API_Plugin[];
+/**
  * A post object in a REST API context.
  */
 export type WP_REST_API_Post = WP_REST_API_Partial_Post_Common &
@@ -301,6 +305,8 @@ export interface WP {
 		Pages: WP_REST_API_Pages;
 		Pattern_Directory_Pattern: WP_REST_API_Pattern_Directory_Pattern;
 		Pattern_Directory_Patterns: WP_REST_API_Pattern_Directory_Patterns;
+		Plugin: WP_REST_API_Plugin;
+		Plugins: WP_REST_API_Plugins;
 		Post: WP_REST_API_Post;
 		Posts: WP_REST_API_Posts;
 		Rendered_Block: WP_REST_API_Rendered_Block;
@@ -3406,6 +3412,70 @@ export interface WP_REST_API_Pattern_Directory_Pattern {
 	 * Block types that the pattern is intended to be used with.
 	 */
 	block_types?: string[];
+	[k: string]: unknown;
+}
+/**
+ * A plugin in a REST API context.
+ */
+export interface WP_REST_API_Plugin {
+	/**
+	 * The plugin file.
+	 */
+	plugin: string;
+	/**
+	 * The plugin activation status.
+	 */
+	status: "inactive" | "active" | "network-active";
+	/**
+	 * The plugin name.
+	 */
+	name: string;
+	/**
+	 * The plugin's website address.
+	 */
+	plugin_uri: string | "";
+	/**
+	 * The plugin author.
+	 */
+	author: string;
+	/**
+	 * Plugin author's website address.
+	 */
+	author_uri: string | "";
+	/**
+	 * The plugin description.
+	 */
+	description: {
+		/**
+		 * The raw plugin description.
+		 */
+		raw: string;
+		/**
+		 * The plugin description formatted for display.
+		 */
+		rendered: string;
+	};
+	/**
+	 * The plugin version number.
+	 */
+	version: string;
+	/**
+	 * Whether the plugin can only be activated network-wide.
+	 */
+	network_only: boolean;
+	/**
+	 * Minimum required version of WordPress.
+	 */
+	requires_wp: string;
+	/**
+	 * Minimum required version of PHP.
+	 */
+	requires_php: string;
+	/**
+	 * The plugin's text domain.
+	 */
+	textdomain: string;
+	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }
 /**

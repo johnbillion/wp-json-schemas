@@ -191,6 +191,12 @@
 				"Pattern_Directory_Patterns": {
 					"$ref": "schemas/rest-api/collections/pattern-directory-patterns.json"
 				},
+				"Plugin": {
+					"$ref": "schemas/rest-api/plugin.json"
+				},
+				"Plugins": {
+					"$ref": "schemas/rest-api/collections/plugins.json"
+				},
 				"Post": {
 					"$ref": "schemas/rest-api/post.json"
 				},
@@ -295,6 +301,8 @@
 				"Pages",
 				"Pattern_Directory_Pattern",
 				"Pattern_Directory_Patterns",
+				"Plugin",
+				"Plugins",
 				"Post",
 				"Posts",
 				"Rendered_Block",
