@@ -91,7 +91,7 @@ Route                                                   | Schema
 /wp/v2/pages/{parent}/autosaves/{id}                    | Todo
 /wp/v2/pages/{parent}/revisions                         | `WP_REST_API_Revisions`
 /wp/v2/pages/{parent}/revisions/{id}                    | `WP_REST_API_Revision`
-/wp/v2/pattern-directory/patterns                       | Todo
+/wp/v2/pattern-directory/patterns                       | `WP_REST_API_Pattern_Directory_Patterns`
 /wp/v2/plugins                                          | Todo
 /wp/v2/plugins/{plugin}                                 | Todo
 /wp/v2/posts                                            | `WP_REST_API_Posts`

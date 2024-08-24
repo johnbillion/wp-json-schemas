@@ -185,6 +185,12 @@
 				"Pages": {
 					"$ref": "schemas/rest-api/collections/pages.json"
 				},
+				"Pattern_Directory_Pattern": {
+					"$ref": "schemas/rest-api/pattern-directory-pattern.json"
+				},
+				"Pattern_Directory_Patterns": {
+					"$ref": "schemas/rest-api/collections/pattern-directory-patterns.json"
+				},
 				"Post": {
 					"$ref": "schemas/rest-api/post.json"
 				},
@@ -287,6 +293,8 @@
 				"Navigation_Menus",
 				"Page",
 				"Pages",
+				"Pattern_Directory_Pattern",
+				"Pattern_Directory_Patterns",
 				"Post",
 				"Posts",
 				"Rendered_Block",

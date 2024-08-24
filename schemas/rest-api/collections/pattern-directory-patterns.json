@@ -1,0 +1,19 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/pattern-directory-patterns.json",
+	"title": "WP_REST_API_Pattern_Directory_Patterns",
+	"description": "A collection of patterns from the pattern directory in a REST API context.",
+	"type": "array",
+	"items": {
+		"$ref": "../pattern-directory-pattern.json"
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/pattern-directory/patterns",
+			"targetSchema": {
+				"$ref": "#"
+			}
+		}
+	]
+}

@@ -167,6 +167,10 @@ export type WP_REST_API_Page = WP_REST_API_Partial_Post_Common &
  */
 export type WP_REST_API_Pages = WP_REST_API_Page[];
 /**
+ * A collection of patterns from the pattern directory in a REST API context.
+ */
+export type WP_REST_API_Pattern_Directory_Patterns = WP_REST_API_Pattern_Directory_Pattern[];
+/**
  * A post object in a REST API context.
  */
 export type WP_REST_API_Post = WP_REST_API_Partial_Post_Common &
@@ -295,6 +299,8 @@ export interface WP {
 		Navigation_Menus: WP_REST_API_Navigation_Menus;
 		Page: WP_REST_API_Page;
 		Pages: WP_REST_API_Pages;
+		Pattern_Directory_Pattern: WP_REST_API_Pattern_Directory_Pattern;
+		Pattern_Directory_Patterns: WP_REST_API_Pattern_Directory_Patterns;
 		Post: WP_REST_API_Post;
 		Posts: WP_REST_API_Posts;
 		Rendered_Block: WP_REST_API_Rendered_Block;
@@ -3363,6 +3369,44 @@ interface WP_REST_API_Partial_Post_Excerpt {
 		 */
 		protected: boolean;
 	};
+}
+/**
+ * A pattern from the pattern directory in a REST API context.
+ */
+export interface WP_REST_API_Pattern_Directory_Pattern {
+	/**
+	 * The pattern ID.
+	 */
+	id: number;
+	/**
+	 * The pattern title, in human readable format.
+	 */
+	title: string;
+	/**
+	 * The pattern content.
+	 */
+	content: string;
+	/**
+	 * The pattern category slugs.
+	 */
+	categories: string[];
+	/**
+	 * The pattern keywords.
+	 */
+	keywords: string[];
+	/**
+	 * The pattern detailed description.
+	 */
+	description: string;
+	/**
+	 * The pattern viewport width for inserter preview.
+	 */
+	viewport_width: number;
+	/**
+	 * Block types that the pattern is intended to be used with.
+	 */
+	block_types?: string[];
+	[k: string]: unknown;
 }
 /**
  * A rendered dynamic block in a REST API context. Only accessible with the 'edit' context.
