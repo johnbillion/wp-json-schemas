@@ -17,20 +17,17 @@
 		}
 	},
 	"properties": {
-		"Block": {
-			"$ref": "schemas/block.json"
+		"Block_Template": {
+			"$ref": "schemas/block-template.json"
 		},
 		"Block_Type": {
 			"$ref": "schemas/block-type.json"
 		},
-		"Block_Template": {
-			"$ref": "schemas/block-template.json"
+		"Block": {
+			"$ref": "schemas/block.json"
 		},
 		"Comment": {
 			"$ref": "schemas/comment.json"
-		},
-		"Error": {
-			"$ref": "schemas/error.json"
 		},
 		"Error_With_Error": {
 			"$ref": "schemas/error-with-error.json"
@@ -38,17 +35,20 @@
 		"Error_Without_Error": {
 			"$ref": "schemas/error-without-error.json"
 		},
+		"Error": {
+			"$ref": "schemas/error.json"
+		},
 		"Locale": {
 			"$ref": "schemas/locale.json"
 		},
 		"Network": {
 			"$ref": "schemas/network.json"
 		},
-		"Post": {
-			"$ref": "schemas/post.json"
-		},
 		"Post_Type": {
 			"$ref": "schemas/post-type.json"
+		},
+		"Post": {
+			"$ref": "schemas/post.json"
 		},
 		"Query": {
 			"$ref": "schemas/query.json"
@@ -74,56 +74,11 @@
 		"REST_API": {
 			"type": "object",
 			"properties": {
-				"Comment": {
-					"$ref": "schemas/rest-api/comment.json"
+				"Application_Password": {
+					"$ref": "schemas/rest-api/application-password.json"
 				},
-				"Comments": {
-					"$ref": "schemas/rest-api/collections/comments.json"
-				},
-				"Font_Collection": {
-					"$ref": "schemas/rest-api/font-collection.json"
-				},
-				"Font_Collections": {
-					"$ref": "schemas/rest-api/collections/font-collections.json"
-				},
-				"Font_Family": {
-					"$ref": "schemas/rest-api/font-family.json"
-				},
-				"Font_Families": {
-					"$ref": "schemas/rest-api/collections/font-families.json"
-				},
-				"Font_Face": {
-					"$ref": "schemas/rest-api/font-face.json"
-				},
-				"Font_Faces": {
-					"$ref": "schemas/rest-api/collections/font-faces.json"
-				},
-				"Post": {
-					"$ref": "schemas/rest-api/post.json"
-				},
-				"Posts": {
-					"$ref": "schemas/rest-api/collections/posts.json"
-				},
-				"Page": {
-					"$ref": "schemas/rest-api/page.json"
-				},
-				"Pages": {
-					"$ref": "schemas/rest-api/collections/pages.json"
-				},
-				"Navigation_Menu": {
-					"$ref": "schemas/rest-api/navigation-menu.json"
-				},
-				"Navigation_Menus": {
-					"$ref": "schemas/rest-api/collections/navigation.json"
-				},
-				"Global_Style_Variation": {
-					"$ref": "schemas/rest-api/global-style-variation.json"
-				},
-				"Global_Style_Variations": {
-					"$ref": "schemas/rest-api/collections/global-style-variations.json"
-				},
-				"Global_Style_Config": {
-					"$ref": "schemas/rest-api/global-style-config.json"
+				"Application_Passwords": {
+					"$ref": "schemas/rest-api/collections/application-passwords.json"
 				},
 				"Attachment": {
 					"$ref": "schemas/rest-api/attachment.json"
@@ -131,23 +86,17 @@
 				"Attachments": {
 					"$ref": "schemas/rest-api/collections/media.json"
 				},
-				"Block": {
-					"$ref": "schemas/rest-api/block.json"
-				},
-				"Blocks": {
-					"$ref": "schemas/rest-api/collections/blocks.json"
-				},
 				"Block_Directory_Item": {
 					"$ref": "schemas/rest-api/block-directory-item.json"
 				},
 				"Block_Directory_Items": {
 					"$ref": "schemas/rest-api/collections/block-directory-items.json"
 				},
-				"Block_Pattern_Category": {
-					"$ref": "schemas/rest-api/block-pattern-category.json"
-				},
 				"Block_Pattern_Categories": {
 					"$ref": "schemas/rest-api/collections/block-pattern-categories.json"
+				},
+				"Block_Pattern_Category": {
+					"$ref": "schemas/rest-api/block-pattern-category.json"
 				},
 				"Block_Pattern": {
 					"$ref": "schemas/rest-api/block-pattern.json"
@@ -161,71 +110,50 @@
 				"Block_Types": {
 					"$ref": "schemas/rest-api/collections/block-types.json"
 				},
-				"Revision": {
-					"$ref": "schemas/rest-api/revision.json"
+				"Block": {
+					"$ref": "schemas/rest-api/block.json"
 				},
-				"Rendered_Block": {
-					"$ref": "schemas/rest-api/rendered-block.json"
-				},
-				"Revisions": {
-					"$ref": "schemas/rest-api/collections/revisions.json"
-				},
-				"Status": {
-					"$ref": "schemas/rest-api/status.json"
-				},
-				"Statuses": {
-					"$ref": "schemas/rest-api/collections/statuses.json"
-				},
-				"Term": {
-					"$ref": "schemas/rest-api/term.json"
-				},
-				"Terms": {
-					"$ref": "schemas/rest-api/collections/terms.json"
-				},
-				"Tag": {
-					"$ref": "schemas/rest-api/tag.json"
-				},
-				"Tags": {
-					"$ref": "schemas/rest-api/collections/tags.json"
-				},
-				"Category": {
-					"$ref": "schemas/rest-api/category.json"
+				"Blocks": {
+					"$ref": "schemas/rest-api/collections/blocks.json"
 				},
 				"Categories": {
 					"$ref": "schemas/rest-api/collections/categories.json"
 				},
-				"User": {
-					"$ref": "schemas/rest-api/user.json"
+				"Category": {
+					"$ref": "schemas/rest-api/category.json"
 				},
-				"Users": {
-					"$ref": "schemas/rest-api/collections/users.json"
+				"Comment": {
+					"$ref": "schemas/rest-api/comment.json"
 				},
-				"Search_Result": {
-					"$ref": "schemas/rest-api/search-result.json"
+				"Comments": {
+					"$ref": "schemas/rest-api/collections/comments.json"
 				},
-				"Search_Results": {
-					"$ref": "schemas/rest-api/collections/search-results.json"
+				"Font_Collection": {
+					"$ref": "schemas/rest-api/font-collection.json"
 				},
-				"Settings": {
-					"$ref": "schemas/rest-api/settings.json"
+				"Font_Collections": {
+					"$ref": "schemas/rest-api/collections/font-collections.json"
 				},
-				"Taxonomy": {
-					"$ref": "schemas/rest-api/taxonomy.json"
+				"Font_Face": {
+					"$ref": "schemas/rest-api/font-face.json"
 				},
-				"Taxonomies": {
-					"$ref": "schemas/rest-api/collections/taxonomies.json"
+				"Font_Faces": {
+					"$ref": "schemas/rest-api/collections/font-faces.json"
 				},
-				"Type": {
-					"$ref": "schemas/rest-api/type.json"
+				"Font_Families": {
+					"$ref": "schemas/rest-api/collections/font-families.json"
 				},
-				"Types": {
-					"$ref": "schemas/rest-api/collections/types.json"
+				"Font_Family": {
+					"$ref": "schemas/rest-api/font-family.json"
 				},
-				"Application_Password": {
-					"$ref": "schemas/rest-api/application-password.json"
+				"Global_Style_Config": {
+					"$ref": "schemas/rest-api/global-style-config.json"
 				},
-				"Application_Passwords": {
-					"$ref": "schemas/rest-api/collections/application-passwords.json"
+				"Global_Style_Variation": {
+					"$ref": "schemas/rest-api/global-style-variation.json"
+				},
+				"Global_Style_Variations": {
+					"$ref": "schemas/rest-api/collections/global-style-variations.json"
 				},
 				"Menu_Item": {
 					"$ref": "schemas/rest-api/menu-item.json"
@@ -245,48 +173,122 @@
 				"Menus": {
 					"$ref": "schemas/rest-api/collections/menus.json"
 				},
+				"Navigation_Menu": {
+					"$ref": "schemas/rest-api/navigation-menu.json"
+				},
+				"Navigation_Menus": {
+					"$ref": "schemas/rest-api/collections/navigation.json"
+				},
+				"Page": {
+					"$ref": "schemas/rest-api/page.json"
+				},
+				"Pages": {
+					"$ref": "schemas/rest-api/collections/pages.json"
+				},
+				"Post": {
+					"$ref": "schemas/rest-api/post.json"
+				},
+				"Posts": {
+					"$ref": "schemas/rest-api/collections/posts.json"
+				},
+				"Rendered_Block": {
+					"$ref": "schemas/rest-api/rendered-block.json"
+				},
+				"Revision": {
+					"$ref": "schemas/rest-api/revision.json"
+				},
+				"Revisions": {
+					"$ref": "schemas/rest-api/collections/revisions.json"
+				},
+				"Search_Result": {
+					"$ref": "schemas/rest-api/search-result.json"
+				},
+				"Search_Results": {
+					"$ref": "schemas/rest-api/collections/search-results.json"
+				},
+				"Settings": {
+					"$ref": "schemas/rest-api/settings.json"
+				},
+				"Status": {
+					"$ref": "schemas/rest-api/status.json"
+				},
+				"Statuses": {
+					"$ref": "schemas/rest-api/collections/statuses.json"
+				},
+				"Tag": {
+					"$ref": "schemas/rest-api/tag.json"
+				},
+				"Tags": {
+					"$ref": "schemas/rest-api/collections/tags.json"
+				},
+				"Taxonomies": {
+					"$ref": "schemas/rest-api/collections/taxonomies.json"
+				},
+				"Taxonomy": {
+					"$ref": "schemas/rest-api/taxonomy.json"
+				},
+				"Term": {
+					"$ref": "schemas/rest-api/term.json"
+				},
+				"Terms": {
+					"$ref": "schemas/rest-api/collections/terms.json"
+				},
+				"Type": {
+					"$ref": "schemas/rest-api/type.json"
+				},
+				"Types": {
+					"$ref": "schemas/rest-api/collections/types.json"
+				},
+				"User": {
+					"$ref": "schemas/rest-api/user.json"
+				},
+				"Users": {
+					"$ref": "schemas/rest-api/collections/users.json"
+				},
 				"Error": {
 					"$ref": "schemas/rest-api/error.json"
 				}
 			},
 			"required": [
-				"Comment",
-				"Comments",
-				"Font_Collection",
-				"Font_Collections",
-				"Font_Family",
-				"Font_Families",
-				"Font_Face",
-				"Font_Faces",
-				"Post",
-				"Posts",
-				"Page",
-				"Pages",
-				"Navigation_Menu",
-				"Navigation_Menus",
-				"Global_Style_Variation",
-				"Global_Style_Variations",
-				"Global_Style_Config",
+				"Application_Password",
+				"Application_Passwords",
 				"Attachment",
 				"Attachments",
 				"Block_Directory_Item",
 				"Block_Directory_Items",
-				"Block_Pattern_Category",
 				"Block_Pattern_Categories",
+				"Block_Pattern_Category",
 				"Block_Pattern",
 				"Block_Patterns",
 				"Block_Type",
 				"Block_Types",
 				"Block",
 				"Blocks",
-				"Term",
-				"Terms",
-				"Tag",
-				"Tags",
-				"Category",
 				"Categories",
-				"User",
-				"Users",
+				"Category",
+				"Comment",
+				"Comments",
+				"Font_Collection",
+				"Font_Collections",
+				"Font_Face",
+				"Font_Faces",
+				"Font_Families",
+				"Font_Family",
+				"Global_Style_Config",
+				"Global_Style_Variation",
+				"Global_Style_Variations",
+				"Menu_Item",
+				"Menu_Items",
+				"Menu_Location",
+				"Menu_Locations",
+				"Menu",
+				"Menus",
+				"Navigation_Menu",
+				"Navigation_Menus",
+				"Page",
+				"Pages",
+				"Post",
+				"Posts",
 				"Rendered_Block",
 				"Revision",
 				"Revisions",
@@ -295,35 +297,33 @@
 				"Settings",
 				"Status",
 				"Statuses",
-				"Taxonomy",
+				"Tag",
+				"Tags",
 				"Taxonomies",
+				"Taxonomy",
+				"Term",
+				"Terms",
 				"Type",
 				"Types",
-				"Application_Password",
-				"Application_Passwords",
-				"Menu_Item",
-				"Menu_Items",
-				"Menu_Location",
-				"Menu_Locations",
-				"Menu",
-				"Menus",
+				"User",
+				"Users",
 				"Error"
 			],
 			"additionalProperties": false
 		}
 	},
 	"required": [
-		"Block",
-		"Block_Type",
 		"Block_Template",
+		"Block_Type",
+		"Block",
 		"Comment",
-		"Error",
 		"Error_With_Error",
 		"Error_Without_Error",
+		"Error",
 		"Locale",
 		"Network",
-		"Post",
 		"Post_Type",
+		"Post",
 		"Query",
 		"Role",
 		"Screen",

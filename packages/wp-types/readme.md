@@ -61,8 +61,8 @@ Route                                                   | Schema
 /wp/v2/global-styles/{id}                               | `WP_REST_API_Global_Style_Variation`
 /wp/v2/global-styles/{parent}/revisions                 | Todo
 /wp/v2/global-styles/{parent}/revisions/{id}            | Todo
-/wp/v2/global-styles/themes/{stylesheet}/variations     | `WP_REST_API_Global_Style_Variations`
 /wp/v2/global-styles/themes/{stylesheet}                | `WP_REST_API_Global_Style_Config`
+/wp/v2/global-styles/themes/{stylesheet}/variations     | `WP_REST_API_Global_Style_Variations`
 /wp/v2/media                                            | `WP_REST_API_Attachments`
 /wp/v2/media/{id}                                       | `WP_REST_API_Attachment`
 /wp/v2/media/{id}/edit                                  | Todo
@@ -106,13 +106,6 @@ Route                                                   | Schema
 /wp/v2/tags/{id}                                        | `WP_REST_API_Tag`
 /wp/v2/taxonomies                                       | `WP_REST_API_Taxonomies`
 /wp/v2/taxonomies/{taxonomy}                            | `WP_REST_API_Taxonomy`
-/wp/v2/templates                                        | Todo
-/wp/v2/templates/{id}                                   | Todo
-/wp/v2/templates/{id}/autosaves                         | Todo
-/wp/v2/templates/{parent}/autosaves/{id}                | Todo
-/wp/v2/templates/{parent}/revisions                     | Todo
-/wp/v2/templates/{parent}/revisions/{id}                | Todo
-/wp/v2/templates/lookup                                 | Todo
 /wp/v2/template-parts                                   | Todo
 /wp/v2/template-parts/{id}                              | Todo
 /wp/v2/template-parts/{id}/autosaves                    | Todo
@@ -120,6 +113,13 @@ Route                                                   | Schema
 /wp/v2/template-parts/{parent}/revisions                | Todo
 /wp/v2/template-parts/{parent}/revisions/{id}           | Todo
 /wp/v2/template-parts/lookup                            | Todo
+/wp/v2/templates                                        | Todo
+/wp/v2/templates/{id}                                   | Todo
+/wp/v2/templates/{id}/autosaves                         | Todo
+/wp/v2/templates/{parent}/autosaves/{id}                | Todo
+/wp/v2/templates/{parent}/revisions                     | Todo
+/wp/v2/templates/{parent}/revisions/{id}                | Todo
+/wp/v2/templates/lookup                                 | Todo
 /wp/v2/themes                                           | Todo
 /wp/v2/themes/{stylesheet}                              | Todo
 /wp/v2/types                                            | `WP_REST_API_Types`
@@ -162,13 +162,13 @@ String enums are used for values of several properties:
 
 * `WP_Comment_Status_Name`
 * `WP_Comment_Type_Name`
+* `WP_HTTP_Status_Code`
 * `WP_Post_Comment_Status_Name`
 * `WP_Post_Format_Name`
 * `WP_Post_Status_Name`
 * `WP_Post_Type_Name`
 * `WP_Taxonomy_Name`
 * `WP_User_Role_Name`
-* `WP_HTTP_Status_Code`
 
 ## Installation
 
