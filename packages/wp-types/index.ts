@@ -348,6 +348,7 @@ export interface WP_Block_Template {
 	has_theme_file: boolean;
 	is_custom: boolean;
 	author: number | null;
+	plugin: string | null;
 	post_types: string[] | null;
 	area: string | null;
 	modified: string | null;

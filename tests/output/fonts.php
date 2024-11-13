@@ -59,6 +59,14 @@ save_external_schema(
 	'font-face',
 	[
 		'definitions',
+		'settingsTypographyProperties',
+		'properties',
+		'typography',
+		'properties',
+		'fontFamilies',
+		'items',
+		'properties',
 		'fontFace',
+		'items',
 	]
 );

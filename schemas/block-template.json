@@ -19,6 +19,7 @@
 		"has_theme_file",
 		"is_custom",
 		"author",
+		"plugin",
 		"post_types",
 		"modified",
 		"area"
@@ -72,6 +73,12 @@
 		"author": {
 			"type": [
 				"integer",
+				"null"
+			]
+		},
+		"plugin": {
+			"type": [
+				"string",
 				"null"
 			]
 		},
