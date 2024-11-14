@@ -1,0 +1,10 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/menus.json",
+	"title": "WP_REST_API_Menus",
+	"description": "A collection of menus in a REST API context.",
+	"type": "array",
+	"items": {
+		"$ref": "../menu.json"
+	}
+}

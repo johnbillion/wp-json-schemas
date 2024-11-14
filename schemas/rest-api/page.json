@@ -1,14 +1,57 @@
 {
-	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
 	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/page.json",
 	"title": "WP_REST_API_Page",
 	"description": "A page object in a REST API context.",
 	"type": "object",
 	"allOf": [
 		{
-			"$ref": "post.json"
+			"$ref": "partials/post/common.json"
+		},
+		{
+			"$ref": "./partials/post/author.json"
+		},
+		{
+			"$ref": "./partials/post/public.json"
+		},
+		{
+			"$ref": "./partials/post/comments.json"
+		},
+		{
+			"$ref": "./partials/post/excerpt.json"
 		}
 	],
+	"properties": {
+		"_embedded": {
+			"description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
+			"type": "object",
+			"required": [
+				"author"
+			],
+			"properties": {
+				"author": {
+					"description": "The author of the page.",
+					"type": "array"
+				},
+				"replies": {
+					"description": "The replies to the page (comments, pingbacks, trackbacks).",
+					"type": "array"
+				},
+				"wp:term": {
+					"description": "The taxonomy terms for the page.",
+					"type": "array"
+				},
+				"wp:featuredmedia": {
+					"description": "The featured image page.",
+					"type": "array"
+				},
+				"up": {
+					"description": "The parent page.",
+					"type": "array"
+				}
+			}
+		}
+	},
 	"links": [
 		{
 			"rel": "self",
@@ -16,7 +59,7 @@
 			"hrefSchema": {
 				"properties": {
 					"id": {
-						"$ref": "post.json#/properties/id"
+						"$ref": "partials/post/common.json#/properties/id"
 					}
 				}
 			},
@@ -40,7 +83,7 @@
 			"hrefSchema": {
 				"properties": {
 					"author": {
-						"$ref": "post.json#/properties/author"
+						"$ref": "partials/post/author.json#/properties/author"
 					}
 				}
 			},
@@ -54,7 +97,7 @@
 			"hrefSchema": {
 				"properties": {
 					"id": {
-						"$ref": "post.json#/properties/id"
+						"$ref": "partials/post/common.json#/properties/id"
 					}
 				}
 			},
@@ -71,7 +114,7 @@
 			"hrefSchema": {
 				"properties": {
 					"id": {
-						"$ref": "post.json#/properties/id"
+						"$ref": "partials/post/common.json#/properties/id"
 					}
 				}
 			},

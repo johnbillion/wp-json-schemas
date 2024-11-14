@@ -1,0 +1,29 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/partials/post/comments.json",
+	"title": "WP_REST_API_Partial_Post_Comments",
+	"description": "Properties for post types that support comments",
+	"type": "object",
+	"required": [
+		"comment_status",
+		"ping_status"
+	],
+	"properties": {
+		"comment_status": {
+			"description": "Whether or not comments are open on the post.",
+			"oneOf": [
+				{
+					"$ref": "../../../properties/post-comment-status-name.json"
+				}
+			]
+		},
+		"ping_status": {
+			"description": "Whether or not the post can be pinged.",
+			"oneOf": [
+				{
+					"$ref": "../../../properties/post-comment-status-name.json"
+				}
+			]
+		}
+	}
+}

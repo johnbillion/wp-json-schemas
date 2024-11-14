@@ -1,5 +1,5 @@
 {
-	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
 	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/attachment.json",
 	"title": "WP_REST_API_Attachment",
 	"description": "A media attachment object in a REST API context.",
@@ -138,16 +138,17 @@
 			],
 			"properties": {
 				"raw": {
+					"contentMediaType": "text/html",
 					"description": "Caption for the attachment, as it exists in the database. Only present when using the 'edit' context.",
 					"type": "string"
 				},
 				"rendered": {
+					"contentMediaType": "text/html",
 					"readOnly": true,
 					"description": "HTML caption for the attachment, transformed for display.",
 					"type": "string"
 				}
 			},
-			"contentMediaType": "text/html",
 			"additionalProperties": false
 		},
 		"description": {
@@ -158,16 +159,17 @@
 			],
 			"properties": {
 				"raw": {
+					"contentMediaType": "text/html",
 					"description": "Description for the attachment, as it exists in the database. Only present when using the 'edit' context.",
 					"type": "string"
 				},
 				"rendered": {
+					"contentMediaType": "text/html",
 					"readOnly": true,
 					"description": "HTML description for the attachment, transformed for display.",
 					"type": "string"
 				}
 			},
-			"contentMediaType": "text/html",
 			"additionalProperties": false
 		},
 		"media_type": {
@@ -192,7 +194,7 @@
 				{
 					"allOf": [
 						{
-							"$ref": "post.json#/properties/id"
+							"$ref": "partials/post/common.json#/properties/id"
 						}
 					]
 				},

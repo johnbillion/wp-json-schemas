@@ -1,0 +1,59 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/menu-location.json",
+	"title": "WP_REST_API_Menu_Location",
+	"description": "A menu location in a REST API context.",
+	"type": "object",
+	"required": [
+		"name",
+		"description",
+		"menu",
+		"_links"
+	],
+	"properties": {
+		"name": {
+			"description": "The name of the menu location.",
+			"type": "string",
+			"readOnly": true
+		},
+		"description": {
+			"description": "The description of the menu location.",
+			"type": "string",
+			"readOnly": true
+		},
+		"menu": {
+			"description": "The ID of the assigned menu.",
+			"type": "integer",
+			"readOnly": true
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/menu-locations/{name}",
+			"hrefSchema": {
+				"properties": {
+					"name": {
+						"$ref": "#/properties/name"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/menu-locations",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}

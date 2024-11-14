@@ -1,5 +1,5 @@
 {
-	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
 	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/properties/http-status-code.json",
 	"title": "WP_Http_Status_Code",
 	"type": "integer",
@@ -49,6 +49,7 @@
 		"UNPROCESSABLE_ENTITY",
 		"LOCKED",
 		"FAILED_DEPENDENCY",
+		"TOO_EARLY",
 		"UPGRADE_REQUIRED",
 		"PRECONDITION_REQUIRED",
 		"TOO_MANY_REQUESTS",
@@ -111,6 +112,7 @@
 		422,
 		423,
 		424,
+		425,
 		426,
 		428,
 		429,

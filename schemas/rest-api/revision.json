@@ -1,5 +1,5 @@
 {
-	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
 	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/revision.json",
 	"title": "WP_REST_API_Revision",
 	"description": "A post revision object in a REST API context.",
@@ -62,7 +62,8 @@
 					"type": "string",
 					"readOnly": true
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"id": {
 			"description": "Unique identifier for the revision.",
@@ -113,7 +114,8 @@
 					"description": "HTML title for the post, transformed for display.",
 					"type": "string"
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"content": {
 			"description": "The content for the post.",
@@ -124,6 +126,7 @@
 			"properties": {
 				"raw": {
 					"description": "Content for the post, as it exists in the database. Only present when using the 'edit' context.",
+					"contentMediaType": "text/html",
 					"type": "string"
 				},
 				"rendered": {
@@ -137,7 +140,8 @@
 					"type": "integer",
 					"readOnly": true
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"excerpt": {
 			"description": "The excerpt for the post.",
@@ -148,6 +152,7 @@
 			"properties": {
 				"raw": {
 					"description": "Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.",
+					"contentMediaType": "text/html",
 					"type": "string"
 				},
 				"rendered": {
@@ -156,7 +161,8 @@
 					"contentMediaType": "text/html",
 					"type": "string"
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"meta": {
 			"description": "Meta fields.",

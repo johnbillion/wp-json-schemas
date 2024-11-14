@@ -49,8 +49,13 @@ save_rest_array( [
 	$data,
 ], 'font-faces' );
 
+$url = sprintf(
+	'https://raw.githubusercontent.com/WordPress/gutenberg/wp/%s/schemas/json/theme.json',
+	WP_VERSION,
+);
+
 save_external_schema(
-	'https://schemas.wp.org/trunk/theme.json',
+	$url,
 	'font-face',
 	[
 		'definitions',

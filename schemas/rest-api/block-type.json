@@ -1,5 +1,5 @@
 {
-	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
 	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/block-type.json",
 	"title": "WP_REST_API_Block_Type",
 	"description": "A block type object in a REST API context.",
@@ -229,6 +229,10 @@
 						"description": "Unique name identifying the style.",
 						"type": "string"
 					},
+					"isDefault": {
+						"description": "Indicates whether the current variation is the default one.",
+						"type": "boolean"
+					},
 					"label": {
 						"description": "The human-readable label for the style.",
 						"type": "string"
@@ -241,7 +245,8 @@
 						"description": "Contains the handle that defines the block style.",
 						"type": "string"
 					}
-				}
+				},
+				"additionalProperties": false
 			}
 		},
 		"variations": {
@@ -344,10 +349,12 @@
 										"description": "A list of the inner block's own inner blocks. This is a recursive definition following the parent innerBlocks schema.",
 										"type": "array"
 									}
-								}
+								},
+								"additionalProperties": true
 							}
 						}
-					}
+					},
+					"additionalProperties": true
 				},
 				{
 					"type": "null"

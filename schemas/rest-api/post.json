@@ -1,312 +1,27 @@
 {
-	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
 	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/post.json",
 	"title": "WP_REST_API_Post",
 	"description": "A post object in a REST API context.",
 	"type": "object",
-	"required": [
-		"date",
-		"date_gmt",
-		"guid",
-		"id",
-		"link",
-		"modified",
-		"modified_gmt",
-		"slug",
-		"status",
-		"type",
-		"class_list",
-		"title",
-		"content",
-		"author",
-		"excerpt",
-		"comment_status",
-		"ping_status",
-		"meta",
-		"_links"
+	"allOf": [
+		{
+			"$ref": "./partials/post/common.json"
+		},
+		{
+			"$ref": "./partials/post/author.json"
+		},
+		{
+			"$ref": "./partials/post/public.json"
+		},
+		{
+			"$ref": "./partials/post/comments.json"
+		},
+		{
+			"$ref": "./partials/post/excerpt.json"
+		}
 	],
 	"properties": {
-		"date": {
-			"description": "The date the post was published, in the site's timezone.",
-			"oneOf": [
-				{
-					"$ref": "properties/date-time.json"
-				}
-			]
-		},
-		"date_gmt": {
-			"description": "The date the post was published, as GMT.",
-			"oneOf": [
-				{
-					"$ref": "properties/date-time.json"
-				}
-			]
-		},
-		"guid": {
-			"readOnly": true,
-			"description": "The globally unique identifier for the post.",
-			"type": "object",
-			"required": [
-				"rendered"
-			],
-			"properties": {
-				"raw": {
-					"readOnly": true,
-					"description": "GUID for the post, as it exists in the database. Only present when using the 'edit' context.",
-					"type": "string"
-				},
-				"rendered": {
-					"readOnly": true,
-					"description": "GUID for the post, transformed for display.",
-					"type": "string"
-				}
-			},
-			"additionalProperties": false
-		},
-		"id": {
-			"readOnly": true,
-			"description": "Unique identifier for the post.",
-			"type": "integer"
-		},
-		"link": {
-			"readOnly": true,
-			"description": "URL to the post.",
-			"type": "string",
-			"format": "uri"
-		},
-		"modified": {
-			"readOnly": true,
-			"description": "The date the post was last modified, in the site's timezone.",
-			"oneOf": [
-				{
-					"$ref": "properties/date-time.json"
-				}
-			]
-		},
-		"modified_gmt": {
-			"readOnly": true,
-			"description": "The date the post was last modified, as GMT.",
-			"oneOf": [
-				{
-					"$ref": "properties/date-time.json"
-				}
-			]
-		},
-		"slug": {
-			"description": "An alphanumeric identifier for the post unique to its type.",
-			"type": "string"
-		},
-		"status": {
-			"description": "A named status for the post.",
-			"anyOf": [
-				{
-					"$ref": "../properties/post-status-name.json"
-				},
-				{
-					"type": "string"
-				}
-			]
-		},
-		"type": {
-			"readOnly": true,
-			"description": "Type of Post for the post.",
-			"anyOf": [
-				{
-					"$ref": "../properties/post-type-name.json"
-				},
-				{
-					"type": "string"
-				}
-			]
-		},
-		"password": {
-			"description": "A password to protect access to the content and excerpt. Only present when using the 'edit' context.",
-			"type": "string"
-		},
-		"permalink_template": {
-			"readOnly": true,
-			"description": "Permalink template for the post. Only present when using the 'edit' context and the post type is public.",
-			"type": "string"
-		},
-		"generated_slug": {
-			"readOnly": true,
-			"description": "Slug automatically generated from the post title. Only present when using the 'edit' context and the post type is public.",
-			"type": "string"
-		},
-		"parent": {
-			"description": "The ID for the parent of the post. Only present for hierarchical post types.",
-			"allOf": [
-				{
-					"$ref": "#/properties/id"
-				}
-			]
-		},
-		"menu_order": {
-			"description": "A field used for ordering posts.",
-			"type": "integer"
-		},
-		"class_list": {
-			"readOnly": true,
-			"description": "An array of the class names for the post container element.",
-			"type": "array",
-			"items": {
-				"type": "string"
-			}
-		},
-		"title": {
-			"description": "The title for the post.",
-			"type": "object",
-			"required": [
-				"rendered"
-			],
-			"properties": {
-				"raw": {
-					"description": "Title for the post, as it exists in the database. Only present when using the 'edit' context.",
-					"type": "string"
-				},
-				"rendered": {
-					"readOnly": true,
-					"contentMediaType": "text/html",
-					"description": "HTML title for the post, transformed for display.",
-					"type": "string"
-				}
-			},
-			"additionalProperties": false
-		},
-		"content": {
-			"description": "The content for the post.",
-			"type": "object",
-			"required": [
-				"rendered",
-				"protected"
-			],
-			"properties": {
-				"raw": {
-					"description": "Content for the post, as it exists in the database. Only present when using the 'edit' context.",
-					"contentMediaType": "text/html",
-					"type": "string"
-				},
-				"rendered": {
-					"readOnly": true,
-					"description": "HTML content for the post, transformed for display.",
-					"contentMediaType": "text/html",
-					"type": "string"
-				},
-				"block_version": {
-					"readOnly": true,
-					"description": "Version of the content block format used by the post. Only present when using the 'edit' context.",
-					"type": "integer"
-				},
-				"protected": {
-					"readOnly": true,
-					"description": "Whether the content is protected with a password.",
-					"type": "boolean"
-				}
-			},
-			"additionalProperties": false
-		},
-		"author": {
-			"description": "The ID for the author of the post.",
-			"allOf": [
-				{
-					"$ref": "user.json#/properties/id"
-				}
-			]
-		},
-		"excerpt": {
-			"description": "The excerpt for the post.",
-			"type": "object",
-			"required": [
-				"rendered",
-				"protected"
-			],
-			"properties": {
-				"raw": {
-					"description": "Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.",
-					"type": "string"
-				},
-				"rendered": {
-					"readOnly": true,
-					"description": "HTML excerpt for the post, transformed for display.",
-					"type": "string"
-				},
-				"protected": {
-					"readOnly": true,
-					"description": "Whether the excerpt is protected with a password.",
-					"type": "boolean"
-				}
-			},
-			"contentMediaType": "text/html",
-			"additionalProperties": false
-		},
-		"featured_media": {
-			"description": "The ID of the featured media for the post.",
-			"allOf": [
-				{
-					"$ref": "#/properties/id"
-				}
-			]
-		},
-		"comment_status": {
-			"description": "Whether or not comments are open on the post.",
-			"oneOf": [
-				{
-					"$ref": "../properties/post-comment-status-name.json"
-				}
-			]
-		},
-		"ping_status": {
-			"description": "Whether or not the post can be pinged.",
-			"oneOf": [
-				{
-					"$ref": "../properties/post-comment-status-name.json"
-				}
-			]
-		},
-		"format": {
-			"description": "The format for the post.",
-			"oneOf": [
-				{
-					"$ref": "../properties/post-format-name.json"
-				}
-			]
-		},
-		"meta": {
-			"description": "Meta fields.",
-			"oneOf": [
-				{
-					"$ref": "../../schema.json#/definitions/EmptyArray"
-				},
-				{
-					"type": "object"
-				}
-			]
-		},
-		"sticky": {
-			"description": "Whether or not the post should be treated as sticky. Only present for the 'post' post type.",
-			"type": "boolean"
-		},
-		"template": {
-			"description": "The theme file to use to display the post.",
-			"type": "string"
-		},
-		"categories": {
-			"description": "The terms assigned to the post in the category taxonomy. Only present for post types that support categories.",
-			"type": "array",
-			"items": {
-				"$ref": "term.json#/properties/id"
-			}
-		},
-		"tags": {
-			"description": "The terms assigned to the post in the post_tag taxonomy. Only present for post types that support tags.",
-			"type": "array",
-			"items": {
-				"$ref": "term.json#/properties/id"
-			}
-		},
-		"_links": {
-			"$ref": "properties/object-links.json"
-		},
 		"_embedded": {
 			"description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
 			"type": "object",
@@ -344,7 +59,7 @@
 			"hrefSchema": {
 				"properties": {
 					"id": {
-						"$ref": "#/properties/id"
+						"$ref": "partials/post/common.json#/properties/id"
 					}
 				}
 			},
@@ -363,26 +78,12 @@
 			}
 		},
 		{
-			"rel": "author",
-			"href": "/wp/v2/users/{author}",
-			"hrefSchema": {
-				"properties": {
-					"author": {
-						"$ref": "#/properties/author"
-					}
-				}
-			},
-			"targetSchema": {
-				"$ref": "user.json"
-			}
-		},
-		{
 			"rel": "replies",
 			"href": "/wp/v2/comments?post={id}",
 			"hrefSchema": {
 				"properties": {
 					"id": {
-						"$ref": "#/properties/id"
+						"$ref": "partials/post/common.json#/properties/id"
 					}
 				}
 			},
@@ -399,7 +100,7 @@
 			"hrefSchema": {
 				"properties": {
 					"id": {
-						"$ref": "#/properties/id"
+						"$ref": "partials/post/common.json#/properties/id"
 					}
 				}
 			},

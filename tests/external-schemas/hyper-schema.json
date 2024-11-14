@@ -1,174 +1,133 @@
 {
-	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
-	"$id": "http://json-schema.org/draft-07/hyper-schema#",
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$vocabulary": {
+		"https://json-schema.org/draft/2019-09/vocab/core": true,
+		"https://json-schema.org/draft/2019-09/vocab/applicator": true,
+		"https://json-schema.org/draft/2019-09/vocab/validation": true,
+		"https://json-schema.org/draft/2019-09/vocab/meta-data": true,
+		"https://json-schema.org/draft/2019-09/vocab/format": false,
+		"https://json-schema.org/draft/2019-09/vocab/content": true,
+		"https://json-schema.org/draft/2019-09/vocab/hyper-schema": true
+	},
+	"$recursiveAnchor": true,
 	"title": "JSON Hyper-Schema",
 	"allOf": [
 		{
-			"$ref": "http://json-schema.org/draft-07/schema#"
+			"$ref": "https://json-schema.org/draft/2019-09/schema"
+		},
+		{
+			"properties": {
+				"base": {
+					"type": "string",
+					"format": "uri-template"
+				},
+				"links": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"required": [
+							"rel",
+							"href"
+						],
+						"properties": {
+							"anchor": {
+								"type": "string",
+								"format": "uri-template"
+							},
+							"anchorPointer": {
+								"type": "string",
+								"anyOf": [
+									{
+										"format": "json-pointer"
+									},
+									{
+										"format": "relative-json-pointer"
+									}
+								]
+							},
+							"rel": {
+								"anyOf": [
+									{
+										"type": "string"
+									},
+									{
+										"type": "array",
+										"items": {
+											"type": "string"
+										},
+										"minItems": 1
+									}
+								]
+							},
+							"href": {
+								"type": "string",
+								"format": "uri-template"
+							},
+							"hrefSchema": {
+								"$ref": "https://json-schema.org/draft/2019-09/hyper-schema",
+								"default": false
+							},
+							"templatePointers": {
+								"type": "object",
+								"additionalProperties": {
+									"type": "string",
+									"anyOf": [
+										{
+											"format": "json-pointer"
+										},
+										{
+											"format": "relative-json-pointer"
+										}
+									]
+								}
+							},
+							"templateRequired": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								},
+								"uniqueItems": true
+							},
+							"title": {
+								"type": "string"
+							},
+							"description": {
+								"type": "string"
+							},
+							"targetSchema": {
+								"$ref": "https://json-schema.org/draft/2019-09/hyper-schema",
+								"default": true
+							},
+							"targetMediaType": {
+								"type": "string"
+							},
+							"targetHints": {},
+							"headerSchema": {
+								"$ref": "https://json-schema.org/draft/2019-09/hyper-schema",
+								"default": true
+							},
+							"submissionMediaType": {
+								"type": "string",
+								"default": "application/json"
+							},
+							"submissionSchema": {
+								"$ref": "https://json-schema.org/draft/2019-09/hyper-schema",
+								"default": true
+							},
+							"$comment": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
 		}
 	],
-	"properties": {
-		"additionalItems": {
-			"anyOf": [
-				{
-					"type": "boolean"
-				},
-				{
-					"$ref": "#"
-				}
-			]
-		},
-		"additionalProperties": {
-			"anyOf": [
-				{
-					"type": "boolean"
-				},
-				{
-					"$ref": "#"
-				}
-			]
-		},
-		"dependencies": {
-			"additionalProperties": {
-				"anyOf": [
-					{
-						"$ref": "#"
-					},
-					{
-						"type": "array"
-					}
-				]
-			}
-		},
-		"items": {
-			"anyOf": [
-				{
-					"$ref": "#"
-				},
-				{
-					"$ref": "#/definitions/schemaArray"
-				}
-			]
-		},
-		"definitions": {
-			"additionalProperties": {
-				"$ref": "#"
-			}
-		},
-		"patternProperties": {
-			"additionalProperties": {
-				"$ref": "#"
-			}
-		},
-		"properties": {
-			"additionalProperties": {
-				"$ref": "#"
-			}
-		},
-		"allOf": {
-			"$ref": "#/definitions/schemaArray"
-		},
-		"anyOf": {
-			"$ref": "#/definitions/schemaArray"
-		},
-		"oneOf": {
-			"$ref": "#/definitions/schemaArray"
-		},
-		"not": {
-			"$ref": "#"
-		},
-		"links": {
-			"type": "array",
-			"items": {
-				"$ref": "#/definitions/linkDescription"
-			}
-		},
-		"fragmentResolution": {
-			"type": "string"
-		},
-		"media": {
-			"type": "object",
-			"properties": {
-				"type": {
-					"description": "A media type, as described in RFC 2046",
-					"type": "string"
-				},
-				"binaryEncoding": {
-					"description": "A content encoding scheme, as described in RFC 2045",
-					"type": "string"
-				}
-			}
-		},
-		"pathStart": {
-			"description": "Instances' URIs must start with this value for this schema to apply to them",
-			"type": "string",
-			"format": "uri"
-		}
-	},
-	"definitions": {
-		"schemaArray": {
-			"type": "array",
-			"items": {
-				"$ref": "#"
-			}
-		},
-		"linkDescription": {
-			"title": "Link Description Object",
-			"type": "object",
-			"required": [
-				"href",
-				"rel"
-			],
-			"properties": {
-				"href": {
-					"description": "a URI template, as defined by RFC 6570, with the addition of the $, ( and ) characters for pre-processing",
-					"type": "string"
-				},
-				"rel": {
-					"description": "relation to the target resource of the link",
-					"type": "string"
-				},
-				"title": {
-					"description": "a title for the link",
-					"type": "string"
-				},
-				"targetSchema": {
-					"description": "JSON Schema describing the link target",
-					"$ref": "#"
-				},
-				"mediaType": {
-					"description": "media type (as defined by RFC 2046) describing the link target",
-					"type": "string"
-				},
-				"method": {
-					"description": "method for requesting the target of the link (e.g. for HTTP this might be \"GET\" or \"DELETE\")",
-					"type": "string"
-				},
-				"encType": {
-					"description": "The media type in which to submit data along with the request",
-					"type": "string",
-					"default": "application/json"
-				},
-				"schema": {
-					"description": "Schema describing the data to submit along with the request",
-					"$ref": "#"
-				}
-			}
-		},
-		"readOnly": {
-			"description": "If true, indicates that the value of this property is controlled by the server.",
-			"type": "boolean",
-			"default": false
-		}
-	},
 	"links": [
 		{
 			"rel": "self",
-			"href": "{+id}"
-		},
-		{
-			"rel": "full",
-			"href": "{+($ref)}"
+			"href": "{+%24id}"
 		}
 	]
 }

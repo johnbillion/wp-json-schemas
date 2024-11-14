@@ -33,41 +33,13 @@ export type WP_User_Cap_Name = string;
  */
 export type WP_REST_API_Date_Time = string;
 /**
- * A collection of comment objects in a REST API context.
+ * A collection of user application passwords in a REST API context.
  */
-export type WP_REST_API_Comments = WP_REST_API_Comment[];
-/**
- * A collection of font collection objects in a REST API context.
- */
-export type WP_REST_API_Font_Collections = WP_REST_API_Font_Collection[];
-/**
- * A collection of font family objects in a REST API context.
- */
-export type WP_REST_API_Font_Families = WP_REST_API_Font_Family[];
-/**
- * A collection of font face objects in a REST API context.
- */
-export type WP_REST_API_Font_Faces = WP_REST_API_Font_Face[];
-/**
- * A collection of post objects in a REST API context.
- */
-export type WP_REST_API_Posts = WP_REST_API_Post[];
-/**
- * A page object in a REST API context.
- */
-export type WP_REST_API_Page = WP_REST_API_Post;
-/**
- * A collection of page objects in a REST API context.
- */
-export type WP_REST_API_Pages = WP_REST_API_Page[];
+export type WP_REST_API_Application_Passwords = WP_REST_API_Application_Password[];
 /**
  * A collection of media attachment objects in a REST API context.
  */
 export type WP_REST_API_Attachments = WP_REST_API_Attachment[];
-/**
- * A collection of reusable block objects in a REST API context.
- */
-export type WP_REST_API_Blocks = WP_REST_API_Block[];
 /**
  * A collection of block directory search results in a REST API context.
  */
@@ -85,21 +57,9 @@ export type WP_REST_API_Block_Patterns = WP_REST_API_Block_Pattern[];
  */
 export type WP_REST_API_Block_Types = WP_REST_API_Block_Type[];
 /**
- * A collection of post revision objects in a REST API context.
+ * A collection of reusable block objects in a REST API context.
  */
-export type WP_REST_API_Revisions = WP_REST_API_Revision[];
-/**
- * A collection of term objects in a REST API context.
- */
-export type WP_REST_API_Terms = WP_REST_API_Term[];
-/**
- * A post tag object in a REST API context.
- */
-export type WP_REST_API_Tag = WP_REST_API_Term;
-/**
- * A collection of post tag objects in a REST API context.
- */
-export type WP_REST_API_Tags = WP_REST_API_Tag[];
+export type WP_REST_API_Blocks = WP_REST_API_Block[];
 /**
  * A post category object in a REST API context.
  */
@@ -109,6 +69,172 @@ export type WP_REST_API_Category = WP_REST_API_Term;
  */
 export type WP_REST_API_Categories = WP_REST_API_Category[];
 /**
+ * A collection of comment objects in a REST API context.
+ */
+export type WP_REST_API_Comments = WP_REST_API_Comment[];
+/**
+ * A collection of font collection objects in a REST API context.
+ */
+export type WP_REST_API_Font_Collections = WP_REST_API_Font_Collection[];
+/**
+ * A collection of font face objects in a REST API context.
+ */
+export type WP_REST_API_Font_Faces = WP_REST_API_Font_Face[];
+/**
+ * A collection of font family objects in a REST API context.
+ */
+export type WP_REST_API_Font_Families = WP_REST_API_Font_Family[];
+/**
+ * A collection of global styles variations in a REST API context.
+ */
+export type WP_REST_API_Global_Style_Variations = {
+	/**
+	 * Version number of the global styles variation.
+	 */
+	version: number;
+	/**
+	 * Global styles.
+	 */
+	styles?: {
+		[k: string]: unknown;
+	};
+	/**
+	 * Global settings.
+	 */
+	settings?: {
+		[k: string]: unknown;
+	};
+	/**
+	 * Title of the global styles variation.
+	 */
+	title: string;
+	[k: string]: unknown;
+}[];
+/**
+ * A collection of menu items in a REST API context.
+ */
+export type WP_REST_API_Menu_Items = WP_REST_API_Menu_Item[];
+/**
+ * A collection of menus in a REST API context.
+ */
+export type WP_REST_API_Menus = WP_REST_API_Menu[];
+/**
+ * A navigation menu object in a REST API context.
+ */
+export type WP_REST_API_Navigation_Menu = WP_REST_API_Partial_Post_Common;
+/**
+ * A collection of navigation menu objects in a REST API context.
+ */
+export type WP_REST_API_Navigation_Menus = WP_REST_API_Navigation_Menu[];
+/**
+ * A page object in a REST API context.
+ */
+export type WP_REST_API_Page = WP_REST_API_Partial_Post_Common &
+	WP_REST_API_Partial_Post_Author &
+	WP_REST_API_Partial_Post_Public &
+	WP_REST_API_Partial_Post_Comments &
+	WP_REST_API_Partial_Post_Excerpt & {
+		/**
+		 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+		 */
+		_embedded?: {
+			/**
+			 * The author of the page.
+			 */
+			author: unknown[];
+			/**
+			 * The replies to the page (comments, pingbacks, trackbacks).
+			 */
+			replies?: unknown[];
+			/**
+			 * The taxonomy terms for the page.
+			 */
+			"wp:term"?: unknown[];
+			/**
+			 * The featured image page.
+			 */
+			"wp:featuredmedia"?: unknown[];
+			/**
+			 * The parent page.
+			 */
+			up?: unknown[];
+			[k: string]: unknown;
+		};
+		[k: string]: unknown;
+	};
+/**
+ * A collection of page objects in a REST API context.
+ */
+export type WP_REST_API_Pages = WP_REST_API_Page[];
+/**
+ * A collection of patterns from the pattern directory in a REST API context.
+ */
+export type WP_REST_API_Pattern_Directory_Patterns = WP_REST_API_Pattern_Directory_Pattern[];
+/**
+ * A collection of plugins in a REST API context.
+ */
+export type WP_REST_API_Plugins = WP_REST_API_Plugin[];
+/**
+ * A post object in a REST API context.
+ */
+export type WP_REST_API_Post = WP_REST_API_Partial_Post_Common &
+	WP_REST_API_Partial_Post_Author &
+	WP_REST_API_Partial_Post_Public &
+	WP_REST_API_Partial_Post_Comments &
+	WP_REST_API_Partial_Post_Excerpt & {
+		/**
+		 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+		 */
+		_embedded?: {
+			/**
+			 * The author of the post.
+			 */
+			author: unknown[];
+			/**
+			 * The replies to the post (comments, pingbacks, trackbacks).
+			 */
+			replies?: unknown[];
+			/**
+			 * The taxonomy terms for the post.
+			 */
+			"wp:term"?: unknown[];
+			/**
+			 * The featured image post.
+			 */
+			"wp:featuredmedia"?: unknown[];
+			/**
+			 * The parent post.
+			 */
+			up?: unknown[];
+			[k: string]: unknown;
+		};
+		[k: string]: unknown;
+	};
+/**
+ * A collection of post objects in a REST API context.
+ */
+export type WP_REST_API_Posts = WP_REST_API_Post[];
+/**
+ * A collection of post revision objects in a REST API context.
+ */
+export type WP_REST_API_Revisions = WP_REST_API_Revision[];
+/**
+ * A collection of search result objects in a REST API context.
+ */
+export type WP_REST_API_Search_Results = WP_REST_API_Search_Result[];
+/**
+ * A post tag object in a REST API context.
+ */
+export type WP_REST_API_Tag = WP_REST_API_Term;
+/**
+ * A collection of post tag objects in a REST API context.
+ */
+export type WP_REST_API_Tags = WP_REST_API_Tag[];
+/**
+ * A collection of term objects in a REST API context.
+ */
+export type WP_REST_API_Terms = WP_REST_API_Term[];
+/**
  * UTC timestamp in IETF RFC 3339 date-time format (`YYYY-MM-DDThh:mm:ss+00:00`).
  */
 export type WP_REST_API_Date_Time_UTC = string;
@@ -116,30 +242,22 @@ export type WP_REST_API_Date_Time_UTC = string;
  * A collection of user objects in a REST API context.
  */
 export type WP_REST_API_Users = WP_REST_API_User[];
-/**
- * A collection of search result objects in a REST API context.
- */
-export type WP_REST_API_Search_Results = WP_REST_API_Search_Result[];
-/**
- * A collection of user application passwords in a REST API context.
- */
-export type WP_REST_API_Application_Passwords = WP_REST_API_Application_Password[];
 
 /**
  * WordPress is open source software you can use to create a beautiful website, blog, or app.
  */
 export interface WP {
-	Block: WP_Block;
-	Block_Type: WP_Block_Type;
 	Block_Template: WP_Block_Template;
+	Block_Type: WP_Block_Type;
+	Block: WP_Block;
 	Comment: WP_Comment;
-	Error: WP_Error;
 	Error_With_Error: WP_Error_With_Error;
 	Error_Without_Error: WP_Error_Without_Error;
+	Error: WP_Error;
 	Locale: WP_Locale;
 	Network: WP_Network;
-	Post: WP_Post;
 	Post_Type: WP_Post_Type;
+	Post: WP_Post;
 	Query: WP_Query;
 	Role: WP_Role;
 	Screen: WP_Screen;
@@ -148,123 +266,91 @@ export interface WP {
 	Term: WP_Term;
 	User: WP_User;
 	REST_API: {
-		Comment: WP_REST_API_Comment;
-		Comments: WP_REST_API_Comments;
-		Font_Collection: WP_REST_API_Font_Collection;
-		Font_Collections: WP_REST_API_Font_Collections;
-		Font_Family: WP_REST_API_Font_Family;
-		Font_Families: WP_REST_API_Font_Families;
-		Font_Face: WP_REST_API_Font_Face;
-		Font_Faces: WP_REST_API_Font_Faces;
-		Post: WP_REST_API_Post;
-		Posts: WP_REST_API_Posts;
-		Page: WP_REST_API_Page;
-		Pages: WP_REST_API_Pages;
+		Application_Password: WP_REST_API_Application_Password;
+		Application_Passwords: WP_REST_API_Application_Passwords;
 		Attachment: WP_REST_API_Attachment;
 		Attachments: WP_REST_API_Attachments;
-		Block: WP_REST_API_Block;
-		Blocks: WP_REST_API_Blocks;
 		Block_Directory_Item: WP_REST_API_Block_Directory_Item;
 		Block_Directory_Items: WP_REST_API_Block_Directory_Items;
-		Block_Pattern_Category: WP_REST_API_Block_Pattern_Category;
 		Block_Pattern_Categories: WP_REST_API_Block_Pattern_Categories;
+		Block_Pattern_Category: WP_REST_API_Block_Pattern_Category;
 		Block_Pattern: WP_REST_API_Block_Pattern;
 		Block_Patterns: WP_REST_API_Block_Patterns;
 		Block_Type: WP_REST_API_Block_Type;
 		Block_Types: WP_REST_API_Block_Types;
-		Revision: WP_REST_API_Revision;
-		Rendered_Block: WP_REST_API_Rendered_Block;
-		Revisions: WP_REST_API_Revisions;
-		Status: WP_REST_API_Status;
-		Statuses: WP_REST_API_Statuses;
-		Term: WP_REST_API_Term;
-		Terms: WP_REST_API_Terms;
-		Tag: WP_REST_API_Tag;
-		Tags: WP_REST_API_Tags;
-		Category: WP_REST_API_Category;
+		Block: WP_REST_API_Block;
+		Blocks: WP_REST_API_Blocks;
 		Categories: WP_REST_API_Categories;
-		User: WP_REST_API_User;
-		Users: WP_REST_API_Users;
+		Category: WP_REST_API_Category;
+		Comment: WP_REST_API_Comment;
+		Comments: WP_REST_API_Comments;
+		Font_Collection: WP_REST_API_Font_Collection;
+		Font_Collections: WP_REST_API_Font_Collections;
+		Font_Face: WP_REST_API_Font_Face;
+		Font_Faces: WP_REST_API_Font_Faces;
+		Font_Families: WP_REST_API_Font_Families;
+		Font_Family: WP_REST_API_Font_Family;
+		Global_Style_Config: WP_REST_API_Global_Style_Config;
+		Global_Style_Variation: WP_REST_API_Global_Style_Variation;
+		Global_Style_Variations: WP_REST_API_Global_Style_Variations;
+		Menu_Item: WP_REST_API_Menu_Item;
+		Menu_Items: WP_REST_API_Menu_Items;
+		Menu_Location: WP_REST_API_Menu_Location;
+		Menu_Locations: WP_REST_API_Menu_Locations;
+		Menu: WP_REST_API_Menu;
+		Menus: WP_REST_API_Menus;
+		Navigation_Menu: WP_REST_API_Navigation_Menu;
+		Navigation_Menus: WP_REST_API_Navigation_Menus;
+		Page: WP_REST_API_Page;
+		Pages: WP_REST_API_Pages;
+		Pattern_Directory_Pattern: WP_REST_API_Pattern_Directory_Pattern;
+		Pattern_Directory_Patterns: WP_REST_API_Pattern_Directory_Patterns;
+		Plugin: WP_REST_API_Plugin;
+		Plugins: WP_REST_API_Plugins;
+		Post: WP_REST_API_Post;
+		Posts: WP_REST_API_Posts;
+		Rendered_Block: WP_REST_API_Rendered_Block;
+		Revision: WP_REST_API_Revision;
+		Revisions: WP_REST_API_Revisions;
 		Search_Result: WP_REST_API_Search_Result;
 		Search_Results: WP_REST_API_Search_Results;
 		Settings: WP_REST_API_Settings;
-		Taxonomy: WP_REST_API_Taxonomy;
+		Status: WP_REST_API_Status;
+		Statuses: WP_REST_API_Statuses;
+		Tag: WP_REST_API_Tag;
+		Tags: WP_REST_API_Tags;
 		Taxonomies: WP_REST_API_Taxonomies;
+		Taxonomy: WP_REST_API_Taxonomy;
+		Term: WP_REST_API_Term;
+		Terms: WP_REST_API_Terms;
 		Type: WP_REST_API_Type;
 		Types: WP_REST_API_Types;
-		Application_Password: WP_REST_API_Application_Password;
-		Application_Passwords: WP_REST_API_Application_Passwords;
+		User: WP_REST_API_User;
+		Users: WP_REST_API_Users;
 		Error: WP_REST_API_Error;
 	};
 }
 /**
- * Class representing a parsed instance of a block.
+ * Core class representing a block template.
  */
-export interface WP_Block {
-	/**
-	 * Original parsed array representation of block.
-	 */
-	parsed_block: WP_Block_Parsed;
-	/**
-	 * Name of block.
-	 */
-	name: string;
-	/**
-	 * Block type associated with the instance.
-	 */
-	block_type: WP_Block_Type;
-	/**
-	 * Block context values.
-	 */
-	context:
-		| {
-				[k: string]: unknown;
-		  }
-		| EmptyArray;
-	/**
-	 * List of inner blocks (of this same class). Note that this is always empty as it represents a WP_Block_List instance which has no public properties.
-	 */
-	inner_blocks: EmptyArray | EmptyObject;
-	/**
-	 * Resultant HTML from inside block comment delimiters after removing inner blocks.
-	 */
-	inner_html: string;
-	/**
-	 * List of string fragments and null markers where inner blocks were found.
-	 */
-	inner_content: (string | null)[];
-	/**
-	 * Attributes validated against the current block schema, populating defaulted and missing values. Lazily loaded, so not always present.
-	 */
-	attributes?: {
-		[k: string]: any;
-	};
-}
-/**
- * Original parsed array representation of block.
- */
-export interface WP_Block_Parsed {
-	/**
-	 * Name of block.
-	 */
-	blockName: string;
-	attrs:
-		| {
-				[k: string]: any;
-		  }
-		| EmptyArray;
-	/**
-	 * List of inner blocks (of this same class).
-	 */
-	innerBlocks: WP_Block_Parsed[];
-	/**
-	 * Resultant HTML from inside block comment delimiters after removing inner blocks.
-	 */
-	innerHTML: string;
-	/**
-	 * List of string fragments and null markers where inner blocks were found.
-	 */
-	innerContent: (string | null)[];
+export interface WP_Block_Template {
+	type: string;
+	theme: string;
+	slug: string;
+	id: string;
+	title: string;
+	content: string;
+	description: string;
+	source: string;
+	origin: string | null;
+	wp_id: number | null;
+	status: string;
+	has_theme_file: boolean;
+	is_custom: boolean;
+	author: number | null;
+	post_types: string[] | null;
+	area: string | null;
+	modified: string | null;
 }
 /**
  * Core class representing a block type.
@@ -426,29 +512,76 @@ export interface WP_Block_Type {
 	style_handles: string[];
 	skip_inner_blocks?: boolean;
 }
-export interface EmptyObject {}
 /**
- * Core class representing a block template.
+ * Class representing a parsed instance of a block.
  */
-export interface WP_Block_Template {
-	type: string;
-	theme: string;
-	slug: string;
-	id: string;
-	title: string;
-	content: string;
-	description: string;
-	source: string;
-	origin: string | null;
-	wp_id: number | null;
-	status: string;
-	has_theme_file: boolean;
-	is_custom: boolean;
-	author: number | null;
-	post_types: string[] | null;
-	area: string | null;
-	modified: string | null;
+export interface WP_Block {
+	/**
+	 * Original parsed array representation of block.
+	 */
+	parsed_block: WP_Block_Parsed;
+	/**
+	 * Name of block.
+	 */
+	name: string;
+	/**
+	 * Block type associated with the instance.
+	 */
+	block_type: WP_Block_Type;
+	/**
+	 * Block context values.
+	 */
+	context:
+		| {
+				[k: string]: unknown;
+		  }
+		| EmptyArray;
+	/**
+	 * List of inner blocks (of this same class). Note that this is always empty as it represents a WP_Block_List instance which has no public properties.
+	 */
+	inner_blocks: EmptyArray | EmptyObject;
+	/**
+	 * Resultant HTML from inside block comment delimiters after removing inner blocks.
+	 */
+	inner_html: string;
+	/**
+	 * List of string fragments and null markers where inner blocks were found.
+	 */
+	inner_content: (string | null)[];
+	/**
+	 * Attributes validated against the current block schema, populating defaulted and missing values. Lazily loaded, so not always present.
+	 */
+	attributes?: {
+		[k: string]: any;
+	};
 }
+/**
+ * Original parsed array representation of block.
+ */
+export interface WP_Block_Parsed {
+	/**
+	 * Name of block.
+	 */
+	blockName: string;
+	attrs:
+		| {
+				[k: string]: any;
+		  }
+		| EmptyArray;
+	/**
+	 * List of inner blocks (of this same class).
+	 */
+	innerBlocks: WP_Block_Parsed[];
+	/**
+	 * Resultant HTML from inside block comment delimiters after removing inner blocks.
+	 */
+	innerHTML: string;
+	/**
+	 * List of string fragments and null markers where inner blocks were found.
+	 */
+	innerContent: (string | null)[];
+}
+export interface EmptyObject {}
 /**
  * Core class used to organize comments as instantiated objects with defined members.
  */
@@ -527,13 +660,13 @@ export interface WP_Comment {
 /**
  * WordPress Error class.
  *
- * Container for checking for WordPress errors and error messages. Many core WordPress functions pass this class in the event of an error.
+ * Represents a WP_Error object that contains at least one error.
  */
-export interface WP_Error {
+export interface WP_Error_With_Error {
 	/**
 	 * Stores the list of errors.
 	 */
-	errors: EmptyArray | WP_Error_Messages;
+	errors: WP_Error_Messages;
 	/**
 	 * Stores the list of data for error codes.
 	 */
@@ -546,21 +679,6 @@ export interface WP_Error {
  */
 export interface WP_Error_Messages {
 	[k: string]: string[];
-}
-/**
- * WordPress Error class.
- *
- * Represents a WP_Error object that contains at least one error.
- */
-export interface WP_Error_With_Error {
-	/**
-	 * Stores the list of errors.
-	 */
-	errors: WP_Error_Messages;
-	/**
-	 * Stores the list of data for error codes.
-	 */
-	error_data: WP_Error_Data;
 }
 /**
  * Empty WordPress Error class.
@@ -576,6 +694,21 @@ export interface WP_Error_Without_Error {
 	 * Stores the list of data for error codes.
 	 */
 	error_data: EmptyArray;
+}
+/**
+ * WordPress Error class.
+ *
+ * Container for checking for WordPress errors and error messages. Many core WordPress functions pass this class in the event of an error.
+ */
+export interface WP_Error {
+	/**
+	 * Stores the list of errors.
+	 */
+	errors: EmptyArray | WP_Error_Messages;
+	/**
+	 * Stores the list of data for error codes.
+	 */
+	error_data: WP_Error_Data;
 }
 /**
  * Core class used to store translated data for a locale.
@@ -688,111 +821,6 @@ export interface WP_Network {
 	 * Named "site" vs. "network" for legacy reasons.
 	 */
 	site_name: string;
-}
-/**
- * Core class used to implement the WP_Post object.
- */
-export interface WP_Post {
-	/**
-	 * Post ID.
-	 */
-	ID: number;
-	/**
-	 * ID of post author.
-	 *
-	 * A numeric string, for compatibility reasons.
-	 */
-	post_author: string;
-	/**
-	 * The post's local publication time.
-	 */
-	post_date: WP_Date_Time;
-	/**
-	 * The post's GMT publication time.
-	 */
-	post_date_gmt: WP_Date_Time;
-	/**
-	 * The post's content.
-	 */
-	post_content: string;
-	/**
-	 * The post's title.
-	 */
-	post_title: string;
-	/**
-	 * The post's excerpt.
-	 */
-	post_excerpt: string;
-	/**
-	 * The post's status.
-	 */
-	post_status: WP_Post_Status_Name | string;
-	/**
-	 * Whether comments are allowed.
-	 */
-	comment_status: WP_Post_Comment_Status_Name;
-	/**
-	 * Whether pings are allowed.
-	 */
-	ping_status: WP_Post_Comment_Status_Name;
-	/**
-	 * The post's password in plain text.
-	 */
-	post_password: "" | string;
-	/**
-	 * The post's slug.
-	 */
-	post_name: string;
-	/**
-	 * URLs queued to be pinged.
-	 */
-	to_ping: "" | string;
-	/**
-	 * URLs that have been pinged.
-	 */
-	pinged: "" | string;
-	/**
-	 * The post's local modified time.
-	 */
-	post_modified: WP_Date_Time;
-	/**
-	 * The post's GMT modified time.
-	 */
-	post_modified_gmt: WP_Date_Time;
-	/**
-	 * A utility DB field for post content.
-	 */
-	post_content_filtered: string;
-	/**
-	 * ID of a post's parent post.
-	 */
-	post_parent: number;
-	/**
-	 * The unique identifier for a post, not necessarily a URL, used as the feed GUID.
-	 */
-	guid: string;
-	/**
-	 * A field used for ordering posts.
-	 */
-	menu_order: number;
-	/**
-	 * The post's type, like post or page.
-	 */
-	post_type: WP_Post_Type_Name | string;
-	/**
-	 * An attachment's mime type.
-	 */
-	post_mime_type: string | "";
-	/**
-	 * Cached comment count.
-	 *
-	 * A numeric string, for compatibility reasons.
-	 */
-	comment_count: string;
-	/**
-	 * Stores the post object's sanitization level.
-	 */
-	filter: WP_Object_Filter_Context | null;
 }
 /**
  * Core class used for interacting with post types.
@@ -1049,6 +1077,111 @@ export interface WP_Post_Type_Rewrite {
 	 */
 	ep_mask: number;
 	[k: string]: unknown;
+}
+/**
+ * Core class used to implement the WP_Post object.
+ */
+export interface WP_Post {
+	/**
+	 * Post ID.
+	 */
+	ID: number;
+	/**
+	 * ID of post author.
+	 *
+	 * A numeric string, for compatibility reasons.
+	 */
+	post_author: string;
+	/**
+	 * The post's local publication time.
+	 */
+	post_date: WP_Date_Time;
+	/**
+	 * The post's GMT publication time.
+	 */
+	post_date_gmt: WP_Date_Time;
+	/**
+	 * The post's content.
+	 */
+	post_content: string;
+	/**
+	 * The post's title.
+	 */
+	post_title: string;
+	/**
+	 * The post's excerpt.
+	 */
+	post_excerpt: string;
+	/**
+	 * The post's status.
+	 */
+	post_status: WP_Post_Status_Name | string;
+	/**
+	 * Whether comments are allowed.
+	 */
+	comment_status: WP_Post_Comment_Status_Name;
+	/**
+	 * Whether pings are allowed.
+	 */
+	ping_status: WP_Post_Comment_Status_Name;
+	/**
+	 * The post's password in plain text.
+	 */
+	post_password: "" | string;
+	/**
+	 * The post's slug.
+	 */
+	post_name: string;
+	/**
+	 * URLs queued to be pinged.
+	 */
+	to_ping: "" | string;
+	/**
+	 * URLs that have been pinged.
+	 */
+	pinged: "" | string;
+	/**
+	 * The post's local modified time.
+	 */
+	post_modified: WP_Date_Time;
+	/**
+	 * The post's GMT modified time.
+	 */
+	post_modified_gmt: WP_Date_Time;
+	/**
+	 * A utility DB field for post content.
+	 */
+	post_content_filtered: string;
+	/**
+	 * ID of a post's parent post.
+	 */
+	post_parent: number;
+	/**
+	 * The unique identifier for a post, not necessarily a URL, used as the feed GUID.
+	 */
+	guid: string;
+	/**
+	 * A field used for ordering posts.
+	 */
+	menu_order: number;
+	/**
+	 * The post's type, like post or page.
+	 */
+	post_type: WP_Post_Type_Name | string;
+	/**
+	 * An attachment's mime type.
+	 */
+	post_mime_type: string | "";
+	/**
+	 * Cached comment count.
+	 *
+	 * A numeric string, for compatibility reasons.
+	 */
+	comment_count: string;
+	/**
+	 * Stores the post object's sanitization level.
+	 */
+	filter: WP_Object_Filter_Context | null;
 }
 /**
  * The WordPress Query class.
@@ -1776,122 +1909,38 @@ export interface WP_Taxonomy_Rewrite {
 	[k: string]: unknown;
 }
 /**
- * A comment object in a REST API context.
+ * A user application password in a REST API context.
  */
-export interface WP_REST_API_Comment {
+export interface WP_REST_API_Application_Password {
 	/**
-	 * Unique identifier for the object.
+	 * The unique identifier for the application password.
 	 */
-	id: number;
+	uuid: string;
 	/**
-	 * The ID of the user object, if author was a user.
+	 * A UUID provided by the application to uniquely identify it. It is recommended to use an UUID v5 with the URL or DNS namespace.
 	 */
-	author: number;
+	app_id: string;
 	/**
-	 * Email address for the comment author. Only present when using the 'edit' context.
+	 * The name of the application password.
 	 */
-	author_email?: string | "";
+	name: string;
 	/**
-	 * IP address for the comment author. Only present when using the 'edit' context.
+	 * The generated password. Only available after adding an application.
 	 */
-	author_ip?: string | "";
+	password?: string;
 	/**
-	 * Display name for the comment author.
+	 * The GMT date the application password was created.
 	 */
-	author_name: string;
+	created: WP_REST_API_Date_Time;
 	/**
-	 * URL for the comment author.
+	 * The GMT date the application password was last used.
 	 */
-	author_url: string | "";
+	last_used: WP_REST_API_Date_Time | null;
 	/**
-	 * User agent for the comment author. Only present when using the 'edit' context.
+	 * The IP address the application password was last used by.
 	 */
-	author_user_agent?: string;
-	/**
-	 * The content for the comment.
-	 */
-	content: {
-		/**
-		 * Content for the comment, as it exists in the database. Only present when using the 'edit' context.
-		 */
-		raw?: string;
-		/**
-		 * HTML content for the comment, transformed for display.
-		 */
-		rendered?: string;
-	};
-	/**
-	 * The date the comment was published, in the site's timezone.
-	 */
-	date: WP_REST_API_Date_Time;
-	/**
-	 * The date the comment was published, as GMT.
-	 */
-	date_gmt: WP_REST_API_Date_Time;
-	/**
-	 * URL to the comment.
-	 */
-	link: string;
-	/**
-	 * The ID for the parent of the comment.
-	 */
-	parent: number;
-	/**
-	 * The ID of the associated post object.
-	 */
-	post: number;
-	/**
-	 * State of the comment.
-	 */
-	status: WP_Comment_Status_Name | string;
-	/**
-	 * Type of comment.
-	 */
-	type: WP_Comment_Type_Name | string;
-	/**
-	 * Avatar URLs for the comment author.
-	 */
-	author_avatar_urls?: {
-		/**
-		 * Avatar URL with image size of 24 pixels.
-		 */
-		"24": string;
-		/**
-		 * Avatar URL with image size of 48 pixels.
-		 */
-		"48": string;
-		/**
-		 * Avatar URL with image size of 96 pixels.
-		 */
-		"96": string;
-		/**
-		 * Avatar URL with image of another size.
-		 */
-		[k: string]: string;
-	};
-	/**
-	 * Meta fields.
-	 */
-	meta:
-		| EmptyArray
-		| {
-				[k: string]: unknown;
-		  };
-	_links: WP_REST_API_Object_Links;
-	/**
-	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
-	 */
-	_embedded?: {
-		/**
-		 * The author of the comment.
-		 */
-		author?: unknown[];
-		/**
-		 * The associated post.
-		 */
-		up?: unknown[];
-		[k: string]: unknown;
-	};
+	last_ip: string | null;
+	_links?: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }
 /**
@@ -1903,394 +1952,6 @@ export interface WP_REST_API_Object_Links {
 		embeddable?: boolean;
 		[k: string]: unknown;
 	}[];
-}
-/**
- * A font collection object in a REST API context.
- */
-export interface WP_REST_API_Font_Collection {
-	/**
-	 * Unique identifier for the font collection.
-	 */
-	slug: string;
-	/**
-	 * The name for the font collection.
-	 */
-	name: string;
-	/**
-	 * The description for the font collection.
-	 */
-	description: string;
-	/**
-	 * The font families for the font collection.
-	 */
-	font_families: {
-		font_family_settings: WP_Font_Family_Settings;
-		categories?: string[];
-	}[];
-	/**
-	 * The categories for the font collection.
-	 */
-	categories: {
-		name: string;
-		slug: string;
-	}[];
-	_links: WP_REST_API_Object_Links;
-	[k: string]: unknown;
-}
-/**
- * Font family settings.
- */
-export interface WP_Font_Family_Settings {
-	name: string;
-	fontFamily: string;
-	slug: string;
-	fontFace?: WP_Font_Face[];
-	preview?: string;
-}
-/**
- * A font face.
- */
-export interface WP_Font_Face {
-	/**
-	 * URL to a preview image of the font.
-	 */
-	preview?: string;
-	/**
-	 * CSS font-family value.
-	 */
-	fontFamily: string;
-	/**
-	 * CSS font-style value.
-	 */
-	fontStyle?: string;
-	/**
-	 * List of available font weights, separated by a space.
-	 */
-	fontWeight?: string | number;
-	/**
-	 * CSS font-display value.
-	 */
-	fontDisplay?: "auto" | "block" | "fallback" | "swap" | "optional";
-	/**
-	 * Paths or URLs to the font files.
-	 */
-	src: string | string[];
-	/**
-	 * CSS font-stretch value.
-	 */
-	fontStretch?: string;
-	/**
-	 * CSS ascent-override value.
-	 */
-	ascentOverride?: string;
-	/**
-	 * CSS descent-override value.
-	 */
-	descentOverride?: string;
-	/**
-	 * CSS font-variant value.
-	 */
-	fontVariant?: string;
-	/**
-	 * CSS font-feature-settings value.
-	 */
-	fontFeatureSettings?: string;
-	/**
-	 * CSS font-variation-settings value.
-	 */
-	fontVariationSettings?: string;
-	/**
-	 * CSS line-gap-override value.
-	 */
-	lineGapOverride?: string;
-	/**
-	 * CSS size-adjust value.
-	 */
-	sizeAdjust?: string;
-	/**
-	 * CSS unicode-range value.
-	 */
-	unicodeRange?: string;
-}
-/**
- * A font family object in a REST API context.
- */
-export interface WP_REST_API_Font_Family {
-	/**
-	 * Unique identifier for the font family.
-	 */
-	id: number;
-	/**
-	 * Version of the theme.json schema used for the typography settings.
-	 */
-	theme_json_version: number;
-	/**
-	 * The IDs of the child font faces in the font family.
-	 */
-	font_faces: number[];
-	font_family_settings: WP_Font_Family_Settings;
-	_links: WP_REST_API_Object_Links;
-	/**
-	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
-	 */
-	_embedded?: {
-		/**
-		 * The associated font faces.
-		 */
-		font_faces?: unknown[];
-		[k: string]: unknown;
-	};
-	[k: string]: unknown;
-}
-/**
- * A font face object in a REST API context.
- */
-export interface WP_REST_API_Font_Face {
-	/**
-	 * Unique identifier for the font face.
-	 */
-	id: number;
-	/**
-	 * Version of the theme.json schema used for the typography settings.
-	 */
-	theme_json_version: number;
-	/**
-	 * The ID for the parent font family of the font face.
-	 */
-	parent: number;
-	/**
-	 * font-face declaration in theme.json format.
-	 */
-	font_face_settings: {
-		/**
-		 * Unique identifier for the font family.
-		 */
-		id?: number;
-		/**
-		 * Version of the theme.json schema used for the typography settings.
-		 */
-		theme_json_version?: number;
-		/**
-		 * The IDs of the child font faces in the font family.
-		 */
-		font_faces?: number[];
-		font_family_settings?: WP_Font_Family_Settings;
-		_links?: WP_REST_API_Object_Links;
-		/**
-		 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
-		 */
-		_embedded?: {
-			/**
-			 * The associated font faces.
-			 */
-			font_faces?: unknown[];
-			[k: string]: unknown;
-		};
-		[k: string]: unknown;
-	};
-	_links: WP_REST_API_Object_Links;
-	[k: string]: unknown;
-}
-/**
- * A post object in a REST API context.
- */
-export interface WP_REST_API_Post {
-	/**
-	 * The date the post was published, in the site's timezone.
-	 */
-	date: WP_REST_API_Date_Time;
-	/**
-	 * The date the post was published, as GMT.
-	 */
-	date_gmt: WP_REST_API_Date_Time;
-	/**
-	 * The globally unique identifier for the post.
-	 */
-	guid: {
-		/**
-		 * GUID for the post, as it exists in the database. Only present when using the 'edit' context.
-		 */
-		raw?: string;
-		/**
-		 * GUID for the post, transformed for display.
-		 */
-		rendered: string;
-	};
-	/**
-	 * Unique identifier for the post.
-	 */
-	id: number;
-	/**
-	 * URL to the post.
-	 */
-	link: string;
-	/**
-	 * The date the post was last modified, in the site's timezone.
-	 */
-	modified: WP_REST_API_Date_Time;
-	/**
-	 * The date the post was last modified, as GMT.
-	 */
-	modified_gmt: WP_REST_API_Date_Time;
-	/**
-	 * An alphanumeric identifier for the post unique to its type.
-	 */
-	slug: string;
-	/**
-	 * A named status for the post.
-	 */
-	status: WP_Post_Status_Name | string;
-	/**
-	 * Type of Post for the post.
-	 */
-	type: WP_Post_Type_Name | string;
-	/**
-	 * A password to protect access to the content and excerpt. Only present when using the 'edit' context.
-	 */
-	password?: string;
-	/**
-	 * Permalink template for the post. Only present when using the 'edit' context and the post type is public.
-	 */
-	permalink_template?: string;
-	/**
-	 * Slug automatically generated from the post title. Only present when using the 'edit' context and the post type is public.
-	 */
-	generated_slug?: string;
-	/**
-	 * The ID for the parent of the post. Only present for hierarchical post types.
-	 */
-	parent?: number;
-	/**
-	 * A field used for ordering posts.
-	 */
-	menu_order?: number;
-	/**
-	 * An array of the class names for the post container element.
-	 */
-	class_list: string[];
-	/**
-	 * The title for the post.
-	 */
-	title: {
-		/**
-		 * Title for the post, as it exists in the database. Only present when using the 'edit' context.
-		 */
-		raw?: string;
-		/**
-		 * HTML title for the post, transformed for display.
-		 */
-		rendered: string;
-	};
-	/**
-	 * The content for the post.
-	 */
-	content: {
-		/**
-		 * Content for the post, as it exists in the database. Only present when using the 'edit' context.
-		 */
-		raw?: string;
-		/**
-		 * HTML content for the post, transformed for display.
-		 */
-		rendered: string;
-		/**
-		 * Version of the content block format used by the post. Only present when using the 'edit' context.
-		 */
-		block_version?: number;
-		/**
-		 * Whether the content is protected with a password.
-		 */
-		protected: boolean;
-	};
-	/**
-	 * The ID for the author of the post.
-	 */
-	author: number;
-	/**
-	 * The excerpt for the post.
-	 */
-	excerpt: {
-		/**
-		 * Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.
-		 */
-		raw?: string;
-		/**
-		 * HTML excerpt for the post, transformed for display.
-		 */
-		rendered: string;
-		/**
-		 * Whether the excerpt is protected with a password.
-		 */
-		protected: boolean;
-	};
-	/**
-	 * The ID of the featured media for the post.
-	 */
-	featured_media?: number;
-	/**
-	 * Whether or not comments are open on the post.
-	 */
-	comment_status: WP_Post_Comment_Status_Name;
-	/**
-	 * Whether or not the post can be pinged.
-	 */
-	ping_status: WP_Post_Comment_Status_Name;
-	/**
-	 * The format for the post.
-	 */
-	format?: WP_Post_Format_Name;
-	/**
-	 * Meta fields.
-	 */
-	meta:
-		| EmptyArray
-		| {
-				[k: string]: unknown;
-		  };
-	/**
-	 * Whether or not the post should be treated as sticky. Only present for the 'post' post type.
-	 */
-	sticky?: boolean;
-	/**
-	 * The theme file to use to display the post.
-	 */
-	template?: string;
-	/**
-	 * The terms assigned to the post in the category taxonomy. Only present for post types that support categories.
-	 */
-	categories?: number[];
-	/**
-	 * The terms assigned to the post in the post_tag taxonomy. Only present for post types that support tags.
-	 */
-	tags?: number[];
-	_links: WP_REST_API_Object_Links;
-	/**
-	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
-	 */
-	_embedded?: {
-		/**
-		 * The author of the post.
-		 */
-		author: unknown[];
-		/**
-		 * The replies to the post (comments, pingbacks, trackbacks).
-		 */
-		replies?: unknown[];
-		/**
-		 * The taxonomy terms for the post.
-		 */
-		"wp:term"?: unknown[];
-		/**
-		 * The featured image post.
-		 */
-		"wp:featuredmedia"?: unknown[];
-		/**
-		 * The parent post.
-		 */
-		up?: unknown[];
-		[k: string]: unknown;
-	};
-	[k: string]: unknown;
 }
 /**
  * A media attachment object in a REST API context.
@@ -2469,128 +2130,6 @@ export interface WP_REST_API_Attachment {
 		"wp:featuredmedia"?: unknown[];
 		[k: string]: unknown;
 	};
-	[k: string]: unknown;
-}
-/**
- * A reusable block object in a REST API context.
- */
-export interface WP_REST_API_Block {
-	/**
-	 * The date the block was published, in the site's timezone.
-	 */
-	date: WP_REST_API_Date_Time;
-	/**
-	 * The date the block was published, as GMT.
-	 */
-	date_gmt: WP_REST_API_Date_Time;
-	/**
-	 * The globally unique identifier for the block.
-	 */
-	guid: {
-		/**
-		 * GUID for the block, as it exists in the database. Only present when using the 'edit' context.
-		 */
-		raw?: string;
-		/**
-		 * GUID for the block, transformed for display.
-		 */
-		rendered: string;
-	};
-	/**
-	 * Unique identifier for the block.
-	 */
-	id: number;
-	/**
-	 * URL to the block.
-	 */
-	link: string;
-	/**
-	 * The date the block was last modified, in the site's timezone.
-	 */
-	modified: WP_REST_API_Date_Time;
-	/**
-	 * The date the block was last modified, as GMT.
-	 */
-	modified_gmt: WP_REST_API_Date_Time;
-	/**
-	 * An alphanumeric identifier for the block unique to its type.
-	 */
-	slug: string;
-	/**
-	 * A named status for the block.
-	 */
-	status: WP_Post_Status_Name | string;
-	/**
-	 * Type of Post for the block.
-	 */
-	type: WP_Post_Type_Name.wp_block;
-	/**
-	 * A password to protect access to the content and excerpt. Only present when using the 'edit' context.
-	 */
-	password?: string;
-	/**
-	 * The title for the block.
-	 */
-	title: {
-		/**
-		 * Title for the block, as it exists in the database.
-		 */
-		raw: string;
-	};
-	/**
-	 * The content for the block.
-	 */
-	content: {
-		/**
-		 * Content for the block, as it exists in the database.
-		 */
-		raw: string;
-		/**
-		 * Version of the content block format used by the block. Only present when using the 'edit' context.
-		 */
-		block_version?: number;
-		/**
-		 * Whether the content is protected with a password.
-		 */
-		protected: boolean;
-	};
-	/**
-	 * The excerpt for the block.
-	 */
-	excerpt?: {
-		/**
-		 * Excerpt for the block, as it exists in the database. Only present when using the 'edit' context.
-		 */
-		raw?: string;
-		/**
-		 * HTML content for the post excerpt, transformed for display.
-		 */
-		rendered: string;
-		/**
-		 * Whether the content is protected with a password.
-		 */
-		protected: boolean;
-	};
-	wp_pattern_sync_status: "" | "partial" | "unsynced";
-	/**
-	 * Pattern categories.
-	 */
-	wp_pattern_category?: {
-		[k: string]: unknown;
-	};
-	/**
-	 * The theme file to use to display the block.
-	 */
-	template?: string;
-	/**
-	 * Meta fields.
-	 */
-	meta?:
-		| EmptyArray
-		| {
-				[k: string]: unknown;
-		  };
-	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }
 /**
@@ -2852,6 +2391,10 @@ export interface WP_REST_API_Block_Type {
 		 */
 		name: string;
 		/**
+		 * Indicates whether the current variation is the default one.
+		 */
+		isDefault?: boolean;
+		/**
 		 * The human-readable label for the style.
 		 */
 		label?: string;
@@ -2863,7 +2406,6 @@ export interface WP_REST_API_Block_Type {
 		 * Contains the handle that defines the block style.
 		 */
 		style_handle?: string;
-		[k: string]: unknown;
 	}[];
 	/**
 	 * Block variations.
@@ -2942,166 +2484,126 @@ export interface WP_REST_API_Block_Type {
 	[k: string]: unknown;
 }
 /**
- * A post revision object in a REST API context.
+ * A reusable block object in a REST API context.
  */
-export interface WP_REST_API_Revision {
+export interface WP_REST_API_Block {
 	/**
-	 * The ID for the author of the revision.
-	 */
-	author: number;
-	/**
-	 * The date the revision was published, in the site's timezone.
+	 * The date the block was published, in the site's timezone.
 	 */
 	date: WP_REST_API_Date_Time;
 	/**
-	 * The date the revision was published, as GMT.
+	 * The date the block was published, as GMT.
 	 */
 	date_gmt: WP_REST_API_Date_Time;
 	/**
-	 * The globally unique identifier for the post.
+	 * The globally unique identifier for the block.
 	 */
 	guid: {
 		/**
-		 * GUID for the post, as it exists in the database. Only present when using the 'edit' context.
+		 * GUID for the block, as it exists in the database. Only present when using the 'edit' context.
 		 */
 		raw?: string;
 		/**
-		 * GUID for the post, transformed for display.
+		 * GUID for the block, transformed for display.
 		 */
 		rendered: string;
-		[k: string]: unknown;
 	};
 	/**
-	 * Unique identifier for the revision.
+	 * Unique identifier for the block.
 	 */
 	id: number;
 	/**
-	 * The date the revision was last modified, in the site's timezone.
+	 * URL to the block.
+	 */
+	link: string;
+	/**
+	 * The date the block was last modified, in the site's timezone.
 	 */
 	modified: WP_REST_API_Date_Time;
 	/**
-	 * The date the revision was last modified, as GMT.
+	 * The date the block was last modified, as GMT.
 	 */
 	modified_gmt: WP_REST_API_Date_Time;
 	/**
-	 * The ID for the parent of the revision.
-	 */
-	parent: number;
-	/**
-	 * An alphanumeric identifier for the revision unique to its type.
+	 * An alphanumeric identifier for the block unique to its type.
 	 */
 	slug: string;
 	/**
-	 * The title for the post.
+	 * A named status for the block.
+	 */
+	status: WP_Post_Status_Name | string;
+	/**
+	 * Type of Post for the block.
+	 */
+	type: WP_Post_Type_Name.wp_block;
+	/**
+	 * A password to protect access to the content and excerpt. Only present when using the 'edit' context.
+	 */
+	password?: string;
+	/**
+	 * The title for the block.
 	 */
 	title: {
 		/**
-		 * Title for the post, as it exists in the database. Only present when using the 'edit' context.
+		 * Title for the block, as it exists in the database.
 		 */
-		raw?: string;
-		/**
-		 * HTML title for the post, transformed for display.
-		 */
-		rendered: string;
-		[k: string]: unknown;
+		raw: string;
 	};
 	/**
-	 * The content for the post.
+	 * The content for the block.
 	 */
 	content: {
 		/**
-		 * Content for the post, as it exists in the database. Only present when using the 'edit' context.
+		 * Content for the block, as it exists in the database.
 		 */
-		raw?: string;
+		raw: string;
 		/**
-		 * HTML content for the post, transformed for display.
-		 */
-		rendered: string;
-		/**
-		 * Version of the content block format used by the post. Only present when using the 'edit' context.
+		 * Version of the content block format used by the block. Only present when using the 'edit' context.
 		 */
 		block_version?: number;
-		[k: string]: unknown;
+		/**
+		 * Whether the content is protected with a password.
+		 */
+		protected: boolean;
 	};
 	/**
-	 * The excerpt for the post.
+	 * The excerpt for the block.
 	 */
 	excerpt?: {
 		/**
-		 * Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.
+		 * Excerpt for the block, as it exists in the database. Only present when using the 'edit' context.
 		 */
 		raw?: string;
 		/**
-		 * HTML excerpt for the post, transformed for display.
+		 * HTML content for the post excerpt, transformed for display.
 		 */
 		rendered: string;
+		/**
+		 * Whether the content is protected with a password.
+		 */
+		protected: boolean;
+	};
+	wp_pattern_sync_status: "" | "partial" | "unsynced";
+	/**
+	 * Pattern categories.
+	 */
+	wp_pattern_category?: {
 		[k: string]: unknown;
 	};
 	/**
+	 * The theme file to use to display the block.
+	 */
+	template?: string;
+	/**
 	 * Meta fields.
 	 */
-	meta:
+	meta?:
 		| EmptyArray
 		| {
 				[k: string]: unknown;
 		  };
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
-}
-/**
- * A rendered dynamic block in a REST API context. Only accessible with the 'edit' context.
- */
-export interface WP_REST_API_Rendered_Block {
-	/**
-	 * The rendered block.
-	 */
-	rendered: string;
-	[k: string]: unknown;
-}
-/**
- * A post status object in a REST API context.
- */
-export interface WP_REST_API_Status {
-	/**
-	 * The title for the status.
-	 */
-	name: string;
-	/**
-	 * Whether posts with this status should be private. Only present when using the 'edit' context.
-	 */
-	private?: boolean;
-	/**
-	 * Whether posts with this status should be protected. Only present when using the 'edit' context.
-	 */
-	protected?: boolean;
-	/**
-	 * Whether posts of this status should be shown in the front end of the site.
-	 */
-	public: boolean;
-	/**
-	 * Whether posts with this status should be publicly-queryable.
-	 */
-	queryable: boolean;
-	/**
-	 * Whether to include posts in the edit listing for their post type. Only present when using the 'edit' context.
-	 */
-	show_in_list?: boolean;
-	/**
-	 * An alphanumeric identifier for the status.
-	 */
-	slug: string;
-	/**
-	 * Whether posts of this status may have floating published dates.
-	 */
-	date_floating: boolean;
-	_links: WP_REST_API_Object_Links;
-	[k: string]: unknown;
-}
-/**
- * A collection of post status objects in a REST API context.
- */
-export interface WP_REST_API_Statuses {
-	[k: string]: WP_REST_API_Status;
 }
 /**
  * A taxonomy term object in a REST API context.
@@ -3151,77 +2653,82 @@ export interface WP_REST_API_Term {
 	[k: string]: unknown;
 }
 /**
- * A user object in a REST API context.
+ * A comment object in a REST API context.
  */
-export interface WP_REST_API_User {
+export interface WP_REST_API_Comment {
 	/**
-	 * Unique identifier for the user.
+	 * Unique identifier for the object.
 	 */
 	id: number;
 	/**
-	 * Login name for the user. Only present when using the 'edit' context.
+	 * The ID of the user object, if author was a user.
 	 */
-	username?: string;
+	author: number;
 	/**
-	 * Display name for the user.
+	 * Email address for the comment author. Only present when using the 'edit' context.
 	 */
-	name: string;
+	author_email?: string | "";
 	/**
-	 * First name for the user. Only present when using the 'edit' context.
+	 * IP address for the comment author. Only present when using the 'edit' context.
 	 */
-	first_name?: string;
+	author_ip?: string | "";
 	/**
-	 * Last name for the user. Only present when using the 'edit' context.
+	 * Display name for the comment author.
 	 */
-	last_name?: string;
+	author_name: string;
 	/**
-	 * The email address for the user. Only present when using the 'edit' context.
+	 * URL for the comment author.
 	 */
-	email?: string | "";
+	author_url: string | "";
 	/**
-	 * URL of the user.
+	 * User agent for the comment author. Only present when using the 'edit' context.
 	 */
-	url: string | "";
+	author_user_agent?: string;
 	/**
-	 * Description of the user.
+	 * The content for the comment.
 	 */
-	description: string;
+	content: {
+		/**
+		 * Content for the comment, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML content for the comment, transformed for display.
+		 */
+		rendered?: string;
+	};
 	/**
-	 * Author URL of the user.
+	 * The date the comment was published, in the site's timezone.
+	 */
+	date: WP_REST_API_Date_Time;
+	/**
+	 * The date the comment was published, as GMT.
+	 */
+	date_gmt: WP_REST_API_Date_Time;
+	/**
+	 * URL to the comment.
 	 */
 	link: string;
 	/**
-	 * Locale for the user. Only present when using the 'edit' context.
+	 * The ID for the parent of the comment.
 	 */
-	locale?: string;
+	parent: number;
 	/**
-	 * The nickname for the user. Only present when using the 'edit' context.
+	 * The ID of the associated post object.
 	 */
-	nickname?: string;
+	post: number;
 	/**
-	 * An alphanumeric identifier for the user.
+	 * State of the comment.
 	 */
-	slug: string;
+	status: WP_Comment_Status_Name | string;
 	/**
-	 * Registration date for the user in UTC. Only present when using the 'edit' context.
+	 * Type of comment.
 	 */
-	registered_date?: WP_REST_API_Date_Time_UTC;
+	type: WP_Comment_Type_Name | string;
 	/**
-	 * Roles assigned to the user. Only present when using the 'edit' context.
+	 * Avatar URLs for the comment author.
 	 */
-	roles?: (WP_User_Role_Name | string)[];
-	/**
-	 * All capabilities assigned to the user. Only present when using the 'edit' context.
-	 */
-	capabilities?: WP_User_Caps;
-	/**
-	 * Any extra capabilities assigned to the user. Only present when using the 'edit' context.
-	 */
-	extra_capabilities?: WP_User_Caps;
-	/**
-	 * Avatar URLs for the user.
-	 */
-	avatar_urls?: {
+	author_avatar_urls?: {
 		/**
 		 * Avatar URL with image size of 24 pixels.
 		 */
@@ -3238,6 +2745,840 @@ export interface WP_REST_API_User {
 		 * Avatar URL with image of another size.
 		 */
 		[k: string]: string;
+	};
+	/**
+	 * Meta fields.
+	 */
+	meta:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
+	_links: WP_REST_API_Object_Links;
+	/**
+	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+	 */
+	_embedded?: {
+		/**
+		 * The author of the comment.
+		 */
+		author?: unknown[];
+		/**
+		 * The associated post.
+		 */
+		up?: unknown[];
+		[k: string]: unknown;
+	};
+	[k: string]: unknown;
+}
+/**
+ * A font collection object in a REST API context.
+ */
+export interface WP_REST_API_Font_Collection {
+	/**
+	 * Unique identifier for the font collection.
+	 */
+	slug: string;
+	/**
+	 * The name for the font collection.
+	 */
+	name: string;
+	/**
+	 * The description for the font collection.
+	 */
+	description: string;
+	/**
+	 * The font families for the font collection.
+	 */
+	font_families: {
+		font_family_settings: WP_Font_Family_Settings;
+		categories?: string[];
+	}[];
+	/**
+	 * The categories for the font collection.
+	 */
+	categories: {
+		name: string;
+		slug: string;
+	}[];
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * Font family settings.
+ */
+export interface WP_Font_Family_Settings {
+	name: string;
+	fontFamily: string;
+	slug: string;
+	fontFace?: WP_Font_Face[];
+	preview?: string;
+}
+/**
+ * A font face.
+ */
+export interface WP_Font_Face {
+	/**
+	 * URL to a preview image of the font.
+	 */
+	preview?: string;
+	/**
+	 * CSS font-family value.
+	 */
+	fontFamily: string;
+	/**
+	 * CSS font-style value.
+	 */
+	fontStyle?: string;
+	/**
+	 * List of available font weights, separated by a space.
+	 */
+	fontWeight?: string | number;
+	/**
+	 * CSS font-display value.
+	 */
+	fontDisplay?: "auto" | "block" | "fallback" | "swap" | "optional";
+	/**
+	 * Paths or URLs to the font files.
+	 */
+	src: string | string[];
+	/**
+	 * CSS font-stretch value.
+	 */
+	fontStretch?: string;
+	/**
+	 * CSS ascent-override value.
+	 */
+	ascentOverride?: string;
+	/**
+	 * CSS descent-override value.
+	 */
+	descentOverride?: string;
+	/**
+	 * CSS font-variant value.
+	 */
+	fontVariant?: string;
+	/**
+	 * CSS font-feature-settings value.
+	 */
+	fontFeatureSettings?: string;
+	/**
+	 * CSS font-variation-settings value.
+	 */
+	fontVariationSettings?: string;
+	/**
+	 * CSS line-gap-override value.
+	 */
+	lineGapOverride?: string;
+	/**
+	 * CSS size-adjust value.
+	 */
+	sizeAdjust?: string;
+	/**
+	 * CSS unicode-range value.
+	 */
+	unicodeRange?: string;
+}
+/**
+ * A font face object in a REST API context.
+ */
+export interface WP_REST_API_Font_Face {
+	/**
+	 * Unique identifier for the font face.
+	 */
+	id: number;
+	/**
+	 * Version of the theme.json schema used for the typography settings.
+	 */
+	theme_json_version: number;
+	/**
+	 * The ID for the parent font family of the font face.
+	 */
+	parent: number;
+	/**
+	 * font-face declaration in theme.json format.
+	 */
+	font_face_settings: {
+		/**
+		 * Unique identifier for the font family.
+		 */
+		id?: number;
+		/**
+		 * Version of the theme.json schema used for the typography settings.
+		 */
+		theme_json_version?: number;
+		/**
+		 * The IDs of the child font faces in the font family.
+		 */
+		font_faces?: number[];
+		font_family_settings?: WP_Font_Family_Settings;
+		[k: string]: unknown;
+	};
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A font family object in a REST API context.
+ */
+export interface WP_REST_API_Font_Family {
+	/**
+	 * Unique identifier for the font family.
+	 */
+	id: number;
+	/**
+	 * Version of the theme.json schema used for the typography settings.
+	 */
+	theme_json_version: number;
+	/**
+	 * The IDs of the child font faces in the font family.
+	 */
+	font_faces: number[];
+	font_family_settings: WP_Font_Family_Settings;
+	_links: WP_REST_API_Object_Links;
+	/**
+	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+	 */
+	_embedded?: {
+		/**
+		 * The associated font faces.
+		 */
+		font_faces?: unknown[];
+		[k: string]: unknown;
+	};
+	[k: string]: unknown;
+}
+/**
+ * A theme's global style config in a REST API context.
+ */
+export interface WP_REST_API_Global_Style_Config {
+	/**
+	 * Global styles.
+	 */
+	styles: {
+		[k: string]: unknown;
+	};
+	/**
+	 * Global settings.
+	 */
+	settings: {
+		[k: string]: unknown;
+	};
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A global styles variation item in a REST API context.
+ */
+export interface WP_REST_API_Global_Style_Variation {
+	/**
+	 * ID of global styles variation.
+	 */
+	id: number;
+	/**
+	 * Global styles.
+	 */
+	styles: {
+		[k: string]: unknown;
+	};
+	/**
+	 * Global settings.
+	 */
+	settings: {
+		[k: string]: unknown;
+	};
+	/**
+	 * Title of the global styles variation.
+	 */
+	title:
+		| string
+		| {
+				/**
+				 * Title for the global styles variation, as it exists in the database.
+				 */
+				raw?: string;
+				/**
+				 * HTML title for the post, transformed for display.
+				 */
+				rendered?: string;
+		  };
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A menu item in a REST API context.
+ */
+export interface WP_REST_API_Menu_Item {
+	/**
+	 * The title for the menu item.
+	 */
+	title:
+		| string
+		| {
+				/**
+				 * Title for the menu item, as it exists in the database.
+				 */
+				raw?: string;
+				/**
+				 * HTML title for the menu item, transformed for display.
+				 */
+				rendered?: string;
+		  };
+	/**
+	 * Unique identifier for the menu item.
+	 */
+	id: number;
+	/**
+	 * The singular label used to describe this type of menu item.
+	 */
+	type_label: string;
+	/**
+	 * The family of objects originally represented.
+	 */
+	type: "taxonomy" | "post_type" | "post_type_archive" | "custom";
+	/**
+	 * A named status for the menu item.
+	 */
+	status: "publish" | "future" | "draft" | "pending" | "private";
+	/**
+	 * The ID for the parent of the menu item.
+	 */
+	parent: number;
+	/**
+	 * Text for the title attribute of the link element for this menu item.
+	 */
+	attr_title: string;
+	/**
+	 * Class names for the link element of this menu item.
+	 */
+	classes: string[];
+	/**
+	 * The description of this menu item.
+	 */
+	description: string;
+	/**
+	 * The DB ID of the nav_menu_item that is this item's menu parent, if any, otherwise 0.
+	 */
+	menu_order: number;
+	/**
+	 * The type of object originally represented, such as "category", "post", or "attachment".
+	 */
+	object: string;
+	/**
+	 * The database ID of the original object this menu item represents, for example the ID for posts or the term_id for categories.
+	 */
+	object_id: number;
+	/**
+	 * The target attribute of the link element for this menu item.
+	 */
+	target: "_blank" | "";
+	/**
+	 * The URL to which this menu item points.
+	 */
+	url: string;
+	/**
+	 * The XFN relationship expressed in the link of this menu item.
+	 */
+	xfn: string[];
+	/**
+	 * Whether the menu item represents an object that no longer exists.
+	 */
+	invalid: boolean;
+	/**
+	 * The terms assigned to the menu item in the nav_menu taxonomy.
+	 */
+	menus: number;
+	/**
+	 * Meta fields.
+	 */
+	meta:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
+	_links: WP_REST_API_Object_Links;
+	/**
+	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+	 */
+	_embedded?: {
+		/**
+		 * The taxonomy terms for the nav menu item.
+		 */
+		"wp:term": unknown[];
+		[k: string]: unknown;
+	};
+	[k: string]: unknown;
+}
+/**
+ * A menu location in a REST API context.
+ */
+export interface WP_REST_API_Menu_Location {
+	/**
+	 * The name of the menu location.
+	 */
+	name: string;
+	/**
+	 * The description of the menu location.
+	 */
+	description: string;
+	/**
+	 * The ID of the assigned menu.
+	 */
+	menu: number;
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A collection of menu locations in a REST API context.
+ */
+export interface WP_REST_API_Menu_Locations {
+	[k: string]: WP_REST_API_Menu_Location;
+}
+/**
+ * A menu in a REST API context.
+ */
+export interface WP_REST_API_Menu {
+	/**
+	 * Unique identifier for the menu.
+	 */
+	id: number;
+	/**
+	 * HTML description of the menu.
+	 */
+	description: string;
+	/**
+	 * HTML title for the menu.
+	 */
+	name: string;
+	/**
+	 * An alphanumeric identifier for the menu unique to its type.
+	 */
+	slug: string;
+	/**
+	 * Meta fields.
+	 */
+	meta:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
+	/**
+	 * The locations assigned to the menu.
+	 */
+	locations: string[];
+	/**
+	 * Whether to automatically add top level pages to this menu.
+	 */
+	auto_add: boolean;
+	_links: WP_REST_API_Object_Links;
+	/**
+	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+	 */
+	_embedded?: {
+		/**
+		 * The menu locations.
+		 */
+		"wp:menu-location": unknown[];
+		[k: string]: unknown;
+	};
+	[k: string]: unknown;
+}
+/**
+ * Common post properties
+ */
+interface WP_REST_API_Partial_Post_Common {
+	/**
+	 * The date the post was published, in the site's timezone.
+	 */
+	date: WP_REST_API_Date_Time;
+	/**
+	 * The date the post was published, as GMT.
+	 */
+	date_gmt: WP_REST_API_Date_Time;
+	/**
+	 * The globally unique identifier for the post.
+	 */
+	guid: {
+		/**
+		 * GUID for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * GUID for the post, transformed for display.
+		 */
+		rendered: string;
+	};
+	/**
+	 * Unique identifier for the post.
+	 */
+	id: number;
+	/**
+	 * URL to the post.
+	 */
+	link: string;
+	/**
+	 * The date the post was last modified, in the site's timezone.
+	 */
+	modified: WP_REST_API_Date_Time;
+	/**
+	 * The date the post was last modified, as GMT.
+	 */
+	modified_gmt: WP_REST_API_Date_Time;
+	/**
+	 * An alphanumeric identifier for the post unique to its type.
+	 */
+	slug: string;
+	/**
+	 * A named status for the post.
+	 */
+	status: WP_Post_Status_Name | string;
+	/**
+	 * Type of Post for the post.
+	 */
+	type: WP_Post_Type_Name | string;
+	/**
+	 * A password to protect access to the content and excerpt. Only present when using the 'edit' context.
+	 */
+	password?: string;
+	/**
+	 * The ID for the parent of the post. Only present for hierarchical post types.
+	 */
+	parent?: number;
+	/**
+	 * A field used for ordering posts.
+	 */
+	menu_order?: number;
+	/**
+	 * The title for the post.
+	 */
+	title: {
+		/**
+		 * Title for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML title for the post, transformed for display.
+		 */
+		rendered: string;
+	};
+	/**
+	 * The content for the post.
+	 */
+	content: {
+		/**
+		 * Content for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML content for the post, transformed for display.
+		 */
+		rendered: string;
+		/**
+		 * Version of the content block format used by the post. Only present when using the 'edit' context.
+		 */
+		block_version?: number;
+		/**
+		 * Whether the content is protected with a password.
+		 */
+		protected: boolean;
+	};
+	/**
+	 * The ID of the featured media for the post.
+	 */
+	featured_media?: number;
+	/**
+	 * The format for the post.
+	 */
+	format?: WP_Post_Format_Name;
+	/**
+	 * Meta fields.
+	 */
+	meta?:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
+	/**
+	 * Whether or not the post should be treated as sticky. Only present for the 'post' post type.
+	 */
+	sticky?: boolean;
+	/**
+	 * The theme file to use to display the post.
+	 */
+	template?: string;
+	/**
+	 * The terms assigned to the post in the category taxonomy. Only present for post types that support categories.
+	 */
+	categories?: number[];
+	/**
+	 * The terms assigned to the post in the post_tag taxonomy. Only present for post types that support tags.
+	 */
+	tags?: number[];
+	_links: WP_REST_API_Object_Links;
+}
+/**
+ * Hello.
+ */
+interface WP_REST_API_Partial_Post_Author {
+	/**
+	 * The ID for the author of the post.
+	 */
+	author: number;
+}
+/**
+ * Properties for public post types
+ */
+interface WP_REST_API_Partial_Post_Public {
+	/**
+	 * Permalink template for the post. Only present when using the 'edit' context and the post type is public.
+	 */
+	permalink_template?: string;
+	/**
+	 * Slug automatically generated from the post title. Only present when using the 'edit' context and the post type is public.
+	 */
+	generated_slug?: string;
+	/**
+	 * An array of the class names for the post container element.
+	 */
+	class_list: string[];
+}
+/**
+ * Properties for post types that support comments
+ */
+interface WP_REST_API_Partial_Post_Comments {
+	/**
+	 * Whether or not comments are open on the post.
+	 */
+	comment_status: WP_Post_Comment_Status_Name;
+	/**
+	 * Whether or not the post can be pinged.
+	 */
+	ping_status: WP_Post_Comment_Status_Name;
+}
+/**
+ * Properties for post types that support an excerpt
+ */
+interface WP_REST_API_Partial_Post_Excerpt {
+	/**
+	 * The excerpt for the post.
+	 */
+	excerpt: {
+		/**
+		 * Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML excerpt for the post, transformed for display.
+		 */
+		rendered: string;
+		/**
+		 * Whether the excerpt is protected with a password.
+		 */
+		protected: boolean;
+	};
+}
+/**
+ * A pattern from the pattern directory in a REST API context.
+ */
+export interface WP_REST_API_Pattern_Directory_Pattern {
+	/**
+	 * The pattern ID.
+	 */
+	id: number;
+	/**
+	 * The pattern title, in human readable format.
+	 */
+	title: string;
+	/**
+	 * The pattern content.
+	 */
+	content: string;
+	/**
+	 * The pattern category slugs.
+	 */
+	categories: string[];
+	/**
+	 * The pattern keywords.
+	 */
+	keywords: string[];
+	/**
+	 * The pattern detailed description.
+	 */
+	description: string;
+	/**
+	 * The pattern viewport width for inserter preview.
+	 */
+	viewport_width: number;
+	/**
+	 * Block types that the pattern is intended to be used with.
+	 */
+	block_types?: string[];
+	[k: string]: unknown;
+}
+/**
+ * A plugin in a REST API context.
+ */
+export interface WP_REST_API_Plugin {
+	/**
+	 * The plugin file.
+	 */
+	plugin: string;
+	/**
+	 * The plugin activation status.
+	 */
+	status: "inactive" | "active" | "network-active";
+	/**
+	 * The plugin name.
+	 */
+	name: string;
+	/**
+	 * The plugin's website address.
+	 */
+	plugin_uri: string | "";
+	/**
+	 * The plugin author.
+	 */
+	author: string;
+	/**
+	 * Plugin author's website address.
+	 */
+	author_uri: string | "";
+	/**
+	 * The plugin description.
+	 */
+	description: {
+		/**
+		 * The raw plugin description.
+		 */
+		raw: string;
+		/**
+		 * The plugin description formatted for display.
+		 */
+		rendered: string;
+	};
+	/**
+	 * The plugin version number.
+	 */
+	version: string;
+	/**
+	 * Whether the plugin can only be activated network-wide.
+	 */
+	network_only: boolean;
+	/**
+	 * Minimum required version of WordPress.
+	 */
+	requires_wp: string;
+	/**
+	 * Minimum required version of PHP.
+	 */
+	requires_php: string;
+	/**
+	 * The plugin's text domain.
+	 */
+	textdomain: string;
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A rendered dynamic block in a REST API context. Only accessible with the 'edit' context.
+ */
+export interface WP_REST_API_Rendered_Block {
+	/**
+	 * The rendered block.
+	 */
+	rendered: string;
+	[k: string]: unknown;
+}
+/**
+ * A post revision object in a REST API context.
+ */
+export interface WP_REST_API_Revision {
+	/**
+	 * The ID for the author of the revision.
+	 */
+	author: number;
+	/**
+	 * The date the revision was published, in the site's timezone.
+	 */
+	date: WP_REST_API_Date_Time;
+	/**
+	 * The date the revision was published, as GMT.
+	 */
+	date_gmt: WP_REST_API_Date_Time;
+	/**
+	 * The globally unique identifier for the post.
+	 */
+	guid: {
+		/**
+		 * GUID for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * GUID for the post, transformed for display.
+		 */
+		rendered: string;
+	};
+	/**
+	 * Unique identifier for the revision.
+	 */
+	id: number;
+	/**
+	 * The date the revision was last modified, in the site's timezone.
+	 */
+	modified: WP_REST_API_Date_Time;
+	/**
+	 * The date the revision was last modified, as GMT.
+	 */
+	modified_gmt: WP_REST_API_Date_Time;
+	/**
+	 * The ID for the parent of the revision.
+	 */
+	parent: number;
+	/**
+	 * An alphanumeric identifier for the revision unique to its type.
+	 */
+	slug: string;
+	/**
+	 * The title for the post.
+	 */
+	title: {
+		/**
+		 * Title for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML title for the post, transformed for display.
+		 */
+		rendered: string;
+	};
+	/**
+	 * The content for the post.
+	 */
+	content: {
+		/**
+		 * Content for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML content for the post, transformed for display.
+		 */
+		rendered: string;
+		/**
+		 * Version of the content block format used by the post. Only present when using the 'edit' context.
+		 */
+		block_version?: number;
+	};
+	/**
+	 * The excerpt for the post.
+	 */
+	excerpt?: {
+		/**
+		 * Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML excerpt for the post, transformed for display.
+		 */
+		rendered: string;
 	};
 	/**
 	 * Meta fields.
@@ -3273,7 +3614,7 @@ export interface WP_REST_API_Search_Result {
 	/**
 	 * Object subtype.
 	 */
-	subtype: WP_Post_Type_Name | WP_Taxonomy_Name | string;
+	subtype: string;
 	_links: WP_REST_API_Object_Links;
 	/**
 	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
@@ -3376,6 +3717,57 @@ export interface WP_REST_API_Settings {
 	[k: string]: unknown;
 }
 /**
+ * A post status object in a REST API context.
+ */
+export interface WP_REST_API_Status {
+	/**
+	 * The title for the status.
+	 */
+	name: string;
+	/**
+	 * Whether posts with this status should be private. Only present when using the 'edit' context.
+	 */
+	private?: boolean;
+	/**
+	 * Whether posts with this status should be protected. Only present when using the 'edit' context.
+	 */
+	protected?: boolean;
+	/**
+	 * Whether posts of this status should be shown in the front end of the site.
+	 */
+	public: boolean;
+	/**
+	 * Whether posts with this status should be publicly-queryable.
+	 */
+	queryable: boolean;
+	/**
+	 * Whether to include posts in the edit listing for their post type. Only present when using the 'edit' context.
+	 */
+	show_in_list?: boolean;
+	/**
+	 * An alphanumeric identifier for the status.
+	 */
+	slug: string;
+	/**
+	 * Whether posts of this status may have floating published dates.
+	 */
+	date_floating: boolean;
+	_links: WP_REST_API_Object_Links;
+	[k: string]: unknown;
+}
+/**
+ * A collection of post status objects in a REST API context.
+ */
+export interface WP_REST_API_Statuses {
+	[k: string]: WP_REST_API_Status;
+}
+/**
+ * A collection of taxonomy objects in a REST API context.
+ */
+export interface WP_REST_API_Taxonomies {
+	[k: string]: WP_REST_API_Taxonomy;
+}
+/**
  * A taxonomy in a REST API context.
  */
 export interface WP_REST_API_Taxonomy {
@@ -3450,12 +3842,6 @@ export interface WP_REST_API_Taxonomy {
 	};
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
-}
-/**
- * A collection of taxonomy objects in a REST API context.
- */
-export interface WP_REST_API_Taxonomies {
-	[k: string]: WP_REST_API_Taxonomy;
 }
 /**
  * A post type object in a REST API context.
@@ -3554,38 +3940,103 @@ export interface WP_REST_API_Types {
 	[k: string]: WP_REST_API_Type;
 }
 /**
- * A user application password in a REST API context.
+ * A user object in a REST API context.
  */
-export interface WP_REST_API_Application_Password {
+export interface WP_REST_API_User {
 	/**
-	 * The unique identifier for the application password.
+	 * Unique identifier for the user.
 	 */
-	uuid: string;
+	id: number;
 	/**
-	 * A UUID provided by the application to uniquely identify it. It is recommended to use an UUID v5 with the URL or DNS namespace.
+	 * Login name for the user. Only present when using the 'edit' context.
 	 */
-	app_id: string;
+	username?: string;
 	/**
-	 * The name of the application password.
+	 * Display name for the user.
 	 */
 	name: string;
 	/**
-	 * The generated password. Only available after adding an application.
+	 * First name for the user. Only present when using the 'edit' context.
 	 */
-	password?: string;
+	first_name?: string;
 	/**
-	 * The GMT date the application password was created.
+	 * Last name for the user. Only present when using the 'edit' context.
 	 */
-	created: WP_REST_API_Date_Time;
+	last_name?: string;
 	/**
-	 * The GMT date the application password was last used.
+	 * The email address for the user. Only present when using the 'edit' context.
 	 */
-	last_used: WP_REST_API_Date_Time | null;
+	email?: string | "";
 	/**
-	 * The IP address the application password was last used by.
+	 * URL of the user.
 	 */
-	last_ip: string | null;
-	_links?: WP_REST_API_Object_Links;
+	url: string | "";
+	/**
+	 * Description of the user.
+	 */
+	description: string;
+	/**
+	 * Author URL of the user.
+	 */
+	link: string;
+	/**
+	 * Locale for the user. Only present when using the 'edit' context.
+	 */
+	locale?: string;
+	/**
+	 * The nickname for the user. Only present when using the 'edit' context.
+	 */
+	nickname?: string;
+	/**
+	 * An alphanumeric identifier for the user.
+	 */
+	slug: string;
+	/**
+	 * Registration date for the user in UTC. Only present when using the 'edit' context.
+	 */
+	registered_date?: WP_REST_API_Date_Time_UTC;
+	/**
+	 * Roles assigned to the user. Only present when using the 'edit' context.
+	 */
+	roles?: (WP_User_Role_Name | string)[];
+	/**
+	 * All capabilities assigned to the user. Only present when using the 'edit' context.
+	 */
+	capabilities?: WP_User_Caps;
+	/**
+	 * Any extra capabilities assigned to the user. Only present when using the 'edit' context.
+	 */
+	extra_capabilities?: WP_User_Caps;
+	/**
+	 * Avatar URLs for the user.
+	 */
+	avatar_urls?: {
+		/**
+		 * Avatar URL with image size of 24 pixels.
+		 */
+		"24": string;
+		/**
+		 * Avatar URL with image size of 48 pixels.
+		 */
+		"48": string;
+		/**
+		 * Avatar URL with image size of 96 pixels.
+		 */
+		"96": string;
+		/**
+		 * Avatar URL with image of another size.
+		 */
+		[k: string]: string;
+	};
+	/**
+	 * Meta fields.
+	 */
+	meta:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
+	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
 }
 /**
@@ -3621,20 +4072,6 @@ export const enum WP_Comment_Type_Name {
 	pingback = "pingback",
 	trackback = "trackback",
 }
-export const enum WP_Post_Status_Name {
-	publish = "publish",
-	draft = "draft",
-	auto_draft = "auto-draft",
-	inherit = "inherit",
-	pending = "pending",
-	future = "future",
-	trash = "trash",
-	private = "private",
-}
-export const enum WP_Post_Comment_Status_Name {
-	open = "open",
-	closed = "closed",
-}
 export const enum WP_Post_Type_Name {
 	post = "post",
 	page = "page",
@@ -3651,6 +4088,28 @@ export const enum WP_Post_Type_Name {
 	wp_template = "wp_template",
 	wp_template_part = "wp_template_part",
 }
+export const enum WP_Taxonomy_Name {
+	category = "category",
+	post_tag = "post_tag",
+	nav_menu = "nav_menu",
+	post_format = "post_format",
+	wp_template_part_area = "wp_template_part_area",
+	wp_theme = "wp_theme",
+}
+export const enum WP_Post_Status_Name {
+	publish = "publish",
+	draft = "draft",
+	auto_draft = "auto-draft",
+	inherit = "inherit",
+	pending = "pending",
+	future = "future",
+	trash = "trash",
+	private = "private",
+}
+export const enum WP_Post_Comment_Status_Name {
+	open = "open",
+	closed = "closed",
+}
 export const enum WP_Object_Filter_Context {
 	attribute = "attribute",
 	db = "db",
@@ -3659,14 +4118,6 @@ export const enum WP_Object_Filter_Context {
 	js = "js",
 	raw = "raw",
 	rss = "rss",
-}
-export const enum WP_Taxonomy_Name {
-	category = "category",
-	post_tag = "post_tag",
-	nav_menu = "nav_menu",
-	post_format = "post_format",
-	wp_template_part_area = "wp_template_part_area",
-	wp_theme = "wp_theme",
 }
 export const enum WP_User_Role_Name {
 	administrator = "administrator",
@@ -3739,6 +4190,7 @@ export const enum WP_Http_Status_Code {
 	UNPROCESSABLE_ENTITY = 422,
 	LOCKED = 423,
 	FAILED_DEPENDENCY = 424,
+	TOO_EARLY = 425,
 	UPGRADE_REQUIRED = 426,
 	PRECONDITION_REQUIRED = 428,
 	TOO_MANY_REQUESTS = 429,

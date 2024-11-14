@@ -4,6 +4,7 @@
 # -o pipefail Produce a failure return code if any command errors
 set -eo pipefail
 
+# Validate a schema file
 function validate_schema() {
 	local file="$1"
 	local base=${file//schemas\//}
@@ -14,7 +15,7 @@ function validate_schema() {
 	local filename=${base/.json/}
 
 	ls tests/data/$filename/*.json > /dev/null
-	./node_modules/.bin/ajv validate --strict --strict-schema=false \
+	./node_modules/.bin/ajv validate --spec=draft2019 --strict --strict-schema=false \
 		-c ajv-formats \
 		-m tests/external-schemas/hyper-schema.json \
 		-r schema.json \
@@ -23,32 +24,67 @@ function validate_schema() {
 		-d "tests/data/$filename/*.json"
 }
 
-IGNORE_FILES=("schemas/rest-api/error.json" "schemas/rest-api/category.json" "schemas/rest-api/tag.json" "schemas/rest-api/page.json")
+# Modify a schema file using a jq transformation and an optional jq condition
+function modify_schema() {
+	local file="$1"
+	local changes="$2"
+	local condition="$3"
 
+	if [[ "$condition" != "" ]]
+	then
+		if [[ $(./node_modules/node-jq/bin/jq -e "$condition" "$file") == false ]]
+		then
+			return
+		fi
+	fi
+
+	./node_modules/node-jq/bin/jq --tab "$changes" "$file" > tmp
+	mv tmp "$file"
+}
+
+# Cleanup function to remove unevaluatedProperties and additionalProperties
+function cleanup() {
+	for file in schemas/rest-api/*.json
+	do
+		if [[ "${IGNORE_FILES[*]}" =~ "${file}" ]]
+		then
+			continue
+		fi
+		modify_schema "$file" 'del(.unevaluatedProperties)'
+		modify_schema "$file" 'del(.properties._embedded.additionalProperties)'
+	done
+}
+
+# Files to ignore when disallowing additional properties
+IGNORE_FILES=("schemas/rest-api/error.json")
+
+# Always cleanup regardless of how the script exits
+trap cleanup EXIT
+
+# Validate all PHP object schemas
 for file in schemas/*.json
 do
 	validate_schema "$file"
 done
 
+# Disallow additional root properties in all REST API schemas (via unevaluatedProperties)
+# Disallow additional properties in the _embedded field in all REST API schemas
 for file in schemas/rest-api/*.json
 do
 	if [[ "${IGNORE_FILES[*]}" =~ "${file}" ]]
 	then
 		continue
 	fi
-	./node_modules/node-jq/bin/jq --tab '. + { "additionalProperties": false }' "$file" > tmp && mv tmp "$file"
+	modify_schema "$file" '. + { "unevaluatedProperties": false }'
+	modify_schema "$file" '.properties._embedded += { "additionalProperties": false }' '.properties._embedded != null'
 done
 
+# Validation for REST API collections:
 for file in schemas/rest-api/collections/*.json
 do
 	validate_schema "$file"
 done
 
-for file in schemas/rest-api/*.json
-do
-	if [[ "${IGNORE_FILES[*]}" =~ "${file}" ]]
-	then
-		continue
-	fi
-	./node_modules/node-jq/bin/jq --tab 'del(.additionalProperties)' "$file" > tmp && mv tmp "$file"
-done
+# Validation for REST API entities that don't have a directly corresponding collection:
+validate_schema schemas/rest-api/global-style-variation.json
+validate_schema schemas/rest-api/global-style-config.json

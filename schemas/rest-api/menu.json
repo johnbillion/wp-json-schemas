@@ -1,0 +1,100 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/menu.json",
+	"title": "WP_REST_API_Menu",
+	"description": "A menu in a REST API context.",
+	"type": "object",
+	"required": [
+		"id",
+		"description",
+		"name",
+		"slug",
+		"meta",
+		"locations",
+		"auto_add",
+		"_links"
+	],
+	"properties": {
+		"id": {
+			"description": "Unique identifier for the menu.",
+			"type": "integer",
+			"readOnly": true
+		},
+		"description": {
+			"description": "HTML description of the menu.",
+			"type": "string"
+		},
+		"name": {
+			"description": "HTML title for the menu.",
+			"type": "string"
+		},
+		"slug": {
+			"description": "An alphanumeric identifier for the menu unique to its type.",
+			"type": "string"
+		},
+		"meta": {
+			"description": "Meta fields.",
+			"oneOf": [
+				{
+					"$ref": "../../schema.json#/definitions/EmptyArray"
+				},
+				{
+					"type": "object"
+				}
+			]
+		},
+		"locations": {
+			"description": "The locations assigned to the menu.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"auto_add": {
+			"description": "Whether to automatically add top level pages to this menu.",
+			"type": "boolean"
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		},
+		"_embedded": {
+			"description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
+			"type": "object",
+			"required": [
+				"wp:menu-location"
+			],
+			"properties": {
+				"wp:menu-location": {
+					"description": "The menu locations.",
+					"type": "array"
+				}
+			}
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/menus/{id}",
+			"hrefSchema": {
+				"properties": {
+					"id": {
+						"$ref": "#/properties/id"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/menus",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}

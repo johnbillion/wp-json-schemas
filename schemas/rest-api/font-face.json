@@ -1,5 +1,5 @@
 {
-	"$schema": "http://json-schema.org/draft-07/hyper-schema#",
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
 	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/font-face.json",
 	"title": "WP_REST_API_Font_Face",
 	"description": "A font face object in a REST API context.",
@@ -52,21 +52,9 @@
 							"$ref": "properties/font-family-settings.json"
 						}
 					]
-				},
-				"_links": {
-					"$ref": "properties/object-links.json"
-				},
-				"_embedded": {
-					"description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
-					"type": "object",
-					"properties": {
-						"font_faces": {
-							"description": "The associated font faces.",
-							"type": "array"
-						}
-					}
 				}
-			}
+			},
+			"additionalProperties": true
 		},
 		"_links": {
 			"$ref": "properties/object-links.json"

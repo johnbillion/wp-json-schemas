@@ -1,0 +1,41 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/global-style-config.json",
+	"title": "WP_REST_API_Global_Style_Config",
+	"description": "A theme's global style config in a REST API context.",
+	"type": "object",
+	"required": [
+		"styles",
+		"settings",
+		"_links"
+	],
+	"properties": {
+		"styles": {
+			"description": "Global styles.",
+			"type": "object"
+		},
+		"settings": {
+			"description": "Global settings.",
+			"type": "object"
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/global-styles/themes/{theme}",
+			"hrefSchema": {
+				"properties": {
+					"id": {
+						"type": "string"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		}
+	]
+}

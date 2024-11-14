@@ -1,0 +1,55 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/navigation-menu.json",
+	"title": "WP_REST_API_Navigation_Menu",
+	"description": "A navigation menu object in a REST API context.",
+	"type": "object",
+	"allOf": [
+		{
+			"$ref": "partials/post/common.json"
+		}
+	],
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/navigation/{id}",
+			"hrefSchema": {
+				"properties": {
+					"id": {
+						"$ref": "partials/post/common.json#/properties/id"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/navigation",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		},
+		{
+			"rel": "version-history",
+			"href": "/wp/v2/navigation/{id}/revisions",
+			"hrefSchema": {
+				"properties": {
+					"id": {
+						"$ref": "partials/post/common.json#/properties/id"
+					}
+				}
+			},
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}
