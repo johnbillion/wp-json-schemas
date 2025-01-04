@@ -25,9 +25,9 @@ jobs:
           node-version-file: '.nvmrc'
           registry-url: https://registry.npmjs.org/
 
-      - run: npm install
+      - run: npm ci
 
-      - run: npm publish --access public
+      - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -48,7 +48,7 @@ jobs:
       - name: Deploy to npm
         run: |
           cd packages/wp-types
-          npm install
-          npm publish --access public
+          npm ci
+          npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
