@@ -207,6 +207,18 @@ Usage depends on what you're doing with the schemas. You could use them for vali
 
 If you're using TypeScript, check out [the TypeScript definitions provided by the `wp-types` package](https://www.npmjs.com/package/wp-types).
 
+## Sponsors
+
+The time that I spend maintaining this library and others is in part sponsored by:
+
+[![Automattic](https://cdn.jsdelivr.net/gh/johnbillion/johnbillion/assets/sponsors/automattic.png)](https://automattic.com)
+
+Plus all my kind sponsors on GitHub:
+
+[![Sponsors](https://cdn.jsdelivr.net/gh/johnbillion/johnbillion/sponsors.svg)](https://github.com/sponsors/johnbillion)
+
+[Click here to find out about supporting this library and my other WordPress development tools and plugins](https://github.com/sponsors/johnbillion).
+
 ## FAQs
 
 ### When do these schemas apply?
