@@ -2,9 +2,10 @@
 	"name": "wp-types",
 	"version": "4.67.0",
 	"description": "TypeScript definitions of WordPress PHP objects and REST API responses.",
-	"main": "",
+	"main": "index.js",
 	"types": "index.ts",
 	"files": [
+		"index.js",
 		"index.ts"
 	],
 	"homepage": "https://github.com/johnbillion/wp-json-schemas/tree/trunk/packages/wp-types",
@@ -17,5 +18,13 @@
 	"license": "MIT",
 	"dependencies": {
 		"typescript": ">=4"
+	},
+	"devDependencies": {
+		"@swc/cli": "^0.6.0",
+		"@swc/core": "^1.10.12"
+	},
+	"scripts": {
+		"build": "swc index.ts -o index.js",
+		"prepublishOnly": "npm run build"
 	}
 }
