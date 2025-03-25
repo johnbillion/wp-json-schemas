@@ -315,9 +315,7 @@ If you'd like to contribute to these definitions, please contribute upstream to 
 
 Yes, but:
 
-* You might need `preserveConstEnums` enabled in your TypeScript config
 * You should import enums as you would a regular module, not as a `type`
-* You cannot iterate enums (this is a TypeScript restriction)
 
 Example:
 
@@ -326,6 +324,21 @@ import { WP_Post_Type_Name } from 'wp-types';
 
 console.log( WP_Post_Type_Name.auto_draft );
 ```
+
+Example using `apifetch()`:
+
+```ts
+import type { WP_REST_API_Posts } from 'wp-types';
+import { WP_Post_Status_Name } from 'wp-types';
+
+const api: Promise<WP_REST_API_Posts> = wp.apiFetch( {
+	path: '/wp/v2/posts/',
+		queryParams: {
+			status: WP_Post_Status_Name.publish
+		}
+} );
+```
+
 
 ### How are these definitions different to `@wordpress/core-data`?
 

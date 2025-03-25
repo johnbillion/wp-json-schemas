@@ -1,4 +1,4 @@
-/node_modules
+node_modules/
 /tests/data/*
 !/tests/data/rest-api
 /tests/data/rest-api/*
