@@ -209,7 +209,7 @@ If you're using TypeScript, check out [the TypeScript definitions provided by th
 
 ## Sponsors
 
-<p align="center">The time that I spend maintaining this plugin and others is in part sponsored by:</p>
+<p align="center">The time that I spend maintaining this library and others is in part sponsored by:</p>
 
 <p align="center"><a href="https://automattic.com"><img src="https://cdn.jsdelivr.net/gh/johnbillion/johnbillion@latest/assets/sponsors/automattic.svg" alt="Automattic" width="50%"></a></p>
 
