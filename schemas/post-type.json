@@ -14,6 +14,7 @@
 		"hierarchical",
 		"exclude_from_search",
 		"publicly_queryable",
+		"embeddable",
 		"show_ui",
 		"show_in_menu",
 		"show_in_nav_menus",
@@ -87,6 +88,10 @@
 		},
 		"publicly_queryable": {
 			"description": "Whether queries can be performed on the front end for the post type as part of `parse_request()`.",
+			"type": "boolean"
+		},
+		"embeddable": {
+			"description": "Whether this post type is embeddable.",
 			"type": "boolean"
 		},
 		"show_ui": {

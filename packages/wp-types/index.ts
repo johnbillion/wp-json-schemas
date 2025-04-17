@@ -860,6 +860,10 @@ export interface WP_Post_Type {
 	 */
 	publicly_queryable: boolean;
 	/**
+	 * Whether this post type is embeddable.
+	 */
+	embeddable: boolean;
+	/**
 	 * Whether to generate and allow a UI for managing this post type in the admin.
 	 */
 	show_ui: boolean;
