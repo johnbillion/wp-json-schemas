@@ -3803,6 +3803,7 @@ export interface WP_REST_API_Sidebar {
 		[k: string]: unknown;
 	};
 	_links?: WP_REST_API_Object_Links;
+	[k: string]: unknown;
 }
 /**
  * A post status object in a REST API context.
@@ -4064,6 +4065,7 @@ export interface WP_REST_API_Theme {
 		"responsive-embeds"?: boolean;
 		"title-tag"?: boolean;
 		"wp-block-styles"?: boolean;
+		[k: string]: unknown;
 	};
 	/**
 	 * The URI of the theme's webpage.
@@ -4106,6 +4108,7 @@ export interface WP_REST_API_Theme {
 		area_tag?: string;
 	}[];
 	_links?: WP_REST_API_Object_Links;
+	[k: string]: unknown;
 }
 /**
  * A post type object in a REST API context.

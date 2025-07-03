@@ -221,8 +221,7 @@
 				"wp-block-styles": {
 					"type": "boolean"
 				}
-			},
-			"additionalProperties": false
+			}
 		},
 		"theme_uri": {
 			"description": "The URI of the theme's webpage.",
@@ -314,7 +313,6 @@
 		"version",
 		"status"
 	],
-	"additionalProperties": false,
 	"links": [
 		{
 			"rel": "self",

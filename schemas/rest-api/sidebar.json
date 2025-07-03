@@ -109,7 +109,6 @@
 		"status",
 		"widgets"
 	],
-	"additionalProperties": false,
 	"links": [
 		{
 			"rel": "self",
