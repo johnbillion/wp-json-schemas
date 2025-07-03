@@ -223,6 +223,55 @@ export type WP_REST_API_Revisions = WP_REST_API_Revision[];
  */
 export type WP_REST_API_Search_Results = WP_REST_API_Search_Result[];
 /**
+ * ID of sidebar.
+ */
+export type ID = string;
+/**
+ * Unique name identifying the sidebar.
+ */
+export type Name = string;
+/**
+ * Description of sidebar.
+ */
+export type Description = string;
+/**
+ * Extra CSS class to assign to the sidebar in the Widgets interface.
+ */
+export type Class = string;
+/**
+ * HTML content to prepend to each widget's HTML output when assigned to this sidebar. Default is an opening list item element.
+ */
+export type BeforeWidget = string;
+/**
+ * HTML content to append to each widget's HTML output when assigned to this sidebar. Default is a closing list item element.
+ */
+export type AfterWidget = string;
+/**
+ * HTML content to prepend to the sidebar title when displayed. Default is an opening h2 element.
+ */
+export type BeforeTitle = string;
+/**
+ * HTML content to append to the sidebar title when displayed. Default is a closing h2 element.
+ */
+export type AfterTitle = string;
+/**
+ * Status of sidebar.
+ */
+export type Status = "active" | "inactive";
+/**
+ * Nested widgets.
+ */
+export type Widgets = (
+	| string
+	| {
+			[k: string]: unknown;
+	  }
+)[];
+/**
+ * A collection of sidebar objects in a REST API context.
+ */
+export type WP_REST_API_Sidebars = WP_REST_API_Sidebar[];
+/**
  * A post tag object in a REST API context.
  */
 export type WP_REST_API_Tag = WP_REST_API_Term;
@@ -319,6 +368,8 @@ export interface WP {
 		Search_Result: WP_REST_API_Search_Result;
 		Search_Results: WP_REST_API_Search_Results;
 		Settings: WP_REST_API_Settings;
+		Sidebar: WP_REST_API_Sidebar;
+		Sidebars: WP_REST_API_Sidebars;
 		Status: WP_REST_API_Status;
 		Statuses: WP_REST_API_Statuses;
 		Tag: WP_REST_API_Tag;
@@ -3726,6 +3777,32 @@ export interface WP_REST_API_Settings {
 	 */
 	page_for_posts?: number;
 	[k: string]: unknown;
+}
+/**
+ * A sidebar object in a REST API context.
+ */
+export interface WP_REST_API_Sidebar {
+	id: ID;
+	name: Name;
+	description: Description;
+	class: Class;
+	before_widget: BeforeWidget;
+	after_widget: AfterWidget;
+	before_title: BeforeTitle;
+	after_title: AfterTitle;
+	status: Status;
+	widgets: Widgets;
+	/**
+	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+	 */
+	_embedded?: {
+		/**
+		 * The widgets in the sidebar.
+		 */
+		"wp:widget"?: unknown[];
+		[k: string]: unknown;
+	};
+	_links?: WP_REST_API_Object_Links;
 }
 /**
  * A post status object in a REST API context.

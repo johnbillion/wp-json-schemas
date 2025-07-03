@@ -1,0 +1,19 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/sidebars.json",
+	"title": "WP_REST_API_Sidebars",
+	"description": "A collection of sidebar objects in a REST API context.",
+	"type": "array",
+	"items": {
+		"$ref": "../sidebar.json"
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/sidebars",
+			"targetSchema": {
+				"$ref": "#"
+			}
+		}
+	]
+}

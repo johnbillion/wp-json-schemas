@@ -102,8 +102,8 @@ Route                                                   | Schema
 /wp/v2/posts/{parent}/revisions/{id}                    | `WP_REST_API_Revision`
 /wp/v2/search                                           | `WP_REST_API_Search_Results`
 /wp/v2/settings                                         | `WP_REST_API_Settings`
-/wp/v2/sidebars                                         | Todo
-/wp/v2/sidebars/{id}                                    | Todo
+/wp/v2/sidebars                                         | `WP_REST_API_Sidebars`
+/wp/v2/sidebars/{id}                                    | `WP_REST_API_Sidebar`
 /wp/v2/statuses                                         | `WP_REST_API_Statuses`
 /wp/v2/statuses/{status}                                | `WP_REST_API_Status`
 /wp/v2/tags                                             | `WP_REST_API_Tags`

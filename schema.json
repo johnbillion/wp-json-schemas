@@ -221,6 +221,12 @@
 				"Settings": {
 					"$ref": "schemas/rest-api/settings.json"
 				},
+				"Sidebar": {
+					"$ref": "schemas/rest-api/sidebar.json"
+				},
+				"Sidebars": {
+					"$ref": "schemas/rest-api/collections/sidebars.json"
+				},
 				"Status": {
 					"$ref": "schemas/rest-api/status.json"
 				},
@@ -317,6 +323,8 @@
 				"Search_Result",
 				"Search_Results",
 				"Settings",
+				"Sidebar",
+				"Sidebars",
 				"Status",
 				"Statuses",
 				"Tag",

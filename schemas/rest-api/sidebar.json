@@ -1,0 +1,139 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/sidebar.json",
+	"title": "WP_REST_API_Sidebar",
+	"description": "A sidebar object in a REST API context.",
+	"type": "object",
+	"properties": {
+		"id": {
+			"title": "ID",
+			"description": "ID of sidebar.",
+			"type": "string",
+			"readOnly": true
+		},
+		"name": {
+			"title": "Name",
+			"description": "Unique name identifying the sidebar.",
+			"type": "string",
+			"readOnly": true
+		},
+		"description": {
+			"title": "Description",
+			"description": "Description of sidebar.",
+			"type": "string",
+			"readOnly": true
+		},
+		"class": {
+			"title": "Class",
+			"description": "Extra CSS class to assign to the sidebar in the Widgets interface.",
+			"type": "string",
+			"readOnly": true
+		},
+		"before_widget": {
+			"title": "Before widget",
+			"description": "HTML content to prepend to each widget's HTML output when assigned to this sidebar. Default is an opening list item element.",
+			"type": "string",
+			"default": "",
+			"readOnly": true
+		},
+		"after_widget": {
+			"title": "After widget",
+			"description": "HTML content to append to each widget's HTML output when assigned to this sidebar. Default is a closing list item element.",
+			"type": "string",
+			"default": "",
+			"readOnly": true
+		},
+		"before_title": {
+			"title": "Before title",
+			"description": "HTML content to prepend to the sidebar title when displayed. Default is an opening h2 element.",
+			"type": "string",
+			"default": "",
+			"readOnly": true
+		},
+		"after_title": {
+			"title": "After title",
+			"description": "HTML content to append to the sidebar title when displayed. Default is a closing h2 element.",
+			"type": "string",
+			"default": "",
+			"readOnly": true
+		},
+		"status": {
+			"title": "Status",
+			"description": "Status of sidebar.",
+			"type": "string",
+			"enum": [
+				"active",
+				"inactive"
+			],
+			"readOnly": true
+		},
+		"widgets": {
+			"title": "Widgets",
+			"description": "Nested widgets.",
+			"type": "array",
+			"items": {
+				"oneOf": [
+					{
+						"type": "string"
+					},
+					{
+						"type": "object"
+					}
+				]
+			},
+			"default": []
+		},
+		"_embedded": {
+			"description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
+			"type": "object",
+			"properties": {
+				"wp:widget": {
+					"description": "The widgets in the sidebar.",
+					"type": "array"
+				}
+			}
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	},
+	"required": [
+		"id",
+		"name",
+		"description",
+		"class",
+		"before_widget",
+		"after_widget",
+		"before_title",
+		"after_title",
+		"status",
+		"widgets"
+	],
+	"additionalProperties": false,
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/sidebars/{id}",
+			"hrefSchema": {
+				"properties": {
+					"id": {
+						"$ref": "#/properties/id"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/sidebars",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}
