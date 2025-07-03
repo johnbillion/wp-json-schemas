@@ -124,8 +124,8 @@ Route                                                   | Schema
 /wp/v2/templates/{parent}/revisions                     | Todo
 /wp/v2/templates/{parent}/revisions/{id}                | Todo
 /wp/v2/templates/lookup                                 | Todo
-/wp/v2/themes                                           | Todo
-/wp/v2/themes/{stylesheet}                              | Todo
+/wp/v2/themes                                           | `WP_REST_API_Themes`
+/wp/v2/themes/{stylesheet}                              | `WP_REST_API_Theme`
 /wp/v2/types                                            | `WP_REST_API_Types`
 /wp/v2/types/{type}                                     | `WP_REST_API_Type`
 /wp/v2/users                                            | `WP_REST_API_Users`

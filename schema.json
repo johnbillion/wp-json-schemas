@@ -242,6 +242,12 @@
 				"Term": {
 					"$ref": "schemas/rest-api/term.json"
 				},
+				"Theme": {
+					"$ref": "schemas/rest-api/theme.json"
+				},
+				"Themes": {
+					"$ref": "schemas/rest-api/collections/themes.json"
+				},
 				"Terms": {
 					"$ref": "schemas/rest-api/collections/terms.json"
 				},
@@ -319,6 +325,8 @@
 				"Taxonomy",
 				"Term",
 				"Terms",
+				"Theme",
+				"Themes",
 				"Type",
 				"Types",
 				"User",

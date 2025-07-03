@@ -1,0 +1,344 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/theme.json",
+	"title": "WP_REST_API_Theme",
+	"description": "A theme object in a REST API context.",
+	"type": "object",
+	"properties": {
+		"stylesheet": {
+			"description": "The theme's stylesheet. This uniquely identifies the theme.",
+			"type": "string",
+			"readonly": true
+		},
+		"stylesheet_uri": {
+			"description": "The uri for the theme's stylesheet directory.",
+			"type": "string",
+			"format": "uri",
+			"readonly": true
+		},
+		"template": {
+			"description": "The theme's template. If this is a child theme, this refers to the parent theme, otherwise this is the same as the theme's stylesheet.",
+			"type": "string",
+			"readonly": true
+		},
+		"template_uri": {
+			"description": "The uri for the theme's template directory. If this is a child theme, this refers to the parent theme, otherwise this is the same as the theme's stylesheet directory.",
+			"type": "string",
+			"format": "uri",
+			"readonly": true
+		},
+		"author": {
+			"description": "The theme author.",
+			"type": "object",
+			"readonly": true,
+			"properties": {
+				"raw": {
+					"description": "The theme author's name, as found in the theme header.",
+					"type": "string"
+				},
+				"rendered": {
+					"description": "HTML for the theme author, transformed for display.",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"author_uri": {
+			"description": "The website of the theme author.",
+			"type": "object",
+			"readonly": true,
+			"properties": {
+				"raw": {
+					"description": "The website of the theme author, as found in the theme header.",
+					"type": "string",
+					"format": "uri"
+				},
+				"rendered": {
+					"description": "The website of the theme author, transformed for display.",
+					"type": "string",
+					"format": "uri"
+				}
+			},
+			"additionalProperties": false
+		},
+		"description": {
+			"description": "A description of the theme.",
+			"type": "object",
+			"readonly": true,
+			"properties": {
+				"raw": {
+					"description": "The theme description, as found in the theme header.",
+					"type": "string"
+				},
+				"rendered": {
+					"description": "The theme description, transformed for display.",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"is_block_theme": {
+			"description": "Whether the theme is a block-based theme.",
+			"type": "boolean",
+			"readonly": true
+		},
+		"name": {
+			"description": "The name of the theme.",
+			"type": "object",
+			"readonly": true,
+			"properties": {
+				"raw": {
+					"description": "The theme name, as found in the theme header.",
+					"type": "string"
+				},
+				"rendered": {
+					"description": "The theme name, transformed for display.",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"requires_php": {
+			"description": "The minimum PHP version required for the theme to work.",
+			"type": "string",
+			"readonly": true
+		},
+		"requires_wp": {
+			"description": "The minimum WordPress version required for the theme to work.",
+			"type": "string",
+			"readonly": true
+		},
+		"screenshot": {
+			"description": "The theme's screenshot URL.",
+			"type": "string",
+			"format": "uri",
+			"readonly": true
+		},
+		"tags": {
+			"description": "Tags indicating styles and features of the theme.",
+			"type": "object",
+			"readonly": true,
+			"properties": {
+				"raw": {
+					"description": "The theme tags, as found in the theme header.",
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"rendered": {
+					"description": "The theme tags, transformed for display.",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"textdomain": {
+			"description": "The theme's text domain.",
+			"type": "string",
+			"readonly": true
+		},
+		"theme_supports": {
+			"description": "Features supported by this theme.",
+			"type": "object",
+			"readonly": true,
+			"properties": {
+				"align-wide": {
+					"type": "boolean"
+				},
+				"automatic-feed-links": {
+					"type": "boolean"
+				},
+				"block-templates": {
+					"type": "boolean"
+				},
+				"block-template-parts": {
+					"type": "boolean"
+				},
+				"custom-background": {
+					"type": "boolean"
+				},
+				"custom-header": {
+					"type": "boolean"
+				},
+				"custom-logo": {
+					"type": "boolean"
+				},
+				"customize-selective-refresh-widgets": {
+					"type": "boolean"
+				},
+				"dark-editor-style": {
+					"type": "boolean"
+				},
+				"disable-custom-colors": {
+					"type": "boolean"
+				},
+				"disable-custom-font-sizes": {
+					"type": "boolean"
+				},
+				"disable-custom-gradients": {
+					"type": "boolean"
+				},
+				"disable-layout-styles": {
+					"type": "boolean"
+				},
+				"editor-color-palette": {
+					"type": "boolean"
+				},
+				"editor-font-sizes": {
+					"type": "boolean"
+				},
+				"editor-gradient-presets": {
+					"type": "boolean"
+				},
+				"editor-spacing-sizes": {
+					"type": "boolean"
+				},
+				"editor-styles": {
+					"type": "boolean"
+				},
+				"html5": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"formats": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"post-thumbnails": {
+					"type": "boolean"
+				},
+				"responsive-embeds": {
+					"type": "boolean"
+				},
+				"title-tag": {
+					"type": "boolean"
+				},
+				"wp-block-styles": {
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		},
+		"theme_uri": {
+			"description": "The URI of the theme's webpage.",
+			"type": "object",
+			"readonly": true,
+			"properties": {
+				"raw": {
+					"description": "The URI of the theme's webpage, as found in the theme header.",
+					"type": "string",
+					"format": "uri"
+				},
+				"rendered": {
+					"description": "The URI of the theme's webpage, transformed for display.",
+					"type": "string",
+					"format": "uri"
+				}
+			}
+		},
+		"version": {
+			"description": "The theme's current version.",
+			"type": "string",
+			"readonly": true
+		},
+		"status": {
+			"description": "A named status for the theme.",
+			"type": "string",
+			"enum": [
+				"inactive",
+				"active"
+			]
+		},
+		"default_template_types": {
+			"description": "A list of default template types.",
+			"type": "array",
+			"readonly": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"slug": {
+						"type": "string"
+					},
+					"title": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					}
+				},
+				"additionalProperties": false
+			}
+		},
+		"default_template_part_areas": {
+			"description": "A list of allowed area values for template parts.",
+			"type": "array",
+			"readonly": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"area": {
+						"type": "string"
+					},
+					"label": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"icon": {
+						"type": "string"
+					},
+					"area_tag": {
+						"type": "string"
+					}
+				},
+				"additionalProperties": false
+			}
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	},
+	"required": [
+		"stylesheet",
+		"template",
+		"author",
+		"description",
+		"is_block_theme",
+		"name",
+		"version",
+		"status"
+	],
+	"additionalProperties": false,
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/themes/{stylesheet}",
+			"hrefSchema": {
+				"properties": {
+					"stylesheet": {
+						"$ref": "#/properties/stylesheet"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/themes",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}

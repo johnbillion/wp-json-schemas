@@ -231,6 +231,10 @@ export type WP_REST_API_Tag = WP_REST_API_Term;
  */
 export type WP_REST_API_Tags = WP_REST_API_Tag[];
 /**
+ * A collection of theme objects in a REST API context.
+ */
+export type WP_REST_API_Themes = WP_REST_API_Theme[];
+/**
  * A collection of term objects in a REST API context.
  */
 export type WP_REST_API_Terms = WP_REST_API_Term[];
@@ -322,6 +326,8 @@ export interface WP {
 		Taxonomies: WP_REST_API_Taxonomies;
 		Taxonomy: WP_REST_API_Taxonomy;
 		Term: WP_REST_API_Term;
+		Theme: WP_REST_API_Theme;
+		Themes: WP_REST_API_Themes;
 		Terms: WP_REST_API_Terms;
 		Type: WP_REST_API_Type;
 		Types: WP_REST_API_Types;
@@ -3847,6 +3853,182 @@ export interface WP_REST_API_Taxonomy {
 	};
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
+}
+/**
+ * A theme object in a REST API context.
+ */
+export interface WP_REST_API_Theme {
+	/**
+	 * The theme's stylesheet. This uniquely identifies the theme.
+	 */
+	stylesheet: string;
+	/**
+	 * The uri for the theme's stylesheet directory.
+	 */
+	stylesheet_uri?: string;
+	/**
+	 * The theme's template. If this is a child theme, this refers to the parent theme, otherwise this is the same as the theme's stylesheet.
+	 */
+	template: string;
+	/**
+	 * The uri for the theme's template directory. If this is a child theme, this refers to the parent theme, otherwise this is the same as the theme's stylesheet directory.
+	 */
+	template_uri?: string;
+	/**
+	 * The theme author.
+	 */
+	author: {
+		/**
+		 * The theme author's name, as found in the theme header.
+		 */
+		raw?: string;
+		/**
+		 * HTML for the theme author, transformed for display.
+		 */
+		rendered?: string;
+	};
+	/**
+	 * The website of the theme author.
+	 */
+	author_uri?: {
+		/**
+		 * The website of the theme author, as found in the theme header.
+		 */
+		raw?: string;
+		/**
+		 * The website of the theme author, transformed for display.
+		 */
+		rendered?: string;
+	};
+	/**
+	 * A description of the theme.
+	 */
+	description: {
+		/**
+		 * The theme description, as found in the theme header.
+		 */
+		raw?: string;
+		/**
+		 * The theme description, transformed for display.
+		 */
+		rendered?: string;
+	};
+	/**
+	 * Whether the theme is a block-based theme.
+	 */
+	is_block_theme: boolean;
+	/**
+	 * The name of the theme.
+	 */
+	name: {
+		/**
+		 * The theme name, as found in the theme header.
+		 */
+		raw?: string;
+		/**
+		 * The theme name, transformed for display.
+		 */
+		rendered?: string;
+	};
+	/**
+	 * The minimum PHP version required for the theme to work.
+	 */
+	requires_php?: string;
+	/**
+	 * The minimum WordPress version required for the theme to work.
+	 */
+	requires_wp?: string;
+	/**
+	 * The theme's screenshot URL.
+	 */
+	screenshot?: string;
+	/**
+	 * Tags indicating styles and features of the theme.
+	 */
+	tags?: {
+		/**
+		 * The theme tags, as found in the theme header.
+		 */
+		raw?: string[];
+		/**
+		 * The theme tags, transformed for display.
+		 */
+		rendered?: string;
+	};
+	/**
+	 * The theme's text domain.
+	 */
+	textdomain?: string;
+	/**
+	 * Features supported by this theme.
+	 */
+	theme_supports?: {
+		"align-wide"?: boolean;
+		"automatic-feed-links"?: boolean;
+		"block-templates"?: boolean;
+		"block-template-parts"?: boolean;
+		"custom-background"?: boolean;
+		"custom-header"?: boolean;
+		"custom-logo"?: boolean;
+		"customize-selective-refresh-widgets"?: boolean;
+		"dark-editor-style"?: boolean;
+		"disable-custom-colors"?: boolean;
+		"disable-custom-font-sizes"?: boolean;
+		"disable-custom-gradients"?: boolean;
+		"disable-layout-styles"?: boolean;
+		"editor-color-palette"?: boolean;
+		"editor-font-sizes"?: boolean;
+		"editor-gradient-presets"?: boolean;
+		"editor-spacing-sizes"?: boolean;
+		"editor-styles"?: boolean;
+		html5?: string[];
+		formats?: string[];
+		"post-thumbnails"?: boolean;
+		"responsive-embeds"?: boolean;
+		"title-tag"?: boolean;
+		"wp-block-styles"?: boolean;
+	};
+	/**
+	 * The URI of the theme's webpage.
+	 */
+	theme_uri?: {
+		/**
+		 * The URI of the theme's webpage, as found in the theme header.
+		 */
+		raw?: string;
+		/**
+		 * The URI of the theme's webpage, transformed for display.
+		 */
+		rendered?: string;
+		[k: string]: unknown;
+	};
+	/**
+	 * The theme's current version.
+	 */
+	version: string;
+	/**
+	 * A named status for the theme.
+	 */
+	status: "inactive" | "active";
+	/**
+	 * A list of default template types.
+	 */
+	default_template_types?: {
+		slug?: string;
+		title?: string;
+		description?: string;
+	}[];
+	/**
+	 * A list of allowed area values for template parts.
+	 */
+	default_template_part_areas?: {
+		area?: string;
+		label?: string;
+		description?: string;
+		icon?: string;
+		area_tag?: string;
+	}[];
+	_links?: WP_REST_API_Object_Links;
 }
 /**
  * A post type object in a REST API context.
