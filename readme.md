@@ -192,7 +192,7 @@ This package is versioned so that you can specify both the schema version and th
 Examples:
 
 * `^4.0.0` - Schema version 4 for the latest WordPress version
-* `~4.67.0` - Schema version 4 for WordPress 6.8
+* `~4.68.0` - Schema version 4 for WordPress 6.8
 * `~3.57.0` - Schema version 3 for WordPress 5.7
 
 ## Breaking changes
