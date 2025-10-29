@@ -98,22 +98,17 @@ $sidebar_data = [];
 
 // Get sidebar IDs from the collection response
 $view_response_data = $view_data->get_data();
-if ( is_array( $view_response_data ) ) {
-	foreach ( $view_response_data as $sidebar ) {
-		if ( isset( $sidebar['id'] ) ) {
-			$sidebar_id = $sidebar['id'];
-			
-			// Generate REST API responses for individual sidebar
-			$sidebar_data[] = get_rest_response( 'GET', "/wp/v2/sidebars/{$sidebar_id}", [
-				'context' => 'view',
-			] );
-			$sidebar_data[] = get_rest_response( 'GET', "/wp/v2/sidebars/{$sidebar_id}", [
-				'context' => 'edit',
-			] );
-		}
-	}
+
+foreach ( $view_response_data as $sidebar ) {
+	$sidebar_id = $sidebar['id'];
+
+	// Generate REST API responses for individual sidebar
+	$sidebar_data[] = get_rest_response( 'GET', "/wp/v2/sidebars/{$sidebar_id}", [
+		'context' => 'view',
+	] );
+	$sidebar_data[] = get_rest_response( 'GET', "/wp/v2/sidebars/{$sidebar_id}", [
+		'context' => 'edit',
+	] );
 }
 
-if ( ! empty( $sidebar_data ) ) {
-	save_rest_array( $sidebar_data, 'sidebar', true );
-}
+save_rest_array( $sidebar_data, 'sidebar', true );

@@ -21,7 +21,7 @@ array_map(
 		$user = wp_insert_user( $args->toArray() );
 
 		if ( is_wp_error( $user ) ) {
-			\WP_CLI::error( $user );
+			throw new \Exception( $user->get_error_message() );
 		}
 	},
 	$roles
