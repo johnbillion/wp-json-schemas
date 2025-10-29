@@ -106,13 +106,13 @@ Route                                                   | Schema
 /wp/v2/tags/{id}                                        | `WP_REST_API_Tag`
 /wp/v2/taxonomies                                       | `WP_REST_API_Taxonomies`
 /wp/v2/taxonomies/{taxonomy}                            | `WP_REST_API_Taxonomy`
-/wp/v2/template-parts                                   | Todo
-/wp/v2/template-parts/{id}                              | Todo
+/wp/v2/template-parts                                   | `WP_REST_API_Template_Parts`
+/wp/v2/template-parts/{id}                              | `WP_REST_API_Template_Part`
 /wp/v2/template-parts/{id}/autosaves                    | Todo
 /wp/v2/template-parts/{parent}/autosaves/{id}           | Todo
 /wp/v2/template-parts/{parent}/revisions                | Todo
 /wp/v2/template-parts/{parent}/revisions/{id}           | Todo
-/wp/v2/template-parts/lookup                            | Todo
+/wp/v2/template-parts/lookup                            | `WP_REST_API_Template_Part`
 /wp/v2/templates                                        | Todo
 /wp/v2/templates/{id}                                   | Todo
 /wp/v2/templates/{id}/autosaves                         | Todo

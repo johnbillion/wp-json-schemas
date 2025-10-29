@@ -1,0 +1,16 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/template-parts.json",
+	"title": "WP_REST_API_Template_Parts",
+	"description": "A collection of template part objects in a REST API context.",
+	"type": "array",
+	"items": {
+		"$ref": "../template-part.json"
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/template-parts"
+		}
+	]
+}

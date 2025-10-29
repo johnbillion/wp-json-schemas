@@ -284,6 +284,10 @@ export type WP_REST_API_Tags = WP_REST_API_Tag[];
  */
 export type WP_REST_API_Themes = WP_REST_API_Theme[];
 /**
+ * A collection of template part objects in a REST API context.
+ */
+export type WP_REST_API_Template_Parts = WP_REST_API_Template_Part[];
+/**
  * A collection of term objects in a REST API context.
  */
 export type WP_REST_API_Terms = WP_REST_API_Term[];
@@ -379,6 +383,8 @@ export interface WP {
 		Term: WP_REST_API_Term;
 		Theme: WP_REST_API_Theme;
 		Themes: WP_REST_API_Themes;
+		Template_Part: WP_REST_API_Template_Part;
+		Template_Parts: WP_REST_API_Template_Parts;
 		Terms: WP_REST_API_Terms;
 		Type: WP_REST_API_Type;
 		Types: WP_REST_API_Types;
@@ -4109,6 +4115,102 @@ export interface WP_REST_API_Theme {
 	}[];
 	_links?: WP_REST_API_Object_Links;
 	[k: string]: unknown;
+}
+/**
+ * A template part object in a REST API context.
+ */
+export interface WP_REST_API_Template_Part {
+	/**
+	 * ID of template.
+	 */
+	id: string;
+	/**
+	 * Unique slug identifying the template.
+	 */
+	slug: string;
+	/**
+	 * Theme identifier for the template.
+	 */
+	theme: string;
+	/**
+	 * Type of template.
+	 */
+	type: string;
+	/**
+	 * Source of template
+	 */
+	source: string;
+	/**
+	 * Source of a customized template
+	 */
+	origin: string | null;
+	/**
+	 * Content of template.
+	 */
+	content:
+		| {
+				/**
+				 * Content for the template, as it exists in the database.
+				 */
+				raw?: string;
+				/**
+				 * Version of the content block format used by the template.
+				 */
+				block_version?: number;
+		  }
+		| string;
+	/**
+	 * Title of template.
+	 */
+	title:
+		| {
+				/**
+				 * Title for the template, as it exists in the database.
+				 */
+				raw?: string;
+				/**
+				 * HTML title for the template, transformed for display.
+				 */
+				rendered: string;
+		  }
+		| string;
+	/**
+	 * Description of template.
+	 */
+	description: string;
+	/**
+	 * Status of template.
+	 */
+	status: "publish" | "future" | "draft" | "pending" | "private";
+	/**
+	 * Post ID.
+	 */
+	wp_id: number;
+	/**
+	 * Theme file exists.
+	 */
+	has_theme_file: boolean;
+	/**
+	 * The ID for the author of the template.
+	 */
+	author: number;
+	/**
+	 * The date the template was last modified, in the site's timezone.
+	 */
+	modified: string | false;
+	/**
+	 * Human readable text for the author.
+	 */
+	author_text: string;
+	/**
+	 * Where the template originally comes from e.g. 'theme'
+	 */
+	original_source: "theme" | "plugin" | "site" | "user";
+	/**
+	 * Where the template part is intended for use (header, footer, etc.)
+	 */
+	area?: string;
+	_links?: WP_REST_API_Object_Links;
 }
 /**
  * A post type object in a REST API context.
