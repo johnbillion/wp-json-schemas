@@ -56,10 +56,18 @@ IGNORE_FILES=("schemas/rest-api/error.json")
 # Always cleanup regardless of how the script exits
 trap cleanup EXIT
 
-# Validate all PHP object schemas
+# Validate all PHP object schemas in parallel
+pids=()
 for file in schemas/*.json
 do
-	validate_schema "$file"
+	validate_schema "$file" &
+	pids+=($!)
+done
+
+# Wait for all jobs and capture exit codes
+for pid in "${pids[@]}"
+do
+	wait "$pid" || exit $?
 done
 
 # Disallow additional root properties in all REST API schemas (via unevaluatedProperties)
@@ -74,12 +82,22 @@ do
 	modify_schema "$file" '.properties._embedded += { "additionalProperties": false }' '.properties._embedded != null'
 done
 
-# Validation for REST API collections:
+# Validation for REST API collections in parallel:
+pids=()
 for file in schemas/rest-api/collections/*.json
 do
-	validate_schema "$file"
+	validate_schema "$file" &
+	pids+=($!)
 done
 
 # Validation for REST API entities that don't have a directly corresponding collection:
-validate_schema schemas/rest-api/global-style-variation.json
-validate_schema schemas/rest-api/global-style-config.json
+validate_schema schemas/rest-api/global-style-variation.json &
+pids+=($!)
+validate_schema schemas/rest-api/global-style-config.json &
+pids+=($!)
+
+# Wait for all parallel validation jobs to complete and capture exit codes
+for pid in "${pids[@]}"
+do
+	wait "$pid" || exit $?
+done
