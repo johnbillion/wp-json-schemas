@@ -83,8 +83,8 @@ Route                                                   | Schema
 /wp/v2/navigation/{id}                                  | `WP_REST_API_Navigation_Menu`
 /wp/v2/navigation/{id}/autosaves                        | Todo
 /wp/v2/navigation/{parent}/autosaves/{id}               | Todo
-/wp/v2/navigation/{parent}/revisions                    | Todo
-/wp/v2/navigation/{parent}/revisions/{id}               | Todo
+/wp/v2/navigation/{parent}/revisions                    | `WP_REST_API_Revisions`
+/wp/v2/navigation/{parent}/revisions/{id}               | `WP_REST_API_Revision`
 /wp/v2/pages                                            | `WP_REST_API_Pages`
 /wp/v2/pages/{id}                                       | `WP_REST_API_Page`
 /wp/v2/pages/{id}/autosaves                             | Todo

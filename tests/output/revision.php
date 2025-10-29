@@ -6,6 +6,7 @@ $endpoints = [
 	'page' => 'pages',
 	'post' => 'posts',
 	'wp_block' => 'blocks',
+	'wp_navigation' => 'navigation',
 ];
 $data = [];
 
