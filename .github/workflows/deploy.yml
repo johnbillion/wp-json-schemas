@@ -29,11 +29,14 @@ jobs:
           node-version-file: '.nvmrc'
           registry-url: https://registry.npmjs.org/
 
-      - run: npm install
+      - name: Upgrade npm for OIDC support
+        run: npm install -g npm@latest
 
-      - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy to npm using trusted publishing with OIDC
+        run: npm publish --access public
 
   publish-wp-types:
     runs-on: ubuntu-latest
@@ -54,10 +57,11 @@ jobs:
           node-version-file: '.nvmrc'
           registry-url: https://registry.npmjs.org/
 
-      - name: Deploy to npm
+      - name: Upgrade npm for OIDC support
+        run: npm install -g npm@latest
+
+      - name: Deploy to npm using trusted publishing with OIDC
         run: |
           cd packages/wp-types
           npm install
-          npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          npm publish --access public
