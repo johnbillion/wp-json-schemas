@@ -7,13 +7,14 @@ on:
     tags:
       - '*'
 
-permissions:
-  contents: read
-  id-token: write
+permissions: {}
 
 jobs:
   publish-wp-json-schemas:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # To read the repository
+      id-token: write # OIDC token for trusted publishing
     environment:
       name: wp-json-schemas
       url: https://www.npmjs.com/package/wp-json-schemas
@@ -36,6 +37,9 @@ jobs:
 
   publish-wp-types:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # To read the repository
+      id-token: write # OIDC token for trusted publishing
     environment:
       name: wp-types
       url: https://www.npmjs.com/package/wp-types
