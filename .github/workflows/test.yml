@@ -15,6 +15,7 @@ permissions: {}
 
 jobs:
   validate:
+    name: Validate Codebase
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
