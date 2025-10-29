@@ -1,0 +1,16 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/templates.json",
+	"title": "WP_REST_API_Templates",
+	"description": "A collection of block template objects in a REST API context.",
+	"type": "array",
+	"items": {
+		"$ref": "../template.json"
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/templates"
+		}
+	]
+}

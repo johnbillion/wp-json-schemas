@@ -14,6 +14,7 @@ foreach ( $endpoints as $post_type => $slug ) {
 	$id = wp_insert_post( [
 		'post_type'   => $post_type,
 		'post_title'  => 'Title',
+		'post_content' => '<!-- wp:paragraph --><p>Content</p><!-- /wp:paragraph -->',
 		'post_status' => 'publish',
 	], true );
 

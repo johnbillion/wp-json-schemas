@@ -1,0 +1,134 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/partials/revision/common.json",
+	"title": "WP_REST_API_Partial_Revision_Common",
+	"description": "Common revision properties shared by all revision types",
+	"type": "object",
+	"required": [
+		"author",
+		"date",
+		"date_gmt",
+		"id",
+		"modified",
+		"modified_gmt",
+		"parent",
+		"title",
+		"content",
+		"meta",
+		"_links"
+	],
+	"properties": {
+		"author": {
+			"description": "The ID for the author of the revision.",
+			"allOf": [
+				{
+					"$ref": "../../user.json#/properties/id"
+				}
+			]
+		},
+		"date": {
+			"description": "The date the revision was published, in the site's timezone.",
+			"oneOf": [
+				{
+					"$ref": "../../properties/date-time.json"
+				}
+			]
+		},
+		"date_gmt": {
+			"description": "The date the revision was published, as GMT.",
+			"oneOf": [
+				{
+					"$ref": "../../properties/date-time.json"
+				}
+			]
+		},
+		"id": {
+			"description": "Unique identifier for the revision.",
+			"type": "integer"
+		},
+		"modified": {
+			"description": "The date the revision was last modified, in the site's timezone.",
+			"oneOf": [
+				{
+					"$ref": "../../properties/date-time.json"
+				}
+			]
+		},
+		"modified_gmt": {
+			"description": "The date the revision was last modified, as GMT.",
+			"oneOf": [
+				{
+					"$ref": "../../properties/date-time.json"
+				}
+			]
+		},
+		"parent": {
+			"description": "The ID for the parent of the revision.",
+			"allOf": [
+				{
+					"$ref": "#/properties/id"
+				}
+			]
+		},
+		"title": {
+			"description": "The title for the post.",
+			"type": "object",
+			"required": [
+				"rendered"
+			],
+			"properties": {
+				"raw": {
+					"description": "Title for the post, as it exists in the database. Only present when using the 'edit' context.",
+					"type": "string"
+				},
+				"rendered": {
+					"readOnly": true,
+					"contentMediaType": "text/html",
+					"description": "HTML title for the post, transformed for display.",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
+		"content": {
+			"description": "The content for the post.",
+			"type": "object",
+			"required": [
+				"rendered"
+			],
+			"properties": {
+				"raw": {
+					"description": "Content for the post, as it exists in the database. Only present when using the 'edit' context.",
+					"contentMediaType": "text/html",
+					"type": "string"
+				},
+				"rendered": {
+					"description": "HTML content for the post, transformed for display.",
+					"contentMediaType": "text/html",
+					"type": "string",
+					"readOnly": true
+				},
+				"block_version": {
+					"description": "Version of the content block format used by the post. Only present when using the 'edit' context.",
+					"type": "integer",
+					"readOnly": true
+				}
+			},
+			"additionalProperties": false
+		},
+		"meta": {
+			"description": "Meta fields.",
+			"oneOf": [
+				{
+					"$ref": "../../../../schema.json#/definitions/EmptyArray"
+				},
+				{
+					"type": "object"
+				}
+			]
+		},
+		"_links": {
+			"$ref": "../../properties/object-links.json"
+		}
+	}
+}

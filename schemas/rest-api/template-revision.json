@@ -1,0 +1,30 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/template-revision.json",
+	"title": "WP_REST_API_Template_Revision",
+	"description": "A block template revision object in a REST API context.",
+	"type": "object",
+	"allOf": [
+		{
+			"$ref": "./partials/template-revision/common.json"
+		},
+		{
+			"type": "object",
+			"required": [
+				"is_custom"
+			],
+			"properties": {
+				"is_custom": {
+					"description": "Whether the template is custom.",
+					"type": "boolean",
+					"readOnly": true
+				},
+				"plugin": {
+					"description": "Plugin that registered the template.",
+					"type": "string",
+					"readOnly": true
+				}
+			}
+		}
+	]
+}

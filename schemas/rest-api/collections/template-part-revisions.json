@@ -1,0 +1,10 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/template-part-revisions.json",
+	"title": "WP_REST_API_Template_Part_Revisions",
+	"description": "A collection of block template part revision objects in a REST API context.",
+	"type": "array",
+	"items": {
+		"$ref": "../template-part-revision.json"
+	}
+}

@@ -1,0 +1,59 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/partials/revision/post-like.json",
+	"title": "WP_REST_API_Partial_Revision_Post_Like",
+	"description": "Revision properties specific to post-like content types (posts, pages, blocks, navigation)",
+	"type": "object",
+	"required": [
+		"guid",
+		"slug"
+	],
+	"properties": {
+		"guid": {
+			"description": "The globally unique identifier for the post.",
+			"type": "object",
+			"readOnly": true,
+			"required": [
+				"rendered"
+			],
+			"properties": {
+				"raw": {
+					"description": "GUID for the post, as it exists in the database. Only present when using the 'edit' context.",
+					"type": "string",
+					"readOnly": true
+				},
+				"rendered": {
+					"description": "GUID for the post, transformed for display.",
+					"type": "string",
+					"readOnly": true
+				}
+			},
+			"additionalProperties": false
+		},
+		"slug": {
+			"description": "An alphanumeric identifier for the revision unique to its type.",
+			"type": "string"
+		},
+		"excerpt": {
+			"description": "The excerpt for the post.",
+			"type": "object",
+			"required": [
+				"rendered"
+			],
+			"properties": {
+				"raw": {
+					"description": "Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.",
+					"contentMediaType": "text/html",
+					"type": "string"
+				},
+				"rendered": {
+					"description": "HTML excerpt for the post, transformed for display.",
+					"readOnly": true,
+					"contentMediaType": "text/html",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		}
+	}
+}
