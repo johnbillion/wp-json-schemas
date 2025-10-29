@@ -3,6 +3,11 @@
 namespace WPJsonSchemas;
 
 $content = file_get_contents( __DIR__ . '/includes/blocks.html' );
+
+if ( $content === false ) {
+	throw new \Exception( 'Failed to read blocks.html file' );
+}
+
 $parsed = array_filter( parse_blocks( $content ), function( $block ) {
 	return ! empty( $block['blockName'] );
 } );

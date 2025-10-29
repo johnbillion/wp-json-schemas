@@ -102,7 +102,15 @@ function save_object_array( array $data, string $dir ) : void {
 
 		$json = json_encode( $item, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
 
-		file_put_contents( $dir . '/' . $i . '.json', $json );
+		if ( $json === false ) {
+			throw new \Exception( "Failed to encode JSON for {$dir}[{$i}]: " . json_last_error_msg() );
+		}
+
+		$result = file_put_contents( $dir . '/' . $i . '.json', $json );
+
+		if ( $result === false ) {
+			throw new \Exception( "Failed to write file {$dir}/{$i}.json" );
+		}
 	}
 }
 
@@ -111,8 +119,10 @@ function save_object_array( array $data, string $dir ) : void {
  *
  * @param WP_REST_Response[] $data Array of responses to a REST API request.
  * @param string             $dir  The directory to save the files.
+ * @param bool               $single Whether to save as individual items or a collection.
+ * @param bool               $allow_errors Whether to allow error responses (for error schema testing).
  */
-function save_rest_array( array $data, string $dir, bool $single = false ) : void {
+function save_rest_array( array $data, string $dir, bool $single = false, bool $allow_errors = false ) : void {
 	if ( empty( $data ) ) {
 		throw new \Exception( "No REST API data to save for {$dir}." );
 	}
@@ -130,15 +140,35 @@ function save_rest_array( array $data, string $dir, bool $single = false ) : voi
 	$server = rest_get_server();
 
 	foreach ( $data as $i => $item ) {
+		if ( ! $allow_errors && $item->is_error() ) {
+			throw new \Exception( "REST API request returned error for {$dir}[{$i}]: " . $item->as_error()->get_error_message() );
+		}
+
 		$save = $server->response_to_data( $item, false );
 		$json = json_encode( $save, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
 
-		file_put_contents( $dir . '/' . $i . '.json', $json );
+		if ( $json === false ) {
+			throw new \Exception( "Failed to encode JSON for {$dir}[{$i}]: " . json_last_error_msg() );
+		}
+
+		$result = file_put_contents( $dir . '/' . $i . '.json', $json );
+
+		if ( $result === false ) {
+			throw new \Exception( "Failed to write file {$dir}/{$i}.json" );
+		}
 
 		$save = $server->response_to_data( $item, true );
 		$json = json_encode( $save, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
 
-		file_put_contents( $dir . '/' . $i . '-embedded.json', $json );
+		if ( $json === false ) {
+			throw new \Exception( "Failed to encode JSON with embedded for {$dir}[{$i}]: " . json_last_error_msg() );
+		}
+
+		$result = file_put_contents( $dir . '/' . $i . '-embedded.json', $json );
+
+		if ( $result === false ) {
+			throw new \Exception( "Failed to write file {$dir}/{$i}-embedded.json" );
+		}
 	}
 }
 
@@ -173,6 +203,10 @@ function save_external_schema( string $url, string $name, array $path = [] ) : v
 
 	$json = json_encode( $data, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
 
+	if ( $json === false ) {
+		throw new \Exception( "Failed to encode JSON for external {$name} schema: " . json_last_error_msg() );
+	}
+
 	$printer = new Printer\Printer();
 
 	$json = $printer->print(
@@ -182,8 +216,8 @@ function save_external_schema( string $url, string $name, array $path = [] ) : v
 
 	$result = file_put_contents( $target, $json );
 
-	if ( ! $result ) {
-		throw new \Exception( "Failed to save external {$name} schema." );
+	if ( $result === false ) {
+		throw new \Exception( "Failed to save external {$name} schema to {$target}." );
 	}
 }
 
@@ -210,6 +244,10 @@ function set_schema_fields( string $filename, array $values ) : void {
 
 	$json = json_encode( $data, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
 
+	if ( $json === false ) {
+		throw new \Exception( "Failed to encode JSON for {$filename} schema: " . json_last_error_msg() );
+	}
+
 	$printer = new Printer\Printer();
 
 	$json = $printer->print(
@@ -219,8 +257,8 @@ function set_schema_fields( string $filename, array $values ) : void {
 
 	$result = file_put_contents( $target, $json . "\n" );
 
-	if ( ! $result ) {
-		throw new \Exception( "Failed to save {$filename} schema." );
+	if ( $result === false ) {
+		throw new \Exception( "Failed to save {$filename} schema to {$target}." );
 	}
 }
 

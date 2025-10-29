@@ -36,7 +36,15 @@ foreach ( $routes as $item ) {
 
 	$json = json_encode( $save, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
 
-	file_put_contents( $dir . '/' . $i . '.json', $json );
+	if ( $json === false ) {
+		throw new \Exception( "Failed to encode JSON for route {$i}: " . json_last_error_msg() );
+	}
+
+	$result = file_put_contents( $dir . '/' . $i . '.json', $json );
+
+	if ( $result === false ) {
+		throw new \Exception( "Failed to write file {$dir}/{$i}.json" );
+	}
 }
 
 $all_routes = array_column( $routes, 'route' );
@@ -45,4 +53,12 @@ sort( $all_routes );
 
 $json = json_encode( $all_routes, JSON_PRETTY_PRINT ^ JSON_UNESCAPED_SLASHES );
 
-file_put_contents( $dir . '/routes.json', $json );
+if ( $json === false ) {
+	throw new \Exception( 'Failed to encode JSON for routes.json: ' . json_last_error_msg() );
+}
+
+$result = file_put_contents( $dir . '/routes.json', $json );
+
+if ( $result === false ) {
+	throw new \Exception( "Failed to write file {$dir}/routes.json" );
+}

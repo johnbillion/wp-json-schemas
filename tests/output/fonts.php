@@ -16,7 +16,12 @@ $family_response = get_rest_response(
 		'font_family_settings' => json_encode( $family_payload ),
 	]
 );
-$family_id = $family_response->data['id'];
+
+if ( $family_response->is_error() ) {
+	throw new \Exception( 'Failed to create font family: ' . $family_response->as_error()->get_error_message() );
+}
+
+$family_id = $family_response->get_data()['id'];
 
 // Add a font face to the font family:
 $face_payload = [

@@ -39,28 +39,44 @@ $parent_page = wp_insert_post( [
 	'post_type'   => 'page',
 	'post_title'  => 'Parent Title',
 	'post_status' => 'draft',
-] );
+], true );
 
-wp_insert_post( [
+if ( is_wp_error( $parent_page ) ) {
+	throw new \Exception( 'Failed to create parent page: ' . $parent_page->get_error_message() );
+}
+
+$child_page = wp_insert_post( [
 	'post_type'   => 'page',
 	'post_title'  => 'Child Title',
 	'post_status' => 'publish',
 	'post_parent' => $parent_page,
-] );
+], true );
 
-wp_insert_post( [
+if ( is_wp_error( $child_page ) ) {
+	throw new \Exception( 'Failed to create child page: ' . $child_page->get_error_message() );
+}
+
+$block_post = wp_insert_post( [
 	'post_type'    => 'wp_block',
 	'post_title'   => 'Block Title',
 	'post_content' => '<!-- wp:paragraph --><p>Hello</p><!-- /wp:paragraph -->',
 	'post_status'  => 'publish',
-] );
+], true );
 
-wp_insert_post( [
+if ( is_wp_error( $block_post ) ) {
+	throw new \Exception( 'Failed to create block post: ' . $block_post->get_error_message() );
+}
+
+$navigation_post = wp_insert_post( [
 	'post_type'    => 'wp_navigation',
 	'post_title'   => 'Navigation Title',
 	'post_content' => '<!-- wp:navigation-link {"label":"Title","type":"page","id":123,"url":"/title/","kind":"post-type"} /-->',
 	'post_status'  => 'publish',
-] );
+], true );
+
+if ( is_wp_error( $navigation_post ) ) {
+	throw new \Exception( 'Failed to create navigation post: ' . $navigation_post->get_error_message() );
+}
 
 $global_style_ids = [];
 
@@ -71,12 +87,18 @@ foreach ( glob( $theme_dir . '/styles/*.json' ) as $variation ) {
 	$data['isGlobalStylesUserThemeJSON'] = true;
 	$data['version'] = \WP_Theme_JSON::LATEST_SCHEMA;
 
-	$global_style_ids[] = wp_insert_post( [
+	$global_style_id = wp_insert_post( [
 		'post_type'    => 'wp_global_styles',
 		'post_title'   => ' Style Variation: ' . basename( $variation ),
 		'post_content' => addslashes( json_encode( $data, JSON_UNESCAPED_SLASHES ) ),
 		'post_status'  => 'publish',
-	] );
+	], true );
+
+	if ( is_wp_error( $global_style_id ) ) {
+		throw new \Exception( 'Failed to create global style variation: ' . $global_style_id->get_error_message() );
+	}
+
+	$global_style_ids[] = $global_style_id;
 }
 
 if ( empty( $global_style_ids ) ) {

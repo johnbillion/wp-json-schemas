@@ -62,10 +62,16 @@ save_object_array( $all_errors, 'error' );
 save_object_array( $errors, 'error-with-error' );
 save_object_array( $errors_without_error, 'error-without-error' );
 
-$post_id = get_posts( [
+$posts = get_posts( [
 	'posts_per_page' => 1,
 	'post_status' => 'publish',
-] )[0]->ID;
+] );
+
+if ( empty( $posts ) ) {
+	throw new \Exception( 'Failed to find a published post for error testing' );
+}
+
+$post_id = $posts[0]->ID;
 
 $data_route_404 = get_rest_response( 'GET', '/wp/v2/bananas' );
 $data_object_404 = get_rest_response( 'GET', '/wp/v2/posts/99999' );
@@ -77,4 +83,4 @@ save_rest_array( [
 	$data_route_404,
 	$data_object_404,
 	$data_save_400,
-], 'error' );
+], 'error', false, true );
