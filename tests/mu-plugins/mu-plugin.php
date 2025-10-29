@@ -34,7 +34,13 @@ set_error_handler( function( int $errno, string $errstr, string $errfile = '', i
 } );
 
 $composer = json_decode( file_get_contents( dirname( __DIR__, 2 ) . '/composer.json' ), true );
-define( 'WP_VERSION', $composer['require-dev']['roots/wordpress-full'] );
+$version = $composer['require-dev']['roots/wordpress-full'];
+
+if ( str_starts_with( $version, 'dev-' ) ) {
+	define( 'WP_VERSION', $version );
+} else {
+	define( 'WP_VERSION', explode( '-', $version )[0] );
+}
 
 function use_requested_theme( string $theme ) : string {
 	foreach ( $_SERVER['argv'] as $arg ) {

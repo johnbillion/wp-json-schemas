@@ -51,7 +51,7 @@ save_rest_array( [
 
 $url = sprintf(
 	'https://raw.githubusercontent.com/WordPress/gutenberg/wp/%s/schemas/json/theme.json',
-	WP_VERSION,
+	( 'dev-main' === WP_VERSION ) ? 'next' : WP_VERSION,
 );
 
 save_external_schema(

@@ -74,9 +74,11 @@ The schema for a PHP object is created using the docblocks from its class proper
 
 ## Updating schemas for a new WordPress release
 
-*     composer require --dev roots/wordpress-full=dev-main
+*     composer require --dev roots/wordpress-full=x.y-beta1
 *     composer update
 *     composer test
+
+Using `roots/wordpress-full=dev-main` works for nightlies, but there is a chance that the schemas in the `wp/next` branch of Gutenberg are not identical to those in WordPress core at the currently nightly.
 
 Address any test failures by updating the corresponding schema files.
 
