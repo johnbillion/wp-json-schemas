@@ -1,0 +1,53 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/template.json",
+	"title": "WP_REST_API_Template",
+	"description": "A block template object in a REST API context.",
+	"type": "object",
+	"allOf": [
+		{
+			"$ref": "./partials/template/common.json"
+		},
+		{
+			"type": "object",
+			"required": [
+				"is_custom"
+			],
+			"properties": {
+				"is_custom": {
+					"description": "Whether a template is custom.",
+					"type": "boolean",
+					"readOnly": true
+				},
+				"plugin": {
+					"description": "Plugin that registered the template.",
+					"type": "string",
+					"readOnly": true
+				}
+			}
+		}
+	],
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/templates/{id}",
+			"hrefSchema": {
+				"properties": {
+					"id": {
+						"$ref": "./partials/template/common.json#/properties/id"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/templates",
+			"targetSchema": {
+				"$ref": "collections/templates.json"
+			}
+		}
+	]
+}

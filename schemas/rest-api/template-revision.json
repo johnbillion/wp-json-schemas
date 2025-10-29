@@ -1,0 +1,186 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/template-revision.json",
+	"title": "WP_REST_API_Template_Revision",
+	"description": "A template revision object in a REST API context.",
+	"type": "object",
+	"required": [
+		"id",
+		"slug",
+		"theme",
+		"type",
+		"source",
+		"origin",
+		"content",
+		"title",
+		"description",
+		"status",
+		"wp_id",
+		"has_theme_file",
+		"is_custom",
+		"author",
+		"modified",
+		"author_text",
+		"original_source",
+		"parent",
+		"_links"
+	],
+	"properties": {
+		"id": {
+			"description": "ID of template.",
+			"type": "string",
+			"readOnly": true
+		},
+		"slug": {
+			"description": "Unique slug identifying the template.",
+			"type": "string"
+		},
+		"theme": {
+			"description": "Theme identifier for the template.",
+			"type": "string"
+		},
+		"type": {
+			"description": "Type of template.",
+			"type": "string"
+		},
+		"source": {
+			"description": "Source of template",
+			"type": "string",
+			"readOnly": true
+		},
+		"origin": {
+			"description": "Source of a customized template",
+			"type": [
+				"string",
+				"null"
+			],
+			"readOnly": true
+		},
+		"content": {
+			"description": "Content of template.",
+			"oneOf": [
+				{
+					"type": "object",
+					"properties": {
+						"raw": {
+							"description": "Content for the template, as it exists in the database.",
+							"type": "string"
+						},
+						"block_version": {
+							"description": "Version of the content block format used by the template.",
+							"type": "integer",
+							"readOnly": true
+						}
+					},
+					"additionalProperties": false
+				},
+				{
+					"type": "string"
+				}
+			],
+			"default": ""
+		},
+		"title": {
+			"description": "Title of template.",
+			"oneOf": [
+				{
+					"type": "object",
+					"properties": {
+						"raw": {
+							"description": "Title for the template, as it exists in the database.",
+							"type": "string"
+						},
+						"rendered": {
+							"description": "HTML title for the template, transformed for display.",
+							"type": "string",
+							"readOnly": true
+						}
+					},
+					"additionalProperties": false
+				},
+				{
+					"type": "string"
+				}
+			],
+			"default": ""
+		},
+		"description": {
+			"description": "Description of template.",
+			"type": "string",
+			"default": ""
+		},
+		"status": {
+			"description": "Status of template.",
+			"type": "string",
+			"enum": [
+				"publish",
+				"future",
+				"draft",
+				"pending",
+				"private",
+				"inherit"
+			],
+			"default": "publish"
+		},
+		"wp_id": {
+			"description": "Post ID.",
+			"allOf": [
+				{
+					"$ref": "partials/post/common.json#/properties/id"
+				}
+			],
+			"readOnly": true
+		},
+		"has_theme_file": {
+			"description": "Theme file exists.",
+			"type": "boolean",
+			"readOnly": true
+		},
+		"is_custom": {
+			"description": "Whether the template is custom.",
+			"type": "boolean",
+			"readOnly": true
+		},
+		"author": {
+			"description": "The ID for the author of the template.",
+			"allOf": [
+				{
+					"$ref": "user.json#/properties/id"
+				}
+			]
+		},
+		"modified": {
+			"description": "The date the template was last modified, in the site's timezone.",
+			"allOf": [
+				{
+					"$ref": "properties/date-time.json"
+				}
+			],
+			"readOnly": true
+		},
+		"author_text": {
+			"type": "string",
+			"description": "Human readable text for the author.",
+			"readOnly": true
+		},
+		"original_source": {
+			"description": "Where the template originally comes from e.g. 'theme'",
+			"type": "string",
+			"readOnly": true,
+			"enum": [
+				"theme",
+				"plugin",
+				"site",
+				"user"
+			]
+		},
+		"parent": {
+			"description": "The ID for the parent of the revision.",
+			"type": "integer"
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		}
+	},
+	"additionalProperties": false
+}

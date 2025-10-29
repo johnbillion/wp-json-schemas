@@ -254,11 +254,29 @@
 				"Themes": {
 					"$ref": "schemas/rest-api/collections/themes.json"
 				},
+				"Template": {
+					"$ref": "schemas/rest-api/template.json"
+				},
+				"Templates": {
+					"$ref": "schemas/rest-api/collections/templates.json"
+				},
 				"Template_Part": {
 					"$ref": "schemas/rest-api/template-part.json"
 				},
 				"Template_Parts": {
 					"$ref": "schemas/rest-api/collections/template-parts.json"
+				},
+				"Template_Part_Revision": {
+					"$ref": "schemas/rest-api/template-part-revision.json"
+				},
+				"Template_Part_Revisions": {
+					"$ref": "schemas/rest-api/collections/template-part-revisions.json"
+				},
+				"Template_Revision": {
+					"$ref": "schemas/rest-api/template-revision.json"
+				},
+				"Template_Revisions": {
+					"$ref": "schemas/rest-api/collections/template-revisions.json"
 				},
 				"Terms": {
 					"$ref": "schemas/rest-api/collections/terms.json"
@@ -341,8 +359,14 @@
 				"Terms",
 				"Theme",
 				"Themes",
+				"Template",
+				"Templates",
 				"Template_Part",
 				"Template_Parts",
+				"Template_Part_Revision",
+				"Template_Part_Revisions",
+				"Template_Revision",
+				"Template_Revisions",
 				"Type",
 				"Types",
 				"User",

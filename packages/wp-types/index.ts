@@ -215,6 +215,10 @@ export type WP_REST_API_Post = WP_REST_API_Partial_Post_Common &
  */
 export type WP_REST_API_Posts = WP_REST_API_Post[];
 /**
+ * A post revision object in a REST API context.
+ */
+export type WP_REST_API_Revision = WP_REST_API_Partial_Revision_Common & WP_REST_API_Partial_Revision_Post_Like;
+/**
  * A collection of post revision objects in a REST API context.
  */
 export type WP_REST_API_Revisions = WP_REST_API_Revision[];
@@ -284,9 +288,45 @@ export type WP_REST_API_Tags = WP_REST_API_Tag[];
  */
 export type WP_REST_API_Themes = WP_REST_API_Theme[];
 /**
+ * A block template object in a REST API context.
+ */
+export type WP_REST_API_Template = WP_REST_API_Template_Common & {
+	/**
+	 * Whether a template is custom.
+	 */
+	is_custom: boolean;
+	/**
+	 * Plugin that registered the template.
+	 */
+	plugin?: string;
+	[k: string]: unknown;
+};
+/**
+ * A collection of block template objects in a REST API context.
+ */
+export type WP_REST_API_Templates = WP_REST_API_Template[];
+/**
+ * A block template part object in a REST API context.
+ */
+export type WP_REST_API_Template_Part = WP_REST_API_Template_Common & {
+	/**
+	 * Where the template part is intended for use (header, footer, etc.)
+	 */
+	area?: string;
+	[k: string]: unknown;
+};
+/**
  * A collection of template part objects in a REST API context.
  */
 export type WP_REST_API_Template_Parts = WP_REST_API_Template_Part[];
+/**
+ * A collection of block template part revision objects in a REST API context.
+ */
+export type WP_REST_API_Template_Part_Revisions = WP_REST_API_Template_Part_Revision[];
+/**
+ * A collection of template revision objects in a REST API context.
+ */
+export type WP_REST_API_Template_Revisions = WP_REST_API_Template_Revision[];
 /**
  * A collection of term objects in a REST API context.
  */
@@ -383,8 +423,14 @@ export interface WP {
 		Term: WP_REST_API_Term;
 		Theme: WP_REST_API_Theme;
 		Themes: WP_REST_API_Themes;
+		Template: WP_REST_API_Template;
+		Templates: WP_REST_API_Templates;
 		Template_Part: WP_REST_API_Template_Part;
 		Template_Parts: WP_REST_API_Template_Parts;
+		Template_Part_Revision: WP_REST_API_Template_Part_Revision;
+		Template_Part_Revisions: WP_REST_API_Template_Part_Revisions;
+		Template_Revision: WP_REST_API_Template_Revision;
+		Template_Revisions: WP_REST_API_Template_Revisions;
 		Terms: WP_REST_API_Terms;
 		Type: WP_REST_API_Type;
 		Types: WP_REST_API_Types;
@@ -3557,9 +3603,9 @@ export interface WP_REST_API_Rendered_Block {
 	[k: string]: unknown;
 }
 /**
- * A post revision object in a REST API context.
+ * Common revision properties shared by all revision types
  */
-export interface WP_REST_API_Revision {
+interface WP_REST_API_Partial_Revision_Common {
 	/**
 	 * The ID for the author of the revision.
 	 */
@@ -3572,19 +3618,6 @@ export interface WP_REST_API_Revision {
 	 * The date the revision was published, as GMT.
 	 */
 	date_gmt: WP_REST_API_Date_Time;
-	/**
-	 * The globally unique identifier for the post.
-	 */
-	guid: {
-		/**
-		 * GUID for the post, as it exists in the database. Only present when using the 'edit' context.
-		 */
-		raw?: string;
-		/**
-		 * GUID for the post, transformed for display.
-		 */
-		rendered: string;
-	};
 	/**
 	 * Unique identifier for the revision.
 	 */
@@ -3601,10 +3634,6 @@ export interface WP_REST_API_Revision {
 	 * The ID for the parent of the revision.
 	 */
 	parent: number;
-	/**
-	 * An alphanumeric identifier for the revision unique to its type.
-	 */
-	slug: string;
 	/**
 	 * The title for the post.
 	 */
@@ -3636,6 +3665,37 @@ export interface WP_REST_API_Revision {
 		block_version?: number;
 	};
 	/**
+	 * Meta fields.
+	 */
+	meta:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
+	_links: WP_REST_API_Object_Links;
+}
+/**
+ * Revision properties specific to post-like content types (posts, pages, blocks, navigation)
+ */
+interface WP_REST_API_Partial_Revision_Post_Like {
+	/**
+	 * The globally unique identifier for the post.
+	 */
+	guid: {
+		/**
+		 * GUID for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * GUID for the post, transformed for display.
+		 */
+		rendered: string;
+	};
+	/**
+	 * An alphanumeric identifier for the revision unique to its type.
+	 */
+	slug: string;
+	/**
 	 * The excerpt for the post.
 	 */
 	excerpt?: {
@@ -3648,16 +3708,6 @@ export interface WP_REST_API_Revision {
 		 */
 		rendered: string;
 	};
-	/**
-	 * Meta fields.
-	 */
-	meta:
-		| EmptyArray
-		| {
-				[k: string]: unknown;
-		  };
-	_links: WP_REST_API_Object_Links;
-	[k: string]: unknown;
 }
 /**
  * A search result in a REST API context.
@@ -4117,9 +4167,9 @@ export interface WP_REST_API_Theme {
 	[k: string]: unknown;
 }
 /**
- * A template part object in a REST API context.
+ * Common fields for block template and template part objects.
  */
-export interface WP_REST_API_Template_Part {
+export interface WP_REST_API_Template_Common {
 	/**
 	 * ID of template.
 	 */
@@ -4197,7 +4247,99 @@ export interface WP_REST_API_Template_Part {
 	/**
 	 * The date the template was last modified, in the site's timezone.
 	 */
-	modified: string | false;
+	modified: WP_REST_API_Date_Time | false;
+	/**
+	 * Human readable text for the author.
+	 */
+	author_text: string;
+	/**
+	 * Where the template originally comes from e.g. 'theme'
+	 */
+	original_source: "theme" | "plugin" | "site" | "user";
+	_links?: WP_REST_API_Object_Links;
+}
+/**
+ * A block template part revision object in a REST API context.
+ */
+export interface WP_REST_API_Template_Part_Revision {
+	/**
+	 * ID of template.
+	 */
+	id: string;
+	/**
+	 * Unique slug identifying the template.
+	 */
+	slug: string;
+	/**
+	 * Theme identifier for the template.
+	 */
+	theme: string;
+	/**
+	 * Type of template.
+	 */
+	type: string;
+	/**
+	 * Source of template
+	 */
+	source: string;
+	/**
+	 * Source of a customized template
+	 */
+	origin: string | null;
+	/**
+	 * Content of template.
+	 */
+	content:
+		| {
+				/**
+				 * Content for the template, as it exists in the database.
+				 */
+				raw?: string;
+				/**
+				 * Version of the content block format used by the template.
+				 */
+				block_version?: number;
+		  }
+		| string;
+	/**
+	 * Title of template.
+	 */
+	title:
+		| {
+				/**
+				 * Title for the template, as it exists in the database.
+				 */
+				raw?: string;
+				/**
+				 * HTML title for the template, transformed for display.
+				 */
+				rendered: string;
+		  }
+		| string;
+	/**
+	 * Description of template.
+	 */
+	description: string;
+	/**
+	 * Status of template.
+	 */
+	status: "publish" | "future" | "draft" | "pending" | "private" | "inherit";
+	/**
+	 * Post ID.
+	 */
+	wp_id: number;
+	/**
+	 * Theme file exists.
+	 */
+	has_theme_file: boolean;
+	/**
+	 * The ID for the author of the revision.
+	 */
+	author: number;
+	/**
+	 * The date the template was last modified, in the site's timezone.
+	 */
+	modified: WP_REST_API_Date_Time;
 	/**
 	 * Human readable text for the author.
 	 */
@@ -4207,10 +4349,114 @@ export interface WP_REST_API_Template_Part {
 	 */
 	original_source: "theme" | "plugin" | "site" | "user";
 	/**
+	 * The ID for the parent of the revision.
+	 */
+	parent: number;
+	/**
 	 * Where the template part is intended for use (header, footer, etc.)
 	 */
 	area?: string;
 	_links?: WP_REST_API_Object_Links;
+}
+/**
+ * A template revision object in a REST API context.
+ */
+export interface WP_REST_API_Template_Revision {
+	/**
+	 * ID of template.
+	 */
+	id: string;
+	/**
+	 * Unique slug identifying the template.
+	 */
+	slug: string;
+	/**
+	 * Theme identifier for the template.
+	 */
+	theme: string;
+	/**
+	 * Type of template.
+	 */
+	type: string;
+	/**
+	 * Source of template
+	 */
+	source: string;
+	/**
+	 * Source of a customized template
+	 */
+	origin: string | null;
+	/**
+	 * Content of template.
+	 */
+	content:
+		| {
+				/**
+				 * Content for the template, as it exists in the database.
+				 */
+				raw?: string;
+				/**
+				 * Version of the content block format used by the template.
+				 */
+				block_version?: number;
+		  }
+		| string;
+	/**
+	 * Title of template.
+	 */
+	title:
+		| {
+				/**
+				 * Title for the template, as it exists in the database.
+				 */
+				raw?: string;
+				/**
+				 * HTML title for the template, transformed for display.
+				 */
+				rendered?: string;
+		  }
+		| string;
+	/**
+	 * Description of template.
+	 */
+	description: string;
+	/**
+	 * Status of template.
+	 */
+	status: "publish" | "future" | "draft" | "pending" | "private" | "inherit";
+	/**
+	 * Post ID.
+	 */
+	wp_id: number;
+	/**
+	 * Theme file exists.
+	 */
+	has_theme_file: boolean;
+	/**
+	 * Whether the template is custom.
+	 */
+	is_custom: boolean;
+	/**
+	 * The ID for the author of the template.
+	 */
+	author: number;
+	/**
+	 * The date the template was last modified, in the site's timezone.
+	 */
+	modified: WP_REST_API_Date_Time;
+	/**
+	 * Human readable text for the author.
+	 */
+	author_text: string;
+	/**
+	 * Where the template originally comes from e.g. 'theme'
+	 */
+	original_source: "theme" | "plugin" | "site" | "user";
+	/**
+	 * The ID for the parent of the revision.
+	 */
+	parent: number;
+	_links: WP_REST_API_Object_Links;
 }
 /**
  * A post type object in a REST API context.
