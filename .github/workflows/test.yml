@@ -63,13 +63,17 @@ jobs:
           npm --version
           node --version
 
-      - run: npm install
+      - name: Install Node dependencies
+        run: npm install
 
-      - run: composer install
+      - name: Install Composer dependencies
+        run: composer install
 
-      - run: composer run test
+      - name: Run tests
+        run: composer run test
         env:
           MYSQL_DATABASE: wordpress_test
           WP_TESTS_DB_PASS: root
 
-      - run: git diff --exit-code
+      - name: Check for changes
+        run: git diff --exit-code
