@@ -55,6 +55,13 @@ function use_requested_theme( string $theme ) : string {
 add_filter( 'option_template', __NAMESPACE__ . '\use_requested_theme', 1 );
 add_filter( 'option_stylesheet', __NAMESPACE__ . '\use_requested_theme', 1 );
 
+// Reduce bcrypt cost for faster password hashing during tests
+add_filter( 'wp_hash_password_options', function( array $options ) : array {
+	$options['cost'] = 4; // Minimum allowed cost for faster test execution (default is 10)
+
+	return $options;
+} );
+
 add_action( 'init', function() : void {
 	// Ensure we're authenticated as an admin during test data generation.
 	grant_super_admin( 1 );
