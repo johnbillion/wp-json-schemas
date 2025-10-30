@@ -179,6 +179,22 @@ function save_rest_array( array $data, string $dir, bool $single = false, bool $
 	}
 }
 
+function should_refresh_rest( string $dir, bool $single = false ) : bool {
+	foreach ( $_SERVER['argv'] as $arg ) {
+		if ( $arg === '--refresh' ) {
+			return true;
+		}
+	}
+
+	if ( $single ) {
+		$dir = dirname( ABSPATH ) . '/data/rest-api/' . $dir;
+	} else {
+		$dir = dirname( ABSPATH ) . '/data/rest-api/collections/' . $dir;
+	}
+
+	return ! file_exists( $dir );
+}
+
 function save_external_schema( string $url, string $name, array $path = [] ) : void {
 	$target = dirname( ABSPATH ) . "/external-schemas/{$name}.json";
 	$schema = download_url( $url );
@@ -226,6 +242,18 @@ function save_external_schema( string $url, string $name, array $path = [] ) : v
 	if ( $result === false ) {
 		throw new \Exception( "Failed to save external {$name} schema to {$target}." );
 	}
+}
+
+function should_refresh_external_schema( string $name ) : bool {
+	foreach ( $_SERVER['argv'] as $arg ) {
+		if ( $arg === '--refresh' ) {
+			return true;
+		}
+	}
+
+	$target = dirname( ABSPATH ) . "/external-schemas/{$name}.json";
+
+	return ! file_exists( $target );
 }
 
 /**

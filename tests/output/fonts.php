@@ -54,24 +54,26 @@ save_rest_array( [
 	$data,
 ], 'font-faces' );
 
-$url = sprintf(
-	'https://raw.githubusercontent.com/WordPress/gutenberg/wp/%s/schemas/json/theme.json',
-	( 'dev-main' === WP_VERSION ) ? 'next' : WP_VERSION,
-);
+if ( should_refresh_external_schema( 'font-face' ) ) {
+	$url = sprintf(
+		'https://raw.githubusercontent.com/WordPress/gutenberg/wp/%s/schemas/json/theme.json',
+		( 'dev-main' === WP_VERSION ) ? 'next' : WP_VERSION,
+	);
 
-save_external_schema(
-	$url,
-	'font-face',
-	[
-		'definitions',
-		'settingsTypographyProperties',
-		'properties',
-		'typography',
-		'properties',
-		'fontFamilies',
-		'items',
-		'properties',
-		'fontFace',
-		'items',
-	]
-);
+	save_external_schema(
+		$url,
+		'font-face',
+		[
+			'definitions',
+			'settingsTypographyProperties',
+			'properties',
+			'typography',
+			'properties',
+			'fontFamilies',
+			'items',
+			'properties',
+			'fontFace',
+			'items',
+		]
+	);
+}
