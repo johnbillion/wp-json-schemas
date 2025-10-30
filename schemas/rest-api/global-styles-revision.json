@@ -1,0 +1,82 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/global-styles-revision.json",
+	"title": "WP_REST_API_Global_Styles_Revision",
+	"description": "A global styles revision object in a REST API context.",
+	"type": "object",
+	"required": [
+		"settings",
+		"styles",
+		"author",
+		"date",
+		"date_gmt",
+		"id",
+		"modified",
+		"modified_gmt",
+		"parent"
+	],
+	"properties": {
+		"settings": {
+			"description": "Global settings for the revision.",
+			"type": "object",
+			"readOnly": true
+		},
+		"styles": {
+			"description": "Global styles for the revision.",
+			"type": "object",
+			"readOnly": true
+		},
+		"author": {
+			"description": "The ID for the author of the revision.",
+			"type": "integer",
+			"readOnly": true
+		},
+		"date": {
+			"description": "The date the revision was published, in the site's timezone.",
+			"oneOf": [
+				{
+					"$ref": "properties/date-time.json"
+				}
+			],
+			"readOnly": true
+		},
+		"date_gmt": {
+			"description": "The date the revision was published, as GMT.",
+			"oneOf": [
+				{
+					"$ref": "properties/date-time.json"
+				}
+			],
+			"readOnly": true
+		},
+		"id": {
+			"description": "Unique identifier for the revision.",
+			"type": "integer",
+			"readOnly": true
+		},
+		"modified": {
+			"description": "The date the revision was last modified, in the site's timezone.",
+			"oneOf": [
+				{
+					"$ref": "properties/date-time.json"
+				}
+			],
+			"readOnly": true
+		},
+		"modified_gmt": {
+			"description": "The date the revision was last modified, as GMT.",
+			"oneOf": [
+				{
+					"$ref": "properties/date-time.json"
+				}
+			],
+			"readOnly": true
+		},
+		"parent": {
+			"description": "The ID for the parent of the revision.",
+			"type": "integer",
+			"readOnly": true
+		}
+	},
+	"additionalProperties": false
+}

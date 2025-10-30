@@ -111,6 +111,10 @@ export type WP_REST_API_Global_Style_Variations = {
 	[k: string]: unknown;
 }[];
 /**
+ * A collection of global styles revision objects in a REST API context.
+ */
+export type WP_REST_API_Global_Styles_Revisions = WP_REST_API_Global_Styles_Revision[];
+/**
  * A collection of menu items in a REST API context.
  */
 export type WP_REST_API_Menu_Items = WP_REST_API_Menu_Item[];
@@ -414,6 +418,8 @@ export interface WP {
 		Global_Style_Config: WP_REST_API_Global_Style_Config;
 		Global_Style_Variation: WP_REST_API_Global_Style_Variation;
 		Global_Style_Variations: WP_REST_API_Global_Style_Variations;
+		Global_Styles_Revision: WP_REST_API_Global_Styles_Revision;
+		Global_Styles_Revisions: WP_REST_API_Global_Styles_Revisions;
 		Menu_Item: WP_REST_API_Menu_Item;
 		Menu_Items: WP_REST_API_Menu_Items;
 		Menu_Location: WP_REST_API_Menu_Location;
@@ -3141,6 +3147,51 @@ export interface WP_REST_API_Global_Style_Variation {
 		  };
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
+}
+/**
+ * A global styles revision object in a REST API context.
+ */
+export interface WP_REST_API_Global_Styles_Revision {
+	/**
+	 * Global settings for the revision.
+	 */
+	settings: {
+		[k: string]: unknown;
+	};
+	/**
+	 * Global styles for the revision.
+	 */
+	styles: {
+		[k: string]: unknown;
+	};
+	/**
+	 * The ID for the author of the revision.
+	 */
+	author: number;
+	/**
+	 * The date the revision was published, in the site's timezone.
+	 */
+	date: WP_REST_API_Date_Time;
+	/**
+	 * The date the revision was published, as GMT.
+	 */
+	date_gmt: WP_REST_API_Date_Time;
+	/**
+	 * Unique identifier for the revision.
+	 */
+	id: number;
+	/**
+	 * The date the revision was last modified, in the site's timezone.
+	 */
+	modified: WP_REST_API_Date_Time;
+	/**
+	 * The date the revision was last modified, as GMT.
+	 */
+	modified_gmt: WP_REST_API_Date_Time;
+	/**
+	 * The ID for the parent of the revision.
+	 */
+	parent: number;
 }
 /**
  * A menu item in a REST API context.

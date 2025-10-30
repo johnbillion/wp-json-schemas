@@ -155,6 +155,12 @@
 				"Global_Style_Variations": {
 					"$ref": "schemas/rest-api/collections/global-style-variations.json"
 				},
+				"Global_Styles_Revision": {
+					"$ref": "schemas/rest-api/global-styles-revision.json"
+				},
+				"Global_Styles_Revisions": {
+					"$ref": "schemas/rest-api/collections/global-styles-revisions.json"
+				},
 				"Menu_Item": {
 					"$ref": "schemas/rest-api/menu-item.json"
 				},
@@ -325,6 +331,8 @@
 				"Global_Style_Config",
 				"Global_Style_Variation",
 				"Global_Style_Variations",
+				"Global_Styles_Revision",
+				"Global_Styles_Revisions",
 				"Menu_Item",
 				"Menu_Items",
 				"Menu_Location",

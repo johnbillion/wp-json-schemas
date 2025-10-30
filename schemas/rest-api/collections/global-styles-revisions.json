@@ -1,0 +1,10 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/global-styles-revisions.json",
+	"title": "WP_REST_API_Global_Styles_Revisions",
+	"description": "A collection of global styles revision objects in a REST API context.",
+	"type": "array",
+	"items": {
+		"$ref": "../global-styles-revision.json"
+	}
+}
