@@ -8,7 +8,7 @@ This package provides well-documented TypeScript definitions that describe the s
 * WordPress REST API responses such as from `/wp/v2/posts` and `/wp/v2/users`
 * Various property types and allowed values of both
 
-The definitions were last updated for WordPress 6.8.
+The definitions were last updated for WordPress 6.9.
 
 ## What's included?
 
@@ -181,13 +181,13 @@ npm install wp-types --save-dev
 This package is versioned so that you can specify both the schema version and the WordPress branch version in a way that's compatible with semantic versioning. Given version `x.y.z`:
 
 * The major version number (`x`) indicates the schema version number, currently `4`
-* The minor version number (`y`) indicates the WordPress branch version number without its decimal place, eg. `67` for WordPress 6.8
+* The minor version number (`y`) indicates the WordPress branch version number without its decimal place, eg. `69` for WordPress 6.9
 * The patch version number (`z`) indicates the schema patch version number
 
 Examples:
 
 * `^4.0.0` - Schema version 4 for the latest WordPress version
-* `~4.67.0` - Schema version 4 for WordPress 6.8
+* `~4.69.0` - Schema version 4 for WordPress 6.9
 * `~3.57.0` - Schema version 3 for WordPress 5.7
 
 ## Usage
