@@ -2272,6 +2272,10 @@ export interface WP_REST_API_Attachment {
 		 * The featured image post.
 		 */
 		"wp:featuredmedia"?: unknown[];
+		/**
+		 * The attachment parent post.
+		 */
+		"wp:attached-to"?: unknown[];
 		[k: string]: unknown;
 	};
 	[k: string]: unknown;
@@ -4655,6 +4659,7 @@ export interface WP_REST_API_Error {
 
 export const enum WP_Comment_Type_Name {
 	comment = "comment",
+	note = "note",
 	pingback = "pingback",
 	trackback = "trackback",
 }

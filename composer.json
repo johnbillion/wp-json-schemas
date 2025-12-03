@@ -28,7 +28,7 @@
 		"ergebnis/json-printer": "^3.5",
 		"johnbillion/args": "1.7.0",
 		"roots/wordpress-core-installer": "^1.0.0",
-		"roots/wordpress-full": "6.8",
+		"roots/wordpress-full": "6.9",
 		"wp-cli/core-command": "^2",
 		"wp-cli/db-command": "^2",
 		"wp-cli/language-command": "^2",

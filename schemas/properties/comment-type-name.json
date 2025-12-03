@@ -5,11 +5,13 @@
 	"type": "string",
 	"tsEnumNames": [
 		"comment",
+		"note",
 		"pingback",
 		"trackback"
 	],
 	"enum": [
 		"comment",
+		"note",
 		"pingback",
 		"trackback"
 	]

@@ -309,6 +309,10 @@
 				"wp:featuredmedia": {
 					"description": "The featured image post.",
 					"type": "array"
+				},
+				"wp:attached-to": {
+					"description": "The attachment parent post.",
+					"type": "array"
 				}
 			}
 		}
