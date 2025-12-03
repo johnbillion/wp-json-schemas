@@ -1,0 +1,3 @@
+{
+    "route": "/wp-abilities/v1/abilities/(?P<name>[a-zA-Z0-9\\-\\/]+)"
+}
