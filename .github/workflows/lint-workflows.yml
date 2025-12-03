@@ -25,7 +25,7 @@ jobs:
   lint:
     name: Lint
     permissions:
-      security-events: write
-      actions: read
-      contents: read
+      security-events: write # To upload results to CodeQL
+      actions: read          # To read workflow runs
+      contents: read         # To read the repository
     uses: johnbillion/plugin-infrastructure/.github/workflows/reusable-workflow-lint.yml@9a6405c89f3357947cd8f608bdc72d68fe17f4ae # v2.1.2

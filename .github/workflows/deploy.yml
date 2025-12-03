@@ -14,7 +14,7 @@ jobs:
     name: Publish wp-json-schemas
     runs-on: ubuntu-latest
     permissions:
-      contents: read # To read the repository
+      contents: read  # To read the repository
       id-token: write # OIDC token for trusted publishing
     environment:
       name: wp-json-schemas
@@ -43,7 +43,7 @@ jobs:
     name: Publish wp-types
     runs-on: ubuntu-latest
     permissions:
-      contents: read # To read the repository
+      contents: read  # To read the repository
       id-token: write # OIDC token for trusted publishing
     environment:
       name: wp-types
