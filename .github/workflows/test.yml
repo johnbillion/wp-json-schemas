@@ -47,20 +47,16 @@ jobs:
         uses: shivammathur/setup-php@9e72090525849c5e82e596468b86eb55e9cc5401 # v2
         with:
           php-version: 8.0
-          extensions: mysqli, xmlwriter
+          extensions: xmlwriter
           coverage: none
         env:
           fail-fast: true
-
-      - name: Start MySQL
-        run: sudo systemctl start mysql.service
 
       - name: Debugging
         run: |
           php --version
           php -m
           composer --version
-          mysql --version
           npm --version
           node --version
 
@@ -72,9 +68,6 @@ jobs:
 
       - name: Run tests
         run: composer run test
-        env:
-          MYSQL_DATABASE: wordpress_test
-          WP_TESTS_DB_PASS: root
 
       - name: Check for changes
         run: git diff --exit-code
