@@ -27,13 +27,13 @@ function modify_schema() {
 
 	if [[ "$condition" != "" ]]
 	then
-		if [[ $(./node_modules/node-jq/bin/jq -e "$condition" "$file") == false ]]
+		if [[ $(jq -e "$condition" "$file") == false ]]
 		then
 			return
 		fi
 	fi
 
-	./node_modules/node-jq/bin/jq --tab "$changes" "$file" > tmp
+	jq --tab "$changes" "$file" > tmp
 	mv tmp "$file"
 }
 

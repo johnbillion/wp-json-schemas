@@ -14,6 +14,7 @@ There is no fully automatic process to create these schemas. A schema for a PHP 
 
 * [Composer](https://getcomposer.org/)
 * [Node](https://nodejs.org/)
+* [jq](https://jqlang.github.io/jq/)
 
 ### Setup
 

@@ -7,7 +7,7 @@ set -eo pipefail
 # Set additionalProperties to false for all partial schemas
 for file in schemas/rest-api/partials/**/*.json
 do
-	./node_modules/node-jq/bin/jq --tab '. + { "additionalProperties": false }' "$file" > tmp && mv tmp "$file"
+	jq --tab '. + { "additionalProperties": false }' "$file" > tmp && mv tmp "$file"
 done
 
 # Generate TypeScript types
@@ -16,7 +16,7 @@ done
 # Revert additionalProperties
 for file in schemas/rest-api/partials/**/*.json
 do
-	./node_modules/node-jq/bin/jq --tab 'del(.additionalProperties)' "$file" > tmp && mv tmp "$file"
+	jq --tab 'del(.additionalProperties)' "$file" > tmp && mv tmp "$file"
 done
 
 # Append append.ts to the generated types
