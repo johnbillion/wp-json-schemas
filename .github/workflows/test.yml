@@ -22,7 +22,7 @@ jobs:
       contents: read # To read the repository
     steps:
       - name: Checkout repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
 
@@ -31,7 +31,7 @@ jobs:
         run: echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
 
       - name: Composer cache
-        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         env:
           cache-name: cache-composer-dependencies
         with:
@@ -39,12 +39,12 @@ jobs:
           key: php-8.0-composer-${{ hashFiles('composer.json') }}
 
       - name: Set up Node
-        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version-file: '.nvmrc'
 
       - name: Install PHP
-        uses: shivammathur/setup-php@9e72090525849c5e82e596468b86eb55e9cc5401 # v2
+        uses: shivammathur/setup-php@accd6127cb78bee3e8082180cb391013d204ef9f # 2.37.0
         with:
           php-version: 8.0
           extensions: xmlwriter
