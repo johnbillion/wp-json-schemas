@@ -66,3 +66,11 @@ jobs:
           npm ci --no-audit --no-fund --ignore-scripts
           npm run build
           npm publish --access public
+
+  github:
+    name: GitHub Milestones
+    permissions:
+      issues: write # Required for write access to milestones
+    uses: johnbillion/plugin-infrastructure/.github/workflows/reusable-milestones.yml@407e1d8405b366f95664ce4ec62127eb9ecad808 # 2.9.0
+    with:
+      version: ${{ github.ref_name }}
