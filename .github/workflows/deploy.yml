@@ -29,12 +29,10 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           registry-url: https://registry.npmjs.org/
-
-      - name: Upgrade npm for OIDC support
-        run: npm install -g npm@latest
+          package-manager-cache: false
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci --no-audit --no-fund --ignore-scripts
 
       - name: Deploy to npm using trusted publishing with OIDC
         run: npm publish --access public
@@ -60,12 +58,11 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           registry-url: https://registry.npmjs.org/
-
-      - name: Upgrade npm for OIDC support
-        run: npm install -g npm@latest
+          package-manager-cache: false
 
       - name: Deploy to npm using trusted publishing with OIDC
         run: |
           cd packages/wp-types
-          npm install
+          npm ci --no-audit --no-fund --ignore-scripts
+          npm run build
           npm publish --access public

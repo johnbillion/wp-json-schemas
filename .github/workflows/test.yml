@@ -61,7 +61,7 @@ jobs:
           node --version
 
       - name: Install Node dependencies
-        run: npm install
+        run: npm ci --no-audit --no-fund --ignore-scripts
 
       - name: Install Composer dependencies
         run: composer install
