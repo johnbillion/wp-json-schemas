@@ -79,11 +79,11 @@ The schema for a PHP object is created using the docblocks from its class proper
 *     composer update
 *     composer test
 
-Using `roots/wordpress-full=dev-main` works for nightlies, but there is a chance that the schemas in the `wp/next` branch of Gutenberg are not identical to those in WordPress core at the currently nightly.
+This updates the copy of WordPress in the `tests/wordpress` directory that's used for testing.
 
 Address any test failures by updating the corresponding schema files.
 
-Address any newly added REST API routes by adding them to both readme files and adding a schema if necessary or documenting them as "Todo".
+Address any newly added REST API routes (new untracked files in the `tests/data/rest-api/routes` directory) by adding them to both readme files and adding a schema if necessary or documenting them as "Todo".
 
 For release, update the WordPress version number in composer.json and the readme files.
 
