@@ -2207,6 +2207,14 @@ export interface WP_REST_API_Attachment {
 	 */
 	source_url: string;
 	/**
+	 * Original attachment file name.
+	 */
+	filename: string | null;
+	/**
+	 * Attachment file size in bytes.
+	 */
+	filesize: number | null;
+	/**
 	 * List of the missing image sizes of the attachment.  Only present when using the 'edit' context.
 	 */
 	missing_image_sizes?: string[];

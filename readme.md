@@ -12,7 +12,7 @@ This package provides well-documented JSON schemas that describe the shape of:
 
 The schemas in this library are used to generate [the WordPress TypeScript definitions provided by the `wp-types` package](https://www.npmjs.com/package/wp-types).
 
-The schemas were last updated for WordPress 6.9.
+The schemas were last updated for WordPress 7.0.
 
 ## What's included?
 
@@ -67,6 +67,8 @@ Route                                                   | Schema
 /wp/v2/global-styles/{parent}/revisions/{id}            | `WP_REST_API_Global_Styles_Revision`
 /wp/v2/global-styles/themes/{stylesheet}                | `WP_REST_API_Global_Style_Config`
 /wp/v2/global-styles/themes/{stylesheet}/variations     | `WP_REST_API_Global_Style_Variations`
+/wp/v2/icons                                            | Todo
+/wp/v2/icons/{name}                                     | Todo
 /wp/v2/media                                            | `WP_REST_API_Attachments`
 /wp/v2/media/{id}                                       | `WP_REST_API_Attachment`
 /wp/v2/media/{id}/edit                                  | Todo
@@ -186,13 +188,13 @@ npm install wp-json-schemas
 This package is versioned so that you can specify both the schema version and the WordPress branch version in a way that's compatible with semantic versioning. Given version `x.y.z`:
 
 * The major version number (`x`) indicates the schema version number, currently `4`
-* The minor version number (`y`) indicates the WordPress branch version number without its decimal place, eg. `69` for WordPress 6.9
+* The minor version number (`y`) indicates the WordPress branch version number without its decimal place, eg. `70` for WordPress 7.0
 * The patch version number (`z`) indicates the schema patch version number
 
 Examples:
 
 * `^4.0.0` - Schema version 4 for the latest WordPress version
-* `~4.69.0` - Schema version 4 for WordPress 6.9
+* `~4.70.0` - Schema version 4 for WordPress 7.0
 * `~3.57.0` - Schema version 3 for WordPress 5.7
 
 ## Breaking changes

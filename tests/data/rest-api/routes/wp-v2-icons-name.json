@@ -1,0 +1,3 @@
+{
+    "route": "/wp/v2/icons/(?P<name>[a-z][a-z0-9-]*/[a-z][a-z0-9-]*)"
+}
