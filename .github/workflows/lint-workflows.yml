@@ -28,4 +28,4 @@ jobs:
       security-events: write # To upload results to CodeQL
       actions: read          # To read workflow runs
       contents: read         # To read the repository
-    uses: johnbillion/plugin-infrastructure/.github/workflows/reusable-workflow-lint.yml@407e1d8405b366f95664ce4ec62127eb9ecad808 # 2.9.0
+    uses: johnbillion/plugin-infrastructure/.github/workflows/reusable-workflow-lint.yml@cc47e37177c694e00b901a5dc89fda5644bc550f # 2.9.1
