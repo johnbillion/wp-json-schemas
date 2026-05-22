@@ -8,7 +8,7 @@ This package provides well-documented TypeScript definitions that describe the s
 * WordPress REST API responses such as from `/wp/v2/posts` and `/wp/v2/users`
 * Various property types and allowed values of both
 
-The definitions were last updated for WordPress 6.9.
+The definitions were last updated for WordPress 7.0.
 
 ## What's included?
 
@@ -63,6 +63,8 @@ Route                                                   | Schema
 /wp/v2/global-styles/{parent}/revisions/{id}            | `WP_REST_API_Global_Styles_Revision`
 /wp/v2/global-styles/themes/{stylesheet}                | `WP_REST_API_Global_Style_Config`
 /wp/v2/global-styles/themes/{stylesheet}/variations     | `WP_REST_API_Global_Style_Variations`
+/wp/v2/icons                                            | `WP_REST_API_Icons`
+/wp/v2/icons/{name}                                     | `WP_REST_API_Icon`
 /wp/v2/media                                            | `WP_REST_API_Attachments`
 /wp/v2/media/{id}                                       | `WP_REST_API_Attachment`
 /wp/v2/media/{id}/edit                                  | Todo
@@ -181,13 +183,13 @@ npm install wp-types --save-dev
 This package is versioned so that you can specify both the schema version and the WordPress branch version in a way that's compatible with semantic versioning. Given version `x.y.z`:
 
 * The major version number (`x`) indicates the schema version number, currently `4`
-* The minor version number (`y`) indicates the WordPress branch version number without its decimal place, eg. `69` for WordPress 6.9
+* The minor version number (`y`) indicates the WordPress branch version number without its decimal place, eg. `70` for WordPress 7.0
 * The patch version number (`z`) indicates the schema patch version number
 
 Examples:
 
 * `^4.0.0` - Schema version 4 for the latest WordPress version
-* `~4.69.0` - Schema version 4 for WordPress 6.9
+* `~4.70.0` - Schema version 4 for WordPress 7.0
 * `~3.57.0` - Schema version 3 for WordPress 5.7
 
 ## Usage

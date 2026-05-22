@@ -53,6 +53,8 @@
     "/wp/v2/global-styles/(?P<parent>[\\d]+)/revisions/(?P<id>[\\d]+)",
     "/wp/v2/global-styles/themes/(?P<stylesheet>[\\/\\s%\\w\\.\\(\\)\\[\\]\\@_\\-]+)/variations",
     "/wp/v2/global-styles/themes/(?P<stylesheet>[^\\/:<>\\*\\?\"\\|]+(?:\\/[^\\/:<>\\*\\?\"\\|]+)?)",
+    "/wp/v2/icons",
+    "/wp/v2/icons/(?P<name>[a-z][a-z0-9-]*/[a-z][a-z0-9-]*)",
     "/wp/v2/media",
     "/wp/v2/media/(?P<id>[\\d]+)",
     "/wp/v2/media/(?P<id>[\\d]+)/edit",

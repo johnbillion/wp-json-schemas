@@ -30,6 +30,8 @@
 		"media_details",
 		"post",
 		"source_url",
+		"filename",
+		"filesize",
 		"meta",
 		"_links"
 	],
@@ -207,6 +209,22 @@
 			"description": "URL to the original attachment file.",
 			"type": "string",
 			"format": "uri"
+		},
+		"filename": {
+			"readOnly": true,
+			"description": "Original attachment file name.",
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"filesize": {
+			"readOnly": true,
+			"description": "Attachment file size in bytes.",
+			"type": [
+				"integer",
+				"null"
+			]
 		},
 		"missing_image_sizes": {
 			"description": "List of the missing image sizes of the attachment.  Only present when using the 'edit' context.",

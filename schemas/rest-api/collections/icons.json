@@ -1,0 +1,19 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/collections/icons.json",
+	"title": "WP_REST_API_Icons",
+	"description": "A collection of icon objects in a REST API context.",
+	"type": "array",
+	"items": {
+		"$ref": "../icon.json"
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/icons",
+			"targetSchema": {
+				"$ref": "#"
+			}
+		}
+	]
+}
