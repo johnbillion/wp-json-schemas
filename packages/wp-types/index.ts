@@ -115,6 +115,10 @@ export type WP_REST_API_Global_Style_Variations = {
  */
 export type WP_REST_API_Global_Styles_Revisions = WP_REST_API_Global_Styles_Revision[];
 /**
+ * A collection of icon objects in a REST API context.
+ */
+export type WP_REST_API_Icons = WP_REST_API_Icon[];
+/**
  * A collection of menu items in a REST API context.
  */
 export type WP_REST_API_Menu_Items = WP_REST_API_Menu_Item[];
@@ -420,6 +424,8 @@ export interface WP {
 		Global_Style_Variations: WP_REST_API_Global_Style_Variations;
 		Global_Styles_Revision: WP_REST_API_Global_Styles_Revision;
 		Global_Styles_Revisions: WP_REST_API_Global_Styles_Revisions;
+		Icon: WP_REST_API_Icon;
+		Icons: WP_REST_API_Icons;
 		Menu_Item: WP_REST_API_Menu_Item;
 		Menu_Items: WP_REST_API_Menu_Items;
 		Menu_Location: WP_REST_API_Menu_Location;
@@ -3204,6 +3210,24 @@ export interface WP_REST_API_Global_Styles_Revision {
 	 * The ID for the parent of the revision.
 	 */
 	parent: number;
+}
+/**
+ * An icon object in a REST API context.
+ */
+export interface WP_REST_API_Icon {
+	/**
+	 * The icon name.
+	 */
+	name: string;
+	/**
+	 * The icon label.
+	 */
+	label: string;
+	/**
+	 * The icon content (SVG markup).
+	 */
+	content: string;
+	[k: string]: unknown;
 }
 /**
  * A menu item in a REST API context.
