@@ -22,6 +22,7 @@
 		"plugin",
 		"post_types",
 		"modified",
+		"date",
 		"area"
 	],
 	"properties": {
@@ -98,6 +99,12 @@
 			]
 		},
 		"modified": {
+			"type": [
+				"string",
+				"null"
+			]
+		},
+		"date": {
 			"type": [
 				"string",
 				"null"

@@ -12,7 +12,7 @@ This package provides well-documented JSON schemas that describe the shape of:
 
 The schemas in this library are used to generate [the WordPress TypeScript definitions provided by the `wp-types` package](https://www.npmjs.com/package/wp-types).
 
-The schemas were last updated for WordPress 7.0.
+The schemas were last updated for WordPress 7.1.
 
 ## What's included?
 
@@ -188,13 +188,13 @@ npm install wp-json-schemas
 This package is versioned so that you can specify both the schema version and the WordPress branch version in a way that's compatible with semantic versioning. Given version `x.y.z`:
 
 * The major version number (`x`) indicates the schema version number, currently `4`
-* The minor version number (`y`) indicates the WordPress branch version number without its decimal place, eg. `70` for WordPress 7.0
+* The minor version number (`y`) indicates the WordPress branch version number without its decimal place, eg. `71` for WordPress 7.1
 * The patch version number (`z`) indicates the schema patch version number
 
 Examples:
 
 * `^4.0.0` - Schema version 4 for the latest WordPress version
-* `~4.70.0` - Schema version 4 for WordPress 7.0
+* `~4.71.0` - Schema version 4 for WordPress 7.1
 * `~3.57.0` - Schema version 3 for WordPress 5.7
 
 ## Breaking changes

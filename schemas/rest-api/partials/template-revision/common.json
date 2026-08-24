@@ -19,6 +19,7 @@
 		"has_theme_file",
 		"author",
 		"modified",
+		"date",
 		"author_text",
 		"original_source",
 		"parent",
@@ -149,6 +150,15 @@
 		},
 		"modified": {
 			"description": "The date the template was last modified, in the site's timezone.",
+			"allOf": [
+				{
+					"$ref": "../../properties/date-time.json"
+				}
+			],
+			"readOnly": true
+		},
+		"date": {
+			"description": "The date the template was published, in the site's timezone.",
 			"allOf": [
 				{
 					"$ref": "../../properties/date-time.json"

@@ -497,6 +497,7 @@ export interface WP_Block_Template {
 	post_types: string[] | null;
 	area: string | null;
 	modified: string | null;
+	date: string | null;
 }
 /**
  * Core class representing a block type.
@@ -1545,6 +1546,10 @@ export interface WP_Query {
 	 * Signifies whether the current query is for the favicon.ico file.
 	 */
 	is_favicon: boolean;
+	/**
+	 * Signifies whether the current query is for a sitemap.
+	 */
+	is_sitemap: boolean;
 	/**
 	 * Signifies whether the current query is for the page_for_posts page. Basically, the homepage if the option isn't set for the static homepage.
 	 */
@@ -4358,7 +4363,11 @@ export interface WP_REST_API_Template_Common {
 	/**
 	 * The date the template was last modified, in the site's timezone.
 	 */
-	modified: WP_REST_API_Date_Time | false;
+	modified: WP_REST_API_Date_Time | null;
+	/**
+	 * The date the template was published, in the site's timezone.
+	 */
+	date: WP_REST_API_Date_Time | null;
 	/**
 	 * Human readable text for the author.
 	 */
@@ -4451,6 +4460,10 @@ export interface WP_REST_API_Template_Revision_Common {
 	 * The date the template was last modified, in the site's timezone.
 	 */
 	modified: WP_REST_API_Date_Time;
+	/**
+	 * The date the template was published, in the site's timezone.
+	 */
+	date: WP_REST_API_Date_Time;
 	/**
 	 * Human readable text for the author.
 	 */

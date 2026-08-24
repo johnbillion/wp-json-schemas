@@ -47,6 +47,7 @@
 		"is_singular",
 		"is_robots",
 		"is_favicon",
+		"is_sitemap",
 		"is_posts_page",
 		"is_post_type_archive",
 		"thumbnails_cached"
@@ -343,6 +344,10 @@
 		},
 		"is_favicon": {
 			"description": "Signifies whether the current query is for the favicon.ico file.",
+			"type": "boolean"
+		},
+		"is_sitemap": {
+			"description": "Signifies whether the current query is for a sitemap.",
 			"type": "boolean"
 		},
 		"is_posts_page": {
