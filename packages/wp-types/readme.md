@@ -63,7 +63,10 @@ Route                                                   | Schema
 /wp/v2/global-styles/{parent}/revisions/{id}            | `WP_REST_API_Global_Styles_Revision`
 /wp/v2/global-styles/themes/{stylesheet}                | `WP_REST_API_Global_Style_Config`
 /wp/v2/global-styles/themes/{stylesheet}/variations     | `WP_REST_API_Global_Style_Variations`
+/wp/v2/icon-collections                                 | `WP_REST_API_Icon_Collections`
+/wp/v2/icon-collections/{slug}                          | `WP_REST_API_Icon_Collection`
 /wp/v2/icons                                            | `WP_REST_API_Icons`
+/wp/v2/icons/{collection}                               | `WP_REST_API_Icons`
 /wp/v2/icons/{name}                                     | `WP_REST_API_Icon`
 /wp/v2/media                                            | `WP_REST_API_Attachments`
 /wp/v2/media/{id}                                       | `WP_REST_API_Attachment`

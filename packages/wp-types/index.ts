@@ -115,6 +115,10 @@ export type WP_REST_API_Global_Style_Variations = {
  */
 export type WP_REST_API_Global_Styles_Revisions = WP_REST_API_Global_Styles_Revision[];
 /**
+ * A collection of icon collection objects in a REST API context.
+ */
+export type WP_REST_API_Icon_Collections = WP_REST_API_Icon_Collection[];
+/**
  * A collection of icon objects in a REST API context.
  */
 export type WP_REST_API_Icons = WP_REST_API_Icon[];
@@ -424,6 +428,8 @@ export interface WP {
 		Global_Style_Variations: WP_REST_API_Global_Style_Variations;
 		Global_Styles_Revision: WP_REST_API_Global_Styles_Revision;
 		Global_Styles_Revisions: WP_REST_API_Global_Styles_Revisions;
+		Icon_Collection: WP_REST_API_Icon_Collection;
+		Icon_Collections: WP_REST_API_Icon_Collections;
 		Icon: WP_REST_API_Icon;
 		Icons: WP_REST_API_Icons;
 		Menu_Item: WP_REST_API_Menu_Item;
@@ -3217,6 +3223,24 @@ export interface WP_REST_API_Global_Styles_Revision {
 	parent: number;
 }
 /**
+ * An icon collection object in a REST API context.
+ */
+export interface WP_REST_API_Icon_Collection {
+	/**
+	 * The icon collection slug.
+	 */
+	slug: string;
+	/**
+	 * The icon collection label.
+	 */
+	label: string;
+	/**
+	 * The icon collection description.
+	 */
+	description: string;
+	[k: string]: unknown;
+}
+/**
  * An icon object in a REST API context.
  */
 export interface WP_REST_API_Icon {
@@ -3232,6 +3256,10 @@ export interface WP_REST_API_Icon {
 	 * The icon content (SVG markup).
 	 */
 	content: string;
+	/**
+	 * The slug of the collection this icon belongs to.
+	 */
+	collection: string;
 	[k: string]: unknown;
 }
 /**

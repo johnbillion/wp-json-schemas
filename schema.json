@@ -161,6 +161,12 @@
 				"Global_Styles_Revisions": {
 					"$ref": "schemas/rest-api/collections/global-styles-revisions.json"
 				},
+				"Icon_Collection": {
+					"$ref": "schemas/rest-api/icon-collection.json"
+				},
+				"Icon_Collections": {
+					"$ref": "schemas/rest-api/collections/icon-collections.json"
+				},
 				"Icon": {
 					"$ref": "schemas/rest-api/icon.json"
 				},
@@ -339,6 +345,8 @@
 				"Global_Style_Variations",
 				"Global_Styles_Revision",
 				"Global_Styles_Revisions",
+				"Icon_Collection",
+				"Icon_Collections",
 				"Icon",
 				"Icons",
 				"Menu_Item",

@@ -1,0 +1,56 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/icon-collection.json",
+	"title": "WP_REST_API_Icon_Collection",
+	"description": "An icon collection object in a REST API context.",
+	"readOnly": true,
+	"type": "object",
+	"required": [
+		"slug",
+		"label",
+		"description"
+	],
+	"properties": {
+		"slug": {
+			"description": "The icon collection slug.",
+			"type": "string",
+			"readOnly": true
+		},
+		"label": {
+			"description": "The icon collection label.",
+			"type": "string",
+			"readOnly": true
+		},
+		"description": {
+			"description": "The icon collection description.",
+			"type": "string",
+			"readOnly": true
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/icon-collections/{slug}",
+			"hrefSchema": {
+				"properties": {
+					"slug": {
+						"$ref": "#/properties/slug"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		},
+		{
+			"rel": "collection",
+			"href": "/wp/v2/icon-collections",
+			"targetSchema": {
+				"type": "array",
+				"items": {
+					"$ref": "#"
+				}
+			}
+		}
+	]
+}
