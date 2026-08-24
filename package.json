@@ -1,6 +1,6 @@
 {
 	"name": "wp-json-schemas",
-	"version": "4.70.1",
+	"version": "4.71.0",
 	"description": "JSON schemas for WordPress PHP objects and REST API responses",
 	"main": "schema.json",
 	"engines": {
@@ -29,7 +29,8 @@
 		"typescript": ">=4"
 	},
 	"scripts": {
-		"version": "cd packages/wp-types && npm version $(node -p -e \"require('../../package.json').version\") && git add .",
+		"release": "f() { npm version --no-git-tag-version \"$1\" && npm run version-sync && v=$(node -p \"require('./package.json').version\") && git commit -am \"$v\" && git tag \"$v\"; }; f",
+		"version-sync": "npm version --no-git-tag-version --prefix packages/wp-types $(node -p \"require('./package.json').version\") && git add packages/wp-types/package.json packages/wp-types/package-lock.json",
 		"test-wp-types": "tsc packages/wp-types/tests/test.ts --noEmit --strict --target es2015",
 		"validate": "ajv compile --spec=draft2019 --strict --strict-schema=false -c ajv-formats -m tests/external-schemas/hyper-schema.json -s schema.json -r \"schemas/**/*.json\""
 	}

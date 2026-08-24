@@ -94,7 +94,7 @@ For release, update the WordPress version number in composer.json and the readme
 *     composer run test
 * Ensure the tests pass
 * Ensure there are no changed files in git
-*     npm version <major|minor|patch>
+*     npm run release <major|minor|patch>
 *     git push
 *     git push --tags
 * Publish a release with a nice changelog

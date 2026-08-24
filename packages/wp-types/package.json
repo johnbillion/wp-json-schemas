@@ -1,6 +1,6 @@
 {
 	"name": "wp-types",
-	"version": "4.70.1",
+	"version": "4.71.0",
 	"description": "TypeScript definitions of WordPress PHP objects and REST API responses.",
 	"main": "index.js",
 	"engines": {
