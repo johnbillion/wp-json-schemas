@@ -1,0 +1,28 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/properties/view-config-table-layout.json",
+	"title": "WP_REST_API_View_Config_Table_Layout",
+	"description": "The layout configuration for table-type views.",
+	"type": "object",
+	"properties": {
+		"styles": {
+			"description": "The styles applied to each column, keyed by field.",
+			"type": "object",
+			"additionalProperties": {
+				"$ref": "./view-config-column-style.json"
+			}
+		},
+		"density": {
+			"type": "string",
+			"enum": [
+				"compact",
+				"balanced",
+				"comfortable"
+			]
+		},
+		"enableMoving": {
+			"type": "boolean"
+		}
+	},
+	"additionalProperties": false
+}

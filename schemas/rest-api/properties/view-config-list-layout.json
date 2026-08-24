@@ -1,0 +1,18 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/properties/view-config-list-layout.json",
+	"title": "WP_REST_API_View_Config_List_Layout",
+	"description": "The layout configuration for list-type views.",
+	"type": "object",
+	"properties": {
+		"density": {
+			"type": "string",
+			"enum": [
+				"compact",
+				"balanced",
+				"comfortable"
+			]
+		}
+	},
+	"additionalProperties": false
+}

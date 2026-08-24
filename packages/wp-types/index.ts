@@ -375,6 +375,47 @@ export type WP_REST_API_Date_Time_UTC = string;
  * A collection of user objects in a REST API context.
  */
 export type WP_REST_API_Users = WP_REST_API_User[];
+/**
+ * A view configuration for a view whose type isn't known ahead of time.
+ */
+export type WP_REST_API_View_Config_View = WP_REST_API_View_Config_View_Base & {
+	/**
+	 * The view type.
+	 */
+	type?: string;
+	layout?: WP_REST_API_View_Config_Layout;
+};
+/**
+ * A view configuration for table-type views.
+ */
+export type WP_REST_API_View_Config_Table_View = WP_REST_API_View_Config_View_Base & {
+	layout?: WP_REST_API_View_Config_Table_Layout;
+};
+/**
+ * A view configuration for list-type views.
+ */
+export type WP_REST_API_View_Config_List_View = WP_REST_API_View_Config_View_Base & {
+	layout?: WP_REST_API_View_Config_List_Layout;
+};
+/**
+ * A view configuration for grid-type views.
+ */
+export type WP_REST_API_View_Config_Grid_View = WP_REST_API_View_Config_View_Base & {
+	layout?: WP_REST_API_View_Config_Grid_Layout;
+};
+/**
+ * The layout configuration for a form or a form field, discriminated by its type.
+ */
+export type WP_REST_API_View_Config_Form_Layout =
+	| WP_REST_API_View_Config_Form_Regular_Layout
+	| WP_REST_API_View_Config_Form_Panel_Layout
+	| WP_REST_API_View_Config_Form_Card_Layout
+	| WP_REST_API_View_Config_Form_Row_Layout
+	| WP_REST_API_View_Config_Form_Details_Layout;
+/**
+ * A field in a form configuration, either a field ID or an object describing the field and its children.
+ */
+export type WP_REST_API_View_Config_Form_Field = string | WP_REST_API_View_Config_Form_Field_Object;
 
 /**
  * WordPress is open source software you can use to create a beautiful website, blog, or app.
@@ -478,6 +519,7 @@ export interface WP {
 		Types: WP_REST_API_Types;
 		User: WP_REST_API_User;
 		Users: WP_REST_API_Users;
+		View_Config: WP_REST_API_View_Config;
 		Error: WP_REST_API_Error;
 	};
 }
@@ -4701,6 +4743,240 @@ export interface WP_REST_API_User {
 		  };
 	_links: WP_REST_API_Object_Links;
 	[k: string]: unknown;
+}
+/**
+ * The default view configuration for an entity type in a REST API context.
+ */
+export interface WP_REST_API_View_Config {
+	/**
+	 * Entity kind.
+	 */
+	kind: string;
+	/**
+	 * Entity name.
+	 */
+	name: string;
+	/**
+	 * The schema version of the configuration.
+	 */
+	version: number;
+	default_view: WP_REST_API_View_Config_View;
+	/**
+	 * Default layout configurations.
+	 */
+	default_layouts: {
+		table?: WP_REST_API_View_Config_Table_View;
+		list?: WP_REST_API_View_Config_List_View;
+		grid?: WP_REST_API_View_Config_Grid_View;
+		activity?: WP_REST_API_View_Config_List_View;
+		pickerGrid?: WP_REST_API_View_Config_Grid_View;
+		pickerTable?: WP_REST_API_View_Config_Table_View;
+	};
+	/**
+	 * List of default views.
+	 */
+	view_list: {
+		title?: string;
+		slug?: string;
+		view?: WP_REST_API_View_Config_View;
+	}[];
+	/**
+	 * Default form configuration.
+	 */
+	form: {
+		layout?: WP_REST_API_View_Config_Form_Layout;
+		fields?: WP_REST_API_View_Config_Form_Field[];
+	};
+	[k: string]: unknown;
+}
+/**
+ * The view configuration properties shared by all view types.
+ */
+export interface WP_REST_API_View_Config_View_Base {
+	/**
+	 * The filters applied to the view.
+	 */
+	filters?: {
+		field?: string;
+		operator?:
+			| "is"
+			| "isNot"
+			| "isAny"
+			| "isNone"
+			| "isAll"
+			| "isNotAll"
+			| "lessThan"
+			| "greaterThan"
+			| "lessThanOrEqual"
+			| "greaterThanOrEqual"
+			| "before"
+			| "after";
+		/**
+		 * The value to filter by. Its type depends on the field and the operator.
+		 */
+		value?: {
+			[k: string]: unknown;
+		};
+		isLocked?: boolean;
+	}[];
+	/**
+	 * The sort applied to the view.
+	 */
+	sort?: {
+		field?: string;
+		direction?: "asc" | "desc";
+	};
+	/**
+	 * The number of items shown per page.
+	 */
+	perPage?: number;
+	/**
+	 * The fields shown in the view.
+	 */
+	fields?: string[];
+	/**
+	 * The field used as the item title.
+	 */
+	titleField?: string;
+	/**
+	 * The field used as the item media.
+	 */
+	mediaField?: string;
+	/**
+	 * The field used as the item description.
+	 */
+	descriptionField?: string;
+	/**
+	 * Whether the title field is shown.
+	 */
+	showTitle?: boolean;
+	/**
+	 * Whether the media field is shown.
+	 */
+	showMedia?: boolean;
+	/**
+	 * Whether the description field is shown.
+	 */
+	showDescription?: boolean;
+	/**
+	 * Whether hierarchy levels are shown.
+	 */
+	showLevels?: boolean;
+	/**
+	 * The grouping applied to the view.
+	 */
+	groupBy?: {
+		field?: string;
+		direction?: "asc" | "desc";
+		showLabel?: boolean;
+	};
+	/**
+	 * Whether infinite scrolling is enabled.
+	 */
+	infiniteScrollEnabled?: boolean;
+}
+/**
+ * A layout configuration which accepts the properties of every view type, for use where the view type isn't known ahead of time.
+ */
+export interface WP_REST_API_View_Config_Layout {
+	/**
+	 * The styles applied to each column, keyed by field.
+	 */
+	styles?: {
+		[k: string]: WP_REST_API_View_Config_Column_Style;
+	};
+	density?: "compact" | "balanced" | "comfortable";
+	enableMoving?: boolean;
+	badgeFields?: string[];
+	previewSize?: number;
+}
+/**
+ * The style applied to a column in a table layout.
+ */
+export interface WP_REST_API_View_Config_Column_Style {
+	width?: string | number;
+	maxWidth?: string | number;
+	minWidth?: string | number;
+	align?: "start" | "center" | "end";
+}
+/**
+ * The layout configuration for table-type views.
+ */
+export interface WP_REST_API_View_Config_Table_Layout {
+	/**
+	 * The styles applied to each column, keyed by field.
+	 */
+	styles?: {
+		[k: string]: WP_REST_API_View_Config_Column_Style;
+	};
+	density?: "compact" | "balanced" | "comfortable";
+	enableMoving?: boolean;
+}
+/**
+ * The layout configuration for list-type views.
+ */
+export interface WP_REST_API_View_Config_List_Layout {
+	density?: "compact" | "balanced" | "comfortable";
+}
+/**
+ * The layout configuration for grid-type views.
+ */
+export interface WP_REST_API_View_Config_Grid_Layout {
+	badgeFields?: string[];
+	previewSize?: number;
+	density?: "compact" | "balanced" | "comfortable";
+}
+export interface WP_REST_API_View_Config_Form_Regular_Layout {
+	type: "regular";
+	labelPosition?: "top" | "side" | "none";
+}
+export interface WP_REST_API_View_Config_Form_Panel_Layout {
+	type: "panel";
+	labelPosition?: "top" | "side" | "none";
+	openAs?:
+		| ("dropdown" | "modal")
+		| {
+				type?: "dropdown" | "modal";
+				applyLabel?: string;
+				cancelLabel?: string;
+		  };
+	summary?: string | string[];
+	editVisibility?: "always" | "on-hover";
+}
+export interface WP_REST_API_View_Config_Form_Card_Layout {
+	type: "card";
+	withHeader?: boolean;
+	isOpened?: boolean;
+	isCollapsible?: boolean;
+	summary?:
+		| string
+		| (
+				| string
+				| {
+						id?: string;
+						visibility?: "always" | "when-collapsed";
+				  }
+		  )[];
+}
+export interface WP_REST_API_View_Config_Form_Row_Layout {
+	type: "row";
+	alignment?: "start" | "center" | "end";
+	styles?: {
+		[k: string]: {
+			flex?: string | number;
+		};
+	};
+}
+export interface WP_REST_API_View_Config_Form_Details_Layout {
+	type: "details";
+	summary?: string;
+}
+export interface WP_REST_API_View_Config_Form_Field_Object {
+	id?: string;
+	label?: string;
+	description?: string;
+	layout?: WP_REST_API_View_Config_Form_Layout;
+	children?: WP_REST_API_View_Config_Form_Field[];
 }
 /**
  * A REST API error response.

@@ -1,0 +1,48 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/properties/view-config-column-style.json",
+	"title": "WP_REST_API_View_Config_Column_Style",
+	"description": "The style applied to a column in a table layout.",
+	"type": "object",
+	"properties": {
+		"width": {
+			"oneOf": [
+				{
+					"type": "string"
+				},
+				{
+					"type": "number"
+				}
+			]
+		},
+		"maxWidth": {
+			"oneOf": [
+				{
+					"type": "string"
+				},
+				{
+					"type": "number"
+				}
+			]
+		},
+		"minWidth": {
+			"oneOf": [
+				{
+					"type": "string"
+				},
+				{
+					"type": "number"
+				}
+			]
+		},
+		"align": {
+			"type": "string",
+			"enum": [
+				"start",
+				"center",
+				"end"
+			]
+		}
+	},
+	"additionalProperties": false
+}

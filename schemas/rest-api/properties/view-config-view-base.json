@@ -1,0 +1,125 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/properties/view-config-view-base.json",
+	"title": "WP_REST_API_View_Config_View_Base",
+	"description": "The view configuration properties shared by all view types.",
+	"type": "object",
+	"properties": {
+		"filters": {
+			"description": "The filters applied to the view.",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"field": {
+						"type": "string"
+					},
+					"operator": {
+						"type": "string",
+						"enum": [
+							"is",
+							"isNot",
+							"isAny",
+							"isNone",
+							"isAll",
+							"isNotAll",
+							"lessThan",
+							"greaterThan",
+							"lessThanOrEqual",
+							"greaterThanOrEqual",
+							"before",
+							"after"
+						]
+					},
+					"value": {
+						"description": "The value to filter by. Its type depends on the field and the operator."
+					},
+					"isLocked": {
+						"type": "boolean"
+					}
+				},
+				"additionalProperties": false
+			}
+		},
+		"sort": {
+			"description": "The sort applied to the view.",
+			"type": "object",
+			"properties": {
+				"field": {
+					"type": "string"
+				},
+				"direction": {
+					"type": "string",
+					"enum": [
+						"asc",
+						"desc"
+					]
+				}
+			},
+			"additionalProperties": false
+		},
+		"perPage": {
+			"description": "The number of items shown per page.",
+			"type": "integer"
+		},
+		"fields": {
+			"description": "The fields shown in the view.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"titleField": {
+			"description": "The field used as the item title.",
+			"type": "string"
+		},
+		"mediaField": {
+			"description": "The field used as the item media.",
+			"type": "string"
+		},
+		"descriptionField": {
+			"description": "The field used as the item description.",
+			"type": "string"
+		},
+		"showTitle": {
+			"description": "Whether the title field is shown.",
+			"type": "boolean"
+		},
+		"showMedia": {
+			"description": "Whether the media field is shown.",
+			"type": "boolean"
+		},
+		"showDescription": {
+			"description": "Whether the description field is shown.",
+			"type": "boolean"
+		},
+		"showLevels": {
+			"description": "Whether hierarchy levels are shown.",
+			"type": "boolean"
+		},
+		"groupBy": {
+			"description": "The grouping applied to the view.",
+			"type": "object",
+			"properties": {
+				"field": {
+					"type": "string"
+				},
+				"direction": {
+					"type": "string",
+					"enum": [
+						"asc",
+						"desc"
+					]
+				},
+				"showLabel": {
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		},
+		"infiniteScrollEnabled": {
+			"description": "Whether infinite scrolling is enabled.",
+			"type": "boolean"
+		}
+	}
+}

@@ -1,0 +1,36 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/properties/view-config-form-field.json",
+	"title": "WP_REST_API_View_Config_Form_Field",
+	"description": "A field in a form configuration, either a field ID or an object describing the field and its children.",
+	"oneOf": [
+		{
+			"type": "string"
+		},
+		{
+			"title": "WP_REST_API_View_Config_Form_Field_Object",
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"label": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"layout": {
+					"$ref": "./view-config-form-layout.json"
+				},
+				"children": {
+					"type": "array",
+					"items": {
+						"$ref": "#"
+					}
+				}
+			},
+			"additionalProperties": false
+		}
+	]
+}

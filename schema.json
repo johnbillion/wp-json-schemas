@@ -311,6 +311,9 @@
 				"Users": {
 					"$ref": "schemas/rest-api/collections/users.json"
 				},
+				"View_Config": {
+					"$ref": "schemas/rest-api/view-config.json"
+				},
 				"Error": {
 					"$ref": "schemas/rest-api/error.json"
 				}
@@ -395,6 +398,7 @@
 				"Types",
 				"User",
 				"Users",
+				"View_Config",
 				"Error"
 			],
 			"additionalProperties": false

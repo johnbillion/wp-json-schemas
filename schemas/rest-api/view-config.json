@@ -1,0 +1,123 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/view-config.json",
+	"title": "WP_REST_API_View_Config",
+	"description": "The default view configuration for an entity type in a REST API context.",
+	"readOnly": true,
+	"type": "object",
+	"required": [
+		"kind",
+		"name",
+		"version",
+		"default_view",
+		"default_layouts",
+		"view_list",
+		"form"
+	],
+	"properties": {
+		"kind": {
+			"description": "Entity kind.",
+			"type": "string",
+			"readOnly": true
+		},
+		"name": {
+			"description": "Entity name.",
+			"type": "string",
+			"readOnly": true
+		},
+		"version": {
+			"description": "The schema version of the configuration.",
+			"type": "integer",
+			"readOnly": true
+		},
+		"default_view": {
+			"$ref": "properties/view-config-view.json"
+		},
+		"default_layouts": {
+			"description": "Default layout configurations.",
+			"readOnly": true,
+			"type": "object",
+			"properties": {
+				"table": {
+					"$ref": "properties/view-config-table-view.json"
+				},
+				"list": {
+					"$ref": "properties/view-config-list-view.json"
+				},
+				"grid": {
+					"$ref": "properties/view-config-grid-view.json"
+				},
+				"activity": {
+					"$ref": "properties/view-config-list-view.json"
+				},
+				"pickerGrid": {
+					"$ref": "properties/view-config-grid-view.json"
+				},
+				"pickerTable": {
+					"$ref": "properties/view-config-table-view.json"
+				}
+			},
+			"additionalProperties": false
+		},
+		"view_list": {
+			"description": "List of default views.",
+			"readOnly": true,
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"title": {
+						"type": "string"
+					},
+					"slug": {
+						"type": "string"
+					},
+					"view": {
+						"$ref": "properties/view-config-view.json"
+					}
+				},
+				"additionalProperties": false
+			}
+		},
+		"form": {
+			"description": "Default form configuration.",
+			"readOnly": true,
+			"type": "object",
+			"properties": {
+				"layout": {
+					"$ref": "properties/view-config-form-layout.json"
+				},
+				"fields": {
+					"type": "array",
+					"items": {
+						"$ref": "properties/view-config-form-field.json"
+					}
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/view-config",
+			"hrefSchema": {
+				"required": [
+					"kind",
+					"name"
+				],
+				"properties": {
+					"kind": {
+						"$ref": "#/properties/kind"
+					},
+					"name": {
+						"$ref": "#/properties/name"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		}
+	]
+}

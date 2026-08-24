@@ -134,6 +134,7 @@ Route                                                   | Schema
 /wp/v2/users/({id}\|me)/application-passwords           | `WP_REST_API_Application_Passwords`
 /wp/v2/users/({id}\|me)/application-passwords/{uuid}    | `WP_REST_API_Application_Password`
 /wp/v2/users/({id}\|me)/application-passwords/introspect| `WP_REST_API_Application_Password`
+/wp/v2/view-config                                      | `WP_REST_API_View_Config`
 /wp/v2/widget-types                                     | Todo
 /wp/v2/widget-types/{id}                                | Todo
 /wp/v2/widget-types/{id}/encode                         | Todo

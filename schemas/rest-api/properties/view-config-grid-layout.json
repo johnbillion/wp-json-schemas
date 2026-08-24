@@ -1,0 +1,27 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/properties/view-config-grid-layout.json",
+	"title": "WP_REST_API_View_Config_Grid_Layout",
+	"description": "The layout configuration for grid-type views.",
+	"type": "object",
+	"properties": {
+		"badgeFields": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"previewSize": {
+			"type": "number"
+		},
+		"density": {
+			"type": "string",
+			"enum": [
+				"compact",
+				"balanced",
+				"comfortable"
+			]
+		}
+	},
+	"additionalProperties": false
+}

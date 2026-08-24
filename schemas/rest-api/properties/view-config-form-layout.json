@@ -1,0 +1,216 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/properties/view-config-form-layout.json",
+	"title": "WP_REST_API_View_Config_Form_Layout",
+	"description": "The layout configuration for a form or a form field, discriminated by its type.",
+	"oneOf": [
+		{
+			"title": "WP_REST_API_View_Config_Form_Regular_Layout",
+			"type": "object",
+			"required": [
+				"type"
+			],
+			"properties": {
+				"type": {
+					"type": "string",
+					"const": "regular"
+				},
+				"labelPosition": {
+					"type": "string",
+					"enum": [
+						"top",
+						"side",
+						"none"
+					]
+				}
+			},
+			"additionalProperties": false
+		},
+		{
+			"title": "WP_REST_API_View_Config_Form_Panel_Layout",
+			"type": "object",
+			"required": [
+				"type"
+			],
+			"properties": {
+				"type": {
+					"type": "string",
+					"const": "panel"
+				},
+				"labelPosition": {
+					"type": "string",
+					"enum": [
+						"top",
+						"side",
+						"none"
+					]
+				},
+				"openAs": {
+					"oneOf": [
+						{
+							"type": "string",
+							"enum": [
+								"dropdown",
+								"modal"
+							]
+						},
+						{
+							"type": "object",
+							"properties": {
+								"type": {
+									"type": "string",
+									"enum": [
+										"dropdown",
+										"modal"
+									]
+								},
+								"applyLabel": {
+									"type": "string"
+								},
+								"cancelLabel": {
+									"type": "string"
+								}
+							},
+							"additionalProperties": false
+						}
+					]
+				},
+				"summary": {
+					"oneOf": [
+						{
+							"type": "string"
+						},
+						{
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						}
+					]
+				},
+				"editVisibility": {
+					"type": "string",
+					"enum": [
+						"always",
+						"on-hover"
+					]
+				}
+			},
+			"additionalProperties": false
+		},
+		{
+			"title": "WP_REST_API_View_Config_Form_Card_Layout",
+			"type": "object",
+			"required": [
+				"type"
+			],
+			"properties": {
+				"type": {
+					"type": "string",
+					"const": "card"
+				},
+				"withHeader": {
+					"type": "boolean"
+				},
+				"isOpened": {
+					"type": "boolean"
+				},
+				"isCollapsible": {
+					"type": "boolean"
+				},
+				"summary": {
+					"oneOf": [
+						{
+							"type": "string"
+						},
+						{
+							"type": "array",
+							"items": {
+								"oneOf": [
+									{
+										"type": "string"
+									},
+									{
+										"type": "object",
+										"properties": {
+											"id": {
+												"type": "string"
+											},
+											"visibility": {
+												"type": "string",
+												"enum": [
+													"always",
+													"when-collapsed"
+												]
+											}
+										},
+										"additionalProperties": false
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			"additionalProperties": false
+		},
+		{
+			"title": "WP_REST_API_View_Config_Form_Row_Layout",
+			"type": "object",
+			"required": [
+				"type"
+			],
+			"properties": {
+				"type": {
+					"type": "string",
+					"const": "row"
+				},
+				"alignment": {
+					"type": "string",
+					"enum": [
+						"start",
+						"center",
+						"end"
+					]
+				},
+				"styles": {
+					"type": "object",
+					"additionalProperties": {
+						"type": "object",
+						"properties": {
+							"flex": {
+								"oneOf": [
+									{
+										"type": "string"
+									},
+									{
+										"type": "number"
+									}
+								]
+							}
+						},
+						"additionalProperties": false
+					}
+				}
+			},
+			"additionalProperties": false
+		},
+		{
+			"title": "WP_REST_API_View_Config_Form_Details_Layout",
+			"type": "object",
+			"required": [
+				"type"
+			],
+			"properties": {
+				"type": {
+					"type": "string",
+					"const": "details"
+				},
+				"summary": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		}
+	]
+}

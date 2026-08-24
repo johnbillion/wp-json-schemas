@@ -1,0 +1,21 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/properties/view-config-list-view.json",
+	"title": "WP_REST_API_View_Config_List_View",
+	"description": "A view configuration for list-type views.",
+	"type": "object",
+	"allOf": [
+		{
+			"$ref": "./view-config-view-base.json"
+		},
+		{
+			"type": "object",
+			"properties": {
+				"layout": {
+					"$ref": "./view-config-list-layout.json"
+				}
+			}
+		}
+	],
+	"unevaluatedProperties": false
+}
