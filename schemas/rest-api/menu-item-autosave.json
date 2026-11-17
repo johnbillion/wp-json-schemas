@@ -1,0 +1,15 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/menu-item-autosave.json",
+	"title": "WP_REST_API_Menu_Item_Autosave",
+	"description": "A menu item autosave object in a REST API context.",
+	"type": "object",
+	"allOf": [
+		{
+			"$ref": "./partials/revision/common.json"
+		},
+		{
+			"$ref": "./partials/autosave/common.json"
+		}
+	]
+}

@@ -5,34 +5,34 @@
 	"description": "Revision properties specific to post-like content types (posts, pages, blocks, navigation)",
 	"type": "object",
 	"required": [
-		"guid",
-		"slug"
+		"content"
 	],
 	"properties": {
-		"guid": {
-			"description": "The globally unique identifier for the post.",
+		"content": {
+			"description": "The content for the post.",
 			"type": "object",
-			"readOnly": true,
 			"required": [
 				"rendered"
 			],
 			"properties": {
 				"raw": {
-					"description": "GUID for the post, as it exists in the database. Only present when using the 'edit' context.",
+					"description": "Content for the post, as it exists in the database. Only present when using the 'edit' context.",
+					"contentMediaType": "text/html",
+					"type": "string"
+				},
+				"rendered": {
+					"description": "HTML content for the post, transformed for display.",
+					"contentMediaType": "text/html",
 					"type": "string",
 					"readOnly": true
 				},
-				"rendered": {
-					"description": "GUID for the post, transformed for display.",
-					"type": "string",
+				"block_version": {
+					"description": "Version of the content block format used by the post. Only present when using the 'edit' context.",
+					"type": "integer",
 					"readOnly": true
 				}
 			},
 			"additionalProperties": false
-		},
-		"slug": {
-			"description": "An alphanumeric identifier for the revision unique to its type.",
-			"type": "string"
 		},
 		"excerpt": {
 			"description": "The excerpt for the post.",
