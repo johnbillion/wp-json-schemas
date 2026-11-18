@@ -41,6 +41,16 @@ export type WP_REST_API_Application_Passwords = WP_REST_API_Application_Password
  */
 export type WP_REST_API_Attachments = WP_REST_API_Attachment[];
 /**
+ * A post autosave object in a REST API context.
+ */
+export type WP_REST_API_Autosave = WP_REST_API_Partial_Revision_Common &
+	WP_REST_API_Partial_Revision_Post_Like &
+	WP_REST_API_Partial_Autosave_Common;
+/**
+ * A collection of post autosave objects in a REST API context.
+ */
+export type WP_REST_API_Autosaves = WP_REST_API_Autosave[];
+/**
  * A collection of block directory search results in a REST API context.
  */
 export type WP_REST_API_Block_Directory_Items = WP_REST_API_Block_Directory_Item[];
@@ -122,6 +132,14 @@ export type WP_REST_API_Icon_Collections = WP_REST_API_Icon_Collection[];
  * A collection of icon objects in a REST API context.
  */
 export type WP_REST_API_Icons = WP_REST_API_Icon[];
+/**
+ * A menu item autosave object in a REST API context.
+ */
+export type WP_REST_API_Menu_Item_Autosave = WP_REST_API_Partial_Revision_Common & WP_REST_API_Partial_Autosave_Common;
+/**
+ * A collection of menu item autosave objects in a REST API context.
+ */
+export type WP_REST_API_Menu_Item_Autosaves = WP_REST_API_Menu_Item_Autosave[];
 /**
  * A collection of menu items in a REST API context.
  */
@@ -444,6 +462,8 @@ export interface WP {
 		Application_Passwords: WP_REST_API_Application_Passwords;
 		Attachment: WP_REST_API_Attachment;
 		Attachments: WP_REST_API_Attachments;
+		Autosave: WP_REST_API_Autosave;
+		Autosaves: WP_REST_API_Autosaves;
 		Block_Directory_Item: WP_REST_API_Block_Directory_Item;
 		Block_Directory_Items: WP_REST_API_Block_Directory_Items;
 		Block_Pattern_Categories: WP_REST_API_Block_Pattern_Categories;
@@ -473,6 +493,8 @@ export interface WP {
 		Icon_Collections: WP_REST_API_Icon_Collections;
 		Icon: WP_REST_API_Icon;
 		Icons: WP_REST_API_Icons;
+		Menu_Item_Autosave: WP_REST_API_Menu_Item_Autosave;
+		Menu_Item_Autosaves: WP_REST_API_Menu_Item_Autosaves;
 		Menu_Item: WP_REST_API_Menu_Item;
 		Menu_Items: WP_REST_API_Menu_Items;
 		Menu_Location: WP_REST_API_Menu_Location;
@@ -2348,6 +2370,122 @@ export interface WP_REST_API_Attachment {
 	[k: string]: unknown;
 }
 /**
+ * Common revision properties shared by all revision types
+ */
+interface WP_REST_API_Partial_Revision_Common {
+	/**
+	 * The ID for the author of the revision.
+	 */
+	author: number;
+	/**
+	 * The date the revision was published, in the site's timezone.
+	 */
+	date: WP_REST_API_Date_Time;
+	/**
+	 * The date the revision was published, as GMT.
+	 */
+	date_gmt: WP_REST_API_Date_Time;
+	/**
+	 * Unique identifier for the revision.
+	 */
+	id: number;
+	/**
+	 * The date the revision was last modified, in the site's timezone.
+	 */
+	modified: WP_REST_API_Date_Time;
+	/**
+	 * The date the revision was last modified, as GMT.
+	 */
+	modified_gmt: WP_REST_API_Date_Time;
+	/**
+	 * The ID for the parent of the revision.
+	 */
+	parent: number;
+	/**
+	 * The title for the post.
+	 */
+	title: {
+		/**
+		 * Title for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML title for the post, transformed for display.
+		 */
+		rendered: string;
+	};
+	/**
+	 * The globally unique identifier for the post.
+	 */
+	guid: {
+		/**
+		 * GUID for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * GUID for the post, transformed for display.
+		 */
+		rendered: string;
+	};
+	/**
+	 * An alphanumeric identifier for the revision unique to its type.
+	 */
+	slug: string;
+	/**
+	 * Meta fields.
+	 */
+	meta:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
+	_links: WP_REST_API_Object_Links;
+}
+/**
+ * Revision properties specific to post-like content types (posts, pages, blocks, navigation)
+ */
+interface WP_REST_API_Partial_Revision_Post_Like {
+	/**
+	 * The content for the post.
+	 */
+	content: {
+		/**
+		 * Content for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML content for the post, transformed for display.
+		 */
+		rendered: string;
+		/**
+		 * Version of the content block format used by the post. Only present when using the 'edit' context.
+		 */
+		block_version?: number;
+	};
+	/**
+	 * The excerpt for the post.
+	 */
+	excerpt?: {
+		/**
+		 * Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML excerpt for the post, transformed for display.
+		 */
+		rendered: string;
+	};
+}
+/**
+ * Properties that autosaves add to revisions
+ */
+interface WP_REST_API_Partial_Autosave_Common {
+	/**
+	 * Preview link for the post. Empty for post types that are not publicly viewable. Only present when using the 'edit' context.
+	 */
+	preview_link?: string;
+}
+/**
  * A block directory search result in a REST API context.
  */
 export interface WP_REST_API_Block_Directory_Item {
@@ -3787,113 +3925,6 @@ export interface WP_REST_API_Rendered_Block {
 	 */
 	rendered: string;
 	[k: string]: unknown;
-}
-/**
- * Common revision properties shared by all revision types
- */
-interface WP_REST_API_Partial_Revision_Common {
-	/**
-	 * The ID for the author of the revision.
-	 */
-	author: number;
-	/**
-	 * The date the revision was published, in the site's timezone.
-	 */
-	date: WP_REST_API_Date_Time;
-	/**
-	 * The date the revision was published, as GMT.
-	 */
-	date_gmt: WP_REST_API_Date_Time;
-	/**
-	 * Unique identifier for the revision.
-	 */
-	id: number;
-	/**
-	 * The date the revision was last modified, in the site's timezone.
-	 */
-	modified: WP_REST_API_Date_Time;
-	/**
-	 * The date the revision was last modified, as GMT.
-	 */
-	modified_gmt: WP_REST_API_Date_Time;
-	/**
-	 * The ID for the parent of the revision.
-	 */
-	parent: number;
-	/**
-	 * The title for the post.
-	 */
-	title: {
-		/**
-		 * Title for the post, as it exists in the database. Only present when using the 'edit' context.
-		 */
-		raw?: string;
-		/**
-		 * HTML title for the post, transformed for display.
-		 */
-		rendered: string;
-	};
-	/**
-	 * The content for the post.
-	 */
-	content: {
-		/**
-		 * Content for the post, as it exists in the database. Only present when using the 'edit' context.
-		 */
-		raw?: string;
-		/**
-		 * HTML content for the post, transformed for display.
-		 */
-		rendered: string;
-		/**
-		 * Version of the content block format used by the post. Only present when using the 'edit' context.
-		 */
-		block_version?: number;
-	};
-	/**
-	 * Meta fields.
-	 */
-	meta:
-		| EmptyArray
-		| {
-				[k: string]: unknown;
-		  };
-	_links: WP_REST_API_Object_Links;
-}
-/**
- * Revision properties specific to post-like content types (posts, pages, blocks, navigation)
- */
-interface WP_REST_API_Partial_Revision_Post_Like {
-	/**
-	 * The globally unique identifier for the post.
-	 */
-	guid: {
-		/**
-		 * GUID for the post, as it exists in the database. Only present when using the 'edit' context.
-		 */
-		raw?: string;
-		/**
-		 * GUID for the post, transformed for display.
-		 */
-		rendered: string;
-	};
-	/**
-	 * An alphanumeric identifier for the revision unique to its type.
-	 */
-	slug: string;
-	/**
-	 * The excerpt for the post.
-	 */
-	excerpt?: {
-		/**
-		 * Excerpt for the post, as it exists in the database. Only present when using the 'edit' context.
-		 */
-		raw?: string;
-		/**
-		 * HTML excerpt for the post, transformed for display.
-		 */
-		rendered: string;
-	};
 }
 /**
  * A search result in a REST API context.

@@ -12,8 +12,9 @@
 		"modified",
 		"modified_gmt",
 		"parent",
+		"guid",
+		"slug",
 		"title",
-		"content",
 		"meta",
 		"_links"
 	],
@@ -90,31 +91,30 @@
 			},
 			"additionalProperties": false
 		},
-		"content": {
-			"description": "The content for the post.",
+		"guid": {
+			"description": "The globally unique identifier for the post.",
 			"type": "object",
+			"readOnly": true,
 			"required": [
 				"rendered"
 			],
 			"properties": {
 				"raw": {
-					"description": "Content for the post, as it exists in the database. Only present when using the 'edit' context.",
-					"contentMediaType": "text/html",
-					"type": "string"
-				},
-				"rendered": {
-					"description": "HTML content for the post, transformed for display.",
-					"contentMediaType": "text/html",
+					"description": "GUID for the post, as it exists in the database. Only present when using the 'edit' context.",
 					"type": "string",
 					"readOnly": true
 				},
-				"block_version": {
-					"description": "Version of the content block format used by the post. Only present when using the 'edit' context.",
-					"type": "integer",
+				"rendered": {
+					"description": "GUID for the post, transformed for display.",
+					"type": "string",
 					"readOnly": true
 				}
 			},
 			"additionalProperties": false
+		},
+		"slug": {
+			"description": "An alphanumeric identifier for the revision unique to its type.",
+			"type": "string"
 		},
 		"meta": {
 			"description": "Meta fields.",

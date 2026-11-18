@@ -67,4 +67,25 @@ $data[] = get_rest_response( 'GET', "/wp/v2/templates/{$template_id}/revisions",
 	'context' => 'edit',
 ] );
 
+// Template autosaves share the template revision schema.
+$autosave = get_rest_response( 'POST', "/wp/v2/templates/{$template_id}/autosaves", [
+	'content' => $updated_data['content']['raw'] . "\n<!-- Autosave -->",
+] );
+
+if ( $autosave->is_error() ) {
+	throw new \Exception( 'Failed to create template autosave: ' . $autosave->as_error()->get_error_message() );
+}
+
+foreach ( [ 'view', 'edit' ] as $context ) {
+	$response = get_rest_response( 'GET', "/wp/v2/templates/{$template_id}/autosaves", [
+		'context' => $context,
+	] );
+
+	if ( empty( $response->get_data() ) ) {
+		throw new \Exception( "No template autosaves found in {$context} context." );
+	}
+
+	$data[] = $response;
+}
+
 save_rest_array( $data, 'template-revisions' );

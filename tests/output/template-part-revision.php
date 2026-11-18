@@ -56,4 +56,25 @@ $data = [];
 $data[] = get_rest_response( 'GET', "/wp/v2/template-parts/{$template_part_id}/revisions", ['context' => 'view'] );
 $data[] = get_rest_response( 'GET', "/wp/v2/template-parts/{$template_part_id}/revisions", ['context' => 'edit'] );
 
+// Template part autosaves share the template part revision schema.
+$autosave = get_rest_response( 'POST', "/wp/v2/template-parts/{$template_part_id}/autosaves", [
+	'content' => $updated_data['content']['raw'] . "\n<!-- Autosave -->",
+] );
+
+if ( $autosave->is_error() ) {
+	throw new \Exception( 'Failed to create template part autosave: ' . $autosave->as_error()->get_error_message() );
+}
+
+foreach ( [ 'view', 'edit' ] as $context ) {
+	$response = get_rest_response( 'GET', "/wp/v2/template-parts/{$template_part_id}/autosaves", [
+		'context' => $context,
+	] );
+
+	if ( empty( $response->get_data() ) ) {
+		throw new \Exception( "No template part autosaves found in {$context} context." );
+	}
+
+	$data[] = $response;
+}
+
 save_rest_array( $data, 'template-part-revisions' );

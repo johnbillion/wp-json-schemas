@@ -86,6 +86,12 @@
 				"Attachments": {
 					"$ref": "schemas/rest-api/collections/media.json"
 				},
+				"Autosave": {
+					"$ref": "schemas/rest-api/autosave.json"
+				},
+				"Autosaves": {
+					"$ref": "schemas/rest-api/collections/autosaves.json"
+				},
 				"Block_Directory_Item": {
 					"$ref": "schemas/rest-api/block-directory-item.json"
 				},
@@ -172,6 +178,12 @@
 				},
 				"Icons": {
 					"$ref": "schemas/rest-api/collections/icons.json"
+				},
+				"Menu_Item_Autosave": {
+					"$ref": "schemas/rest-api/menu-item-autosave.json"
+				},
+				"Menu_Item_Autosaves": {
+					"$ref": "schemas/rest-api/collections/menu-item-autosaves.json"
 				},
 				"Menu_Item": {
 					"$ref": "schemas/rest-api/menu-item.json"
@@ -323,6 +335,8 @@
 				"Application_Passwords",
 				"Attachment",
 				"Attachments",
+				"Autosave",
+				"Autosaves",
 				"Block_Directory_Item",
 				"Block_Directory_Items",
 				"Block_Pattern_Categories",
@@ -352,6 +366,8 @@
 				"Icon_Collections",
 				"Icon",
 				"Icons",
+				"Menu_Item_Autosave",
+				"Menu_Item_Autosaves",
 				"Menu_Item",
 				"Menu_Items",
 				"Menu_Location",

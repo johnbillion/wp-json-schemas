@@ -52,6 +52,10 @@ function use_requested_theme( string $theme ) : string {
 	return $theme;
 }
 
+// The REST API autosaves controller defines this as true, which prevents revisions being created by any subsequent code
+// in the same process. Defining it as false up front prevents that without affecting the creation of autosaves.
+define( 'DOING_AUTOSAVE', false );
+
 add_filter( 'option_template', __NAMESPACE__ . '\use_requested_theme', 1 );
 add_filter( 'option_stylesheet', __NAMESPACE__ . '\use_requested_theme', 1 );
 
