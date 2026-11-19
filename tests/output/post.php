@@ -80,7 +80,12 @@ if ( is_wp_error( $navigation_post ) ) {
 
 $global_style_ids = [];
 
-foreach ( glob( $theme_dir . '/styles/*.json' ) as $variation ) {
+$variations = array_merge(
+	glob( $theme_dir . '/styles/*.json' ),
+	glob( $theme_dir . '/styles/*/*.json' )
+);
+
+foreach ( $variations as $variation ) {
 	$json = file_get_contents( $variation );
 	$data = json_decode( $json, true );
 

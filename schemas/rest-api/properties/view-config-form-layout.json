@@ -94,6 +94,9 @@
 						"always",
 						"on-hover"
 					]
+				},
+				"showPlaceholderIfEmpty": {
+					"type": "boolean"
 				}
 			},
 			"additionalProperties": false

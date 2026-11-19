@@ -1,0 +1,273 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/entity-fields.json",
+	"title": "WP_REST_API_Entity_Fields",
+	"description": "The fields registered for an entity type in a REST API context.",
+	"readOnly": true,
+	"type": "object",
+	"required": [
+		"kind",
+		"name",
+		"fields",
+		"script_modules"
+	],
+	"properties": {
+		"kind": {
+			"description": "Entity kind.",
+			"type": "string",
+			"readOnly": true
+		},
+		"name": {
+			"description": "Entity name.",
+			"type": "string",
+			"readOnly": true
+		},
+		"fields": {
+			"description": "The fields registered for the entity, in registration order.",
+			"type": "array",
+			"readOnly": true,
+			"items": {
+				"description": "The serializable part of a field. Plugins can register fields with additional properties.",
+				"type": "object",
+				"required": [
+					"id",
+					"origin"
+				],
+				"properties": {
+					"id": {
+						"description": "The unique identifier of the field.",
+						"type": "string"
+					},
+					"origin": {
+						"description": "Who registered and updated the field: `core`, or the slug of a plugin or theme.",
+						"type": "object",
+						"required": [
+							"registeredBy",
+							"updatedBy"
+						],
+						"properties": {
+							"registeredBy": {
+								"description": "Who registered the field.",
+								"type": "string"
+							},
+							"updatedBy": {
+								"description": "Who updated the field, in update order.",
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							}
+						},
+						"additionalProperties": false
+					},
+					"type": {
+						"description": "The type of the field, one of the types DataViews provides a control for.",
+						"type": "string",
+						"enum": [
+							"array",
+							"boolean",
+							"color",
+							"date",
+							"datetime",
+							"email",
+							"integer",
+							"media",
+							"number",
+							"password",
+							"telephone",
+							"text",
+							"time",
+							"url"
+						]
+					},
+					"label": {
+						"description": "The label of the field.",
+						"type": "string"
+					},
+					"header": {
+						"description": "The header of the field. Defaults to the label.",
+						"type": "string"
+					},
+					"description": {
+						"description": "The description of the field.",
+						"type": "string"
+					},
+					"placeholder": {
+						"description": "The placeholder of the field.",
+						"type": "string"
+					},
+					"Edit": {
+						"description": "The control used to edit the field: the name of a control, or a control configuration.",
+						"oneOf": [
+							{
+								"type": "string"
+							},
+							{
+								"type": "object"
+							}
+						]
+					},
+					"isValid": {
+						"description": "The validation rules of the field.",
+						"type": "object"
+					},
+					"isDisabled": {
+						"description": "Whether the field is disabled.",
+						"type": "boolean"
+					},
+					"enableSorting": {
+						"description": "Whether the field is sortable.",
+						"type": "boolean"
+					},
+					"enableGlobalSearch": {
+						"description": "Whether the field is searchable.",
+						"type": "boolean"
+					},
+					"enableHiding": {
+						"description": "Whether the field can be hidden.",
+						"type": "boolean"
+					},
+					"elements": {
+						"description": "The options to pick from when using the field as a filter.",
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"value": {
+									"description": "The value of the option.",
+									"oneOf": [
+										{
+											"type": "string"
+										},
+										{
+											"type": "number"
+										},
+										{
+											"type": "boolean"
+										},
+										{
+											"type": "null"
+										}
+									]
+								},
+								"label": {
+									"description": "The label of the option.",
+									"type": "string"
+								},
+								"description": {
+									"description": "The description of the option.",
+									"type": "string"
+								}
+							},
+							"additionalProperties": false
+						}
+					},
+					"filterBy": {
+						"description": "The filter configuration of the field, or false when the field cannot be filtered.",
+						"oneOf": [
+							{
+								"type": "object",
+								"properties": {
+									"operators": {
+										"type": "array",
+										"items": {
+											"type": "string",
+											"enum": [
+												"is",
+												"isNot",
+												"isAny",
+												"isNone",
+												"isAll",
+												"lessThan",
+												"greaterThan",
+												"lessThanOrEqual",
+												"greaterThanOrEqual",
+												"before",
+												"after",
+												"beforeInc",
+												"afterInc",
+												"contains",
+												"notContains",
+												"startsWith",
+												"between",
+												"on",
+												"notOn",
+												"inThePast",
+												"over"
+											]
+										}
+									},
+									"isPrimary": {
+										"type": "boolean"
+									}
+								},
+								"additionalProperties": false
+							},
+							{
+								"type": "boolean",
+								"const": false
+							}
+						]
+					},
+					"readOnly": {
+						"description": "Whether the field is read only.",
+						"type": "boolean"
+					},
+					"format": {
+						"description": "The display format of the field.",
+						"type": "object"
+					}
+				}
+			}
+		},
+		"script_modules": {
+			"description": "The script modules providing the JavaScript parts of the fields, each with the ids of the fields it applies to.",
+			"type": "array",
+			"readOnly": true,
+			"items": {
+				"type": "object",
+				"required": [
+					"id",
+					"fields"
+				],
+				"properties": {
+					"id": {
+						"description": "The id of the script module.",
+						"type": "string"
+					},
+					"fields": {
+						"description": "The ids of the fields the script module applies to.",
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					}
+				},
+				"additionalProperties": false
+			}
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/entity-fields",
+			"hrefSchema": {
+				"required": [
+					"kind",
+					"name"
+				],
+				"properties": {
+					"kind": {
+						"$ref": "#/properties/kind"
+					},
+					"name": {
+						"$ref": "#/properties/name"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		}
+	]
+}

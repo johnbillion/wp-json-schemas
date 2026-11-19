@@ -9,7 +9,8 @@
 		"name",
 		"label",
 		"content",
-		"collection"
+		"collection",
+		"keywords"
 	],
 	"properties": {
 		"name": {
@@ -30,6 +31,14 @@
 		"collection": {
 			"description": "The slug of the collection this icon belongs to.",
 			"type": "string",
+			"readOnly": true
+		},
+		"keywords": {
+			"description": "Additional search terms for the icon.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
 			"readOnly": true
 		}
 	},

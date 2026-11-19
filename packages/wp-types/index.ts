@@ -67,6 +67,138 @@ export type WP_REST_API_Block_Patterns = WP_REST_API_Block_Pattern[];
  */
 export type WP_REST_API_Block_Types = WP_REST_API_Block_Type[];
 /**
+ * A reusable block object in a REST API context.
+ */
+export type WP_REST_API_Block = WP_REST_API_Partial_Post_Author & {
+	/**
+	 * The date the block was published, in the site's timezone.
+	 */
+	date: WP_REST_API_Date_Time;
+	/**
+	 * The date the block was published, as GMT.
+	 */
+	date_gmt: WP_REST_API_Date_Time;
+	/**
+	 * The globally unique identifier for the block.
+	 */
+	guid: {
+		/**
+		 * GUID for the block, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * GUID for the block, transformed for display.
+		 */
+		rendered: string;
+	};
+	/**
+	 * Unique identifier for the block.
+	 */
+	id: number;
+	/**
+	 * URL to the block.
+	 */
+	link: string;
+	/**
+	 * The date the block was last modified, in the site's timezone.
+	 */
+	modified: WP_REST_API_Date_Time;
+	/**
+	 * The date the block was last modified, as GMT.
+	 */
+	modified_gmt: WP_REST_API_Date_Time;
+	/**
+	 * An alphanumeric identifier for the block unique to its type.
+	 */
+	slug: string;
+	/**
+	 * A named status for the block.
+	 */
+	status: WP_Post_Status_Name | string;
+	/**
+	 * Type of Post for the block.
+	 */
+	type: WP_Post_Type_Name.wp_block;
+	/**
+	 * A password to protect access to the content and excerpt. Only present when using the 'edit' context.
+	 */
+	password?: string;
+	/**
+	 * The title for the block.
+	 */
+	title: {
+		/**
+		 * Title for the block, as it exists in the database.
+		 */
+		raw: string;
+	};
+	/**
+	 * The content for the block.
+	 */
+	content: {
+		/**
+		 * Content for the block, as it exists in the database.
+		 */
+		raw: string;
+		/**
+		 * Version of the content block format used by the block. Only present when using the 'edit' context.
+		 */
+		block_version?: number;
+		/**
+		 * Whether the content is protected with a password.
+		 */
+		protected: boolean;
+	};
+	/**
+	 * The excerpt for the block.
+	 */
+	excerpt?: {
+		/**
+		 * Excerpt for the block, as it exists in the database. Only present when using the 'edit' context.
+		 */
+		raw?: string;
+		/**
+		 * HTML content for the post excerpt, transformed for display.
+		 */
+		rendered: string;
+		/**
+		 * Whether the content is protected with a password.
+		 */
+		protected: boolean;
+	};
+	wp_pattern_sync_status: "" | "partial" | "unsynced";
+	/**
+	 * Pattern categories.
+	 */
+	wp_pattern_category?: {
+		[k: string]: unknown;
+	};
+	/**
+	 * The theme file to use to display the block.
+	 */
+	template?: string;
+	/**
+	 * Meta fields.
+	 */
+	meta?:
+		| EmptyArray
+		| {
+				[k: string]: unknown;
+		  };
+	_links: WP_REST_API_Object_Links;
+	/**
+	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+	 */
+	_embedded?: {
+		/**
+		 * The author of the block.
+		 */
+		author: unknown[];
+		[k: string]: unknown;
+	};
+	[k: string]: unknown;
+};
+/**
  * A collection of reusable block objects in a REST API context.
  */
 export type WP_REST_API_Blocks = WP_REST_API_Block[];
@@ -478,6 +610,8 @@ export interface WP {
 		Category: WP_REST_API_Category;
 		Comment: WP_REST_API_Comment;
 		Comments: WP_REST_API_Comments;
+		Entity_Actions: WP_REST_API_Entity_Actions;
+		Entity_Fields: WP_REST_API_Entity_Fields;
 		Font_Collection: WP_REST_API_Font_Collection;
 		Font_Collections: WP_REST_API_Font_Collections;
 		Font_Face: WP_REST_API_Font_Face;
@@ -1081,6 +1215,10 @@ export interface WP_Post_Type {
 	 */
 	embeddable: boolean;
 	/**
+	 * Whether posts of this post type can be selected by random content redirects.
+	 */
+	randomable: boolean;
+	/**
 	 * Whether to generate and allow a UI for managing this post type in the admin.
 	 */
 	show_ui: boolean;
@@ -1170,6 +1308,10 @@ export interface WP_Post_Type {
 	 * Whether this post type should appear in the REST API.
 	 */
 	show_in_rest: boolean;
+	/**
+	 * Whether this post type should be exposed through the Abilities API.
+	 */
+	show_in_abilities: boolean;
 	/**
 	 * The base path for this post type's REST API endpoints.
 	 */
@@ -1621,6 +1763,10 @@ export interface WP_Query {
 	 * Signifies whether the current query is for a sitemap.
 	 */
 	is_sitemap: boolean;
+	/**
+	 * Signifies whether the current query is for random content.
+	 */
+	is_random: boolean;
 	/**
 	 * Signifies whether the current query is for the page_for_posts page. Basically, the homepage if the option isn't set for the static homepage.
 	 */
@@ -2285,6 +2431,10 @@ export interface WP_REST_API_Attachment {
 	 */
 	post: number | null;
 	/**
+	 * The ID of the attachment this attachment's chain of edits started from, or 0 if none is recorded. Only present when using the 'edit' context.
+	 */
+	edit_root?: number;
+	/**
 	 * URL to the original attachment file.
 	 */
 	source_url: string;
@@ -2366,6 +2516,10 @@ export interface WP_REST_API_Attachment {
 		 * The attachment parent post.
 		 */
 		"wp:attached-to"?: unknown[];
+		/**
+		 * The attachment this attachment's chain of edits started from. Only present when using the 'edit' context.
+		 */
+		"wp:edit-root"?: unknown[];
 		[k: string]: unknown;
 	};
 	[k: string]: unknown;
@@ -2838,126 +2992,13 @@ export interface WP_REST_API_Block_Type {
 	[k: string]: unknown;
 }
 /**
- * A reusable block object in a REST API context.
+ * Hello.
  */
-export interface WP_REST_API_Block {
+interface WP_REST_API_Partial_Post_Author {
 	/**
-	 * The date the block was published, in the site's timezone.
+	 * The ID for the author of the post.
 	 */
-	date: WP_REST_API_Date_Time;
-	/**
-	 * The date the block was published, as GMT.
-	 */
-	date_gmt: WP_REST_API_Date_Time;
-	/**
-	 * The globally unique identifier for the block.
-	 */
-	guid: {
-		/**
-		 * GUID for the block, as it exists in the database. Only present when using the 'edit' context.
-		 */
-		raw?: string;
-		/**
-		 * GUID for the block, transformed for display.
-		 */
-		rendered: string;
-	};
-	/**
-	 * Unique identifier for the block.
-	 */
-	id: number;
-	/**
-	 * URL to the block.
-	 */
-	link: string;
-	/**
-	 * The date the block was last modified, in the site's timezone.
-	 */
-	modified: WP_REST_API_Date_Time;
-	/**
-	 * The date the block was last modified, as GMT.
-	 */
-	modified_gmt: WP_REST_API_Date_Time;
-	/**
-	 * An alphanumeric identifier for the block unique to its type.
-	 */
-	slug: string;
-	/**
-	 * A named status for the block.
-	 */
-	status: WP_Post_Status_Name | string;
-	/**
-	 * Type of Post for the block.
-	 */
-	type: WP_Post_Type_Name.wp_block;
-	/**
-	 * A password to protect access to the content and excerpt. Only present when using the 'edit' context.
-	 */
-	password?: string;
-	/**
-	 * The title for the block.
-	 */
-	title: {
-		/**
-		 * Title for the block, as it exists in the database.
-		 */
-		raw: string;
-	};
-	/**
-	 * The content for the block.
-	 */
-	content: {
-		/**
-		 * Content for the block, as it exists in the database.
-		 */
-		raw: string;
-		/**
-		 * Version of the content block format used by the block. Only present when using the 'edit' context.
-		 */
-		block_version?: number;
-		/**
-		 * Whether the content is protected with a password.
-		 */
-		protected: boolean;
-	};
-	/**
-	 * The excerpt for the block.
-	 */
-	excerpt?: {
-		/**
-		 * Excerpt for the block, as it exists in the database. Only present when using the 'edit' context.
-		 */
-		raw?: string;
-		/**
-		 * HTML content for the post excerpt, transformed for display.
-		 */
-		rendered: string;
-		/**
-		 * Whether the content is protected with a password.
-		 */
-		protected: boolean;
-	};
-	wp_pattern_sync_status: "" | "partial" | "unsynced";
-	/**
-	 * Pattern categories.
-	 */
-	wp_pattern_category?: {
-		[k: string]: unknown;
-	};
-	/**
-	 * The theme file to use to display the block.
-	 */
-	template?: string;
-	/**
-	 * Meta fields.
-	 */
-	meta?:
-		| EmptyArray
-		| {
-				[k: string]: unknown;
-		  };
-	_links: WP_REST_API_Object_Links;
-	[k: string]: unknown;
+	author: number;
 }
 /**
  * A taxonomy term object in a REST API context.
@@ -3108,6 +3149,23 @@ export interface WP_REST_API_Comment {
 		| {
 				[k: string]: unknown;
 		  };
+	/**
+	 * Aggregated reaction counts for a note, keyed by emoji hex key. Only present for notes in the 'view' and 'edit' contexts.
+	 */
+	reaction_summary?:
+		| EmptyArray
+		| {
+				[k: string]: {
+					/**
+					 * Total number of reactions with this emoji.
+					 */
+					count: number;
+					/**
+					 * The current user's reaction comment ID for this emoji, or 0 if they have not reacted.
+					 */
+					current_user_reaction: number;
+				};
+		  };
 	_links: WP_REST_API_Object_Links;
 	/**
 	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
@@ -3121,8 +3179,266 @@ export interface WP_REST_API_Comment {
 		 * The associated post.
 		 */
 		up?: unknown[];
+		/**
+		 * The parent comment.
+		 */
+		"in-reply-to"?: unknown[];
 		[k: string]: unknown;
 	};
+	[k: string]: unknown;
+}
+/**
+ * The actions registered for an entity type in a REST API context.
+ */
+export interface WP_REST_API_Entity_Actions {
+	/**
+	 * Entity kind.
+	 */
+	kind: string;
+	/**
+	 * Entity name.
+	 */
+	name: string;
+	/**
+	 * The actions registered for the entity, in registration order.
+	 */
+	actions: {
+		/**
+		 * The unique identifier of the action.
+		 */
+		id: string;
+		/**
+		 * Who registered the action: `core`, or the slug of a plugin or theme.
+		 */
+		origin: {
+			/**
+			 * Who registered the action.
+			 */
+			registeredBy: string;
+		};
+		/**
+		 * The label of the action.
+		 */
+		label?: string;
+		/**
+		 * Whether the action is a primary action.
+		 */
+		isPrimary?: boolean;
+		/**
+		 * Whether the action can be performed on several items at once.
+		 */
+		supportsBulk?: boolean;
+		/**
+		 * Whether the action is disabled.
+		 */
+		disabled?: boolean;
+		/**
+		 * The context the action is limited to, such as `list` for the lists of items. Without it, the action shows everywhere.
+		 */
+		context?: "list";
+		/**
+		 * The header of the modal of the action.
+		 */
+		modalHeader?: string;
+		/**
+		 * Whether to hide the header of the modal of the action.
+		 */
+		hideModalHeader?: boolean;
+		/**
+		 * The size of the modal of the action.
+		 */
+		modalSize?: "small" | "medium" | "large" | "fill";
+		/**
+		 * Where the focus goes when the modal of the action opens.
+		 */
+		modalFocusOnMount?: boolean | string;
+		[k: string]: unknown;
+	}[];
+	/**
+	 * The script modules providing the JavaScript parts of the actions, each with the ids of the actions it applies to.
+	 */
+	script_modules: {
+		/**
+		 * The id of the script module.
+		 */
+		id: string;
+		/**
+		 * The ids of the actions the script module applies to.
+		 */
+		actions: string[];
+	}[];
+	[k: string]: unknown;
+}
+/**
+ * The fields registered for an entity type in a REST API context.
+ */
+export interface WP_REST_API_Entity_Fields {
+	/**
+	 * Entity kind.
+	 */
+	kind: string;
+	/**
+	 * Entity name.
+	 */
+	name: string;
+	/**
+	 * The fields registered for the entity, in registration order.
+	 */
+	fields: {
+		/**
+		 * The unique identifier of the field.
+		 */
+		id: string;
+		/**
+		 * Who registered and updated the field: `core`, or the slug of a plugin or theme.
+		 */
+		origin: {
+			/**
+			 * Who registered the field.
+			 */
+			registeredBy: string;
+			/**
+			 * Who updated the field, in update order.
+			 */
+			updatedBy: string[];
+		};
+		/**
+		 * The type of the field, one of the types DataViews provides a control for.
+		 */
+		type?:
+			| "array"
+			| "boolean"
+			| "color"
+			| "date"
+			| "datetime"
+			| "email"
+			| "integer"
+			| "media"
+			| "number"
+			| "password"
+			| "telephone"
+			| "text"
+			| "time"
+			| "url";
+		/**
+		 * The label of the field.
+		 */
+		label?: string;
+		/**
+		 * The header of the field. Defaults to the label.
+		 */
+		header?: string;
+		/**
+		 * The description of the field.
+		 */
+		description?: string;
+		/**
+		 * The placeholder of the field.
+		 */
+		placeholder?: string;
+		/**
+		 * The control used to edit the field: the name of a control, or a control configuration.
+		 */
+		Edit?:
+			| string
+			| {
+					[k: string]: unknown;
+			  };
+		/**
+		 * The validation rules of the field.
+		 */
+		isValid?: {
+			[k: string]: unknown;
+		};
+		/**
+		 * Whether the field is disabled.
+		 */
+		isDisabled?: boolean;
+		/**
+		 * Whether the field is sortable.
+		 */
+		enableSorting?: boolean;
+		/**
+		 * Whether the field is searchable.
+		 */
+		enableGlobalSearch?: boolean;
+		/**
+		 * Whether the field can be hidden.
+		 */
+		enableHiding?: boolean;
+		/**
+		 * The options to pick from when using the field as a filter.
+		 */
+		elements?: {
+			/**
+			 * The value of the option.
+			 */
+			value?: string | number | boolean | null;
+			/**
+			 * The label of the option.
+			 */
+			label?: string;
+			/**
+			 * The description of the option.
+			 */
+			description?: string;
+		}[];
+		/**
+		 * The filter configuration of the field, or false when the field cannot be filtered.
+		 */
+		filterBy?:
+			| {
+					operators?: (
+						| "is"
+						| "isNot"
+						| "isAny"
+						| "isNone"
+						| "isAll"
+						| "lessThan"
+						| "greaterThan"
+						| "lessThanOrEqual"
+						| "greaterThanOrEqual"
+						| "before"
+						| "after"
+						| "beforeInc"
+						| "afterInc"
+						| "contains"
+						| "notContains"
+						| "startsWith"
+						| "between"
+						| "on"
+						| "notOn"
+						| "inThePast"
+						| "over"
+					)[];
+					isPrimary?: boolean;
+			  }
+			| false;
+		/**
+		 * Whether the field is read only.
+		 */
+		readOnly?: boolean;
+		/**
+		 * The display format of the field.
+		 */
+		format?: {
+			[k: string]: unknown;
+		};
+		[k: string]: unknown;
+	}[];
+	/**
+	 * The script modules providing the JavaScript parts of the fields, each with the ids of the fields it applies to.
+	 */
+	script_modules: {
+		/**
+		 * The id of the script module.
+		 */
+		id: string;
+		/**
+		 * The ids of the fields the script module applies to.
+		 */
+		fields: string[];
+	}[];
 	[k: string]: unknown;
 }
 /**
@@ -3441,6 +3757,10 @@ export interface WP_REST_API_Icon {
 	 * The slug of the collection this icon belongs to.
 	 */
 	collection: string;
+	/**
+	 * Additional search terms for the icon.
+	 */
+	keywords: string[];
 	[k: string]: unknown;
 }
 /**
@@ -3537,6 +3857,10 @@ export interface WP_REST_API_Index {
 	 * The maximum bit depth of generated images. Only present when client-side media processing is enabled and the user can upload files.
 	 */
 	image_max_bit_depth?: number;
+	/**
+	 * Whether to preserve animation in image sub-sizes. Only present when client-side media processing is enabled and the user can upload files.
+	 */
+	generate_animated_image_subsizes?: boolean;
 	/**
 	 * The attachment ID of the site logo, or `0` if there isn't one.
 	 */
@@ -3934,15 +4258,6 @@ interface WP_REST_API_Partial_Post_Common {
 	 */
 	tags?: number[];
 	_links: WP_REST_API_Object_Links;
-}
-/**
- * Hello.
- */
-interface WP_REST_API_Partial_Post_Author {
-	/**
-	 * The ID for the author of the post.
-	 */
-	author: number;
 }
 /**
  * Properties for public post types
@@ -5155,6 +5470,7 @@ export interface WP_REST_API_View_Config_Form_Panel_Layout {
 		  };
 	summary?: string | string[];
 	editVisibility?: "always" | "on-hover";
+	showPlaceholderIfEmpty?: boolean;
 }
 export interface WP_REST_API_View_Config_Form_Card_Layout {
 	type: "card";
@@ -5223,6 +5539,7 @@ export const enum WP_Comment_Type_Name {
 	comment = "comment",
 	note = "note",
 	pingback = "pingback",
+	reaction = "reaction",
 	trackback = "trackback",
 }
 export const enum WP_Post_Type_Name {

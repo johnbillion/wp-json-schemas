@@ -57,6 +57,8 @@ Route                                                   | Schema
 /wp/v2/categories/{id}                                  | `WP_REST_API_Category`
 /wp/v2/comments                                         | `WP_REST_API_Comments`
 /wp/v2/comments/{id}                                    | `WP_REST_API_Comment`
+/wp/v2/entity-actions                                   | `WP_REST_API_Entity_Actions`
+/wp/v2/entity-fields                                    | `WP_REST_API_Entity_Fields`
 /wp/v2/font-collections                                 | `WP_REST_API_Font_Collections`
 /wp/v2/font-collections/{slug}                          | `WP_REST_API_Font_Collection`
 /wp/v2/font-families                                    | `WP_REST_API_Font_Families`

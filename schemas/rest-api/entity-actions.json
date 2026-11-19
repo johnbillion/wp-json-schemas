@@ -1,0 +1,160 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/entity-actions.json",
+	"title": "WP_REST_API_Entity_Actions",
+	"description": "The actions registered for an entity type in a REST API context.",
+	"readOnly": true,
+	"type": "object",
+	"required": [
+		"kind",
+		"name",
+		"actions",
+		"script_modules"
+	],
+	"properties": {
+		"kind": {
+			"description": "Entity kind.",
+			"type": "string",
+			"readOnly": true
+		},
+		"name": {
+			"description": "Entity name.",
+			"type": "string",
+			"readOnly": true
+		},
+		"actions": {
+			"description": "The actions registered for the entity, in registration order.",
+			"type": "array",
+			"readOnly": true,
+			"items": {
+				"description": "The serializable part of an action. Plugins can register actions with additional properties.",
+				"type": "object",
+				"required": [
+					"id",
+					"origin"
+				],
+				"properties": {
+					"id": {
+						"description": "The unique identifier of the action.",
+						"type": "string"
+					},
+					"origin": {
+						"description": "Who registered the action: `core`, or the slug of a plugin or theme.",
+						"type": "object",
+						"required": [
+							"registeredBy"
+						],
+						"properties": {
+							"registeredBy": {
+								"description": "Who registered the action.",
+								"type": "string"
+							}
+						},
+						"additionalProperties": false
+					},
+					"label": {
+						"description": "The label of the action.",
+						"type": "string"
+					},
+					"isPrimary": {
+						"description": "Whether the action is a primary action.",
+						"type": "boolean"
+					},
+					"supportsBulk": {
+						"description": "Whether the action can be performed on several items at once.",
+						"type": "boolean"
+					},
+					"disabled": {
+						"description": "Whether the action is disabled.",
+						"type": "boolean"
+					},
+					"context": {
+						"description": "The context the action is limited to, such as `list` for the lists of items. Without it, the action shows everywhere.",
+						"type": "string",
+						"enum": [
+							"list"
+						]
+					},
+					"modalHeader": {
+						"description": "The header of the modal of the action.",
+						"type": "string"
+					},
+					"hideModalHeader": {
+						"description": "Whether to hide the header of the modal of the action.",
+						"type": "boolean"
+					},
+					"modalSize": {
+						"description": "The size of the modal of the action.",
+						"type": "string",
+						"enum": [
+							"small",
+							"medium",
+							"large",
+							"fill"
+						]
+					},
+					"modalFocusOnMount": {
+						"description": "Where the focus goes when the modal of the action opens.",
+						"oneOf": [
+							{
+								"type": "boolean"
+							},
+							{
+								"type": "string"
+							}
+						]
+					}
+				}
+			}
+		},
+		"script_modules": {
+			"description": "The script modules providing the JavaScript parts of the actions, each with the ids of the actions it applies to.",
+			"type": "array",
+			"readOnly": true,
+			"items": {
+				"type": "object",
+				"required": [
+					"id",
+					"actions"
+				],
+				"properties": {
+					"id": {
+						"description": "The id of the script module.",
+						"type": "string"
+					},
+					"actions": {
+						"description": "The ids of the actions the script module applies to.",
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					}
+				},
+				"additionalProperties": false
+			}
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/wp/v2/entity-actions",
+			"hrefSchema": {
+				"required": [
+					"kind",
+					"name"
+				],
+				"properties": {
+					"kind": {
+						"$ref": "#/properties/kind"
+					},
+					"name": {
+						"$ref": "#/properties/name"
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		}
+	]
+}

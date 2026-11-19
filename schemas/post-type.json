@@ -15,6 +15,7 @@
 		"exclude_from_search",
 		"publicly_queryable",
 		"embeddable",
+		"randomable",
 		"show_ui",
 		"show_in_menu",
 		"show_in_nav_menus",
@@ -36,6 +37,7 @@
 		"cap",
 		"rewrite",
 		"show_in_rest",
+		"show_in_abilities",
 		"rest_base",
 		"rest_namespace",
 		"rest_controller_class",
@@ -92,6 +94,10 @@
 		},
 		"embeddable": {
 			"description": "Whether this post type is embeddable.",
+			"type": "boolean"
+		},
+		"randomable": {
+			"description": "Whether posts of this post type can be selected by random content redirects.",
 			"type": "boolean"
 		},
 		"show_ui": {
@@ -252,6 +258,10 @@
 		},
 		"show_in_rest": {
 			"description": "Whether this post type should appear in the REST API.",
+			"type": "boolean"
+		},
+		"show_in_abilities": {
+			"description": "Whether this post type should be exposed through the Abilities API.",
 			"type": "boolean"
 		},
 		"rest_base": {
