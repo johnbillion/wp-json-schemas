@@ -213,6 +213,38 @@
 				}
 			]
 		},
+		"reaction_summary": {
+			"readOnly": true,
+			"description": "Aggregated reaction counts for a note, keyed by emoji hex key. Only present for notes in the 'view' and 'edit' contexts.",
+			"oneOf": [
+				{
+					"$ref": "../../schema.json#/definitions/EmptyArray"
+				},
+				{
+					"type": "object",
+					"additionalProperties": {
+						"type": "object",
+						"required": [
+							"count",
+							"current_user_reaction"
+						],
+						"properties": {
+							"count": {
+								"description": "Total number of reactions with this emoji.",
+								"type": "integer",
+								"minimum": 0
+							},
+							"current_user_reaction": {
+								"description": "The current user's reaction comment ID for this emoji, or 0 if they have not reacted.",
+								"type": "integer",
+								"minimum": 0
+							}
+						},
+						"additionalProperties": false
+					}
+				}
+			]
+		},
 		"_links": {
 			"$ref": "properties/object-links.json"
 		},
@@ -226,6 +258,10 @@
 				},
 				"up": {
 					"description": "The associated post.",
+					"type": "array"
+				},
+				"in-reply-to": {
+					"description": "The parent comment.",
 					"type": "array"
 				}
 			}

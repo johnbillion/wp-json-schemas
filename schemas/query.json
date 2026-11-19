@@ -48,6 +48,7 @@
 		"is_robots",
 		"is_favicon",
 		"is_sitemap",
+		"is_random",
 		"is_posts_page",
 		"is_post_type_archive",
 		"thumbnails_cached"
@@ -348,6 +349,10 @@
 		},
 		"is_sitemap": {
 			"description": "Signifies whether the current query is for a sitemap.",
+			"type": "boolean"
+		},
+		"is_random": {
+			"description": "Signifies whether the current query is for random content.",
 			"type": "boolean"
 		},
 		"is_posts_page": {

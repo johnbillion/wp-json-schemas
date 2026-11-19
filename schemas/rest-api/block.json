@@ -4,6 +4,11 @@
 	"title": "WP_REST_API_Block",
 	"description": "A reusable block object in a REST API context.",
 	"type": "object",
+	"allOf": [
+		{
+			"$ref": "./partials/post/author.json"
+		}
+	],
 	"required": [
 		"date",
 		"date_gmt",
@@ -208,6 +213,19 @@
 		},
 		"_links": {
 			"$ref": "properties/object-links.json"
+		},
+		"_embedded": {
+			"description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
+			"type": "object",
+			"required": [
+				"author"
+			],
+			"properties": {
+				"author": {
+					"description": "The author of the block.",
+					"type": "array"
+				}
+			}
 		}
 	},
 	"links": [

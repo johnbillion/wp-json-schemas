@@ -99,6 +99,10 @@ validate_schema schemas/rest-api/view-config.json &
 pids+=($!)
 validate_schema schemas/rest-api/index.json &
 pids+=($!)
+validate_schema schemas/rest-api/entity-actions.json &
+pids+=($!)
+validate_schema schemas/rest-api/entity-fields.json &
+pids+=($!)
 
 # Wait for all parallel validation jobs to complete and capture exit codes
 for pid in "${pids[@]}"

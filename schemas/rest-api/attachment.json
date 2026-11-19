@@ -205,6 +205,12 @@
 				}
 			]
 		},
+		"edit_root": {
+			"description": "The ID of the attachment this attachment's chain of edits started from, or 0 if none is recorded. Only present when using the 'edit' context.",
+			"type": "integer",
+			"minimum": 0,
+			"readOnly": true
+		},
 		"source_url": {
 			"description": "URL to the original attachment file.",
 			"type": "string",
@@ -330,6 +336,10 @@
 				},
 				"wp:attached-to": {
 					"description": "The attachment parent post.",
+					"type": "array"
+				},
+				"wp:edit-root": {
+					"description": "The attachment this attachment's chain of edits started from. Only present when using the 'edit' context.",
 					"type": "array"
 				}
 			}

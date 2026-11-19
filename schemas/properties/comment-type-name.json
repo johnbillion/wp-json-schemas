@@ -7,12 +7,14 @@
 		"comment",
 		"note",
 		"pingback",
+		"reaction",
 		"trackback"
 	],
 	"enum": [
 		"comment",
 		"note",
 		"pingback",
+		"reaction",
 		"trackback"
 	]
 }

@@ -170,6 +170,10 @@
 			"description": "The maximum bit depth of generated images. Only present when client-side media processing is enabled and the user can upload files.",
 			"type": "integer"
 		},
+		"generate_animated_image_subsizes": {
+			"description": "Whether to preserve animation in image sub-sizes. Only present when client-side media processing is enabled and the user can upload files.",
+			"type": "boolean"
+		},
 		"site_logo": {
 			"description": "The attachment ID of the site logo, or `0` if there isn't one.",
 			"type": "integer"

@@ -134,6 +134,12 @@
 				"Comments": {
 					"$ref": "schemas/rest-api/collections/comments.json"
 				},
+				"Entity_Actions": {
+					"$ref": "schemas/rest-api/entity-actions.json"
+				},
+				"Entity_Fields": {
+					"$ref": "schemas/rest-api/entity-fields.json"
+				},
 				"Font_Collection": {
 					"$ref": "schemas/rest-api/font-collection.json"
 				},
@@ -354,6 +360,8 @@
 				"Category",
 				"Comment",
 				"Comments",
+				"Entity_Actions",
+				"Entity_Fields",
 				"Font_Collection",
 				"Font_Collections",
 				"Font_Face",
