@@ -1,8 +1,8 @@
 {
 	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
-	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/root.json",
-	"title": "WP_REST_API_Root",
-	"description": "The REST API root index, which describes the site and the routes available on its REST API.",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/index.json",
+	"title": "WP_REST_API_Index",
+	"description": "The REST API index, which describes the site and the routes available on its REST API.",
 	"readOnly": true,
 	"type": "object",
 	"required": [

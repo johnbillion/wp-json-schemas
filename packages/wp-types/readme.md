@@ -35,7 +35,7 @@ The definitions were last updated for WordPress 7.1.
 
 Route                                                   | Schema
 ------------------------------------------------------- | ------
-/                                                       | `WP_REST_API_Root`
+/                                                       | `WP_REST_API_Index`
 /wp/v2/block-directory/search                           | `WP_REST_API_Block_Directory_Items`
 /wp/v2/block-patterns/categories                        | `WP_REST_API_Block_Pattern_Categories`
 /wp/v2/block-patterns/patterns                          | `WP_REST_API_Block_Patterns`

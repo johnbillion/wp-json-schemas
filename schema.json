@@ -179,6 +179,9 @@
 				"Icons": {
 					"$ref": "schemas/rest-api/collections/icons.json"
 				},
+				"Index": {
+					"$ref": "schemas/rest-api/index.json"
+				},
 				"Menu_Item_Autosave": {
 					"$ref": "schemas/rest-api/menu-item-autosave.json"
 				},
@@ -241,9 +244,6 @@
 				},
 				"Revisions": {
 					"$ref": "schemas/rest-api/collections/revisions.json"
-				},
-				"Root": {
-					"$ref": "schemas/rest-api/root.json"
 				},
 				"Search_Result": {
 					"$ref": "schemas/rest-api/search-result.json"
@@ -369,6 +369,7 @@
 				"Icon_Collections",
 				"Icon",
 				"Icons",
+				"Index",
 				"Menu_Item_Autosave",
 				"Menu_Item_Autosaves",
 				"Menu_Item",
@@ -390,7 +391,6 @@
 				"Rendered_Block",
 				"Revision",
 				"Revisions",
-				"Root",
 				"Search_Result",
 				"Search_Results",
 				"Settings",

@@ -78,4 +78,4 @@ $data[] = get_rest_response( 'GET', '/', [
 wp_set_current_user( 1 );
 remove_filter( 'wp_is_application_passwords_available', '__return_false' );
 
-save_rest_array( $data, 'root', true );
+save_rest_array( $data, 'index', true );
