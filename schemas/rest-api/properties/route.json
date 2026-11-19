@@ -1,0 +1,141 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/properties/route.json",
+	"title": "WP_REST_API_Route",
+	"description": "The publicly visible data for a REST API route.",
+	"type": "object",
+	"required": [
+		"namespace",
+		"methods",
+		"endpoints"
+	],
+	"properties": {
+		"namespace": {
+			"description": "The namespace of the route. An empty string for the root route.",
+			"type": "string"
+		},
+		"methods": {
+			"description": "The HTTP methods supported by the route across all of its endpoints.",
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/method"
+			}
+		},
+		"endpoints": {
+			"description": "The endpoints for the route.",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": [
+					"methods"
+				],
+				"properties": {
+					"methods": {
+						"description": "The HTTP methods supported by the endpoint.",
+						"type": "array",
+						"items": {
+							"$ref": "#/definitions/method"
+						}
+					},
+					"allow_batch": {
+						"description": "The batch API versions that the endpoint can be used with.",
+						"type": "object",
+						"properties": {
+							"v1": {
+								"type": "boolean"
+							}
+						},
+						"additionalProperties": false
+					},
+					"args": {
+						"description": "The arguments accepted by the endpoint, keyed by name.",
+						"oneOf": [
+							{
+								"type": "object",
+								"additionalProperties": {
+									"$ref": "#/definitions/arg"
+								}
+							},
+							{
+								"$ref": "../../../schema.json#/definitions/EmptyArray"
+							}
+						]
+					}
+				},
+				"additionalProperties": false
+			}
+		},
+		"schema": {
+			"description": "The JSON schema for the resource returned by the route. Only present when the context is `help` and the route has a schema.",
+			"type": "object"
+		},
+		"_links": {
+			"description": "Links for the route. Only present for routes without path parameters.",
+			"type": "object",
+			"required": [
+				"self"
+			],
+			"properties": {
+				"self": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"required": [
+							"href"
+						],
+						"properties": {
+							"href": {
+								"type": "string",
+								"format": "uri"
+							}
+						},
+						"additionalProperties": false
+					}
+				}
+			},
+			"additionalProperties": false
+		}
+	},
+	"additionalProperties": false,
+	"definitions": {
+		"method": {
+			"type": "string",
+			"enum": [
+				"GET",
+				"POST",
+				"PUT",
+				"PATCH",
+				"DELETE"
+			]
+		},
+		"arg": {
+			"description": "The JSON schema keywords for the argument, plus whether it's required.",
+			"type": "object",
+			"required": [
+				"required"
+			],
+			"properties": {
+				"required": {
+					"description": "Whether the argument is required.",
+					"type": "boolean"
+				},
+				"description": {
+					"type": "string"
+				},
+				"type": {
+					"oneOf": [
+						{
+							"type": "string"
+						},
+						{
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						}
+					]
+				}
+			}
+		}
+	}
+}

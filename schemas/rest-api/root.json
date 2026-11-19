@@ -1,0 +1,219 @@
+{
+	"$schema": "https://json-schema.org/draft/2019-09/hyper-schema",
+	"$id": "https://raw.githubusercontent.com/johnbillion/wp-json-schemas/trunk/schemas/rest-api/root.json",
+	"title": "WP_REST_API_Root",
+	"description": "The REST API root index, which describes the site and the routes available on its REST API.",
+	"readOnly": true,
+	"type": "object",
+	"required": [
+		"name",
+		"description",
+		"url",
+		"home",
+		"gmt_offset",
+		"timezone_string",
+		"page_for_posts",
+		"page_on_front",
+		"show_on_front",
+		"namespaces",
+		"authentication",
+		"routes",
+		"site_logo",
+		"site_icon",
+		"site_icon_url"
+	],
+	"properties": {
+		"name": {
+			"description": "Site title.",
+			"type": "string"
+		},
+		"description": {
+			"description": "Site tagline.",
+			"type": "string"
+		},
+		"url": {
+			"description": "Site URL.",
+			"type": "string",
+			"format": "uri"
+		},
+		"home": {
+			"description": "Home URL.",
+			"type": "string",
+			"format": "uri"
+		},
+		"gmt_offset": {
+			"description": "The offset in hours from UTC of the site's timezone.",
+			"oneOf": [
+				{
+					"type": "number"
+				},
+				{
+					"type": "string"
+				}
+			]
+		},
+		"timezone_string": {
+			"description": "The site's timezone as a timezone identifier, such as `Europe/London`. An empty string if the site uses a manual UTC offset.",
+			"type": "string"
+		},
+		"page_for_posts": {
+			"description": "The ID of the page that displays the latest posts, or `0` if there isn't one.",
+			"type": "integer"
+		},
+		"page_on_front": {
+			"description": "The ID of the page that displays on the front page, or `0` if there isn't one.",
+			"type": "integer"
+		},
+		"show_on_front": {
+			"description": "What to show on the front page.",
+			"type": "string",
+			"enum": [
+				"posts",
+				"page"
+			]
+		},
+		"namespaces": {
+			"description": "The namespaces registered on the REST API.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"authentication": {
+			"description": "The supported authentication schemes, keyed by name.",
+			"oneOf": [
+				{
+					"type": "object",
+					"properties": {
+						"application-passwords": {
+							"description": "The application passwords authentication scheme. Only present when application passwords are available.",
+							"type": "object",
+							"required": [
+								"endpoints"
+							],
+							"properties": {
+								"endpoints": {
+									"type": "object",
+									"required": [
+										"authorization"
+									],
+									"properties": {
+										"authorization": {
+											"description": "The URL of the screen where a user can authorize an application.",
+											"type": "string",
+											"format": "uri"
+										}
+									},
+									"additionalProperties": false
+								}
+							},
+							"additionalProperties": false
+						}
+					}
+				},
+				{
+					"$ref": "../../schema.json#/definitions/EmptyArray"
+				}
+			]
+		},
+		"routes": {
+			"description": "The routes available on the REST API, keyed by route pattern.",
+			"type": "object",
+			"additionalProperties": {
+				"$ref": "properties/route.json"
+			}
+		},
+		"image_sizes": {
+			"description": "The registered image sizes, keyed by name. Only present when client-side media processing is enabled and the user can upload files.",
+			"type": "object",
+			"additionalProperties": {
+				"type": "object",
+				"required": [
+					"width",
+					"height",
+					"crop"
+				],
+				"properties": {
+					"width": {
+						"type": "integer"
+					},
+					"height": {
+						"type": "integer"
+					},
+					"crop": {
+						"description": "Whether to crop the image, or an array of the x and y crop positions.",
+						"oneOf": [
+							{
+								"type": "boolean"
+							},
+							{
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							}
+						]
+					}
+				},
+				"additionalProperties": false
+			}
+		},
+		"image_size_threshold": {
+			"description": "The maximum width or height in pixels of an uploaded image before it's scaled down. Only present when client-side media processing is enabled and the user can upload files.",
+			"type": "integer"
+		},
+		"image_strip_meta": {
+			"description": "Whether to strip metadata from generated images. Only present when client-side media processing is enabled and the user can upload files.",
+			"type": "boolean"
+		},
+		"image_max_bit_depth": {
+			"description": "The maximum bit depth of generated images. Only present when client-side media processing is enabled and the user can upload files.",
+			"type": "integer"
+		},
+		"site_logo": {
+			"description": "The attachment ID of the site logo, or `0` if there isn't one.",
+			"type": "integer"
+		},
+		"site_icon": {
+			"description": "The attachment ID of the site icon, or `0` if there isn't one.",
+			"type": "integer"
+		},
+		"site_icon_url": {
+			"description": "The URL of the site icon, or an empty string if there isn't one.",
+			"type": "string"
+		},
+		"_links": {
+			"$ref": "properties/object-links.json"
+		},
+		"_embedded": {
+			"description": "The embedded representation of relations. Only present when the '_embed' query parameter is set.",
+			"type": "object",
+			"properties": {
+				"wp:featuredmedia": {
+					"description": "The site logo and site icon attachments.",
+					"type": "array"
+				}
+			}
+		}
+	},
+	"links": [
+		{
+			"rel": "self",
+			"href": "/",
+			"hrefSchema": {
+				"properties": {
+					"context": {
+						"type": "string",
+						"enum": [
+							"view",
+							"help"
+						]
+					}
+				}
+			},
+			"targetSchema": {
+				"$ref": "#"
+			}
+		}
+	]
+}

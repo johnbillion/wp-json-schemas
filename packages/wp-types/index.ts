@@ -514,6 +514,7 @@ export interface WP {
 		Rendered_Block: WP_REST_API_Rendered_Block;
 		Revision: WP_REST_API_Revision;
 		Revisions: WP_REST_API_Revisions;
+		Root: WP_REST_API_Root;
 		Search_Result: WP_REST_API_Search_Result;
 		Search_Results: WP_REST_API_Search_Results;
 		Settings: WP_REST_API_Settings;
@@ -3924,6 +3925,187 @@ export interface WP_REST_API_Rendered_Block {
 	 * The rendered block.
 	 */
 	rendered: string;
+	[k: string]: unknown;
+}
+/**
+ * The REST API root index, which describes the site and the routes available on its REST API.
+ */
+export interface WP_REST_API_Root {
+	/**
+	 * Site title.
+	 */
+	name: string;
+	/**
+	 * Site tagline.
+	 */
+	description: string;
+	/**
+	 * Site URL.
+	 */
+	url: string;
+	/**
+	 * Home URL.
+	 */
+	home: string;
+	/**
+	 * The offset in hours from UTC of the site's timezone.
+	 */
+	gmt_offset: number | string;
+	/**
+	 * The site's timezone as a timezone identifier, such as `Europe/London`. An empty string if the site uses a manual UTC offset.
+	 */
+	timezone_string: string;
+	/**
+	 * The ID of the page that displays the latest posts, or `0` if there isn't one.
+	 */
+	page_for_posts: number;
+	/**
+	 * The ID of the page that displays on the front page, or `0` if there isn't one.
+	 */
+	page_on_front: number;
+	/**
+	 * What to show on the front page.
+	 */
+	show_on_front: "posts" | "page";
+	/**
+	 * The namespaces registered on the REST API.
+	 */
+	namespaces: string[];
+	/**
+	 * The supported authentication schemes, keyed by name.
+	 */
+	authentication:
+		| {
+				/**
+				 * The application passwords authentication scheme. Only present when application passwords are available.
+				 */
+				"application-passwords"?: {
+					endpoints: {
+						/**
+						 * The URL of the screen where a user can authorize an application.
+						 */
+						authorization: string;
+					};
+				};
+				[k: string]: unknown;
+		  }
+		| EmptyArray;
+	/**
+	 * The routes available on the REST API, keyed by route pattern.
+	 */
+	routes: {
+		[k: string]: WP_REST_API_Route;
+	};
+	/**
+	 * The registered image sizes, keyed by name. Only present when client-side media processing is enabled and the user can upload files.
+	 */
+	image_sizes?: {
+		[k: string]: {
+			width: number;
+			height: number;
+			/**
+			 * Whether to crop the image, or an array of the x and y crop positions.
+			 */
+			crop: boolean | string[];
+		};
+	};
+	/**
+	 * The maximum width or height in pixels of an uploaded image before it's scaled down. Only present when client-side media processing is enabled and the user can upload files.
+	 */
+	image_size_threshold?: number;
+	/**
+	 * Whether to strip metadata from generated images. Only present when client-side media processing is enabled and the user can upload files.
+	 */
+	image_strip_meta?: boolean;
+	/**
+	 * The maximum bit depth of generated images. Only present when client-side media processing is enabled and the user can upload files.
+	 */
+	image_max_bit_depth?: number;
+	/**
+	 * The attachment ID of the site logo, or `0` if there isn't one.
+	 */
+	site_logo: number;
+	/**
+	 * The attachment ID of the site icon, or `0` if there isn't one.
+	 */
+	site_icon: number;
+	/**
+	 * The URL of the site icon, or an empty string if there isn't one.
+	 */
+	site_icon_url: string;
+	_links?: WP_REST_API_Object_Links;
+	/**
+	 * The embedded representation of relations. Only present when the '_embed' query parameter is set.
+	 */
+	_embedded?: {
+		/**
+		 * The site logo and site icon attachments.
+		 */
+		"wp:featuredmedia"?: unknown[];
+		[k: string]: unknown;
+	};
+	[k: string]: unknown;
+}
+/**
+ * The publicly visible data for a REST API route.
+ */
+export interface WP_REST_API_Route {
+	/**
+	 * The namespace of the route. An empty string for the root route.
+	 */
+	namespace: string;
+	/**
+	 * The HTTP methods supported by the route across all of its endpoints.
+	 */
+	methods: ("GET" | "POST" | "PUT" | "PATCH" | "DELETE")[];
+	/**
+	 * The endpoints for the route.
+	 */
+	endpoints: {
+		/**
+		 * The HTTP methods supported by the endpoint.
+		 */
+		methods: ("GET" | "POST" | "PUT" | "PATCH" | "DELETE")[];
+		/**
+		 * The batch API versions that the endpoint can be used with.
+		 */
+		allow_batch?: {
+			v1?: boolean;
+		};
+		/**
+		 * The arguments accepted by the endpoint, keyed by name.
+		 */
+		args?:
+			| {
+					[k: string]: Arg;
+			  }
+			| EmptyArray;
+	}[];
+	/**
+	 * The JSON schema for the resource returned by the route. Only present when the context is `help` and the route has a schema.
+	 */
+	schema?: {
+		[k: string]: unknown;
+	};
+	/**
+	 * Links for the route. Only present for routes without path parameters.
+	 */
+	_links?: {
+		self: {
+			href: string;
+		}[];
+	};
+}
+/**
+ * The JSON schema keywords for the argument, plus whether it's required.
+ */
+export interface Arg {
+	/**
+	 * Whether the argument is required.
+	 */
+	required: boolean;
+	description?: string;
+	type?: string | string[];
 	[k: string]: unknown;
 }
 /**
